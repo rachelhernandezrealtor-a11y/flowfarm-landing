@@ -13,7 +13,7 @@ const GOLD = '#C9A96E';
 const CREAM = '#F5F0E8';
 const DARK = '#0a0a0a';
 
-const VIDEO = 'https://res.cloudinary.com/dghn2xpif/video/fetch/e_vibrance:40,e_saturation:20,e_brightness:15,e_sharpen:60/https://customer-qqzxuq43g9w49ny2.cloudflarestream.com/5d06a3b0e25b768ac6dc681dbf4f5b81/manifest/video.m3u8';
+const VIDEO = 'https://customer-qqzxuq43g9w49ny2.cloudflarestream.com/5d06a3b0e25b768ac6dc681dbf4f5b81/manifest/video.m3u8';
 const MATTERPORT = 'https://my.matterport.com/show/?m=xZRfSiQPuQ8';
 
 const B = 'https://media.base44.com/images/public/69e248a2469cc39540781cce/';
@@ -231,7 +231,7 @@ function VideoLightbox({ onClose }) {
         boxShadow: '0 40px 120px rgba(0,0,0,0.8)',
       }}>
         <video
-          src="https://res.cloudinary.com/dghn2xpif/video/fetch/e_vibrance:40,e_saturation:20,e_brightness:15,e_sharpen:60/https://customer-qqzxuq43g9w49ny2.cloudflarestream.com/5d06a3b0e25b768ac6dc681dbf4f5b81/manifest/video.m3u8"
+          src="https://customer-qqzxuq43g9w49ny2.cloudflarestream.com/5d06a3b0e25b768ac6dc681dbf4f5b81/manifest/video.m3u8"
           style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', border: 'none', objectFit: 'cover' }}
           autoPlay
           controls
