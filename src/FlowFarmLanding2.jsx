@@ -76,37 +76,19 @@ function useCounter(target, duration, delay, decimals) {
   const [count, setCount] = React.useState(0);
   const ref = React.useRef(null);
   React.useEffect(() => {
-    let started = false;
-    const start = () => {
-      if (started) return;
-      started = true;
-      const t = setTimeout(() => {
-        let startTime = null;
-        const animate = (ts) => {
-          if (!startTime) startTime = ts;
-          const progress = Math.min((ts - startTime) / duration, 1);
-          const ease = 1 - Math.pow(1 - progress, 3);
-          const val = ease * target;
-          setCount(parseFloat(val.toFixed(decimals || 0)));
-          if (progress < 1) requestAnimationFrame(animate);
-        };
-        requestAnimationFrame(animate);
-      }, delay || 0);
-      return t;
-    };
-    const obs = new IntersectionObserver(([e]) => {
-      if (e.isIntersecting) { start(); obs.disconnect(); }
-    }, { threshold: 0.1 });
-    if (ref.current) {
-      obs.observe(ref.current);
-      // If already in viewport (e.g. hero on mobile), fire immediately
-      const rect = ref.current.getBoundingClientRect();
-      if (rect.top < window.innerHeight && rect.bottom > 0) { start(); obs.disconnect(); }
-    } else {
-      start();
-    }
-    return () => obs.disconnect();
-  }, []);
+    const t = setTimeout(() => {
+      let startTime = null;
+      const animate = (ts) => {
+        if (!startTime) startTime = ts;
+        const progress = Math.min((ts - startTime) / duration, 1);
+        const ease = 1 - Math.pow(1 - progress, 3);
+        setCount(parseFloat((ease * target).toFixed(decimals || 0)));
+        if (progress < 1) requestAnimationFrame(animate);
+      };
+      requestAnimationFrame(animate);
+    }, delay != null ? delay : 800);
+    return () => clearTimeout(t);
+  }, [target]);
   return [count, ref];
 }
 
