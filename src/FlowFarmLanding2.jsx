@@ -13,7 +13,10 @@ const GOLD = '#C9A96E';
 const CREAM = '#F5F0E8';
 const DARK = '#0a0a0a';
 
-const VIDEO = 'https://customer-qqzxuq43g9w49ny2.cloudflarestream.com/5d06a3b0e25b768ac6dc681dbf4f5b81/manifest/video.m3u8';
+// LOCKED VIDEO IDs -- DO NOT CHANGE WITHOUT RACHEL APPROVAL
+const VIDEO_BG_ID = '5d06a3b0e25b768ac6dc681dbf4f5b81'; // forest loop (hero bg)
+const VIDEO_TOUR_ID = 'de1885d159ae310508174f03f775c797'; // property tour (Enter Flow Farm)
+const CF_STREAM = 'https://customer-qqzxuq43g9w49ny2.cloudflarestream.com';
 const MATTERPORT = 'https://my.matterport.com/show/?m=xZRfSiQPuQ8';
 
 const B = 'https://media.base44.com/images/public/69e248a2469cc39540781cce/';
@@ -286,10 +289,12 @@ function Hero() {
 
   return (
     <section style={{ position: 'relative', height: '100vh', minHeight: mob ? 600 : 700, overflow: 'hidden', background: '#000' }}>
-      <video autoPlay loop muted playsInline
-        style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', zIndex: 1, opacity: 0.80 }}>
-        <source src={VIDEO} type="video/mp4" />
-      </video>
+      <iframe
+        src={`${CF_STREAM}/${VIDEO_BG_ID}/iframe?autoplay=true&loop=true&muted=true&controls=false&preload=auto`}
+        style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', border: 'none', zIndex: 1, opacity: 0.80, pointerEvents: 'none' }}
+        allow="autoplay; fullscreen; picture-in-picture"
+        title="Flow Farm background"
+      />
       <div style={{ position: 'absolute', inset: 0, zIndex: 2, background: 'radial-gradient(ellipse at center, transparent 25%, rgba(0,0,0,0.5) 100%)' }} />
       <div style={{ position: 'absolute', inset: 0, zIndex: 2, background: 'linear-gradient(to bottom, rgba(0,0,0,0.22) 0%, transparent 30%, transparent 50%, rgba(0,0,0,0.94) 100%)' }} />
 
