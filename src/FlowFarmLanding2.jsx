@@ -97,8 +97,14 @@ function useCounter(target, duration, delay, decimals) {
     const obs = new IntersectionObserver(([e]) => {
       if (e.isIntersecting) { start(); obs.disconnect(); }
     }, { threshold: 0.1 });
-    if (ref.current) obs.observe(ref.current);
-    else start();
+    if (ref.current) {
+      obs.observe(ref.current);
+      // If already in viewport (e.g. hero on mobile), fire immediately
+      const rect = ref.current.getBoundingClientRect();
+      if (rect.top < window.innerHeight && rect.bottom > 0) { start(); obs.disconnect(); }
+    } else {
+      start();
+    }
     return () => obs.disconnect();
   }, []);
   return [count, ref];
