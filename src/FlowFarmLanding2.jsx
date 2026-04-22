@@ -324,7 +324,7 @@ function Hero() {
             letterSpacing: '0.01em', lineHeight: 1.7,
             textShadow: '0 2px 20px rgba(0,0,0,0.5)',
           }}>
-            Where architectural excellence meets working land, three miles from Pinehurst Resort.
+            Build a compound. Keep the farm. Three miles from Pinehurst.
           </p>
           <HeroStats mob={mob} />
           <div style={{ display: 'flex', flexWrap: 'wrap', gap: mob ? '0.75rem' : '1rem', justifyContent: 'center', alignItems: 'center', marginTop: mob ? '1rem' : '0' }}>
