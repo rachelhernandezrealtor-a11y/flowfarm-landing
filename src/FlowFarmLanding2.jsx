@@ -13,7 +13,7 @@ const GOLD = '#C9A96E';
 const CREAM = '#F5F0E8';
 const DARK = '#0a0a0a';
 
-const VIDEO = 'https://base44.app/api/apps/69e248a2469cc39540781cce/files/mp/public/69e248a2469cc39540781cce/f7910a1c9_275a93837_forestheroMAIN.mp4';
+const VIDEO = 'https://customer-qqzxuq43g9w49ny2.cloudflarestream.com/5d06a3b0e25b768ac6dc681dbf4f5b81/manifest/video.m3u8';
 const MATTERPORT = 'https://my.matterport.com/show/?m=xZRfSiQPuQ8';
 
 const B = 'https://media.base44.com/images/public/69e248a2469cc39540781cce/';
@@ -230,12 +230,12 @@ function VideoLightbox({ onClose }) {
         aspectRatio: '16/9', borderRadius: '4px', overflow: 'hidden',
         boxShadow: '0 40px 120px rgba(0,0,0,0.8)',
       }}>
-        <iframe
-          src="https://player.vimeo.com/video/1165426324?autoplay=1&autopause=0&byline=0&title=0&portrait=0&color=C9A96E&dnt=1"
-          style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', border: 'none' }}
-          allow="autoplay; fullscreen; picture-in-picture"
-          allowFullScreen
-          loading="eager"
+        <video
+          src="https://customer-qqzxuq43g9w49ny2.cloudflarestream.com/5d06a3b0e25b768ac6dc681dbf4f5b81/manifest/video.m3u8"
+          style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', border: 'none', objectFit: 'cover' }}
+          autoPlay
+          controls
+          playsInline
         />
       </div>
       <button onClick={onClose} style={{
