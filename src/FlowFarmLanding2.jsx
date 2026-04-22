@@ -295,7 +295,7 @@ function Hero() {
           src={`${CF_STREAM}/${VIDEO_BG_ID}/iframe?autoplay=true&loop=true&muted=true&controls=false&preload=auto`}
           style={{
             position: 'absolute',
-            top: '50%',
+            top: '48%',
             left: '50%',
             transform: 'translate(-50%, -50%)',
             width: 'max(100%, 177.78vh)',
