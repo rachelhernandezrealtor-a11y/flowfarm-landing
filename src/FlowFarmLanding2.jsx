@@ -250,7 +250,7 @@ function VideoLightbox({ onClose }) {
       </button>
     </div>
   );
-});
+}
 
 function Hero() {
   const w = useW();
@@ -312,7 +312,7 @@ function Hero() {
           107 Linden Trail&nbsp;&nbsp;Aberdeen, NC 28315&nbsp;&nbsp;<span style={{ color: 'rgba(201,169,110,0.5)' }}>|</span>&nbsp;&nbsp;Pinehurst ETJ
         </p>
       </div>
-      {/* Center block — headline + subhead + stats + button */}
+      {/* Center block -- headline + subhead + stats + button */}
       <div style={{ position: 'absolute', inset: 0, zIndex: 5, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', textAlign: 'center', padding: mob ? '0 6vw' : '0 10vw', maxWidth: '100%' }}>
         <div style={{ ...show(2), width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
           <h1 style={{
@@ -728,12 +728,12 @@ function ForestIntro() {
 
 
 const MAP_PINS = [
-  { id: 'main', x: 48, y: 42, label: 'Main Residence', sub: '8,519 SF -- 6 bed / 7 bath', icon: '🏛' },
-  { id: 'farm', x: 28, y: 62, label: 'Veganic Farm', sub: '3-acre certified veganic operation', icon: '🌿' },
-  { id: 'tunnel', x: 22, y: 55, label: 'High Tunnel', sub: '96x36 ft climate-controlled growing', icon: '🌱' },
-  { id: 'workshop', x: 35, y: 70, label: 'Farm Workshop', sub: '30x40 ft with full equipment storage', icon: '🔧' },
-  { id: 'guest', x: 58, y: 55, label: 'Guest Suite', sub: 'Private entrance -- 200 amp service', icon: '🏠' },
-  { id: 'solar', x: 65, y: 38, label: 'Solar Array', sub: '14.3kW -- 61 Samsung panels', icon: '☀️' },
+  { id: 'main', x: 48, y: 42, label: 'Main Residence', sub: '8,519 SF -- 6 bed / 7 bath', icon: '[H]' },
+  { id: 'farm', x: 28, y: 62, label: 'Veganic Farm', sub: '3-acre certified veganic operation', icon: '[F]' },
+  { id: 'tunnel', x: 22, y: 55, label: 'High Tunnel', sub: '96x36 ft climate-controlled growing', icon: '[T]' },
+  { id: 'workshop', x: 35, y: 70, label: 'Farm Workshop', sub: '30x40 ft with full equipment storage', icon: '[W]' },
+  { id: 'guest', x: 58, y: 55, label: 'Guest Suite', sub: 'Private entrance -- 200 amp service', icon: '[G]' },
+  { id: 'solar', x: 65, y: 38, label: 'Solar Array', sub: '14.3kW -- 61 Samsung panels', icon: '[S]' },
 ];
 
 function PropertyMap() {
