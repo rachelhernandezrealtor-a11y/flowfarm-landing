@@ -857,6 +857,104 @@ function PropertyMap() {
 }
 
 
+// ============================================================
+// SPA BATH PULL QUOTE -- full-bleed editorial moment
+// ============================================================
+function SpaBathPullQuote() {
+  const w = useW();
+  const mob = w < 768;
+  const [ref, visible] = useFade();
+  return (
+    <section ref={ref} style={{
+      background: '#050505',
+      padding: mob ? '8rem 6vw' : '12rem 8vw',
+      textAlign: 'center',
+      position: 'relative',
+      overflow: 'hidden',
+    }}>
+      <div style={{
+        position: 'absolute', inset: 0,
+        background: 'radial-gradient(ellipse at center, rgba(201,169,110,0.04) 0%, transparent 70%)',
+        pointerEvents: 'none',
+      }} />
+      <div style={{
+        opacity: visible ? 1 : 0,
+        transform: visible ? 'none' : 'translateY(30px)',
+        transition: 'opacity 1.6s ease, transform 1.6s ease',
+        maxWidth: 900,
+        margin: '0 auto',
+      }}>
+        <div style={{ width: 1, height: mob ? 40 : 60, background: 'rgba(201,169,110,0.3)', margin: '0 auto 3rem' }} />
+        <p style={{
+          fontFamily: "'Cormorant Garamond', Georgia, serif",
+          fontStyle: 'italic',
+          fontWeight: 300,
+          fontSize: mob ? 'clamp(1.8rem, 7vw, 2.8rem)' : 'clamp(2.2rem, 4vw, 3.6rem)',
+          color: '#ffffff',
+          lineHeight: 1.35,
+          letterSpacing: '-0.01em',
+          margin: 0,
+        }}>
+          "The lights are already at ten percent<br />when you walk in."
+        </p>
+        <div style={{ width: 1, height: mob ? 40 : 60, background: 'rgba(201,169,110,0.3)', margin: '3rem auto 0' }} />
+      </div>
+    </section>
+  );
+}
+
+// ============================================================
+// 143 LIGHTING CIRCUITS -- standalone night moment
+// ============================================================
+function LightingCircuits() {
+  const w = useW();
+  const mob = w < 768;
+  const [ref, visible] = useFade();
+  return (
+    <section ref={ref} style={{
+      background: DARK,
+      padding: mob ? '8rem 6vw' : '12rem 8vw',
+      textAlign: 'center',
+      position: 'relative',
+      overflow: 'hidden',
+    }}>
+      <div style={{
+        position: 'absolute', inset: 0,
+        background: 'radial-gradient(ellipse at 50% 100%, rgba(201,169,110,0.06) 0%, transparent 60%)',
+        pointerEvents: 'none',
+      }} />
+      <div style={{
+        opacity: visible ? 1 : 0,
+        transform: visible ? 'none' : 'translateY(30px)',
+        transition: 'opacity 1.6s ease, transform 1.6s ease',
+        maxWidth: 800,
+        margin: '0 auto',
+      }}>
+        <p style={{
+          fontFamily: 'sans-serif',
+          fontSize: '10px',
+          letterSpacing: '0.36em',
+          textTransform: 'uppercase',
+          color: GOLD,
+          margin: '0 0 2.5rem',
+        }}>Control4 -- 143 Individually Addressable Circuits</p>
+        <p style={{
+          fontFamily: "'Cormorant Garamond', Georgia, serif",
+          fontStyle: 'italic',
+          fontWeight: 300,
+          fontSize: mob ? 'clamp(1.6rem, 6vw, 2.4rem)' : 'clamp(1.8rem, 3vw, 3rem)',
+          color: '#ffffff',
+          lineHeight: 1.4,
+          letterSpacing: '-0.01em',
+          margin: 0,
+        }}>
+          "143 lighting circuits.<br />Some of them are these trees."
+        </p>
+      </div>
+    </section>
+  );
+}
+
 // CINEMATIC
 // ============================================================
 
@@ -1535,6 +1633,8 @@ export default function FlowFarmLanding2() {
         body="Herringbone heart pine floors laid on the diagonal. A reclaimed wood door with transom light overhead. A star lantern casting warm light across the entry. The first impression that sets the tone for everything that follows. One tap. The whole house shifts."
         position="center top"
       />
+      <SpaBathPullQuote />
+      <LightingCircuits />
       <Location />
       <Inquire />
       <Footer />
