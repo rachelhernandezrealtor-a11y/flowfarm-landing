@@ -148,7 +148,7 @@ function HeroStat({ value, prefix, suffix, decimals, label1, label2, duration, d
       <div style={{
         color: '#fff',
         fontFamily: "'Cormorant Garamond', Georgia, serif",
-        fontSize: mob ? '2.4rem' : '3.2rem',
+        fontSize: mob ? '2rem' : '3.2rem',
         fontWeight: 300,
         lineHeight: 1,
         marginBottom: '0.7rem',
@@ -158,7 +158,7 @@ function HeroStat({ value, prefix, suffix, decimals, label1, label2, duration, d
       <div style={{
         color: 'rgba(255,255,255,0.55)',
         fontFamily: "'Helvetica Neue', Helvetica, Arial, sans-serif",
-        fontSize: mob ? '7px' : '8px',
+        fontSize: mob ? '6px' : '8px',
         letterSpacing: '0.22em',
         textTransform: 'uppercase',
         lineHeight: 1.6,
@@ -183,7 +183,7 @@ function HeroStats({ mob }) {
             <div style={{
               width: '1px',
               background: 'linear-gradient(to bottom, transparent, rgba(255,255,255,0.18) 20%, rgba(255,255,255,0.18) 80%, transparent)',
-              margin: mob ? '0 1.6rem' : '0 2rem',
+              margin: mob ? '0 1.0rem' : '0 2rem',
               alignSelf: 'stretch',
               minHeight: mob ? '48px' : '60px',
             }} />
@@ -291,8 +291,8 @@ function Hero() {
       <div style={{ position: 'absolute', inset: 0, zIndex: 5, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', textAlign: 'center', padding: mob ? '4.5rem 6vw 0' : '9rem 10vw 0', maxWidth: '100%' }}>
         <div style={{ ...show(2), width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
 
-          <p style={{ fontFamily: 'sans-serif', fontSize: mob ? '8px' : '10px', letterSpacing: mob ? '0.22em' : '0.36em', textTransform: 'uppercase', color: GOLD, margin: mob ? '0 0 1.4rem' : '0 0 1.8rem' }}>
-            107 Linden Trail&nbsp;&nbsp;Aberdeen, NC 28315&nbsp;&nbsp;<span style={{ color: 'rgba(201,169,110,0.5)' }}>|</span>&nbsp;&nbsp;Pinehurst ETJ
+          <p style={{ fontFamily: 'sans-serif', fontSize: mob ? '8px' : '10px', letterSpacing: mob ? '0.20em' : '0.36em', textTransform: 'uppercase', color: GOLD, margin: mob ? '0 0 1.4rem' : '0 0 1.8rem', lineHeight: 1.8 }}>
+            {mob ? <>107 Linden Trail&nbsp;&nbsp;Aberdeen, NC 28315<br /><span style={{ color: 'rgba(201,169,110,0.5)' }}>|</span>&nbsp;&nbsp;Pinehurst ETJ</> : <>107 Linden Trail&nbsp;&nbsp;Aberdeen, NC 28315&nbsp;&nbsp;<span style={{ color: 'rgba(201,169,110,0.5)' }}>|</span>&nbsp;&nbsp;Pinehurst ETJ</>}
           </p>
           <h1 style={{
             color: '#fff', fontFamily: 'Georgia, serif', fontWeight: 400,
@@ -774,7 +774,7 @@ function PropertyMap() {
               }}>
                 <span style={{
                   fontFamily: 'sans-serif',
-                  fontSize: mob ? '7px' : '8px',
+                  fontSize: mob ? '6px' : '8px',
                   letterSpacing: '0.22em',
                   textTransform: 'uppercase',
                   color: CREAM,
