@@ -300,13 +300,14 @@ function Hero() {
 
   return (
     <section style={{ position: 'relative', height: '100vh', minHeight: mob ? 600 : 700, overflow: 'hidden', background: '#000' }}>
-      {/* BG video -- oversized to cover viewport like background-size:cover, no black bars */}
+      {/* BG video -- cover technique: fills viewport at any aspect ratio, no black bars */}
+      {/* Mobile portrait: focal point biased to 42% top to frame property not sky */}
       <div style={{ position: 'absolute', inset: 0, zIndex: 1, overflow: 'hidden', opacity: 0.80 }}>
         <iframe
           src={`${CF_STREAM}/${VIDEO_BG_ID}/iframe?autoplay=true&loop=true&muted=true&controls=false&preload=auto`}
           style={{
             position: 'absolute',
-            top: '48%',
+            top: mob ? '42%' : '48%',
             left: '50%',
             transform: 'translate(-50%, -50%)',
             width: 'max(100%, 177.78vh)',
