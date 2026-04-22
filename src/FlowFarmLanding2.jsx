@@ -322,18 +322,18 @@ function Hero() {
         <div style={{ ...show(2), width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
           <h1 style={{
             color: '#fff', fontFamily: 'Georgia, serif', fontWeight: 400,
-            fontSize: mob ? '2.3rem' : w < 1024 ? '4.6rem' : '6.2rem',
+            fontSize: mob ? '2.3rem' : w < 1024 ? '4.2rem' : 'clamp(4rem, 5.5vw, 5.6rem)',
             lineHeight: 1.06, margin: 0, letterSpacing: '-0.02em',
             textShadow: '0 4px 80px rgba(0,0,0,0.6)',
           }}>
             Agritourism <em>Established.</em><br />Legacy Ready.
           </h1>
         </div>
-        <div style={{ ...show(3), marginTop: mob ? '1rem' : '2.2rem', width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+        <div style={{ ...show(3), marginTop: mob ? '1rem' : '1.4rem', width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
           {/* !! LOCKED SUBHEAD -- DO NOT CHANGE WITHOUT RACHEL APPROVAL !! */}
           <p style={{
             color: '#F5F0E8', fontFamily: 'Georgia, serif', fontStyle: 'italic',
-            fontSize: mob ? '0.82rem' : '1.25rem', margin: mob ? '0 0 1.2rem' : '0 0 2rem',
+            fontSize: mob ? '0.82rem' : '1.1rem', margin: mob ? '0 0 1.2rem' : '0 0 1.2rem',
             letterSpacing: '0.01em', lineHeight: 1.7,
             textShadow: '0 2px 20px rgba(0,0,0,0.5)',
           }}>
@@ -419,7 +419,7 @@ function Manifesto() {
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
-        gap: mob ? '2rem' : '2.8rem',
+        gap: mob ? '2rem' : '2rem',
       }}>
         <p style={{
           fontFamily: 'sans-serif',
@@ -435,7 +435,7 @@ function Manifesto() {
           fontFamily: 'Georgia, serif',
           fontWeight: 400,
           fontStyle: 'italic',
-          fontSize: mob ? '2rem' : w < 1024 ? '2.8rem' : 'clamp(2.6rem, 4vw, 3.6rem)',
+          fontSize: mob ? '2rem' : w < 1024 ? '2.4rem' : 'clamp(2rem, 3.2vw, 2.8rem)',
           lineHeight: 1.28,
           margin: 0,
           letterSpacing: '-0.018em',
