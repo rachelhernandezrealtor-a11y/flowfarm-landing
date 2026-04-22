@@ -289,12 +289,24 @@ function Hero() {
 
   return (
     <section style={{ position: 'relative', height: '100vh', minHeight: mob ? 600 : 700, overflow: 'hidden', background: '#000' }}>
-      <iframe
-        src={`${CF_STREAM}/${VIDEO_BG_ID}/iframe?autoplay=true&loop=true&muted=true&controls=false&preload=auto`}
-        style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', border: 'none', zIndex: 1, opacity: 0.80, pointerEvents: 'none' }}
-        allow="autoplay; fullscreen; picture-in-picture"
-        title="Flow Farm background"
-      />
+      {/* BG video -- oversized to cover viewport like background-size:cover, no black bars */}
+      <div style={{ position: 'absolute', inset: 0, zIndex: 1, overflow: 'hidden', opacity: 0.80 }}>
+        <iframe
+          src={`${CF_STREAM}/${VIDEO_BG_ID}/iframe?autoplay=true&loop=true&muted=true&controls=false&preload=auto`}
+          style={{
+            position: 'absolute',
+            top: '50%',
+            left: '50%',
+            transform: 'translate(-50%, -50%)',
+            width: 'max(100%, 177.78vh)',
+            height: 'max(100%, 56.25vw)',
+            border: 'none',
+            pointerEvents: 'none',
+          }}
+          allow="autoplay; fullscreen; picture-in-picture"
+          title="Flow Farm background"
+        />
+      </div>
       <div style={{ position: 'absolute', inset: 0, zIndex: 2, background: 'radial-gradient(ellipse at center, transparent 25%, rgba(0,0,0,0.5) 100%)' }} />
       <div style={{ position: 'absolute', inset: 0, zIndex: 2, background: 'linear-gradient(to bottom, rgba(0,0,0,0.22) 0%, transparent 30%, transparent 50%, rgba(0,0,0,0.94) 100%)' }} />
 
