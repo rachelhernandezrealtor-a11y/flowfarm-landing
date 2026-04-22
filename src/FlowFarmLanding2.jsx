@@ -150,7 +150,7 @@ function GoldLine() {
 // ============================================================
 // HERO
 // ============================================================
-function HeroStat({ value, prefix, suffix, decimals, label1, label2, duration, delay, mob }) {
+const HeroStat = React.memo(function HeroStat({ value, prefix, suffix, decimals, label1, label2, duration, delay, mob }) {
   const [count, ref] = useCounter(value, duration || 1600, delay || 600, decimals || 0);
   const display = (prefix || '') + (decimals ? count.toFixed(decimals) : Math.round(count).toLocaleString()) + (suffix || '');
   return (
@@ -176,9 +176,9 @@ function HeroStat({ value, prefix, suffix, decimals, label1, label2, duration, d
       }}>{label1}<br />{label2}</div>
     </div>
   );
-}
+});
 
-function HeroStats({ mob }) {
+const HeroStats = React.memo(function HeroStats({ mob }) {
   const stats = [
     { value: 15, prefix: '', suffix: '', decimals: 0, label1: 'USDA', label2: 'ACRES', duration: 2000, delay: 400 },
     { value: 7, prefix: '', suffix: '', decimals: 0, label1: 'BUILDABLE', label2: 'ACRES', duration: 2000, delay: 550 },
@@ -254,7 +254,7 @@ function VideoLightbox({ onClose }) {
       </button>
     </div>
   );
-}
+});
 
 function Hero() {
   const w = useW();
