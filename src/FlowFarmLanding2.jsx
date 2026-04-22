@@ -199,7 +199,7 @@ const HeroStats = React.memo(function HeroStats({ mob }) {
       ))}
     </div>
   );
-}
+});
 
 
 // ============================================================
