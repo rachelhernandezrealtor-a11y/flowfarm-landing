@@ -325,6 +325,7 @@ function Hero() {
           </h1>
         </div>
         <div style={{ ...show(3), marginTop: mob ? '1rem' : '2.2rem', width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+          {/* !! LOCKED SUBHEAD -- DO NOT CHANGE WITHOUT RACHEL APPROVAL !! */}
           <p style={{
             color: '#F5F0E8', fontFamily: 'Georgia, serif', fontStyle: 'italic',
             fontSize: mob ? '0.82rem' : '1.25rem', margin: mob ? '0 0 1.2rem' : '0 0 2rem',
