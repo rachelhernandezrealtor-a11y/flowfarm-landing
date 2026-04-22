@@ -75,20 +75,31 @@ function useFade() {
 function useCounter(target, duration, delay, decimals) {
   const [count, setCount] = React.useState(0);
   const ref = React.useRef(null);
+  const targetRef = React.useRef(target);
+  const durationRef = React.useRef(duration);
+  const delayRef = React.useRef(delay);
+  const decimalsRef = React.useRef(decimals);
   React.useEffect(() => {
+    // Capture values at mount time -- never re-runs, never cancels mid-animation
+    const _target = targetRef.current;
+    const _duration = durationRef.current || 1600;
+    const _delay = delayRef.current != null ? delayRef.current : 800;
+    const _decimals = decimalsRef.current || 0;
     const t = setTimeout(() => {
       let startTime = null;
+      let raf;
       const animate = (ts) => {
         if (!startTime) startTime = ts;
-        const progress = Math.min((ts - startTime) / duration, 1);
+        const progress = Math.min((ts - startTime) / _duration, 1);
         const ease = 1 - Math.pow(1 - progress, 3);
-        setCount(parseFloat((ease * target).toFixed(decimals || 0)));
-        if (progress < 1) requestAnimationFrame(animate);
+        setCount(parseFloat((ease * _target).toFixed(_decimals)));
+        if (progress < 1) { raf = requestAnimationFrame(animate); }
       };
-      requestAnimationFrame(animate);
-    }, delay != null ? delay : 800);
+      raf = requestAnimationFrame(animate);
+      return () => cancelAnimationFrame(raf);
+    }, _delay);
     return () => clearTimeout(t);
-  }, [target]);
+  }, []); // run once on mount only -- no re-runs, no cancellations
   return [count, ref];
 }
 
