@@ -176,7 +176,7 @@ function HeroStats({ mob }) {
     { value: 5.25, prefix: '$', suffix: 'M', decimals: 2, label1: 'LIST', label2: 'PRICE', duration: 2000, delay: 850 },
   ];
   return (
-    <div style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'center', margin: mob ? '0 0 2rem' : '0 0 2.6rem', gap: 0 }}>
+    <div style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'center', margin: mob ? '0 0 1.2rem' : '0 0 2.6rem', gap: 0 }}>
       {stats.map((s, i) => (
         <div key={i} style={{ display: 'flex', alignItems: 'stretch', gap: 0 }}>
           {i > 0 && (
@@ -303,10 +303,10 @@ function Hero() {
             Agritourism <em>Established.</em><br />Legacy Ready.
           </h1>
         </div>
-        <div style={{ ...show(3), marginTop: mob ? '1.6rem' : '2.2rem', width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+        <div style={{ ...show(3), marginTop: mob ? '1rem' : '2.2rem', width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
           <p style={{
             color: '#F5F0E8', fontFamily: 'Georgia, serif', fontStyle: 'italic',
-            fontSize: mob ? '1.05rem' : '1.25rem', margin: mob ? '0 0 2rem' : '0 0 2.6rem',
+            fontSize: mob ? '0.95rem' : '1.25rem', margin: mob ? '0 0 1.2rem' : '0 0 2.6rem',
             letterSpacing: '0.01em', lineHeight: 1.7,
             textShadow: '0 2px 20px rgba(0,0,0,0.5)',
           }}>
