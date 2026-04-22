@@ -581,6 +581,16 @@ function ForestIntro() {
 }
 
 
+
+const MAP_PINS = [
+  { id: 'main', x: 48, y: 42, label: 'Main Residence', sub: '8,519 SF -- 6 bed / 7 bath', icon: '🏛' },
+  { id: 'farm', x: 28, y: 62, label: 'Veganic Farm', sub: '3-acre certified veganic operation', icon: '🌿' },
+  { id: 'tunnel', x: 22, y: 55, label: 'High Tunnel', sub: '96x36 ft climate-controlled growing', icon: '🌱' },
+  { id: 'workshop', x: 35, y: 70, label: 'Farm Workshop', sub: '30x40 ft with full equipment storage', icon: '🔧' },
+  { id: 'guest', x: 58, y: 55, label: 'Guest Suite', sub: 'Private entrance -- 200 amp service', icon: '🏠' },
+  { id: 'solar', x: 65, y: 38, label: 'Solar Array', sub: '14.3kW -- 61 Samsung panels', icon: '☀️' },
+];
+
 function PropertyMap() {
   const w = useW();
   const mob = w < 768;
