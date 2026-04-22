@@ -241,8 +241,8 @@ function Hero() {
         </nav>
       )}
 
-      <div style={{ position: 'absolute', inset: 0, zIndex: 5, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', textAlign: 'center', padding: mob ? '0 6vw' : '0 10vw' }}>
-        <div style={show(2)}>
+      <div style={{ position: 'absolute', inset: 0, zIndex: 5, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', textAlign: 'center', padding: mob ? '0 6vw' : '0 10vw', maxWidth: '100%' }}>
+        <div style={{ ...show(2), width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
           <p style={{ fontFamily: 'sans-serif', fontSize: '9px', letterSpacing: '0.38em', textTransform: 'uppercase', color: GOLD, margin: mob ? '0 0 1.6rem' : '0 0 2rem' }}>
             The Architectural Masterpiece
           </p>
@@ -255,7 +255,7 @@ function Hero() {
             Agritourism <em>Established.</em><br />Legacy Ready.
           </h1>
         </div>
-        <div style={{ ...show(3), marginTop: mob ? '1.6rem' : '2.2rem' }}>
+        <div style={{ ...show(3), marginTop: mob ? '1.6rem' : '2.2rem', width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
           <p style={{
             color: 'rgba(255,255,255,0.78)', fontFamily: 'Georgia, serif', fontStyle: 'italic',
             fontSize: mob ? '0.95rem' : '1.1rem', margin: mob ? '0 0 2rem' : '0 0 2.6rem',
