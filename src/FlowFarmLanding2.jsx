@@ -148,7 +148,7 @@ function HeroStat({ value, prefix, suffix, decimals, label1, label2, duration, d
       <div style={{
         color: '#fff',
         fontFamily: "'Cormorant Garamond', Georgia, serif",
-        fontSize: mob ? '2rem' : '3.2rem',
+        fontSize: mob ? '1.7rem' : '3.2rem',
         fontWeight: 300,
         lineHeight: 1,
         marginBottom: '0.7rem',
@@ -176,7 +176,7 @@ function HeroStats({ mob }) {
     { value: 5.25, prefix: '$', suffix: 'M', decimals: 2, label1: 'LIST', label2: 'PRICE', duration: 2000, delay: 850 },
   ];
   return (
-    <div style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'center', margin: mob ? '0 0 1.2rem' : '0 0 2.6rem', gap: 0 }}>
+    <div style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'center', margin: mob ? '0 0 0.8rem' : '0 0 2.6rem', gap: 0 }}>
       {stats.map((s, i) => (
         <div key={i} style={{ display: 'flex', alignItems: 'stretch', gap: 0 }}>
           {i > 0 && (
@@ -288,7 +288,7 @@ function Hero() {
         </nav>
       )}
 
-      <div style={{ position: 'absolute', inset: 0, zIndex: 5, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', textAlign: 'center', padding: mob ? '4.5rem 6vw 0' : '9rem 10vw 0', maxWidth: '100%' }}>
+      <div style={{ position: 'absolute', inset: 0, zIndex: 5, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', textAlign: 'center', padding: mob ? '3rem 6vw 0' : '9rem 10vw 0', maxWidth: '100%' }}>
         <div style={{ ...show(2), width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
 
           <p style={{ fontFamily: 'sans-serif', fontSize: mob ? '7px' : '10px', letterSpacing: mob ? '0.16em' : '0.36em', textTransform: 'uppercase', color: GOLD, margin: mob ? '0 0 1.4rem' : '0 0 1.8rem', whiteSpace: 'nowrap' }}>
@@ -296,17 +296,17 @@ function Hero() {
           </p>
           <h1 style={{
             color: '#fff', fontFamily: 'Georgia, serif', fontWeight: 400,
-            fontSize: mob ? '2.8rem' : w < 1024 ? '4.6rem' : '6.2rem',
+            fontSize: mob ? '2.3rem' : w < 1024 ? '4.6rem' : '6.2rem',
             lineHeight: 1.06, margin: 0, letterSpacing: '-0.02em',
             textShadow: '0 4px 80px rgba(0,0,0,0.6)',
           }}>
             Agritourism <em>Established.</em><br />Legacy Ready.
           </h1>
         </div>
-        <div style={{ ...show(3), marginTop: mob ? '1rem' : '2.2rem', width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+        <div style={{ ...show(3), marginTop: mob ? '0.7rem' : '2.2rem', width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
           <p style={{
             color: '#F5F0E8', fontFamily: 'Georgia, serif', fontStyle: 'italic',
-            fontSize: mob ? '0.95rem' : '1.25rem', margin: mob ? '0 0 1.2rem' : '0 0 2.6rem',
+            fontSize: mob ? '0.82rem' : '1.25rem', margin: mob ? '0 0 1rem' : '0 0 2.6rem',
             letterSpacing: '0.01em', lineHeight: 1.7,
             textShadow: '0 2px 20px rgba(0,0,0,0.5)',
           }}>
@@ -1145,7 +1145,7 @@ function Mechanism() {
         <Fade>
           <div style={{ textAlign: 'center', marginBottom: mob ? '5rem' : '8rem', padding: '0 6vw' }}>
             <Eyebrow center>The Mechanism</Eyebrow>
-            <h2 style={{ color: CREAM, fontFamily: 'Georgia, serif', fontWeight: 400, fontSize: mob ? '2rem' : '3.2rem', lineHeight: 1.28, margin: '2rem 0 2.4rem', letterSpacing: '-0.018em' }}>
+            <h2 style={{ color: CREAM, fontFamily: 'Georgia, serif', fontWeight: 400, fontSize: mob ? '1.7rem' : '3.2rem', lineHeight: 1.28, margin: '2rem 0 2.4rem', letterSpacing: '-0.018em' }}>
               Structure that holds<br /><em>freedom.</em>
             </h2>
             <p style={{ color: 'rgba(255,255,255,0.26)', fontFamily: 'Georgia, serif', fontSize: mob ? '1rem' : '1.12rem', lineHeight: 2.1, maxWidth: 560, margin: '0 auto' }}>
@@ -1188,7 +1188,7 @@ function Land() {
       <Fade up>
         <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '2.4rem', marginBottom: mob ? '6rem' : '10rem', padding: '0 6vw', textAlign: 'center' }}>
           <Eyebrow center>The Land</Eyebrow>
-          <h2 style={{ color: CREAM, fontFamily: 'Georgia, serif', fontWeight: 400, fontSize: mob ? '2rem' : '3.2rem', lineHeight: 1.28, margin: 0, letterSpacing: '-0.018em' }}>
+          <h2 style={{ color: CREAM, fontFamily: 'Georgia, serif', fontWeight: 400, fontSize: mob ? '1.7rem' : '3.2rem', lineHeight: 1.28, margin: 0, letterSpacing: '-0.018em' }}>
             Three acres producing.<br />Seven acres waiting.
           </h2>
           <GoldLine />
@@ -1491,7 +1491,7 @@ function Opportunity() {
 
             <h2 style={{
               color: '#fff', fontFamily: 'Georgia, serif', fontWeight: 400,
-              fontSize: mob ? '2rem' : '3.2rem', lineHeight: 1.18,
+              fontSize: mob ? '1.7rem' : '3.2rem', lineHeight: 1.18,
               margin: mob ? '0 0 1.2rem' : '0 0 1.6rem',
               maxWidth: 780,
             }}>
