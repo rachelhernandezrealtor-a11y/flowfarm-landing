@@ -355,26 +355,116 @@ function Hero() {
 function Manifesto() {
   const w = useW();
   const mob = w < 768;
+  const [ref, visible] = useFade();
+  const [scrollY, setScrollY] = React.useState(0);
+  React.useEffect(() => {
+    const onScroll = () => setScrollY(window.scrollY);
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
+  const BG_URL = 'https://res.cloudinary.com/dghn2xpif/image/fetch/f_auto,q_auto,w_2400,e_vibrance:40,e_saturation:20,e_brightness:15,e_sharpen:60/' + encodeURIComponent('https://media.base44.com/images/public/69e248a2469cc39540781cce/fbfaf627b_generated_image.png');
   return (
-    <section style={{ background: DARK, padding: mob ? '7rem 0' : '11rem 0', textAlign: 'center' }}>
-      <Fade up>
-        <div style={{ maxWidth: 820, margin: '0 auto', padding: '0 6vw', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: mob ? '2.4rem' : '3rem' }}>
-          <Eyebrow center>107 Linden Trail &mdash; Aberdeen, North Carolina</Eyebrow>
-          <h2 style={{ color: CREAM, fontFamily: 'Georgia, serif', fontWeight: 400, fontSize: mob ? '2rem' : w < 1024 ? '2.6rem' : '3.2rem', lineHeight: 1.3, margin: 0, letterSpacing: '-0.018em' }}>
-            Not just a home.<br />A living system built for those<br />who intend to leave something behind.
-          </h2>
-          <GoldLine />
-          <p style={{ color: 'rgba(255,255,255,0.3)', fontFamily: 'Georgia, serif', fontSize: mob ? '1rem' : '1.15rem', lineHeight: 2.1, margin: 0, maxWidth: 580 }}>
-            Fifteen acres of forest and working farmland three miles from Pinehurst Resort.
-            Designed by Robert E. Clark AIA as one of his final private commissions.
-            Built to operate indefinitely, independently, and beautifully.
-          </p>
-          <a href={MATTERPORT} target="_blank" rel="noreferrer"
-            style={{ color: GOLD, fontFamily: 'sans-serif', fontSize: '10px', letterSpacing: '0.32em', textTransform: 'uppercase', textDecoration: 'none', borderBottom: '1px solid rgba(201,169,110,0.28)', paddingBottom: '0.3rem' }}>
-            Begin the Virtual Tour
-          </a>
-        </div>
-      </Fade>
+    <section ref={ref} style={{
+      position: 'relative',
+      minHeight: mob ? '80vh' : '90vh',
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      overflow: 'hidden',
+    }}>
+      {/* Full-bleed forest bg with parallax */}
+      <div style={{
+        position: 'absolute',
+        inset: '-10%',
+        backgroundImage: 'url(' + BG_URL + ')',
+        backgroundSize: 'cover',
+        backgroundPosition: 'center ' + (50 + scrollY * 0.15) + '%',
+        transform: 'scale(1.08)',
+        transition: 'background-position 0.1s linear',
+        filter: 'saturate(1.2) brightness(0.72)',
+      }} />
+      {/* Dark gradient vignette -- edges only, center stays clear */}
+      <div style={{
+        position: 'absolute',
+        inset: 0,
+        background: 'radial-gradient(ellipse at center, transparent 30%, rgba(0,0,0,0.55) 100%)',
+        pointerEvents: 'none',
+      }} />
+      {/* Bottom fade into dark */}
+      <div style={{
+        position: 'absolute',
+        bottom: 0,
+        left: 0,
+        right: 0,
+        height: '35%',
+        background: 'linear-gradient(to bottom, transparent, ' + DARK + ')',
+        pointerEvents: 'none',
+      }} />
+      {/* Text -- floating directly on image, no card */}
+      <div style={{
+        position: 'relative',
+        zIndex: 2,
+        textAlign: 'center',
+        maxWidth: 820,
+        padding: mob ? '0 7vw' : '0 6vw',
+        opacity: visible ? 1 : 0,
+        transform: visible ? 'none' : 'translateY(32px)',
+        transition: 'opacity 1.8s ease 0.2s, transform 1.8s ease 0.2s',
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        gap: mob ? '2rem' : '2.8rem',
+      }}>
+        <p style={{
+          fontFamily: 'sans-serif',
+          fontSize: '10px',
+          letterSpacing: '0.40em',
+          textTransform: 'uppercase',
+          color: GOLD,
+          margin: 0,
+          textShadow: '0 1px 8px rgba(0,0,0,0.6)',
+        }}>107 Linden Trail -- Aberdeen, North Carolina</p>
+        <h2 style={{
+          color: '#ffffff',
+          fontFamily: 'Georgia, serif',
+          fontWeight: 400,
+          fontStyle: 'italic',
+          fontSize: mob ? '2rem' : w < 1024 ? '2.8rem' : 'clamp(2.6rem, 4vw, 3.6rem)',
+          lineHeight: 1.28,
+          margin: 0,
+          letterSpacing: '-0.018em',
+          textShadow: '0 2px 24px rgba(0,0,0,0.5)',
+        }}>
+          Not just a home.<br />A living system built for those<br />who intend to leave something behind.
+        </h2>
+        <div style={{ width: 36, height: 1, background: GOLD, opacity: 0.5 }} />
+        <p style={{
+          color: 'rgba(255,255,255,0.82)',
+          fontFamily: 'Georgia, serif',
+          fontSize: mob ? '1rem' : '1.1rem',
+          lineHeight: 1.95,
+          margin: 0,
+          maxWidth: 560,
+          textShadow: '0 1px 12px rgba(0,0,0,0.5)',
+        }}>
+          Fifteen acres of forest and working farmland three miles from Pinehurst Resort.
+          Designed by Robert E. Clark AIA as one of his final private commissions.
+          Built to operate indefinitely, independently, and beautifully.
+        </p>
+        <a href={MATTERPORT} target="_blank" rel="noreferrer" style={{
+          color: GOLD,
+          fontFamily: 'sans-serif',
+          fontSize: '10px',
+          letterSpacing: '0.32em',
+          textTransform: 'uppercase',
+          textDecoration: 'none',
+          borderBottom: '1px solid rgba(201,169,110,0.4)',
+          paddingBottom: '0.3rem',
+          textShadow: '0 1px 8px rgba(0,0,0,0.4)',
+        }}>
+          Begin the Virtual Tour
+        </a>
+      </div>
     </section>
   );
 }
