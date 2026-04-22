@@ -195,10 +195,61 @@ function HeroStats({ mob }) {
   );
 }
 
+
+// ============================================================
+// VIDEO LIGHTBOX
+// ============================================================
+function VideoLightbox({ onClose }) {
+  useEffect(() => {
+    const onKey = (e) => { if (e.key === 'Escape') onClose(); };
+    document.addEventListener('keydown', onKey);
+    document.body.style.overflow = 'hidden';
+    return () => {
+      document.removeEventListener('keydown', onKey);
+      document.body.style.overflow = '';
+    };
+  }, [onClose]);
+
+  return (
+    <div onClick={onClose} style={{
+      position: 'fixed', inset: 0, zIndex: 9999,
+      background: 'rgba(0,0,0,0.92)',
+      display: 'flex', alignItems: 'center', justifyContent: 'center',
+      backdropFilter: 'blur(8px)', WebkitBackdropFilter: 'blur(8px)',
+      animation: 'fadeIn 0.4s ease',
+    }}>
+      <style>{`@keyframes fadeIn { from { opacity: 0 } to { opacity: 1 } }`}</style>
+      <div onClick={e => e.stopPropagation()} style={{
+        position: 'relative', width: '90vw', maxWidth: '1100px',
+        aspectRatio: '16/9', borderRadius: '4px', overflow: 'hidden',
+        boxShadow: '0 40px 120px rgba(0,0,0,0.8)',
+      }}>
+        <iframe
+          src="https://player.vimeo.com/video/1165426324?autoplay=1&byline=0&title=0&portrait=0&color=C9A96E"
+          style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', border: 'none' }}
+          allow="autoplay; fullscreen; picture-in-picture"
+          allowFullScreen
+        />
+      </div>
+      <button onClick={onClose} style={{
+        position: 'fixed', top: '1.5rem', right: '1.5rem',
+        background: 'none', border: '1px solid rgba(255,255,255,0.3)',
+        color: '#fff', fontFamily: 'sans-serif', fontSize: '11px',
+        letterSpacing: '0.2em', textTransform: 'uppercase',
+        padding: '0.5rem 1.2rem', borderRadius: '2rem', cursor: 'pointer',
+        opacity: 0.7,
+      }}>
+        Close
+      </button>
+    </div>
+  );
+}
+
 function Hero() {
   const w = useW();
   const mob = w < 768;
   const [p, setP] = useState(0);
+  const [videoOpen, setVideoOpen] = useState(false);
 
   useEffect(() => {
     const t = [
@@ -265,9 +316,10 @@ function Hero() {
           </p>
           <HeroStats mob={mob} />
           <div style={{ display: 'flex', flexWrap: 'wrap', gap: mob ? '0.75rem' : '1rem', justifyContent: 'center', alignItems: 'center' }}>
-            <a href="https://vimeo.com/1165426324" target="_blank" rel="noreferrer" style={{ display: 'inline-block', background: 'rgba(255,255,255,0.14)', border: '1px solid rgba(255,255,255,0.55)', color: '#fff', fontFamily: 'sans-serif', fontSize: mob ? '9px' : '10px', letterSpacing: '0.32em', textTransform: 'uppercase', padding: mob ? '0.85rem 2rem' : '1rem 2.8rem', borderRadius: '2rem', textDecoration: 'none', fontWeight: 500, cursor: 'pointer', transition: 'background 0.3s ease', boxShadow: 'inset 0 1px 0 rgba(255,255,255,0.25), 0 4px 24px rgba(0,0,0,0.3)', backdropFilter: 'blur(12px)', WebkitBackdropFilter: 'blur(12px)' }}>
+            <button onClick={() => setVideoOpen(true)} style={{ display: 'inline-block', background: 'rgba(255,255,255,0.14)', border: '1px solid rgba(255,255,255,0.55)', color: '#fff', fontFamily: 'sans-serif', fontSize: mob ? '9px' : '10px', letterSpacing: '0.32em', textTransform: 'uppercase', padding: mob ? '0.85rem 2rem' : '1rem 2.8rem', borderRadius: '2rem', textDecoration: 'none', fontWeight: 500, cursor: 'pointer', transition: 'background 0.3s ease', boxShadow: 'inset 0 1px 0 rgba(255,255,255,0.25), 0 4px 24px rgba(0,0,0,0.3)', backdropFilter: 'blur(12px)', WebkitBackdropFilter: 'blur(12px)' }}>
               Enter Flow Farm
-            </a>
+            </button>
+            {videoOpen && <VideoLightbox onClose={() => setVideoOpen(false)} />}
 
           </div>
         </div>
