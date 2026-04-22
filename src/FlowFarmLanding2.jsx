@@ -77,10 +77,14 @@ function useFade() {
 
 function useCounter(target, duration, delay, decimals) {
   const [count, setCount] = React.useState(0);
-  const done = React.useRef(false);
+  const started = React.useRef(false);
+  const timers = React.useRef([]);
+
   React.useEffect(() => {
-    if (done.current) return;
-    done.current = true;
+    // Only ever run once per mount -- memo keeps this stable
+    if (started.current) return;
+    started.current = true;
+
     const _target = target;
     const _duration = duration || 1600;
     const _delay = delay != null ? delay : 800;
@@ -88,18 +92,25 @@ function useCounter(target, duration, delay, decimals) {
     const steps = 60;
     const stepTime = _duration / steps;
     let current = 0;
-    const run = () => {
-      const t = setTimeout(() => {
-        current++;
-        const progress = current / steps;
-        const ease = 1 - Math.pow(1 - progress, 3);
-        setCount(parseFloat((ease * _target).toFixed(_decimals)));
-        if (current < steps) run();
-      }, stepTime);
+
+    const tick = () => {
+      current++;
+      const progress = current / steps;
+      const ease = 1 - Math.pow(1 - progress, 3);
+      setCount(parseFloat((ease * _target).toFixed(_decimals)));
+      if (current < steps) {
+        const t = setTimeout(tick, stepTime);
+        timers.current.push(t);
+      }
     };
-    setTimeout(run, _delay);
+
+    const t0 = setTimeout(tick, _delay);
+    timers.current.push(t0);
+
+    return () => { timers.current.forEach(clearTimeout); };
   }, []);
-  return [count, React.useRef(null)];
+
+  return [count];
 }
 
 
@@ -150,10 +161,10 @@ function GoldLine() {
 // HERO
 // ============================================================
 const HeroStat = React.memo(function HeroStat({ value, prefix, suffix, decimals, label1, label2, duration, delay, mob }) {
-  const [count, ref] = useCounter(value, duration || 1600, delay || 600, decimals || 0);
+  const [count] = useCounter(value, duration || 1600, delay || 600, decimals || 0);
   const display = (prefix || '') + (decimals ? count.toFixed(decimals) : Math.round(count).toLocaleString()) + (suffix || '');
   return (
-    <div ref={ref} style={{ textAlign: 'left' }}>
+    <div style={{ textAlign: 'left' }}>
       <div style={{
         color: '#fff',
         fontFamily: "'Cormorant Garamond', Georgia, serif",
