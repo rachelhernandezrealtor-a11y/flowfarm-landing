@@ -151,7 +151,7 @@ function HeroStat({ value, prefix, suffix, decimals, label1, label2, duration, d
         fontSize: mob ? '2.4rem' : '3.2rem',
         fontWeight: 300,
         lineHeight: 1,
-        marginBottom: '0.35rem',
+        marginBottom: '0.7rem',
         letterSpacing: '-0.01em',
         fontStyle: 'normal',
       }}>{display}</div>
