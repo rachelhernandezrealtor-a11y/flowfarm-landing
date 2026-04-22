@@ -261,11 +261,11 @@ function Hero() {
   useEffect(() => {
     const link1 = document.createElement('link');
     link1.rel = 'preconnect';
-    link1.href = 'https://player.vimeo.com';
+    link1.href = 'https://iframe.cloudflarestream.com';
     document.head.appendChild(link1);
     const link2 = document.createElement('link');
     link2.rel = 'preconnect';
-    link2.href = 'https://f.vimeocdn.com';
+    link2.href = 'https://customer-qqzxuq43g9w49ny2.cloudflarestream.com';
     document.head.appendChild(link2);
   }, []);
 
@@ -1034,7 +1034,7 @@ function StealTheShow() {
       {/* Fan video background */}
       <div style={{ position: 'absolute', inset: 0, zIndex: 1, background: '#000' }}>
         <iframe
-          src="https://player.vimeo.com/video/1180614233?background=1&autoplay=1&loop=1&byline=0&title=0&muted=1"
+          src="https://iframe.cloudflarestream.com/de1885d159ae310508174f03f775c797?autoplay=true"
           style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', border: 'none', pointerEvents: 'none', opacity: 0.90 }}
           allow="autoplay; fullscreen"
           title="Fan background"
