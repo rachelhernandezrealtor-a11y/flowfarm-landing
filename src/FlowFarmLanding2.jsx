@@ -230,12 +230,12 @@ function VideoLightbox({ onClose }) {
         aspectRatio: '16/9', borderRadius: '4px', overflow: 'hidden',
         boxShadow: '0 40px 120px rgba(0,0,0,0.8)',
       }}>
-        <video
-          src="https://customer-qqzxuq43g9w49ny2.cloudflarestream.com/5d06a3b0e25b768ac6dc681dbf4f5b81/manifest/video.m3u8"
-          style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', border: 'none', objectFit: 'cover' }}
-          autoPlay
-          controls
-          playsInline
+        <iframe
+          src="https://iframe.cloudflarestream.com/de1885d159ae310508174f03f775c797?autoplay=true&controls=true&preload=auto"
+          style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', border: 'none' }}
+          allow="autoplay; fullscreen; picture-in-picture"
+          allowFullScreen
+          title="Flow Farm property tour"
         />
       </div>
       <button onClick={onClose} style={{
