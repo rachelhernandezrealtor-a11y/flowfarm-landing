@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Flow Farm -- 107 Linden Trail, Aberdeen NC</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&display=swap"/>
+<script src="https://unpkg.com/react@18/umd/react.production.min.js" crossorigin></script>
+<script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js" crossorigin></script>
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+<style>
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{background:#0a0a0a;color:#F5F0E8;font-family:Georgia,serif;overflow-x:hidden;}
+  input,textarea,button{font-family:Georgia,serif;}
+  a{text-decoration:none;}
+  video{object-fit:cover;}
+</style>
+</head>
+<body>
+<div id="root"></div>
+<script type="text/babel">
+const GOLD='#C9A96E',CREAM='#F5F0E8',DARK='#0a0a0a';
+const GLASS='rgba(255,255,255,0.10)',GLASS_B='rgba(255,255,255,0.22)';
+const VIDEO='https://base44.app/api/apps/69e248a2469cc39540781cce/files/mp/public/69e248a2469cc39540781cce/f7910a1c9_275a93837_forestheroMAIN.mp4';
+const MATTERPORT='https://my.matterport.com/show/?m=xZRfSiQPuQ8';
+const VIMEO='https://vimeo.com/1165426324';
+const NUCLEUS='https://portal.nucleus4d.com/3ec4ff02-9412-4f29-87ba-4926145df7a1/exterior-d302c992-e611-4197-b2df-ff6931a8827a';
+const B='https://media.base44.com/images/public/69e248a2469cc39540781cce/';
+const C='https://res.cloudinary.com/dghn2xpif/image/fetch/';
+const cdn=(url,w=1400)=>C+'f_auto,q_auto,w_'+w+',c_limit/'+encodeURIComponent(url);
+const cdnI=(url)=>C+'e_improve:indoor:60,e_brightness:10,e_shadow:-30,e_sharpen:40,e_saturation:15,f_auto,q_auto,w_1600,c_limit/'+encodeURIComponent(url);
+const cdnE=(url)=>C+'e_improve:outdoor:70,e_auto_brightness,e_sharpen:30,e_saturation:20,f_auto,q_auto,w_1600,c_limit/'+encodeURIComponent(url);
+
+const IMG={
+  living: B+'f4af32cdd_260115107LindenTrailF-9619.jpg',
+  conservatory: B+'8cb2578a0_MONEYSHOT.jpg',
+  kitchen: B+'1c4b8a04f_SOGOODKITCHEN.jpg',
+  spabath: B+'08da5b97d_spaprimarybath.jpg',
+  foyer: B+'9b1d02a04_260115107LindenTrailF-9727.jpg',
+  aerial: B+'2ca329bbf_flowfarmmasterphotoswebsite.jpg',
+  forest: B+'fbfaf627b_generated_image.png',
+  trail: B+'41690f47b_107LindenTrail-822.jpg',
+  wolf: B+'ef4b4a364_WOLFDOUBLEGASRANGE.jpg',
+  office: B+'2b920c3b0_markofficemoneyshot.jpg',
+  hallway: B+'8e3d794f9_secondfloorhallway.jpg',
+  pineapple: B+'116a03ad1_IMG_3206.jpg',
+  harvest: B+'258c26a45_FlowFarm_HarvestBox_160805.jpg',
+  aerialWide: B+'0686082ae_3AE3BB97-CE80-4B28-BBA2-62C77E5F0AA1_1_201_a.jpg',
+};
+
+const ey={fontFamily:'sans-serif',fontSize:'10px',letterSpacing:'0.36em',textTransform:'uppercase',color:GOLD,margin:'0 0 1.2rem',display:'block'};
+const div40={width:40,height:1,background:GOLD,margin:'2rem auto',opacity:0.5};
+
+function useScrollY(){
+  const [y,setY]=React.useState(0);
+  React.useEffect(()=>{
+    const h=()=>setY(window.scrollY);
+    window.addEventListener('scroll',h,{passive:true});
+    return ()=>window.removeEventListener('scroll',h);
+  },[]);
+  return y;
+}
+
+function Counter({end,label,suffix='',delay=0}){
+  const [v,setV]=React.useState(0);
+  React.useEffect(()=>{
+    const t=setTimeout(()=>{
+      const steps=40,dur=1400,inc=end/steps;
+      let cur=0;
+      const iv=setInterval(()=>{cur+=inc;if(cur>=end){setV(end);clearInterval(iv);}else setV(Math.floor(cur));},dur/steps);
+    },delay);
+    return ()=>clearTimeout(t);
+  },[end,delay]);
+  return(
+    <div style={{textAlign:'center',padding:'0 1.5rem'}}>
+      <div style={{fontFamily:"'Cormorant Garamond',Georgia,serif",fontWeight:300,fontSize:'clamp(1.8rem,3vw,2.8rem)',color:'#fff',letterSpacing:'-0.02em'}}>
+        {suffix==='$'?'$':''}{typeof end==='number'&&end%1===0?v.toLocaleString():v}{suffix!=='$'?suffix:''}
+      </div>
+      <div style={{fontFamily:'sans-serif',fontSize:'9px',letterSpacing:'0.3em',textTransform:'uppercase',color:'rgba(255,255,255,0.45)',marginTop:'0.4rem'}}>{label}</div>
+    </div>
+  );
+}
+
+function Reveal({eyebrow,headline,body,imgSrc,reverse=false}){
+  return(
+    <div style={{display:'flex',minHeight:'85vh',position:'relative'}}>
+      <div style={{position:'absolute',inset:0,backgroundImage:`url(${imgSrc})`,backgroundSize:'cover',backgroundPosition:'center',zIndex:0}}/>
+      <div style={{position:'absolute',inset:0,background:reverse?'linear-gradient(to left,rgba(10,10,10,0.85) 45%,rgba(10,10,10,0) 100%)':'linear-gradient(to right,rgba(10,10,10,0.85) 45%,rgba(10,10,10,0) 100%)',zIndex:1}}/>
+      <div style={{position:'relative',zIndex:2,width:'50%',maxWidth:560,padding:'clamp(3rem,8vw,7rem) clamp(2rem,5vw,5rem)',display:'flex',flexDirection:'column',justifyContent:'center',marginLeft:reverse?'auto':0}}>
+        <span style={ey}>{eyebrow}</span>
+        <h2 style={{fontFamily:'Georgia,serif',fontWeight:400,fontSize:'clamp(2rem,3.5vw,3.2rem)',color:'#fff',lineHeight:1.15,margin:'0 0 1.5rem',letterSpacing:'-0.02em'}} dangerouslySetInnerHTML={{__html:headline}}/>
+        <p style={{color:CREAM,fontSize:'1.05rem',lineHeight:1.9,margin:0,opacity:0.88}}>{body}</p>
+      </div>
+    </div>
+  );
+}
+
+function App(){
+  const scrollY=useScrollY();
+  const [modal,setModal]=React.useState(false);
+  const [form,setForm]=React.useState({name:'',email:'',phone:'',message:''});
+  const [sent,setSent]=React.useState(false);
+
+  const submit=async(e)=>{
+    e.preventDefault();
+    try{
+      await fetch('https://base44.app/api/apps/69e248a2469cc39540781cce/entities/Inquiry',{
+        method:'POST',headers:{'Content-Type':'application/json'},
+        body:JSON.stringify({...form,property:'Flow Farm',source:'Landing Page'})
+      });
+    }catch(err){}
+    setSent(true);
+  };
+
+  return(
+    <div style={{background:DARK,color:CREAM,fontFamily:'Georgia,serif',overflowX:'hidden'}}>
+
+      {/* NAV */}
+      <nav style={{position:'fixed',top:0,left:0,right:0,zIndex:100,padding:'1.5rem 4vw',display:'flex',justifyContent:'space-between',alignItems:'center',background:'linear-gradient(to bottom,rgba(10,10,10,0.7) 0%,transparent 100%)'}}>
+        <span style={{fontFamily:'Georgia,serif',fontSize:'1rem',color:'#fff',letterSpacing:'0.08em'}}>Flow Farm</span>
+        <div style={{display:'flex',gap:'2.5rem'}}>
+          {['The Estate','The Land','Inquire'].map(item=>(
+            <a key={item} href="#" onClick={e=>{e.preventDefault();if(item==='Inquire')setModal(true);}}
+              style={{fontFamily:'sans-serif',fontSize:'11px',letterSpacing:'0.2em',textTransform:'uppercase',color:'rgba(255,255,255,0.75)',cursor:'pointer'}}>{item}</a>
+          ))}
+        </div>
+      </nav>
+
+      {/* HERO */}
+      <div style={{position:'relative',height:'100vh',overflow:'hidden'}}>
+        <video autoPlay muted loop playsInline style={{position:'absolute',inset:0,width:'100%',height:'100%',objectFit:'cover',zIndex:0}}>
+          <source src={VIDEO} type="video/mp4"/>
+        </video>
+        <div style={{position:'absolute',inset:0,background:'linear-gradient(to bottom,rgba(10,10,10,0.3) 0%,rgba(10,10,10,0.5) 60%,rgba(10,10,10,0.88) 100%)',zIndex:1}}/>
+        <div style={{position:'relative',zIndex:2,height:'100%',display:'flex',flexDirection:'column',justifyContent:'flex-end',padding:'clamp(3rem,8vw,6rem) clamp(3rem,8vw,6rem) 8rem'}}>
+          <span style={{...ey,marginBottom:'1rem'}}>The Architectural Masterpiece</span>
+          <h1 style={{fontFamily:'Georgia,serif',fontWeight:400,fontSize:'clamp(3rem,7vw,6.5rem)',color:'#fff',lineHeight:1.05,margin:'0 0 1.5rem',letterSpacing:'-0.03em',maxWidth:900}}>
+            Agritourism Established.<br/><em>Legacy Ready.</em>
+          </h1>
+          <p style={{color:CREAM,fontSize:'clamp(0.95rem,1.5vw,1.15rem)',lineHeight:1.7,maxWidth:520,margin:'0 0 2.5rem',opacity:0.8}}>
+            Where architectural excellence meets working land -- three miles from Pinehurst Resort.
+          </p>
+          <div style={{display:'flex',gap:'1rem',flexWrap:'wrap'}}>
+            <a href={VIMEO} target="_blank" rel="noreferrer"
+              style={{padding:'0.9rem 2.4rem',background:GLASS,border:`1px solid ${GLASS_B}`,backdropFilter:'blur(12px)',color:'#fff',fontFamily:'sans-serif',fontSize:'11px',letterSpacing:'0.28em',textTransform:'uppercase',borderRadius:2,display:'inline-flex',alignItems:'center'}}>
+              Enter Flow Farm
+            </a>
+          </div>
+        </div>
+        {/* Stats bar */}
+        <div style={{position:'absolute',bottom:0,left:0,right:0,zIndex:3,background:'rgba(10,10,10,0.75)',backdropFilter:'blur(10px)',borderTop:'1px solid rgba(255,255,255,0.08)',padding:'1.5rem 0',display:'flex',justifyContent:'center'}}>
+          {[{end:3,label:'Acre Veganic Farm',suffix:''},{end:15,label:'Total Acres',suffix:''},{end:3,label:'Mi. to Pinehurst',suffix:''},{end:5.25,label:'Million',suffix:'M'}].map((s,i)=>(
+            <React.Fragment key={s.label}>
+              {i>0&&<div style={{width:1,background:'rgba(255,255,255,0.1)',margin:'0 0.5rem'}}/>}
+              <Counter {...s} delay={i*200}/>
+            </React.Fragment>
+          ))}
+        </div>
+      </div>
+
+      {/* MANIFESTO */}
+      <div style={{padding:'clamp(5rem,10vw,9rem) clamp(2rem,8vw,10rem)',maxWidth:820,margin:'0 auto',textAlign:'center'}}>
+        <span style={ey}>Flow Farm</span>
+        <h2 style={{fontFamily:'Georgia,serif',fontWeight:400,fontSize:'clamp(2rem,3.5vw,3rem)',color:'#fff',lineHeight:1.2,margin:'0 0 2rem',letterSpacing:'-0.02em'}}>
+          A Living Place,<br/><em>Rooted in Possibility.</em>
+        </h2>
+        <div style={div40}/>
+        <p style={{color:CREAM,fontSize:'1.1rem',lineHeight:2,opacity:0.85,margin:'2rem 0'}}>
+          Seventeen years of intention. The soil is built. The farm is running. Now it belongs to whoever is meant to take it from here.
+        </p>
+        <p style={{color:CREAM,fontSize:'1.1rem',lineHeight:2,opacity:0.85,margin:'0 0 2rem'}}>
+          107 Linden Trail is not a house with land. It is a working ecosystem -- 8,519 square feet of architect-designed residence, 3 acres of active veganic farm, geothermal energy, solar power, a commercial-grade kitchen, and seven acres of raw possibility.
+        </p>
+      </div>
+
+      {/* CINEMATIC -- LIVING */}
+      <Reveal
+        eyebrow="The Great Room"
+        headline="Seventeen feet.<br/><em>Reclaimed heart pine.</em><br/>Civil War timber."
+        body="Architect Robert E. Clark designed the great room with reclaimed Civil War-era heart pine floors and timber trusses that rise to seventeen feet. Sound fills every inch without effort. The space is built to hold a crowd and feel intimate doing it."
+        imgSrc={cdnI(IMG.living)}
+      />
+
+      {/* NUMBERS */}
+      <div style={{padding:'clamp(4rem,8vw,7rem) clamp(2rem,6vw,8rem)',background:DARK}}>
+        <div style={{maxWidth:1100,margin:'0 auto'}}>
+          <span style={{...ey,textAlign:'center',display:'block',marginBottom:'2.5rem'}}>The Estate</span>
+          <div style={{display:'grid',gridTemplateColumns:'repeat(auto-fit,minmax(180px,1fr))',gap:'1px',background:'rgba(255,255,255,0.06)',border:'1px solid rgba(255,255,255,0.06)'}}>
+            {[
+              {n:'8,519',label:'Sq Ft Residence'},{n:'15',label:'USDA Acres'},
+              {n:'6',label:'Structures'},{n:'5',label:'Ensuite Bedrooms'},
+              {n:'1,200',label:'Amp Service'},{n:'14.3kW',label:'Solar Array'},
+              {n:'20',label:'Geothermal Wells'},{n:'$5.25M',label:'Offered At'},
+            ].map(item=>(
+              <div key={item.label} style={{padding:'2.5rem 1.5rem',background:DARK,textAlign:'center'}}>
+                <div style={{fontFamily:"'Cormorant Garamond',Georgia,serif",fontWeight:300,fontSize:'clamp(1.8rem,2.5vw,2.6rem)',color:'#fff'}}>{item.n}</div>
+                <div style={{fontFamily:'sans-serif',fontSize:'9px',letterSpacing:'0.28em',textTransform:'uppercase',color:'rgba(255,255,255,0.4)',marginTop:'0.5rem'}}>{item.label}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {/* CINEMATIC -- CONSERVATORY */}
+      <Reveal
+        eyebrow="The Conservatory"
+        headline="Octagonal dome.<br/><em>Natural light</em><br/>from every angle."
+        body="The conservatory is the architectural centerpiece -- a hand-crafted octagonal skylight that floods the room with light at every hour. Glass walls, custom millwork, and a view of the grounds that makes every season worth watching."
+        imgSrc={cdnI(IMG.conservatory)}
+        reverse={true}
+      />
+
+      {/* PULL QUOTE */}
+      <div style={{padding:'clamp(4rem,8vw,7rem) clamp(2rem,8vw,12rem)',background:'#0f0f0f',textAlign:'center'}}>
+        <p style={{fontFamily:'Georgia,serif',fontStyle:'italic',fontSize:'clamp(1.8rem,3.5vw,3rem)',color:'#fff',lineHeight:1.3,margin:'0 auto',maxWidth:900}}>
+          "Autonomy at this scale is not inherited. It is engineered."
+        </p>
+        <div style={{...div40,marginTop:'2.5rem'}}/>
+      </div>
+
+      {/* CINEMATIC -- KITCHEN */}
+      <Reveal
+        eyebrow="The Kitchen"
+        headline="Wolf 60-inch.<br/><em>Sub-Zero suite.</em><br/>Music you can't see."
+        body="A 60-inch Wolf dual-fuel range. Full Sub-Zero refrigeration suite. Commercial water filtration. Speakers built into the walls -- music fills the room from sources you can't locate. The kitchen is where the house announces what it is."
+        imgSrc={cdnI(IMG.kitchen)}
+      />
+
+      {/* LAND SECTION */}
+      <div style={{padding:'clamp(5rem,10vw,9rem) clamp(2rem,8vw,10rem)',maxWidth:820,margin:'0 auto',textAlign:'center'}}>
+        <span style={ey}>The Land</span>
+        <h2 style={{fontFamily:'Georgia,serif',fontWeight:400,fontSize:'clamp(2rem,3.5vw,3rem)',color:'#fff',lineHeight:1.2,margin:'0 0 2rem'}}>
+          Three acres producing.<br/><em>Seven acres waiting.</em>
+        </h2>
+        <div style={div40}/>
+        <p style={{color:CREAM,fontSize:'1.1rem',lineHeight:2,opacity:0.85,margin:'2rem 0'}}>
+          The farm has been operating since 2009. USDA registered. NC Qualifying Farmer Exemption active. Veganic, regenerative soil built over seventeen years. Biochar kiln on-site. Composting pavilion. Walk-in cooler. Active CSA and farmers market presence.
+        </p>
+        <p style={{color:CREAM,fontSize:'1.1rem',lineHeight:2,opacity:0.85}}>
+          Seven acres remain undeveloped. The zoning supports agritourism. The infrastructure -- 1,200-amp service, geothermal, solar, generator, private well -- is already in place to support whatever comes next.
+        </p>
+      </div>
+
+      {/* PINEAPPLE SECTION */}
+      <div style={{position:'relative',minHeight:'70vh',display:'flex',alignItems:'center',justifyContent:'center',overflow:'hidden'}}>
+        <div style={{position:'absolute',inset:0,backgroundImage:`url(${cdnI(IMG.pineapple)})`,backgroundSize:'cover',backgroundPosition:'center',zIndex:0}}/>
+        <div style={{position:'absolute',inset:0,background:'rgba(10,10,10,0.6)',zIndex:1}}/>
+        <div style={{position:'relative',zIndex:2,textAlign:'center',padding:'4rem 2rem'}}>
+          <span style={ey}>The High Tunnel</span>
+          <h2 style={{fontFamily:'Georgia,serif',fontStyle:'italic',fontWeight:400,fontSize:'clamp(2.5rem,5vw,4.5rem)',color:'#fff',lineHeight:1.15,margin:'0 0 1.5rem'}}>
+            Pineapples.<br/>In North Carolina.
+          </h2>
+          <p style={{color:CREAM,fontSize:'1.1rem',lineHeight:1.9,maxWidth:520,margin:'0 auto',opacity:0.85}}>
+            The 96x36 ft high tunnel uses a geothermal climate battery to create its own microclimate. The impossible becomes ordinary. Pineapples, avocados, citrus -- all growing in the Sandhills.
+          </p>
+        </div>
+      </div>
+
+      {/* INFRASTRUCTURE */}
+      <div style={{padding:'clamp(4rem,8vw,7rem) clamp(2rem,6vw,8rem)',background:'#0f0f0f'}}>
+        <div style={{maxWidth:1000,margin:'0 auto'}}>
+          <span style={{...ey,textAlign:'center',display:'block',marginBottom:'2.5rem'}}>Built for Independence</span>
+          <div style={{display:'grid',gridTemplateColumns:'repeat(auto-fit,minmax(260px,1fr))',gap:'1.5rem'}}>
+            {[
+              {eyebrow:'Energy',title:'The grid is optional.',body:'14.3kW solar array (61 Samsung panels) + Sunny Island battery storage. 30kW Kohler generator with dual 1,000-gallon propane tanks. The electrical capacity of a small hotel.'},
+              {eyebrow:'Geothermal',title:'20 wells. 300 feet each.',body:'Five-zone geothermal system drawing from 20 wells bored 300 feet deep. Heating and cooling the entire estate. The high tunnel uses the same principle for its climate battery.'},
+              {eyebrow:'Water',title:'50 GPM private well.',body:'Private well producing 50 gallons per minute. Commercial water filtration throughout. Dual 1,500-gallon septic. Complete water independence.'},
+              {eyebrow:'Security',title:'Brown Safe vault.',body:'Brown Safe installed in the residence. Control4 system manages shades, HVAC, security, pool, irrigation, and energy monitoring -- from anywhere in the world.'},
+            ].map(card=>(
+              <div key={card.title} style={{background:'rgba(255,255,255,0.06)',border:'1px solid rgba(255,255,255,0.12)',padding:'2.5rem 2rem'}}>
+                <span style={{...ey,marginBottom:'0.8rem'}}>{card.eyebrow}</span>
+                <div style={{fontFamily:'Georgia,serif',fontSize:'1.05rem',color:'#fff',marginBottom:'0.75rem',lineHeight:1.3}}>{card.title}</div>
+                <div style={{color:CREAM,fontSize:'0.9rem',lineHeight:1.85,opacity:0.75}}>{card.body}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {/* CINEMATIC -- FOYER */}
+      <Reveal
+        eyebrow="The Foyer"
+        headline="Herringbone brick.<br/><em>One tap,</em><br/>the house shifts."
+        body="Artisan herringbone brick in the entry foyer sets the tone. Control4 integration means the whole house responds to a single command -- lighting to ten percent, shades down, music on. The house knows what time it is."
+        imgSrc={cdnI(IMG.foyer)}
+        reverse={true}
+      />
+
+      {/* LOCATION */}
+      <div style={{padding:'clamp(5rem,10vw,9rem) clamp(2rem,8vw,10rem)',textAlign:'center',maxWidth:700,margin:'0 auto'}}>
+        <span style={ey}>Location</span>
+        <h2 style={{fontFamily:'Georgia,serif',fontWeight:400,fontSize:'clamp(2rem,3vw,2.8rem)',color:'#fff',lineHeight:1.2,margin:'0 0 2rem'}}>
+          Three miles from<br/><em>Pinehurst Resort.</em>
+        </h2>
+        <div style={div40}/>
+        <p style={{color:CREAM,fontSize:'1.05rem',lineHeight:2,opacity:0.85,margin:'2rem 0'}}>
+          107 Linden Trail sits in the Pinehurst ETJ -- three miles from Pinehurst No. 2, the most famous golf course in America. The resort economy. The Sandhills community. All of it at your door, none of it in your way.
+        </p>
+        <div style={{display:'flex',gap:'1rem',justifyContent:'center',flexWrap:'wrap',marginTop:'2rem'}}>
+          <a href={MATTERPORT} target="_blank" rel="noreferrer"
+            style={{padding:'0.85rem 2rem',background:'transparent',border:`1px solid ${GOLD}`,color:GOLD,fontFamily:'sans-serif',fontSize:'10px',letterSpacing:'0.28em',textTransform:'uppercase',borderRadius:2}}>
+            Tour the Estate
+          </a>
+          <a href={NUCLEUS} target="_blank" rel="noreferrer"
+            style={{padding:'0.85rem 2rem',background:'transparent',border:'1px solid rgba(255,255,255,0.3)',color:'rgba(255,255,255,0.7)',fontFamily:'sans-serif',fontSize:'10px',letterSpacing:'0.28em',textTransform:'uppercase',borderRadius:2}}>
+            Walk the Land
+          </a>
+        </div>
+      </div>
+
+      {/* INQUIRE */}
+      <div id="inquire" style={{padding:'clamp(5rem,10vw,9rem) clamp(2rem,8vw,10rem)',background:'#0f0f0f',textAlign:'center'}}>
+        <span style={ey}>Private Inquiries</span>
+        <h2 style={{fontFamily:'Georgia,serif',fontWeight:400,fontSize:'clamp(2rem,3vw,2.8rem)',color:'#fff',lineHeight:1.2,margin:'0 0 1rem'}}>Request Information</h2>
+        <p style={{color:CREAM,fontSize:'1rem',opacity:0.6,margin:'0 0 3rem'}}>Offered at $5,250,000. Shown by appointment only.</p>
+        {sent?(
+          <div style={{maxWidth:500,margin:'0 auto',padding:'3rem',background:GLASS,border:`1px solid ${GLASS_B}`}}>
+            <p style={{color:GOLD,fontFamily:'Georgia,serif',fontSize:'1.2rem',margin:0}}>Thank you. We will be in touch shortly.</p>
+          </div>
+        ):(
+          <form onSubmit={submit} style={{maxWidth:560,margin:'0 auto',display:'flex',flexDirection:'column',gap:'1rem'}}>
+            {[{k:'name',l:'Name',t:'text'},{k:'email',l:'Email',t:'email'},{k:'phone',l:'Phone',t:'tel'}].map(f=>(
+              <input key={f.k} type={f.t} placeholder={f.l} required={f.k!=='phone'} value={form[f.k]} onChange={e=>setForm(p=>({...p,[f.k]:e.target.value}))}
+                style={{padding:'1rem 1.2rem',background:'rgba(255,255,255,0.06)',border:'1px solid rgba(255,255,255,0.15)',color:'#fff',fontFamily:'Georgia,serif',fontSize:'0.95rem',outline:'none'}}/>
+            ))}
+            <textarea placeholder="Message (optional)" rows={4} value={form.message} onChange={e=>setForm(p=>({...p,message:e.target.value}))}
+              style={{padding:'1rem 1.2rem',background:'rgba(255,255,255,0.06)',border:'1px solid rgba(255,255,255,0.15)',color:'#fff',fontFamily:'Georgia,serif',fontSize:'0.95rem',outline:'none',resize:'vertical'}}/>
+            <button type="submit" style={{padding:'1rem 2rem',background:GOLD,border:'none',color:DARK,fontFamily:'sans-serif',fontSize:'11px',letterSpacing:'0.3em',textTransform:'uppercase',cursor:'pointer',fontWeight:600}}>
+              Submit Inquiry
+            </button>
+          </form>
+        )}
+      </div>
+
+      {/* FOOTER */}
+      <div style={{padding:'2.5rem 4vw',background:DARK,borderTop:'1px solid rgba(255,255,255,0.06)',display:'flex',justifyContent:'space-between',alignItems:'center',flexWrap:'wrap',gap:'1rem'}}>
+        <span style={{fontFamily:'Georgia,serif',fontSize:'0.85rem',color:'rgba(255,255,255,0.3)'}}>Flow Farm -- 107 Linden Trail, Aberdeen, NC 28315</span>
+        <span style={{fontFamily:'sans-serif',fontSize:'9px',letterSpacing:'0.2em',textTransform:'uppercase',color:'rgba(255,255,255,0.2)'}}>Rachel Hernandez -- Luxury Real Estate</span>
+      </div>
+
+      {/* MODAL */}
+      {modal&&(
+        <div style={{position:'fixed',inset:0,zIndex:1000,background:'rgba(10,10,10,0.92)',backdropFilter:'blur(8px)',display:'flex',alignItems:'center',justifyContent:'center',padding:'2rem'}}
+          onClick={e=>{if(e.target===e.currentTarget)setModal(false);}}>
+          <div style={{background:'#141414',border:`1px solid ${GLASS_B}`,padding:'3rem',maxWidth:520,width:'100%'}}>
+            <div style={{display:'flex',justifyContent:'space-between',alignItems:'center',marginBottom:'2rem'}}>
+              <span style={{fontFamily:'Georgia,serif',fontSize:'1.2rem',color:'#fff'}}>Private Inquiry</span>
+              <button onClick={()=>setModal(false)} style={{background:'none',border:'none',color:'rgba(255,255,255,0.4)',fontSize:'1.5rem',cursor:'pointer',lineHeight:1}}>x</button>
+            </div>
+            {sent?(
+              <p style={{color:GOLD,fontFamily:'Georgia,serif',textAlign:'center'}}>Thank you. We will be in touch shortly.</p>
+            ):(
+              <form onSubmit={submit} style={{display:'flex',flexDirection:'column',gap:'1rem'}}>
+                {[{k:'name',l:'Name',t:'text'},{k:'email',l:'Email',t:'email'},{k:'phone',l:'Phone',t:'tel'}].map(f=>(
+                  <input key={f.k} type={f.t} placeholder={f.l} required={f.k!=='phone'} value={form[f.k]} onChange={e=>setForm(p=>({...p,[f.k]:e.target.value}))}
+                    style={{padding:'0.9rem 1rem',background:'rgba(255,255,255,0.06)',border:'1px solid rgba(255,255,255,0.15)',color:'#fff',fontFamily:'Georgia,serif',fontSize:'0.9rem',outline:'none'}}/>
+                ))}
+                <textarea placeholder="Message" rows={3} value={form.message} onChange={e=>setForm(p=>({...p,message:e.target.value}))}
+                  style={{padding:'0.9rem 1rem',background:'rgba(255,255,255,0.06)',border:'1px solid rgba(255,255,255,0.15)',color:'#fff',fontFamily:'Georgia,serif',fontSize:'0.9rem',outline:'none',resize:'vertical'}}/>
+                <button type="submit" style={{padding:'0.9rem',background:GOLD,border:'none',color:DARK,fontFamily:'sans-serif',fontSize:'11px',letterSpacing:'0.3em',textTransform:'uppercase',cursor:'pointer',fontWeight:600}}>Submit</button>
+              </form>
+            )}
+          </div>
+        </div>
+      )}
+    </div>
+  );
+}
+
+ReactDOM.createRoot(document.getElementById('root')).render(React.createElement(App));
+</script>
+</body>
+</html>
