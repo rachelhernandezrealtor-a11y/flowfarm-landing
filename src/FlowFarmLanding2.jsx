@@ -230,35 +230,52 @@ function VideoLightbox({ onClose }) {
     };
   }, [onClose]);
 
+  const isMobile = window.innerWidth < 768;
+
   return (
     <div onClick={onClose} style={{
       position: 'fixed', inset: 0, zIndex: 9999,
-      background: 'rgba(0,0,0,0.92)',
+      background: '#000',
       display: 'flex', alignItems: 'center', justifyContent: 'center',
-      backdropFilter: 'blur(8px)', WebkitBackdropFilter: 'blur(8px)',
       animation: 'fadeIn 0.3s ease',
     }}>
       <style>{`@keyframes fadeIn { from { opacity: 0 } to { opacity: 1 } }`}</style>
+
+      {/* Mobile: true full screen cover. Desktop: cinematic 16/9 box */}
       <div onClick={e => e.stopPropagation()} style={{
-        position: 'relative', width: '90vw', maxWidth: '1100px',
-        aspectRatio: '16/9', borderRadius: '4px', overflow: 'hidden',
-        boxShadow: '0 40px 120px rgba(0,0,0,0.8)',
+        position: isMobile ? 'fixed' : 'relative',
+        inset: isMobile ? 0 : 'auto',
+        width: isMobile ? '100%' : '90vw',
+        maxWidth: isMobile ? 'none' : '1200px',
+        height: isMobile ? '100%' : 'auto',
+        aspectRatio: isMobile ? 'auto' : '16/9',
+        overflow: 'hidden',
+        borderRadius: isMobile ? 0 : '4px',
+        boxShadow: isMobile ? 'none' : '0 40px 120px rgba(0,0,0,0.8)',
       }}>
         <iframe
           src="https://iframe.cloudflarestream.com/de1885d159ae310508174f03f775c797?autoplay=true&controls=true&preload=auto"
-          style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', border: 'none' }}
+          style={{
+            position: 'absolute',
+            top: '50%', left: '50%',
+            transform: 'translate(-50%, -50%)',
+            width: isMobile ? 'max(100%, 177.78vh)' : '100%',
+            height: isMobile ? 'max(100%, 56.25vw)' : '100%',
+            border: 'none',
+          }}
           allow="autoplay; fullscreen; picture-in-picture"
           allowFullScreen
           title="Flow Farm property tour"
         />
       </div>
+
       <button onClick={onClose} style={{
-        position: 'fixed', top: '1.5rem', right: '1.5rem',
-        background: 'none', border: '1px solid rgba(255,255,255,0.3)',
+        position: 'fixed', top: '1.2rem', right: '1.2rem',
+        background: 'rgba(0,0,0,0.5)', border: '1px solid rgba(255,255,255,0.3)',
         color: '#fff', fontFamily: 'sans-serif', fontSize: '11px',
         letterSpacing: '0.2em', textTransform: 'uppercase',
         padding: '0.5rem 1.2rem', borderRadius: '2rem', cursor: 'pointer',
-        opacity: 0.7,
+        zIndex: 10001,
       }}>
         Close
       </button>
