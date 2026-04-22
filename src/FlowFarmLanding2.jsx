@@ -216,7 +216,7 @@ function VideoLightbox({ onClose }) {
       background: 'rgba(0,0,0,0.92)',
       display: 'flex', alignItems: 'center', justifyContent: 'center',
       backdropFilter: 'blur(8px)', WebkitBackdropFilter: 'blur(8px)',
-      animation: 'fadeIn 0.4s ease',
+      animation: 'fadeIn 0.3s ease',
     }}>
       <style>{`@keyframes fadeIn { from { opacity: 0 } to { opacity: 1 } }`}</style>
       <div onClick={e => e.stopPropagation()} style={{
@@ -225,10 +225,11 @@ function VideoLightbox({ onClose }) {
         boxShadow: '0 40px 120px rgba(0,0,0,0.8)',
       }}>
         <iframe
-          src="https://player.vimeo.com/video/1165426324?autoplay=1&byline=0&title=0&portrait=0&color=C9A96E"
+          src="https://player.vimeo.com/video/1165426324?autoplay=1&autopause=0&byline=0&title=0&portrait=0&color=C9A96E&dnt=1"
           style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', border: 'none' }}
           allow="autoplay; fullscreen; picture-in-picture"
           allowFullScreen
+          loading="eager"
         />
       </div>
       <button onClick={onClose} style={{
@@ -250,6 +251,17 @@ function Hero() {
   const mob = w < 768;
   const [p, setP] = useState(0);
   const [videoOpen, setVideoOpen] = useState(false);
+  // Preconnect to Vimeo on mount so video loads instantly on click
+  useEffect(() => {
+    const link1 = document.createElement('link');
+    link1.rel = 'preconnect';
+    link1.href = 'https://player.vimeo.com';
+    document.head.appendChild(link1);
+    const link2 = document.createElement('link');
+    link2.rel = 'preconnect';
+    link2.href = 'https://f.vimeocdn.com';
+    document.head.appendChild(link2);
+  }, []);
 
   useEffect(() => {
     const t = [
