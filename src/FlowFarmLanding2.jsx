@@ -183,7 +183,7 @@ function HeroStats({ mob }) {
             <div style={{
               width: '1px',
               background: 'linear-gradient(to bottom, transparent, rgba(255,255,255,0.18) 20%, rgba(255,255,255,0.18) 80%, transparent)',
-              margin: mob ? '0 1.2rem' : '0 2rem',
+              margin: mob ? '0 1.6rem' : '0 2rem',
               alignSelf: 'stretch',
               minHeight: mob ? '48px' : '60px',
             }} />
@@ -288,10 +288,10 @@ function Hero() {
         </nav>
       )}
 
-      <div style={{ position: 'absolute', inset: 0, zIndex: 5, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', textAlign: 'center', padding: mob ? '7rem 6vw 0' : '9rem 10vw 0', maxWidth: '100%' }}>
+      <div style={{ position: 'absolute', inset: 0, zIndex: 5, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', textAlign: 'center', padding: mob ? '4.5rem 6vw 0' : '9rem 10vw 0', maxWidth: '100%' }}>
         <div style={{ ...show(2), width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
 
-          <p style={{ fontFamily: 'sans-serif', fontSize: '10px', letterSpacing: '0.36em', textTransform: 'uppercase', color: GOLD, margin: mob ? '0 0 1.4rem' : '0 0 1.8rem' }}>
+          <p style={{ fontFamily: 'sans-serif', fontSize: mob ? '8px' : '10px', letterSpacing: mob ? '0.22em' : '0.36em', textTransform: 'uppercase', color: GOLD, margin: mob ? '0 0 1.4rem' : '0 0 1.8rem' }}>
             107 Linden Trail&nbsp;&nbsp;Aberdeen, NC 28315&nbsp;&nbsp;<span style={{ color: 'rgba(201,169,110,0.5)' }}>|</span>&nbsp;&nbsp;Pinehurst ETJ
           </p>
           <h1 style={{
