@@ -311,12 +311,15 @@ function Hero() {
         </nav>
       )}
 
-      <div style={{ position: 'absolute', inset: 0, zIndex: 5, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', textAlign: 'center', padding: mob ? '3rem 6vw 3rem' : '9rem 10vw 4rem', maxWidth: '100%' }}>
+      <div style={{ position: 'absolute', inset: 0, zIndex: 5, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'space-between', textAlign: 'center', padding: mob ? '4.5rem 6vw 2.5rem' : '6rem 10vw 4rem', maxWidth: '100%' }}>
+        {/* TOP — address eyebrow */}
         <div style={{ ...show(2), width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-
-          <p style={{ fontFamily: 'sans-serif', fontSize: mob ? '7px' : '10px', letterSpacing: mob ? '0.16em' : '0.36em', textTransform: 'uppercase', color: GOLD, margin: mob ? '0 0 1.4rem' : '0 0 1.8rem', whiteSpace: 'nowrap' }}>
+          <p style={{ fontFamily: 'sans-serif', fontSize: mob ? '7px' : '10px', letterSpacing: mob ? '0.16em' : '0.36em', textTransform: 'uppercase', color: GOLD, margin: 0, whiteSpace: 'nowrap' }}>
             107 Linden Trail&nbsp;&nbsp;Aberdeen, NC 28315&nbsp;&nbsp;<span style={{ color: 'rgba(201,169,110,0.5)' }}>|</span>&nbsp;&nbsp;Pinehurst ETJ
           </p>
+        </div>
+        {/* MIDDLE — headline */}
+        <div style={{ ...show(2), width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
           <h1 style={{
             color: '#fff', fontFamily: 'Georgia, serif', fontWeight: 400,
             fontSize: mob ? '2.3rem' : w < 1024 ? '4.6rem' : '6.2rem',
@@ -326,17 +329,18 @@ function Hero() {
             Agritourism <em>Established.</em><br />Legacy Ready.
           </h1>
         </div>
-        <div style={{ ...show(3), marginTop: mob ? '0.7rem' : '2.2rem', width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+        {/* BOTTOM — subhead, stats, button */}
+        <div style={{ ...show(3), width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
           <p style={{
             color: '#F5F0E8', fontFamily: 'Georgia, serif', fontStyle: 'italic',
-            fontSize: mob ? '0.82rem' : '1.25rem', margin: mob ? '0 0 1rem' : '0 0 2.6rem',
+            fontSize: mob ? '0.82rem' : '1.25rem', margin: mob ? '0 0 1rem' : '0 0 2rem',
             letterSpacing: '0.01em', lineHeight: 1.7,
             textShadow: '0 2px 20px rgba(0,0,0,0.5)',
           }}>
             Where architectural excellence meets working land, three miles from Pinehurst Resort.
           </p>
           <HeroStats mob={mob} />
-          <div style={{ display: 'flex', flexWrap: 'wrap', gap: mob ? '0.75rem' : '1rem', justifyContent: 'center', alignItems: 'center' }}>
+          <div style={{ display: 'flex', flexWrap: 'wrap', gap: mob ? '0.75rem' : '1rem', justifyContent: 'center', alignItems: 'center', marginTop: mob ? '0.8rem' : '0' }}>
             <button onClick={() => setVideoOpen(true)} style={{ display: 'inline-block', background: 'rgba(255,255,255,0.14)', border: '1px solid rgba(255,255,255,0.55)', color: '#fff', fontFamily: 'sans-serif', fontSize: mob ? '9px' : '10px', letterSpacing: '0.32em', textTransform: 'uppercase', padding: mob ? '0.85rem 2rem' : '1rem 2.8rem', borderRadius: '2rem', textDecoration: 'none', fontWeight: 500, cursor: 'pointer', transition: 'background 0.3s ease', boxShadow: 'inset 0 1px 0 rgba(255,255,255,0.25), 0 4px 24px rgba(0,0,0,0.3)', backdropFilter: 'blur(12px)', WebkitBackdropFilter: 'blur(12px)' }}>
               Enter Flow Farm
             </button>
