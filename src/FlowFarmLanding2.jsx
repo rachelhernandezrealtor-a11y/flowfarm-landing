@@ -306,9 +306,10 @@ function Hero() {
         </div>
         <div style={{ ...show(3), marginTop: mob ? '1.6rem' : '2.2rem', width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
           <p style={{
-            color: 'rgba(255,255,255,0.78)', fontFamily: 'Georgia, serif', fontStyle: 'italic',
-            fontSize: mob ? '0.95rem' : '1.1rem', margin: mob ? '0 0 2rem' : '0 0 2.6rem',
+            color: '#F5F0E8', fontFamily: 'Georgia, serif', fontStyle: 'italic',
+            fontSize: mob ? '1.05rem' : '1.25rem', margin: mob ? '0 0 2rem' : '0 0 2.6rem',
             letterSpacing: '0.01em', lineHeight: 1.7,
+            textShadow: '0 2px 20px rgba(0,0,0,0.5)',
           }}>
             Where architectural excellence meets working land -- three miles from Pinehurst Resort.
           </p>
@@ -1023,9 +1024,7 @@ function StealTheShow() {
       <div style={{ position: 'absolute', inset: 0, zIndex: 2, background: 'linear-gradient(to bottom, rgba(0,0,0,0.32) 0%, rgba(0,0,0,0.20) 40%, rgba(0,0,0,0.60) 100%)' }} />
       {/* Content */}
       <div style={{ position: 'relative', zIndex: 3, textAlign: 'center', padding: mob ? '6rem 6vw' : '8rem 8vw', maxWidth: 1100, margin: '0 auto' }}>
-        <p style={{ fontFamily: 'sans-serif', fontSize: mob ? '9px' : '10px', letterSpacing: '0.36em', textTransform: 'uppercase', color: GOLD, marginBottom: mob ? '1.4rem' : '2rem', fontWeight: 400 }}>
-          The Architectural Masterpiece
-        </p>
+
         <h2 style={{
           fontFamily: 'Georgia, serif',
           fontWeight: 400,
