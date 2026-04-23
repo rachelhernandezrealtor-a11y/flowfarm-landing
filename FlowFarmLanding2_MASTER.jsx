@@ -1877,4 +1877,3 @@ export default function FlowFarmLanding2() {
     </div>
   );
 }
-
