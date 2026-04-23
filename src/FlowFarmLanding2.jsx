@@ -217,6 +217,41 @@ const HeroStats = React.memo(function HeroStats({ mob }) {
 
 
 // ============================================================
+// ROTATE NUDGE -- mobile portrait only, fades out after 3s
+// ============================================================
+function RotateNudge() {
+  const [visible, setVisible] = React.useState(true);
+  React.useEffect(() => {
+    const t = setTimeout(() => setVisible(false), 3000);
+    return () => clearTimeout(t);
+  }, []);
+  // Only show on portrait mobile
+  const isPortrait = window.innerHeight > window.innerWidth;
+  const isMobile = window.innerWidth < 768;
+  if (!isPortrait || !isMobile) return null;
+  return (
+    <div style={{
+      position: 'fixed', bottom: '5rem', left: '50%',
+      transform: 'translateX(-50%)',
+      display: 'flex', alignItems: 'center', gap: '0.6rem',
+      opacity: visible ? 0.7 : 0,
+      transition: 'opacity 1s ease',
+      pointerEvents: 'none',
+      zIndex: 10002,
+    }}>
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#C9A96E" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+        <rect x="5" y="2" width="14" height="20" rx="2" ry="2" transform="rotate(90 12 12)" />
+        <path d="M17 12l-5-5-5 5" />
+      </svg>
+      <span style={{
+        color: '#C9A96E', fontFamily: 'sans-serif', fontSize: '9px',
+        letterSpacing: '0.25em', textTransform: 'uppercase',
+      }}>Rotate for full view</span>
+    </div>
+  );
+}
+
+// ============================================================
 // VIDEO LIGHTBOX
 // ============================================================
 function VideoLightbox({ onClose }) {
@@ -248,9 +283,14 @@ function VideoLightbox({ onClose }) {
       animation: 'fadeIn 0.3s ease',
     }}>
       <style>{`@keyframes fadeIn { from { opacity: 0 } to { opacity: 1 } }`}</style>
+      {/* Video box -- natural 16/9 on both mobile and desktop. Mobile: fits width, letterboxes naturally with dark above/below */}
       <div onClick={e => e.stopPropagation()} style={{
-        position: 'relative', width: '90vw', maxWidth: '1100px',
-        aspectRatio: '16/9', borderRadius: '4px', overflow: 'hidden',
+        position: 'relative',
+        width: '95vw',
+        maxWidth: '1100px',
+        aspectRatio: '16/9',
+        borderRadius: '4px',
+        overflow: 'hidden',
         boxShadow: '0 40px 120px rgba(0,0,0,0.8)',
       }}>
         <iframe
@@ -261,13 +301,17 @@ function VideoLightbox({ onClose }) {
           title="Flow Farm property tour"
         />
       </div>
+
+      {/* Rotate nudge -- mobile portrait only, fades out after 3s */}
+      <RotateNudge />
+
       <button onClick={onClose} style={{
-        position: 'fixed', top: '1.5rem', right: '1.5rem',
-        background: 'none', border: '1px solid rgba(255,255,255,0.3)',
+        position: 'fixed', top: '1.2rem', right: '1.2rem',
+        background: 'rgba(0,0,0,0.4)', border: '1px solid rgba(255,255,255,0.25)',
         color: '#fff', fontFamily: 'sans-serif', fontSize: '11px',
         letterSpacing: '0.2em', textTransform: 'uppercase',
         padding: '0.5rem 1.2rem', borderRadius: '2rem', cursor: 'pointer',
-        opacity: 0.7,
+        zIndex: 10001,
       }}>
         Close
       </button>
