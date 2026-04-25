@@ -1848,7 +1848,7 @@ export default function FlowFarmLanding2() {
         src={cdnInt(IMG.wolf)}
         eyebrow="The Kitchen"
         headline={"Sub-Zero. Wolf 60\".\nBuilt for the serious cook."}
-        body="A 60-inch dual fuel Wolf range with red knobs, six burners, griddle, grill, and warming drawer. Two KitchenAid dishwashers. Butcher block island. Scullery with full Sub-Zero and wine fridge. The water from every tap is filtered. Drink it straight. Music plays from somewhere you can't locate. That's the point."
+        body="A 60-inch dual fuel Wolf range with red knobs, six burners, griddle, grill, and warming drawer. Two KitchenAid dishwashers. Butcher block island. Farmhouse apron sink. Soapstone counters. Scullery with full Sub-Zero and wine fridge. The water from every tap is filtered. Drink it straight. Music plays from somewhere you can't locate. That's the point. The pagoda toile goes up every wall. Around the corner. Up the back stair. The same wallpaper, the same commitment, through every room it touches. The Roman shades are cut from the same cloth."
         position="center 40%"
       />
       <Land />
