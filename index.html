@@ -562,8 +562,8 @@ function Foundation() {
   const w = useW();
   const mob = w < 768;
   return (
-    <section id="the-estate" style={{ background: '#0c0c0c', padding: mob ? '7rem 0' : '10rem 0' }}>
-      <div style={{ display: 'grid', gridTemplateColumns: mob ? '1fr' : '1fr 1fr', maxWidth: 1320, margin: '0 auto', padding: '0 6vw', gap: mob ? '5rem' : '8rem', alignItems: 'center' }}>
+    <section id="the-estate" style={{ background: '#0c0c0c', padding: mob ? '9rem 0' : '13rem 0' }}>
+      <div style={{ display: 'grid', gridTemplateColumns: mob ? '1fr' : '1fr 1fr', maxWidth: 1320, margin: '0 auto', padding: '0 6vw', gap: mob ? '6rem' : '10rem', alignItems: 'center' }}>
         <Fade delay={0.05}>
           <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
             <Eyebrow>The Estate</Eyebrow>
@@ -681,7 +681,7 @@ function ForestIntro() {
         {/* Beat 1 -- A Living Place */}
         <div ref={b1Ref} style={{
           position: 'relative', zIndex: 2,
-          padding: mob ? '6rem 6vw 4rem' : '8rem 10vw 5rem',
+          padding: mob ? '8rem 6vw 6rem' : '11rem 10vw 8rem',
           opacity: beat1 ? 1 : 0,
           transform: beat1 ? 'none' : 'translateY(32px)',
           transition: 'opacity 1.6s ease, transform 1.6s ease',
@@ -698,7 +698,7 @@ function ForestIntro() {
         {/* Beat 2 -- Operational by Design */}
         <div ref={b2Ref} style={{
           position: 'relative', zIndex: 2,
-          padding: mob ? '3rem 6vw 6rem' : '4rem 10vw 8rem',
+          padding: mob ? '6rem 6vw 8rem' : '7rem 10vw 11rem',
           opacity: beat2 ? 1 : 0,
           transform: beat2 ? 'none' : 'translateY(32px)',
           transition: 'opacity 1.6s ease 0.2s, transform 1.6s ease 0.2s',
@@ -744,7 +744,7 @@ function ForestIntro() {
           position: 'relative', zIndex: 2,
           display: 'flex', alignItems: 'flex-end', justifyContent: 'center',
           minHeight: mob ? '50vh' : '65vh',
-          padding: mob ? '3rem 6vw 4rem' : '4rem 10vw 5rem',
+          padding: mob ? '6rem 6vw 6rem' : '8rem 10vw 8rem',
           textAlign: 'center',
           opacity: beat3 ? 1 : 0,
           transform: beat3 ? 'none' : 'translateY(28px)',
@@ -760,7 +760,7 @@ function ForestIntro() {
       </div>
 
       {/* ======= KEY INTERSTITIAL -- The Farm is the Key ======= */}
-      <div style={{ background: '#0a0a0a', padding: '7rem 10vw', textAlign: 'center' }}>
+      <div style={{ background: '#0a0a0a', padding: '10rem 10vw', textAlign: 'center' }}>
         <div style={{ width: '40px', height: '1px', background: 'linear-gradient(to right, transparent, rgba(201,169,110,0.5), transparent)', margin: '0 auto 3.5rem' }} />
         <p style={{ fontFamily: 'Georgia, serif', fontStyle: 'italic', fontSize: 'clamp(1.5rem, 3vw, 2.4rem)', color: '#F5F0E8', lineHeight: 1.55, maxWidth: 780, margin: '0 auto', letterSpacing: '-0.01em' }}>
           Three acres, active and certified.<br />That&rsquo;s all it took.<br /><span style={{ color: 'rgba(201,169,110,0.85)' }}>The rest of the fifteen are yours.</span>
@@ -782,7 +782,7 @@ function ForestIntro() {
           position: 'relative', zIndex: 2,
           display: 'flex', alignItems: 'flex-end', justifyContent: 'center',
           minHeight: mob ? '55vh' : '72vh',
-          padding: mob ? '3rem 6vw 4rem' : '4rem 10vw 5rem',
+          padding: mob ? '6rem 6vw 6rem' : '8rem 10vw 8rem',
           textAlign: 'center',
           opacity: beat4 ? 1 : 0,
           transform: beat4 ? 'none' : 'translateY(28px)',
@@ -812,7 +812,7 @@ function ForestIntro() {
           position: 'relative', zIndex: 2,
           display: 'flex', alignItems: 'center', justifyContent: 'center',
           minHeight: mob ? '55vh' : '72vh',
-          padding: mob ? '4rem 6vw' : '5rem 10vw',
+          padding: mob ? '7rem 6vw' : '9rem 10vw',
           textAlign: 'center',
         }}>
           <div>
@@ -862,11 +862,11 @@ function PropertyMap() {
   };
 
   return (
-    <section ref={ref} style={{ background: DARK, padding: mob ? '5rem 0 5rem' : '8rem 0 6rem' }}>
+    <section ref={ref} style={{ background: DARK, padding: mob ? '7rem 0 7rem' : '11rem 0 10rem' }}>
       {/* Section header */}
       <div style={{
         textAlign: 'center',
-        padding: mob ? '0 6vw 3rem' : '0 6vw 4rem',
+        padding: mob ? '0 6vw 4rem' : '0 6vw 6rem',
         opacity: fadeIn ? 1 : 0,
         transform: fadeIn ? 'none' : 'translateY(24px)',
         transition: 'opacity 1.4s ease, transform 1.4s ease',
@@ -1504,8 +1504,8 @@ function Location() {
   const w = useW();
   const mob = w < 768;
   return (
-    <section style={{ background: DARK, padding: mob ? '7rem 0' : '10rem 0' }}>
-      <div style={{ display: 'grid', gridTemplateColumns: mob ? '1fr' : '1fr 1fr', maxWidth: 1320, margin: '0 auto', padding: '0 5vw', gap: mob ? '5rem' : '8rem', alignItems: 'center' }}>
+    <section style={{ background: DARK, padding: mob ? '9rem 0' : '13rem 0' }}>
+      <div style={{ display: 'grid', gridTemplateColumns: mob ? '1fr' : '1fr 1fr', maxWidth: 1320, margin: '0 auto', padding: '0 5vw', gap: mob ? '6rem' : '10rem', alignItems: 'center' }}>
         <Fade delay={0.05}>
           <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
             <Eyebrow>Location</Eyebrow>
@@ -1560,7 +1560,7 @@ function Inquire() {
   };
   const inp = { background: 'transparent', border: 'none', borderBottom: '1px solid rgba(255,255,255,0.12)', color: CREAM, fontFamily: 'Georgia, serif', fontSize: '1rem', padding: '1rem 0', width: '100%', outline: 'none' };
   return (
-    <section id="inquire" style={{ background: '#0c0c0c', padding: mob ? '7rem 0' : '10rem 0' }}>
+    <section id="inquire" style={{ background: '#0c0c0c', padding: mob ? '9rem 0' : '13rem 0' }}>
       <div style={{ maxWidth: 640, margin: '0 auto', padding: '0 6vw', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '3rem' }}>
         <Fade up>
           <div style={{ textAlign: 'center', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '1.6rem' }}>
