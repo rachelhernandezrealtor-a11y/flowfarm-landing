@@ -402,16 +402,17 @@ function Hero() {
             textShadow: '0 4px 80px rgba(0,0,0,0.6)',
             display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '0.1em',
           }}>
-            <span style={{ color: 'rgba(255,255,255,0.72)', fontSize: '0.62em', letterSpacing: '0.18em', fontFamily: 'sans-serif', fontStyle: 'normal', fontWeight: 300, textTransform: 'uppercase' }}>Agritourism</span>
-            <em style={{ fontStyle: 'italic', color: '#F5F0E8', lineHeight: 1 }}>Established.</em>
-            <span style={{ fontSize: '0.58em', letterSpacing: '0.08em', color: 'rgba(255,255,255,0.65)', fontStyle: 'normal', fontWeight: 300 }}>Legacy Ready.</span>
+            <span style={{ color: 'rgba(201,169,110,0.65)', fontSize: '0.62em', letterSpacing: '0.22em', fontFamily: 'sans-serif', fontStyle: 'normal', fontWeight: 300, textTransform: 'uppercase' }}>Agritourism</span>
+            <div style={{ width: '40px', height: '1px', background: 'linear-gradient(to right, transparent, rgba(201,169,110,0.5), transparent)', margin: '0.15em 0' }} />
+            <em style={{ fontStyle: 'italic', color: '#F5F0E8', lineHeight: 1, textShadow: '0 0 60px rgba(201,169,110,0.25)' }}>Established.</em>
+            <span style={{ fontSize: '0.52em', letterSpacing: '0.22em', color: 'rgba(255,255,255,0.55)', fontStyle: 'normal', fontWeight: 300, textTransform: 'uppercase' }}>Legacy Ready.</span>
           </h1>
         </div>
         <div style={{ ...show(3), marginTop: mob ? '1rem' : '1.4rem', width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
           {/* !! LOCKED SUBHEAD -- DO NOT CHANGE WITHOUT RACHEL APPROVAL !! */}
           <p style={{
-            color: '#F5F0E8', fontFamily: 'Georgia, serif', fontStyle: 'italic',
-            fontSize: mob ? '0.82rem' : '1.1rem', margin: mob ? '0 0 1.2rem' : '0 0 1.2rem',
+            color: 'rgba(245,240,232,0.62)', fontFamily: 'Georgia, serif', fontStyle: 'italic',
+            fontSize: mob ? '0.82rem' : '1.05rem', margin: mob ? '0 0 1.2rem' : '0 0 1.2rem',
             letterSpacing: '0.01em', lineHeight: 1.7,
             textShadow: '0 2px 20px rgba(0,0,0,0.5)',
           }}>
