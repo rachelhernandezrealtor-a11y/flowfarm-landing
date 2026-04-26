@@ -1489,7 +1489,6 @@ function Numbers() {
   const w = useW();
   const mob = w < 768;
   const cols = mob ? 2 : 4;
-  // [label, numeric_target, prefix, suffix, decimals, duration_ms]
   const stats = [
     ['Acres', 15, '', '', 0, 1600],
     ['Sq Ft Main Residence', 8519, '', '', 0, 2200],
@@ -1501,16 +1500,72 @@ function Numbers() {
     ['Mi To Pinehurst', 3, '', ' mi', 0, 1000],
   ];
   return (
-    <section style={{ background: '#0c0c0c', padding: mob ? '6rem 0' : '9rem 0' }}>
-      <Fade>
-        <p style={{ fontFamily: 'sans-serif', fontSize: '10px', letterSpacing: '0.36em', textTransform: 'uppercase', color: GOLD, margin: mob ? '0 0 5rem' : '0 0 6rem', textAlign: 'center' }}>
-          By The Numbers
-        </p>
-      </Fade>
-      <div style={{ display: 'grid', gridTemplateColumns: `repeat(${cols}, 1fr)`, maxWidth: 1020, margin: '0 auto', padding: '0 5vw',  }}>
-        {stats.map(([label, value, prefix, suffix, decimals, duration], i) => (
-          <CountStat key={label} value={value} label={label} prefix={prefix} suffix={suffix} decimals={decimals} duration={duration} mob={mob} />
-        ))}
+    <section style={{ position: 'relative', overflow: 'hidden', padding: mob ? '7rem 0' : '11rem 0' }}>
+      {/* Photo bg — geothermal tunnel for the tech-estate vibe */}
+      <div style={{ position: 'absolute', inset: 0, zIndex: 1 }}>
+        <img src={IMG.tunnel} alt="" style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center 40%', display: 'block', filter: 'saturate(1.2) brightness(0.75)' }} />
+      </div>
+      {/* Dark meld top + bottom */}
+      <div style={{ position: 'absolute', inset: 0, zIndex: 2, background: 'linear-gradient(to bottom, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.38) 30%, rgba(0,0,0,0.38) 70%, rgba(0,0,0,0.82) 100%)' }} />
+      {/* Subtle horizontal scan-line grid overlay for tech feel */}
+      <div style={{ position: 'absolute', inset: 0, zIndex: 3, backgroundImage: 'repeating-linear-gradient(0deg, transparent, transparent 39px, rgba(201,169,110,0.04) 40px)', pointerEvents: 'none' }} />
+
+      <div style={{ position: 'relative', zIndex: 5 }}>
+        {/* Header */}
+        <Fade>
+          <div style={{ textAlign: 'center', marginBottom: mob ? '4rem' : '6rem', padding: '0 6vw' }}>
+            <p style={{ fontFamily: 'sans-serif', fontSize: '9px', letterSpacing: '0.40em', textTransform: 'uppercase', color: GOLD, margin: '0 0 1rem', textShadow: '0 1px 8px rgba(0,0,0,0.9)' }}>
+              System Output
+            </p>
+            <div style={{ width: 32, height: 1, background: GOLD, opacity: 0.4, margin: '0 auto' }} />
+          </div>
+        </Fade>
+
+        {/* Stats grid */}
+        <div style={{ display: 'grid', gridTemplateColumns: `repeat(${cols}, 1fr)`, maxWidth: 1100, margin: '0 auto', padding: '0 5vw' }}>
+          {stats.map(([label, value, prefix, suffix, decimals, duration], i) => {
+            const [count, ref] = useCounter(value, duration, 0, decimals || 0);
+            const display = (prefix || '') + (decimals ? count.toFixed(decimals) : Math.round(count).toLocaleString()) + (suffix || '');
+            const isPrice = label === 'Offered At';
+            return (
+              <div key={label} ref={ref} style={{
+                textAlign: 'center',
+                padding: mob ? '2.5rem 1rem' : '3.5rem 1.5rem',
+                borderBottom: i < (mob ? cols : cols) ? '1px solid rgba(201,169,110,0.10)' : 'none',
+                borderRight: (i + 1) % cols !== 0 ? '1px solid rgba(201,169,110,0.10)' : 'none',
+                position: 'relative',
+              }}>
+                {/* Corner accent top-left */}
+                <div style={{ position: 'absolute', top: 0, left: 0, width: 12, height: 12, borderTop: '1px solid rgba(201,169,110,0.3)', borderLeft: '1px solid rgba(201,169,110,0.3)' }} />
+                {/* Number */}
+                <p style={{
+                  color: isPrice ? GOLD : '#fff',
+                  fontFamily: 'Georgia, serif',
+                  fontSize: mob ? '2.2rem' : 'clamp(2.4rem,4vw,3.8rem)',
+                  fontWeight: 300,
+                  margin: '0 0 0.5rem',
+                  letterSpacing: '-0.03em',
+                  textShadow: isPrice ? '0 0 40px rgba(201,169,110,0.5), 0 2px 20px rgba(0,0,0,0.8)' : '0 0 30px rgba(255,255,255,0.15), 0 2px 20px rgba(0,0,0,0.8)',
+                  lineHeight: 1,
+                }}>
+                  {display}
+                </p>
+                {/* Label */}
+                <p style={{
+                  fontFamily: 'sans-serif',
+                  fontSize: '8px',
+                  letterSpacing: '0.28em',
+                  textTransform: 'uppercase',
+                  color: 'rgba(255,255,255,0.45)',
+                  margin: 0,
+                  textShadow: '0 1px 8px rgba(0,0,0,0.9)',
+                }}>
+                  {label}
+                </p>
+              </div>
+            );
+          })}
+        </div>
       </div>
     </section>
   );
