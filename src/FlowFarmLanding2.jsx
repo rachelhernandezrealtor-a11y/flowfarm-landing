@@ -1011,7 +1011,7 @@ function PropertyMap() {
               }}
             >
               {/* Pulse ring */}
-              <div style={{ position: 'relative', width: mob ? 16 : 20, height: mob ? 16 : 20 }}>
+              <div style={{ position: 'relative', width: mob ? 22 : 20, height: mob ? 22 : 20 }}>
                 <div style={{
                   position: 'absolute', inset: 0,
                   borderRadius: '50%',
@@ -1042,7 +1042,7 @@ function PropertyMap() {
               }}>
                 <span style={{
                   fontFamily: 'sans-serif',
-                  fontSize: mob ? '6px' : '8px',
+                  fontSize: mob ? '7px' : '8px',
                   letterSpacing: '0.22em',
                   textTransform: 'uppercase',
                   color: CREAM,
@@ -1061,21 +1061,24 @@ function PropertyMap() {
               top: mob ? 'auto' : '50%',
               bottom: mob ? 0 : 'auto',
               left: mob ? 0 : '3%',
-              width: mob ? '100%' : Math.min(380, w * 0.32) + 'px',
+              width: mob ? '100%' : Math.min(400, w * 0.34) + 'px',
               zIndex: 20,
               opacity: panelVisible ? 1 : 0,
               transform: panelVisible
                 ? (mob ? 'translateY(0)' : 'translateY(-50%)')
-                : (mob ? 'translateY(20px)' : 'translateY(calc(-50% + 16px))'),
-              transition: 'opacity 0.38s ease, transform 0.38s ease',
+                : (mob ? 'translateY(100%)' : 'translateY(calc(-50% + 16px))'),
+              transition: 'opacity 0.38s ease, transform 0.42s cubic-bezier(.16,1,.3,1)',
             }}>
               <div style={{
-                background: 'rgba(6,6,6,0.94)',
+                background: 'rgba(6,6,6,0.96)',
                 backdropFilter: 'blur(28px)',
                 WebkitBackdropFilter: 'blur(28px)',
                 border: '1px solid rgba(201,169,110,0.22)',
-                padding: mob ? '1.6rem 1.4rem' : '2.4rem 2.2rem',
+                borderBottom: 'none',
+                padding: mob ? '1.4rem 1.2rem 2rem' : '2.4rem 2.2rem',
                 position: 'relative',
+                maxHeight: mob ? '52vh' : 'none',
+                overflowY: mob ? 'auto' : 'visible',
               }}>
                 {/* Color accent bar */}
                 <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: '2px', background: active.color || GOLD, opacity: 0.7 }} />
@@ -1150,10 +1153,10 @@ function PropertyMap() {
         <div style={{ display: 'flex', justifyContent: 'center', gap: '0.6rem', marginTop: '1.8rem' }}>
           {MAP_PINS.map((pin) => (
             <button key={pin.id} onClick={() => openPin(pin)} style={{
-              width: active && active.id === pin.id ? 20 : 6,
-              height: 6, borderRadius: 3,
+              width: active && active.id === pin.id ? (mob ? 24 : 20) : (mob ? 10 : 6),
+              height: mob ? 10 : 6, borderRadius: mob ? 5 : 3,
               background: active && active.id === pin.id ? (pin.color || GOLD) : (active && active.connects && active.connects.includes(pin.id) ? 'rgba(201,169,110,0.35)' : 'rgba(255,255,255,0.18)'),
-              border: 'none', cursor: 'pointer', padding: 0,
+              border: 'none', cursor: 'pointer', padding: mob ? '8px 0' : 0, boxSizing: 'content-box',
               transition: 'width 0.35s ease, background 0.35s ease',
             }} />
           ))}
@@ -1166,6 +1169,13 @@ function PropertyMap() {
           50% { opacity: 0.5; transform: scale(2.2); }
         }
       `}</style>
+
+      {/* Mobile tap hint */}
+      {mob && (
+        <p style={{ textAlign: 'center', fontFamily: 'sans-serif', fontSize: '8px', letterSpacing: '0.24em', textTransform: 'uppercase', color: 'rgba(201,169,110,0.35)', padding: '0.5rem 6vw 0', margin: 0 }}>
+          Tap any pin to explore
+        </p>
+      )}
 
       {/* Walk the Land CTA */}
       <div style={{ textAlign: 'center', padding: '2.5rem 0 3.5rem', position: 'relative', zIndex: 10 }}>
