@@ -941,7 +941,7 @@ function PropertyMap() {
         transition: 'opacity 1.4s ease, transform 1.4s ease',
       }}>
         <Eyebrow center>Six Structures. One System.</Eyebrow>
-        <p style={{ fontFamily: 'Georgia, serif', fontStyle: 'italic', fontSize: mob ? '1rem' : '1.1rem', color: 'rgba(255,255,255,0.38)', margin: '1rem 0 0', textAlign: 'center' }}>
+        <p style={{ fontFamily: 'Georgia, serif', fontStyle: 'italic', fontSize: mob ? '1rem' : '1.1rem', color: 'rgba(255,255,255,0.72)', margin: '1rem 0 0', textAlign: 'center' }}>
           Everything here is connected. Tap any structure.
         </p>
         <div style={{ width: 36, height: 1, background: GOLD, opacity: 0.35, margin: '1.2rem auto' }} />
@@ -958,7 +958,7 @@ function PropertyMap() {
           Fifteen acres.<br />One integrated system.
         </h2>
         <p style={{
-          color: 'rgba(255,255,255,0.32)',
+          color: 'rgba(255,255,255,0.78)',
           fontFamily: 'Georgia, serif',
           fontSize: mob ? '0.95rem' : '1.02rem',
           lineHeight: 1.9,
@@ -1468,7 +1468,7 @@ function Mechanism() {
             <h2 style={{ color: CREAM, fontFamily: 'Georgia, serif', fontWeight: 400, fontSize: mob ? '1.7rem' : '3.2rem', lineHeight: 1.28, margin: '2rem 0 2.4rem', letterSpacing: '-0.018em' }}>
               Structure that holds<br /><em>freedom.</em>
             </h2>
-            <p style={{ color: 'rgba(255,255,255,0.26)', fontFamily: 'Georgia, serif', fontSize: mob ? '1rem' : '1.12rem', lineHeight: 2.1, maxWidth: 560, margin: '0 auto' }}>
+            <p style={{ color: 'rgba(255,255,255,0.78)', fontFamily: 'Georgia, serif', fontSize: mob ? '1rem' : '1.12rem', lineHeight: 2.1, maxWidth: 560, margin: '0 auto' }}>
               1,200 amps across three dedicated services. The main house alone runs on 600 -- the capacity of a small hotel. Control4 ties it all together. Solar, geothermal, and a 30kW generator hand off so cleanly you won't notice the transition.
             </p>
           </div>
@@ -1512,7 +1512,7 @@ function Land() {
             Three acres producing.<br />Seven acres waiting.
           </h2>
           <GoldLine />
-          <p style={{ color: 'rgba(255,255,255,0.26)', fontFamily: 'Georgia, serif', fontSize: mob ? '1rem' : '1.12rem', lineHeight: 2.1, maxWidth: 540, margin: 0 }}>
+          <p style={{ color: 'rgba(255,255,255,0.78)', fontFamily: 'Georgia, serif', fontSize: mob ? '1rem' : '1.12rem', lineHeight: 2.1, maxWidth: 540, margin: 0 }}>
             USDA-certified veganic. O2Compost regenerative systems.
             Biochar production. 1,400-ft double deer fence.
             A farm already running -- and seven raw acres ready for whatever comes next.
@@ -1531,7 +1531,7 @@ function Land() {
                   <p style={{ color: GOLD, fontFamily: 'sans-serif', fontSize: '9px', letterSpacing: '0.2em', textTransform: 'uppercase', margin: 0 }}>{s.detail}</p>
                 </div>
               </div>
-              <p style={{ color: 'rgba(255,255,255,0.28)', fontFamily: 'Georgia, serif', fontSize: '0.98rem', lineHeight: 2, margin: '1.8rem 0 0' }}>{s.body}</p>
+              <p style={{ color: 'rgba(255,255,255,0.78)', fontFamily: 'Georgia, serif', fontSize: '0.98rem', lineHeight: 2, margin: '1.8rem 0 0' }}>{s.body}</p>
             </div>
           </Fade>
         ))}
@@ -1857,7 +1857,7 @@ function Opportunity() {
             </div>
 
             <p style={{
-              color: 'rgba(255,255,255,0.25)', fontFamily: 'Georgia, serif', fontStyle: 'italic',
+              color: 'rgba(255,255,255,0.78)', fontFamily: 'Georgia, serif', fontStyle: 'italic',
               fontSize: mob ? '1rem' : '1.25rem', lineHeight: 1.7,
               textAlign: 'center', margin: mob ? '4rem 0 0' : '5rem auto 0',
               maxWidth: 600,
@@ -1914,7 +1914,7 @@ function Opportunity() {
                     margin: '0 0 0.75rem',
                   }}>{s.label}</p>
                   <p style={{
-                    color: 'rgba(255,255,255,0.35)', fontFamily: 'Georgia, serif',
+                    color: 'rgba(255,255,255,0.72)', fontFamily: 'Georgia, serif',
                     fontSize: '0.88rem', lineHeight: 1.7, margin: 0,
                   }}>{s.sub}</p>
                 </div>
