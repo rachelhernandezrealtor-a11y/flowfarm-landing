@@ -450,7 +450,7 @@ function Manifesto() {
     window.addEventListener('scroll', onScroll, { passive: true });
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
-  const BG_URL = 'https://res.cloudinary.com/dghn2xpif/image/upload/f_auto,q_auto,w_2400,e_vibrance:40,e_saturation:20,e_brightness:15,e_sharpen:60/' + encodeURIComponent('https:/ff_forest_canopy.jpg');
+  const BG_URL = 'https://res.cloudinary.com/dghn2xpif/image/upload/f_auto,q_auto,w_2400,e_vibrance:40,e_saturation:20,e_brightness:15,e_sharpen:60/ff_forest_canopy.jpg';
   return (
     <section ref={ref} style={{
       position: 'relative',
@@ -732,10 +732,10 @@ function ForestIntro() {
     return () => obs.disconnect();
   }, []);
 
-  const FOREST_URL = 'https://res.cloudinary.com/dghn2xpif/image/upload/f_auto,q_auto,w_2400,e_vibrance:80,e_saturation:50,e_brightness:18,e_sharpen:100,e_clarity:40/' + encodeURIComponent('https:/ff_forest_canopy.jpg');
-  const AERIAL_URL = 'https://res.cloudinary.com/dghn2xpif/image/upload/f_auto,q_auto,w_2400,e_improve:outdoor:70,e_vibrance:40,e_saturation:20,e_sharpen:60/' + encodeURIComponent('https:/ff_aerial_map.jpg');
-  const TRAIL_URL  = 'https://res.cloudinary.com/dghn2xpif/image/upload/f_auto,q_auto,w_2400,e_improve:outdoor:60,e_vibrance:30,e_saturation:20,e_sharpen:50/' + encodeURIComponent('https:/ff_trail.jpg');
-  const PINE_URL   = 'https://res.cloudinary.com/dghn2xpif/image/upload/f_auto,q_auto,w_2400,e_improve:outdoor:80,e_vibrance:50,e_saturation:30,e_sharpen:80,e_brightness:5/' + encodeURIComponent('https:/ff_pine.jpg');
+  const FOREST_URL = 'https://res.cloudinary.com/dghn2xpif/image/upload/f_auto,q_auto,w_2400,e_vibrance:80,e_saturation:50,e_brightness:18,e_sharpen:100/ff_forest_canopy.jpg';
+  const AERIAL_URL = 'https://res.cloudinary.com/dghn2xpif/image/upload/f_auto,q_auto,w_2400,e_improve:outdoor:70,e_vibrance:40,e_saturation:20,e_sharpen:60/ff_aerial_map.jpg';
+  const TRAIL_URL  = 'https://res.cloudinary.com/dghn2xpif/image/upload/f_auto,q_auto,w_2400,e_improve:outdoor:60,e_vibrance:30,e_saturation:20,e_sharpen:50/ff_trail.jpg';
+  const PINE_URL   = 'https://res.cloudinary.com/dghn2xpif/image/upload/f_auto,q_auto,w_2400,e_improve:outdoor:80,e_vibrance:50,e_saturation:30,e_sharpen:80,e_brightness:5/ff_pine.jpg';
 
   const grid = [
     { label: '15 USDA ACRES',       body: 'Registered farmland. County-taxed. No HOA.' },
@@ -1062,7 +1062,7 @@ function PropertyMap() {
           {/* Aerial photo */}
           <img
             ref={mapImgRef}
-            src={"https://res.cloudinary.com/dghn2xpif/image/upload/e_sharpen:150,e_vibrance:20,e_saturation:15,f_auto,q_auto,w_3200,c_limit/" + encodeURIComponent("https:/ff_aerial_master.jpg")}
+            src={"https://res.cloudinary.com/dghn2xpif/image/upload/e_sharpen:80,e_vibrance:20,e_saturation:15,f_auto,q_auto,w_3200,c_limit/ff_aerial_master.jpg"}
             alt="Flow Farm aerial view"
             style={{
               position: 'absolute', inset: 0, width: '100%', height: '100%',
