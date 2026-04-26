@@ -914,12 +914,12 @@ function ForestIntro() {
           textAlign: 'center',
         }}>
           <div>
-            <p style={{ fontFamily: 'sans-serif', fontSize: '10px', letterSpacing: '0.40em', textTransform: 'uppercase', color: GOLD, margin: '0 0 1.2rem', textShadow: ts }}>The High Tunnel</p>
+            <p style={{ fontFamily: 'sans-serif', fontSize: '10px', letterSpacing: '0.40em', textTransform: 'uppercase', color: GOLD, margin: '0 0 1.2rem', textShadow: ts }}>Cultivated Beyond the Seasons</p>
             <h2 style={{ fontFamily: 'Georgia, serif', fontSize: mob ? 'clamp(2rem,7vw,2.8rem)' : 'clamp(2.8rem,4.5vw,4rem)', color: '#fff', margin: '0 0 1.2rem', lineHeight: 1.15, textShadow: ts }}>
               Pineapples.<br />In North Carolina.
             </h2>
-            <p style={{ fontFamily: 'Georgia, serif', fontSize: mob ? '0.95rem' : '1.05rem', color: 'rgba(255,255,255,0.82)', lineHeight: 1.7, maxWidth: 500, margin: '0 auto', textShadow: ts }}>
-              The 96x36 high tunnel runs a geothermal climate battery beneath the soil. It creates its own growing zone. What thrives here has no business existing in North Carolina.
+            <p style={{ fontFamily: 'Georgia, serif', fontSize: mob ? '0.95rem' : '1.05rem', color: 'rgba(255,255,255,0.82)', lineHeight: 1.7, maxWidth: 540, margin: '0 auto', textShadow: ts }}>
+              A 96 by 36-foot geothermal high tunnel runs a climate battery beneath the soil — its own growing zone, engineered where none should exist. What thrives here has no business existing in North Carolina.
             </p>
           </div>
         </div>
