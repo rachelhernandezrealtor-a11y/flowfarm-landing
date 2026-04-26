@@ -421,7 +421,7 @@ function Hero() {
           <HeroStats mob={mob} />
           <div style={{ display: 'flex', flexWrap: 'wrap', gap: mob ? '0.75rem' : '1rem', justifyContent: 'center', alignItems: 'center', marginTop: mob ? '1rem' : '0' }}>
             <button onClick={() => setVideoOpen(true)} style={{ display: 'inline-block', background: 'none', border: 'none', borderBottom: '1px solid rgba(201,169,110,0.5)', color: GOLD, fontFamily: 'sans-serif', fontSize: mob ? '9px' : '10px', letterSpacing: '0.38em', textTransform: 'uppercase', padding: '0 0 0.3rem 0', textDecoration: 'none', fontWeight: 400, cursor: 'pointer', transition: 'opacity 0.3s ease', opacity: 0.85 }}>
-              Watch the Film
+              Enter Flow Farm
             </button>
             {videoOpen && <VideoLightbox onClose={() => setVideoOpen(false)} />}
 
