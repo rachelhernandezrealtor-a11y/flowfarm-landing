@@ -1564,14 +1564,14 @@ function ZoningOpportunity() {
       transition: 'opacity 1.6s ease, transform 1.6s ease',
     }}>
       <div style={{ maxWidth: 900, margin: '0 auto' }}>
-        <p style={{ fontFamily: 'sans-serif', fontSize: '10px', letterSpacing: '0.4em', textTransform: 'uppercase', color: GOLD, margin: '0 0 1.6rem' }}>The Opportunity</p>
+        <p style={{ fontFamily: 'sans-serif', fontSize: '10px', letterSpacing: '0.4em', textTransform: 'uppercase', color: GOLD, margin: '0 0 1.6rem' }}>What Comes With It</p>
         <h2 style={{
           fontFamily: 'Georgia, serif', fontWeight: 400,
           fontSize: mob ? 'clamp(2rem, 7vw, 2.8rem)' : 'clamp(2.6rem, 3.8vw, 4rem)',
           color: '#fff', lineHeight: 1.12, letterSpacing: '-0.02em',
           margin: '0 0 2rem',
         }}>
-          The zoning is already<br /><em>unlocked.</em>
+          Whoever takes this next<br /><em>inherits all of it.</em>
         </h2>
         <div style={{
           width: '40px', height: '1px', background: GOLD, margin: '0 0 2.4rem', opacity: 0.6,
@@ -1580,7 +1580,7 @@ function ZoningOpportunity() {
           fontFamily: 'Georgia, serif', fontSize: mob ? '1.05rem' : '1.2rem',
           color: CREAM, lineHeight: 1.8, maxWidth: 680, margin: '0 0 3rem',
         }}>
-          NC Qualifying Farmer Exemption is in place. Retreat centers, event venues, agritourism, commercial kitchens, equestrian operations -- all permitted. Most buyers spend years and real capital securing what this property already has.
+          NC Qualifying Farmer Exemption is in place. Retreat centers, event venues, agritourism, commercial kitchens, equestrian operations -- all permitted. Fifteen years of work handed to whoever is meant to carry it forward.
         </p>
         {/* Pinehurst callout -- naked, no box */}
         <div style={{ maxWidth: 560, borderTop: '1px solid rgba(201,169,110,0.22)', borderBottom: '1px solid rgba(201,169,110,0.22)', padding: mob ? '2rem 0' : '2.8rem 0', marginTop: '1rem' }}>
@@ -1750,12 +1750,12 @@ function Opportunity() {
     {
       eyebrow: 'The Farm',
       headline: 'The Engine Is Already Running.',
-      body: 'A USDA-registered veganic operation building soil since 2009. CSA members, a high tunnel, a biochar kiln -- all active. The farm is not a feature. It is the legal and strategic foundation for everything that follows.',
+      body: 'A USDA-registered veganic operation building soil since 2009. CSA members, a high tunnel, a biochar kiln -- all active. The farm is not a feature. It is the reason any of this is possible. Fifteen years of soil building, delivered to whoever is ready for it.',
     },
     {
       eyebrow: 'The Zoning',
       headline: 'The Key Is Already Cut.',
-      body: 'NC Qualifying Farmer Exemption in place. Retreat centers, event venues, commercial kitchens, equestrian operations -- all permitted. What others spend years and capital to unlock, this estate has already secured.',
+      body: 'NC Qualifying Farmer Exemption in place. Retreat centers, event venues, commercial kitchens, equestrian operations -- all permitted. The zoning is earned, not purchased. Fifteen years of active farming unlocked it. It transfers with the land.',
     },
     {
       eyebrow: 'The Infrastructure',
@@ -1765,17 +1765,17 @@ function Opportunity() {
     {
       eyebrow: 'The Position',
       headline: 'Three Miles from a Million Visitors.',
-      body: 'Close enough to draw on a resort economy. Far enough to remain outside city limits. Resort-caliber proximity with county-level taxation. The location is not incidental -- it is part of the thesis.',
+      body: 'Close enough to draw on a resort economy. Far enough to remain outside city limits. Resort-caliber proximity with county-level taxation. Three miles from Pinehurst Resort. County taxation. No HOA. No city limits.',
     },
   ];
 
   const summary = [
-    { num: '15', label: 'Acres of Working Land', sub: 'USDA-registered agricultural standing inside a dense natural forest buffer -- permanent, protected, and fully active.' },
-    { num: '3', label: 'The Farm at Its Heart', sub: 'A veganic operation building soil since 2009. The farm sustains the zoning. The zoning unlocks the land.' },
-    { num: '7+', label: 'Acres Ready to Build', sub: 'A guest house shell designed by Robert E. Clark AIA already on the parcel. The infrastructure exists. The vision is yours.' },
+    { num: '15', label: 'Acres of Working Land', sub: 'USDA-registered farmland inside a natural forest buffer. Active. Certified. Already running.' },
+    { num: '3', label: 'The Farm at Its Heart', sub: 'Active since 2009. The soil took fifteen years to build. It is ready.' },
+    { num: '7+', label: 'Acres Ready to Build', sub: 'What you do with them is entirely up to you. The zoning is already in place.' },
     { num: '~7,500', label: 'Square Feet of Residence', sub: 'Eight structures designed as a compound -- not a house with outbuildings, but a full estate in deliberate balance.' },
-    { num: '5', label: 'Climate Zones, Zero Grid', sub: 'Twenty geothermal wells. 14.3 kW solar with battery. Two deep wells. The estate answers to nothing municipal.' },
-    { num: '6', label: 'Structures on the Land', sub: 'Main house, wing, cabana, workshop, high tunnel, cottage. A compound that absorbs a family or an enterprise without strain.' },
+    { num: '5', label: 'Climate Zones, Zero Grid', sub: 'Twenty geothermal wells. 14.3 kW solar with battery backup. Two private wells. The grid is optional.' },
+    { num: '6', label: 'Structures on the Land', sub: 'Main house, wing, cabana, workshop, high tunnel, cottage. Six structures, one cohesive estate.' },
   ];
 
   const vis = { opacity: 1, transform: 'none' };
@@ -1799,7 +1799,7 @@ function Opportunity() {
           <div style={{ maxWidth: 1280, margin: '0 auto' }}>
 
             <p style={{ fontFamily: 'sans-serif', fontSize: '10px', letterSpacing: '0.36em', textTransform: 'uppercase', color: GOLD, margin: mob ? '0 0 1.6rem' : '0 0 2rem' }}>
-              The Opportunity
+              What You Inherit
             </p>
 
             <h2 style={{
@@ -1816,7 +1816,7 @@ function Opportunity() {
               fontSize: mob ? '1rem' : '1.15rem', lineHeight: 1.85,
               maxWidth: 640, margin: mob ? '0 0 4rem' : '0 0 5rem',
             }}>
-              The farm sustains the zoning. The zoning unlocks the land. The infrastructure removes every barrier between ownership and what comes next. Fifteen acres -- a compound, not simply a residence -- that absorbs a growing family or a growing enterprise without ever feeling the strain.
+              The farm was built first. Then the zoning followed. Then the house. Then the solar, the geothermal, the wells. None of it was assembled -- it was grown, over fifteen years, by someone who knew what he was building toward. Whoever comes next walks into all of it on day one.
             </p>
 
             <div style={{
@@ -1826,13 +1826,9 @@ function Opportunity() {
             }}>
               {cards.map((c, i) => (
                 <div key={c.eyebrow} style={{
-                  background: 'rgba(255,255,255,0.07)',
-                  backdropFilter: 'blur(20px)',
-                  WebkitBackdropFilter: 'blur(20px)',
-                  border: '1px solid rgba(255,255,255,0.18)',
-                  borderRadius: '2px',
-                  padding: mob ? '2rem 1.8rem' : '2.6rem 2.4rem',
-                  boxShadow: '0 8px 40px rgba(0,0,0,0.18), inset 0 1px 0 rgba(255,255,255,0.12)',
+                  background: 'transparent',
+                  borderTop: '1px solid rgba(201,169,110,0.18)',
+                  padding: mob ? '2rem 0' : '2.6rem 0',
                 }}>
                   <p style={{ fontFamily: 'sans-serif', fontSize: '9px', letterSpacing: '0.36em', textTransform: 'uppercase', color: GOLD, margin: '0 0 0.8rem' }}>
                     {c.eyebrow}
@@ -1875,7 +1871,7 @@ function Opportunity() {
         <div style={{ maxWidth: 1280, margin: '0 auto' }}>
           <Fade up>
             <p style={{ fontFamily: 'sans-serif', fontSize: '10px', letterSpacing: '0.36em', textTransform: 'uppercase', color: GOLD, margin: '0 0 1.2rem', textAlign: 'center' }}>
-              Investment Summary
+              What Is Here
             </p>
           </Fade>
           <Fade up delay={0.08}>
@@ -1884,7 +1880,7 @@ function Opportunity() {
               fontSize: mob ? '1.5rem' : '2rem', textAlign: 'center',
               margin: mob ? '0 0 4rem' : '0 0 5.5rem', lineHeight: 1.3,
             }}>
-              The strategic value of the land.
+              What the next family inherits.
             </h2>
           </Fade>
           <div style={{
