@@ -52,6 +52,7 @@ const IMG = {
   workshop:         'https://res.cloudinary.com/dghn2xpif/image/upload/e_improve:outdoor:70,e_auto_brightness,e_sharpen:30,e_saturation:20,f_auto,q_auto,w_1920,c_limit/ff_workshop.jpg',
   pine:             'https://res.cloudinary.com/dghn2xpif/image/upload/e_improve:outdoor:70,e_auto_brightness,e_sharpen:30,e_saturation:20,f_auto,q_auto,w_1920,c_limit/ff_pine.jpg',
   aerialmap:        'https://res.cloudinary.com/dghn2xpif/image/upload/e_improve:outdoor:70,e_auto_brightness,e_sharpen:30,e_saturation:20,f_auto,q_auto,w_1920,c_limit/ff_aerial_map.jpg',
+  watermelon:       'https://res.cloudinary.com/dghn2xpif/image/upload/e_improve:outdoor:70,e_vibrance:40,e_sharpen:50,e_saturation:30,f_auto,q_auto,w_1600,c_limit/ff_watermelon_farm.jpg',
 };
 
 function useW() {
@@ -957,6 +958,72 @@ const MAP_PINS = [
     color: '#D4B87A',
   },
 ];
+
+
+function FarmSection() {
+  const mob = useMobile();
+  const ts = '0 2px 20px rgba(0,0,0,0.9)';
+  const crops = [
+    'Watermelon', 'Pineapple', 'Avocado', 'Citrus', 'Tomatoes',
+    'Peppers', 'Squash', 'Sweet Potato', 'Kale', 'Herbs'
+  ];
+  return (
+    <div style={{ position: 'relative', overflow: 'hidden', minHeight: mob ? '85vh' : '95vh' }}>
+      {/* Background: watermelon photo */}
+      <div style={{
+        position: 'absolute', inset: 0,
+        backgroundImage: `url(${IMG.watermelon})`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center 55%',
+        filter: 'saturate(1.2) brightness(0.88)',
+      }} />
+      {/* Gradient overlay — darker at top for text, lifts at center to show farm */}
+      <div style={{
+        position: 'absolute', inset: 0,
+        background: 'linear-gradient(to bottom, rgba(0,0,0,0.72) 0%, rgba(0,0,0,0.18) 45%, rgba(0,0,0,0.68) 100%)',
+      }} />
+      <div style={{
+        position: 'relative', zIndex: 2,
+        display: 'flex', flexDirection: 'column',
+        justifyContent: 'space-between',
+        minHeight: mob ? '85vh' : '95vh',
+        padding: mob ? '7rem 6vw 5rem' : '9rem 10vw 6rem',
+      }}>
+        {/* Top: the thesis */}
+        <div style={{ maxWidth: 680 }}>
+          <p style={{ fontFamily: 'sans-serif', fontSize: '9px', letterSpacing: '0.44em', textTransform: 'uppercase', color: GOLD, margin: '0 0 1.2rem', textShadow: ts }}>The Farm · 3 USDA Certified Acres</p>
+          <h2 style={{ fontFamily: 'Georgia, serif', fontSize: mob ? 'clamp(2.2rem,7vw,3rem)' : 'clamp(3rem,4.2vw,4.2rem)', color: '#fff', margin: '0 0 1.2rem', lineHeight: 1.1, textShadow: ts }}>
+            This is not a garden.<br /><em>This is a farm.</em>
+          </h2>
+          <p style={{ fontFamily: 'Georgia, serif', fontSize: mob ? '1rem' : '1.1rem', color: 'rgba(255,255,255,0.82)', lineHeight: 1.75, maxWidth: 560, textShadow: ts }}>
+            Three acres certified veganic. USDA registered. In active production since 2009. Biochar-amended soil. Drip irrigation on every row. A 12 by 8 foot walk-in cooler. Forty-plus crops, harvested and sold.
+          </p>
+        </div>
+
+        {/* Bottom: crop list */}
+        <div style={{ marginTop: '3rem' }}>
+          <p style={{ fontFamily: 'sans-serif', fontSize: '8px', letterSpacing: '0.40em', textTransform: 'uppercase', color: GOLD, margin: '0 0 1rem', textShadow: ts }}>What grows here</p>
+          <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem 1.2rem' }}>
+            {crops.map((c, i) => (
+              <span key={i} style={{
+                fontFamily: 'Georgia, serif',
+                fontSize: mob ? '0.85rem' : '0.95rem',
+                color: 'rgba(255,255,255,0.75)',
+                textShadow: ts,
+                letterSpacing: '0.03em',
+              }}>
+                {i < crops.length - 1 ? `${c} ·` : c}
+              </span>
+            ))}
+            <span style={{ fontFamily: 'Georgia, serif', fontSize: mob ? '0.85rem' : '0.95rem', color: GOLD, textShadow: ts, fontStyle: 'italic' }}>
+              · and more.
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
 
 function PropertyMap() {
   const w = useW();
@@ -2173,7 +2240,17 @@ export default function FlowFarmLanding2() {
       <Land />
       <ZoningOpportunity />
 
-      {/* CHAPTER 5 — The Map */}
+      {/* CHAPTER 5 — The Farm + The Map */}
+      <FarmSection />
+      <CinematicReveal
+        src={IMG.pine}
+        eyebrow="The High Tunnel"
+        headline={"Pineapples.\nIn North Carolina."}
+        body="The 96x36 high tunnel runs a geothermal climate battery beneath the soil. It creates its own growing zone. What thrives here has no business existing in North Carolina."
+        position="center 40%"
+        align="center"
+        quote
+      />
       <PropertyMap />
       <SustainabilityThread />
 
