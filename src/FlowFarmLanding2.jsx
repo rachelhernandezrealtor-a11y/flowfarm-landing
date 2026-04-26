@@ -1478,37 +1478,82 @@ function LightingCircuits() {
 function StealTheShow() {
   const w = useW();
   const mob = w < 768;
-  return (
-    <section style={{ position: 'relative', minHeight: '100vh', overflow: 'hidden', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-      {/* Fan video background */}
-      <div style={{ position: 'absolute', inset: 0, zIndex: 1, background: '#000' }}>
-        <iframe
-          src="https://iframe.cloudflarestream.com/de1885d159ae310508174f03f775c797?autoplay=true"
-          style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', border: 'none', pointerEvents: 'none', opacity: 0.90 }}
-          allow="autoplay; fullscreen"
-          title="Fan background"
-        />
-      </div>
-      {/* Dark overlay */}
-      <div style={{ position: 'absolute', inset: 0, zIndex: 2, background: 'linear-gradient(to bottom, rgba(0,0,0,0.32) 0%, rgba(0,0,0,0.20) 40%, rgba(0,0,0,0.60) 100%)' }} />
-      {/* Content */}
-      <div style={{ position: 'relative', zIndex: 3, textAlign: 'center', padding: mob ? '6rem 6vw' : '8rem 8vw', maxWidth: 1100, margin: '0 auto' }}>
+  const [playing, setPlaying] = useState(false);
 
-        <h2 style={{
-          fontFamily: 'Georgia, serif',
-          fontWeight: 400,
-          fontSize: mob ? 'clamp(2.4rem, 8vw, 3.4rem)' : 'clamp(3rem, 4.4vw, 4.8rem)',
-          color: '#fff',
-          lineHeight: 1.12,
-          letterSpacing: '-0.02em',
-          margin: '0 0 2rem 0',
-        }}>
-          Impossible to Confuse<br />With Anything Else.
-        </h2>
-        <p style={{ fontFamily: 'Georgia, serif', fontStyle: 'italic', fontSize: mob ? '0.9rem' : '1.05rem', color: 'rgba(255,255,255,0.82)', lineHeight: 1.6, maxWidth: 960, margin: '0 auto', whiteSpace: mob ? 'normal' : 'nowrap' }}>
-          Robert Clark designed it. Fifteen years shaped it. It shows.
-        </p>
-      </div>
+  return (
+    <section style={{ position: 'relative', minHeight: '100vh', overflow: 'hidden', display: 'flex', alignItems: 'center', justifyContent: 'center', background: '#000' }}>
+
+      {/* Poster thumbnail (shown until play is clicked) */}
+      {!playing && (
+        <img
+          src="https://customer-qqzxuq43g9w49ny2.cloudflarestream.com/de1885d159ae310508174f03f775c797/thumbnails/thumbnail.jpg?width=1920&time=3s"
+          alt="Flow Farm property video"
+          style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center', opacity: 0.85 }}
+        />
+      )}
+
+      {/* Iframe -- only rendered after user clicks play */}
+      {playing && (
+        <iframe
+          src="https://iframe.cloudflarestream.com/de1885d159ae310508174f03f775c797?autoplay=true&controls=true"
+          style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', border: 'none' }}
+          allow="autoplay; fullscreen; picture-in-picture"
+          title="Flow Farm property video"
+        />
+      )}
+
+      {/* Dark overlay -- only when not playing */}
+      {!playing && (
+        <div style={{ position: 'absolute', inset: 0, zIndex: 2, background: 'linear-gradient(to bottom, rgba(0,0,0,0.30) 0%, rgba(0,0,0,0.18) 40%, rgba(0,0,0,0.58) 100%)' }} />
+      )}
+
+      {/* Content + play button -- hidden once video starts */}
+      {!playing && (
+        <div style={{ position: 'relative', zIndex: 3, textAlign: 'center', padding: mob ? '6rem 6vw' : '8rem 8vw', maxWidth: 1100, margin: '0 auto' }}>
+          <h2 style={{
+            fontFamily: 'Georgia, serif',
+            fontWeight: 400,
+            fontSize: mob ? 'clamp(2.4rem, 8vw, 3.4rem)' : 'clamp(3rem, 4.4vw, 4.8rem)',
+            color: '#fff',
+            lineHeight: 1.12,
+            letterSpacing: '-0.02em',
+            margin: '0 0 2.5rem 0',
+            textShadow: '0 2px 40px rgba(0,0,0,0.7)',
+          }}>
+            Impossible to Confuse<br />With Anything Else.
+          </h2>
+
+          {/* Play button */}
+          <button
+            onClick={() => setPlaying(true)}
+            aria-label="Play property video"
+            style={{
+              width: mob ? 64 : 80,
+              height: mob ? 64 : 80,
+              borderRadius: '50%',
+              border: '2px solid rgba(201,169,110,0.75)',
+              background: 'rgba(0,0,0,0.45)',
+              cursor: 'pointer',
+              display: 'inline-flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              marginBottom: '2.2rem',
+              transition: 'border-color 0.3s, background 0.3s',
+            }}
+            onMouseEnter={e => { e.currentTarget.style.borderColor = '#C9A96E'; e.currentTarget.style.background = 'rgba(0,0,0,0.70)'; }}
+            onMouseLeave={e => { e.currentTarget.style.borderColor = 'rgba(201,169,110,0.75)'; e.currentTarget.style.background = 'rgba(0,0,0,0.45)'; }}
+          >
+            {/* Triangle play icon */}
+            <svg width={mob ? 22 : 28} height={mob ? 22 : 28} viewBox="0 0 24 24" fill="none">
+              <polygon points="7,4 21,12 7,20" fill="#C9A96E" />
+            </svg>
+          </button>
+
+          <p style={{ fontFamily: 'Georgia, serif', fontStyle: 'italic', fontSize: mob ? '0.9rem' : '1.05rem', color: 'rgba(255,255,255,0.78)', lineHeight: 1.6, maxWidth: 960, margin: '0 auto', whiteSpace: mob ? 'normal' : 'nowrap' }}>
+            Robert Clark designed it. Fifteen years shaped it. It shows.
+          </p>
+        </div>
+      )}
     </section>
   );
 }
