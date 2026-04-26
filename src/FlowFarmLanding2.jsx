@@ -2159,7 +2159,11 @@ export default function FlowFarmLanding2() {
       />
       <Numbers />
 
-      {/* CHAPTER 3 — The Land */}
+      {/* CHAPTER 3 — The Systems */}
+      <Manifesto />
+      <Mechanism />
+
+      {/* CHAPTER 4 — The Land */}
       <CinematicReveal
         src={'https://res.cloudinary.com/dghn2xpif/image/upload/e_sharpen:100,e_vibrance:30,e_saturation:20,f_auto,q_auto,w_1920,c_limit/ff_pine.jpg'}
         headline={"Autonomy at this scale is not inherited. It is engineered."}
@@ -2167,6 +2171,13 @@ export default function FlowFarmLanding2() {
         position="center 50%"
       />
       <Land />
+      <ZoningOpportunity />
+
+      {/* CHAPTER 5 — The Map */}
+      <PropertyMap />
+      <SustainabilityThread />
+
+      {/* CHAPTER 6 — The Interior */}
       <CinematicReveal
         src={IMG.foyer}
         eyebrow="The Welcome"
@@ -2174,13 +2185,6 @@ export default function FlowFarmLanding2() {
         body="Herringbone heart pine floors laid on the diagonal. A reclaimed wood door with transom light overhead. A star lantern casting warm light across the entry. The first impression that sets the tone for everything that follows. One tap. The whole house shifts."
         position="center top"
       />
-      <ZoningOpportunity />
-
-      {/* CHAPTER 4 — The Systems */}
-      <Manifesto />
-      <Mechanism />
-      <PropertyMap />
-      <SustainabilityThread />
 
       {/* CHAPTER 5 — The Experience */}
       <CinematicReveal
