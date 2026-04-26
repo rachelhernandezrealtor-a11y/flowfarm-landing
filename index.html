@@ -626,6 +626,12 @@ function ForestIntro() {
   const b2Ref = useRef(null);
   const b3Ref = useRef(null);
   const b4Ref = useRef(null);
+  const [scrollY, setScrollY] = React.useState(0);
+  React.useEffect(() => {
+    const onScroll = () => setScrollY(window.scrollY);
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
 
   useEffect(() => {
     const obs = new IntersectionObserver((entries) => {
@@ -663,10 +669,12 @@ function ForestIntro() {
       <div style={{ position: 'relative', overflow: 'hidden' }}>
         {/* Forest background -- shared across beats 1 + 2 */}
         <div style={{
-          position: 'absolute', inset: '-8% 0',
+          position: 'absolute', inset: '-12% 0',
           backgroundImage: 'url(' + FOREST_URL + ')',
-          backgroundSize: 'cover', backgroundPosition: 'center',
+          backgroundSize: 'cover',
+          backgroundPosition: 'center ' + (50 + scrollY * 0.08) + '%',
           filter: 'saturate(1.2) brightness(1.05)',
+          transition: 'background-position 0.1s linear',
         }} />
         <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to bottom, rgba(0,0,0,0.35) 0%, rgba(0,0,0,0.55) 100%)' }} />
 
@@ -724,10 +732,12 @@ function ForestIntro() {
       {/* ======= CHAPTER 2: PINE TRAIL -- The Land ======= */}
       <div style={{ position: 'relative', overflow: 'hidden', minHeight: mob ? '50vh' : '65vh' }}>
         <div style={{
-          position: 'absolute', inset: '-8% 0',
+          position: 'absolute', inset: '-12% 0',
           backgroundImage: 'url(' + TRAIL_URL + ')',
-          backgroundSize: 'cover', backgroundPosition: 'center 40%',
+          backgroundSize: 'cover',
+          backgroundPosition: 'center ' + (40 + scrollY * 0.06) + '%',
           filter: 'saturate(1.1) brightness(1.05)',
+          transition: 'background-position 0.1s linear',
         }} />
         <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to bottom, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.6) 100%)' }} />
         <div ref={b3Ref} style={{
@@ -761,9 +771,11 @@ function ForestIntro() {
       {/* ======= CHAPTER 3: AERIAL -- Seventeen Years ======= */}
       <div style={{ position: 'relative', overflow: 'hidden', minHeight: mob ? '55vh' : '72vh' }}>
         <div style={{
-          position: 'absolute', inset: '-8% 0',
+          position: 'absolute', inset: '-12% 0',
           backgroundImage: 'url(' + AERIAL_URL + ')',
-          backgroundSize: 'cover', backgroundPosition: 'center 35%',
+          backgroundSize: 'cover',
+          backgroundPosition: 'center ' + (35 + scrollY * 0.06) + '%',
+          transition: 'background-position 0.1s linear',
         }} />
         <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to bottom, rgba(0,0,0,0.15) 0%, rgba(0,0,0,0.65) 100%)' }} />
         <div ref={b4Ref} style={{
@@ -788,10 +800,12 @@ function ForestIntro() {
       {/* ======= CHAPTER 4: PINEAPPLE -- The High Tunnel ======= */}
       <div style={{ position: 'relative', overflow: 'hidden', minHeight: mob ? '55vh' : '72vh' }}>
         <div style={{
-          position: 'absolute', inset: '-8% 0',
+          position: 'absolute', inset: '-12% 0',
           backgroundImage: 'url(' + PINE_URL + ')',
-          backgroundSize: 'cover', backgroundPosition: 'center 40%',
+          backgroundSize: 'cover',
+          backgroundPosition: 'center ' + (40 + scrollY * 0.06) + '%',
           filter: 'saturate(1.15) brightness(1.0)',
+          transition: 'background-position 0.1s linear',
         }} />
         <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to bottom, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.72) 100%)' }} />
         <div style={{
