@@ -305,10 +305,10 @@ function VideoLightbox({ onClose }) {
 
       <button onClick={onClose} style={{
         position: 'fixed', top: '1.2rem', right: '1.2rem',
-        background: 'rgba(0,0,0,0.4)', border: '1px solid rgba(255,255,255,0.25)',
-        color: '#fff', fontFamily: 'sans-serif', fontSize: '11px',
-        letterSpacing: '0.2em', textTransform: 'uppercase',
-        padding: '0.5rem 1.2rem', borderRadius: '2rem', cursor: 'pointer',
+        background: 'transparent', border: 'none', borderBottom: '1px solid rgba(255,255,255,0.25)',
+        color: 'rgba(255,255,255,0.65)', fontFamily: 'sans-serif', fontSize: '10px',
+        letterSpacing: '0.28em', textTransform: 'uppercase',
+        padding: '0.3rem 0', cursor: 'pointer',
         zIndex: 10001,
       }}>
         Close
@@ -416,7 +416,7 @@ function Hero() {
             letterSpacing: '0.01em', lineHeight: 1.7,
             textShadow: '0 2px 20px rgba(0,0,0,0.5)',
           }}>
-            The farm unlocks everything. Three miles from Pinehurst.
+            Fifteen years in the making. Three miles from Pinehurst.
           </p>
           <div style={{ width: mob ? '60px' : '80px', height: '1px', background: 'linear-gradient(to right, transparent, rgba(201,169,110,0.7), transparent)', margin: mob ? '0 auto 1.2rem' : '0 auto 1.8rem' }} />
           <HeroStats mob={mob} />
@@ -1047,9 +1047,7 @@ function PropertyMap() {
               </div>
               {/* Label */}
               <div style={{
-                background: 'rgba(8,8,8,0.78)',
-                backdropFilter: 'blur(8px)',
-                border: '1px solid rgba(201,169,110,0.22)',
+                background: 'rgba(8,8,8,0.88)',
                 padding: mob ? '2px 7px' : '3px 10px',
                 whiteSpace: 'nowrap',
               }}>
@@ -1083,11 +1081,8 @@ function PropertyMap() {
               transition: 'opacity 0.38s ease, transform 0.42s cubic-bezier(.16,1,.3,1)',
             }}>
               <div style={{
-                background: 'rgba(6,6,6,0.96)',
-                backdropFilter: 'blur(28px)',
-                WebkitBackdropFilter: 'blur(28px)',
-                border: '1px solid rgba(201,169,110,0.22)',
-                borderBottom: 'none',
+                background: 'rgba(6,6,6,0.98)',
+                borderTop: '1px solid rgba(201,169,110,0.35)',
                 padding: mob ? '1.4rem 1.2rem 2rem' : '2.4rem 2.2rem',
                 position: 'relative',
                 maxHeight: mob ? '52vh' : 'none',
