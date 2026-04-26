@@ -993,10 +993,10 @@ function FarmSection() {
         <div style={{ maxWidth: 680 }}>
           <p style={{ fontFamily: 'sans-serif', fontSize: '9px', letterSpacing: '0.44em', textTransform: 'uppercase', color: GOLD, margin: '0 0 1.2rem', textShadow: ts }}>The Farm · 3 USDA Certified Acres</p>
           <h2 style={{ fontFamily: 'Georgia, serif', fontSize: mob ? 'clamp(2.2rem,7vw,3rem)' : 'clamp(3rem,4.2vw,4.2rem)', color: '#fff', margin: '0 0 1.2rem', lineHeight: 1.1, textShadow: ts }}>
-            This is not a garden.<br /><em>This is a farm.</em>
+            He started in 2009.<br /><em>Not because he had to.</em>
           </h2>
           <p style={{ fontFamily: 'Georgia, serif', fontSize: mob ? '1rem' : '1.1rem', color: 'rgba(255,255,255,0.82)', lineHeight: 1.75, maxWidth: 560, textShadow: ts }}>
-            Three acres certified veganic. USDA registered. In active production since 2009. Biochar-amended soil. Drip irrigation on every row. A 12 by 8 foot walk-in cooler. Forty-plus crops, harvested and sold.
+            Three acres certified veganic. USDA registered. Active since 2009. Biochar-amended soil. Drip irrigation on every row. A walk-in cooler. Forty-plus crops — watermelon, avocado, pineapple, citrus — harvested and sold. Because he believed the land deserved it.
           </p>
         </div>
 
@@ -2238,9 +2238,8 @@ export default function FlowFarmLanding2() {
         position="center 50%"
       />
       <Land />
-      <ZoningOpportunity />
 
-      {/* CHAPTER 5 — The Farm + The Map */}
+      {/* CHAPTER 5 — The Farm */}
       <FarmSection />
       <CinematicReveal
         src={IMG.pine}
@@ -2249,8 +2248,17 @@ export default function FlowFarmLanding2() {
         body="The 96x36 high tunnel runs a geothermal climate battery beneath the soil. It creates its own growing zone. What thrives here has no business existing in North Carolina."
         position="center 40%"
         align="center"
-        quote
       />
+
+      {/* CHAPTER 6 — The Zoning Payoff */}
+      <div style={{ background: '#0a0a0a', padding: '9rem 10vw', textAlign: 'center' }}>
+        <div style={{ width: '40px', height: '1px', background: 'linear-gradient(to right, transparent, rgba(201,169,110,0.5), transparent)', margin: '0 auto 3.5rem' }} />
+        <p style={{ fontFamily: 'Georgia, serif', fontStyle: 'italic', fontSize: 'clamp(1.5rem, 3vw, 2.4rem)', color: '#F5F0E8', lineHeight: 1.55, maxWidth: 780, margin: '0 auto', letterSpacing: '-0.01em' }}>
+          Three acres certified and active.<br />That was enough for the USDA.<br /><span style={{ color: 'rgba(201,169,110,0.85)' }}>That was enough to unlock everything else.</span>
+        </p>
+        <div style={{ width: '40px', height: '1px', background: 'linear-gradient(to right, transparent, rgba(201,169,110,0.5), transparent)', margin: '3.5rem auto 0' }} />
+      </div>
+      <ZoningOpportunity />
       <PropertyMap />
       <SustainabilityThread />
 
