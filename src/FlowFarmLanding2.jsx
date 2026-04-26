@@ -517,7 +517,7 @@ function Manifesto() {
           letterSpacing: '-0.018em',
           textShadow: '0 2px 24px rgba(0,0,0,0.5)',
         }}>
-          A living estate.<br /><em>Built with intention.<br />Ready for the next chapter.</em>
+          Built once.<br /><em>For a life few people<br />have imagined clearly enough.</em>
         </h2>
         <div style={{ width: 36, height: 1, background: GOLD, opacity: 0.5 }} />
         <p style={{
@@ -529,7 +529,7 @@ function Manifesto() {
           maxWidth: 560,
           textShadow: '0 1px 12px rgba(0,0,0,0.5)',
         }}>
-          Fifteen acres. Three miles from Pinehurst. Designed by Robert E. Clark AIA as one of his final private commissions. Operational by design. Independent by engineering. Ready now.
+          Fifteen acres. Three miles from Pinehurst. A farm, a residence, a system — each complete on its own. Together, they form something that cannot be replicated at this price, at this address, in this condition.
         </p>
         <a href={MATTERPORT} target="_blank" rel="noreferrer" style={{
           color: GOLD,
@@ -542,7 +542,7 @@ function Manifesto() {
           paddingBottom: '0.3rem',
           textShadow: '0 1px 8px rgba(0,0,0,0.4)',
         }}>
-          Begin the Virtual Tour
+          Explore the Property
         </a>
       </div>
     </section>
@@ -575,13 +575,13 @@ function Foundation() {
           <p style={{ fontFamily: 'sans-serif', fontSize: '9px', letterSpacing: '0.40em', textTransform: 'uppercase', color: GOLD, margin: '0 0 1rem', textShadow: '0 1px 8px rgba(0,0,0,0.8)' }}>The Estate</p>
           <div style={{ width: 24, height: 1, background: GOLD, opacity: 0.5, marginBottom: '1.4rem' }} />
           <h2 style={{ color: '#fff', fontFamily: 'Georgia, serif', fontWeight: 400, fontSize: mob ? '1.8rem' : 'clamp(2.2rem,3.2vw,3.2rem)', lineHeight: 1.2, margin: '0 0 1.4rem', letterSpacing: '-0.018em', textShadow: '0 2px 28px rgba(0,0,0,0.75)' }}>
-            A Place of Arrival.
+            You are inside<br />before you understand<br />what you walked into.
           </h2>
           <p style={{ color: 'rgba(255,255,255,0.88)', fontFamily: 'Georgia, serif', fontSize: mob ? '0.95rem' : '1.05rem', lineHeight: 1.9, margin: '0 0 1rem', textShadow: '0 1px 12px rgba(0,0,0,0.7)' }}>
             Robert E. Clark AIA designed this as one of his final private commissions — refined, substantial, and quietly distinctive. Structural integrity of a commercial build. Warmth of a home deeply lived in.
           </p>
           <p style={{ color: 'rgba(255,255,255,0.72)', fontFamily: 'Georgia, serif', fontSize: mob ? '0.95rem' : '1.05rem', lineHeight: 1.9, margin: '0 0 1.8rem', textShadow: '0 1px 12px rgba(0,0,0,0.7)' }}>
-            Civil War-era heart pine floors, custom-laid in artisan patterns. A glass conservatory with an octagonal dome. An estate designed not only to impress, but to hold life beautifully.
+            Civil War-era heart pine floors, custom-laid in artisan patterns. A glass conservatory with an octagonal dome at the axis. A 17-foot great room that earns the word great. The kind of house you understand differently every time you walk through it.
           </p>
           <div style={{ display: 'flex', gap: '1.5rem' }}>
             <a href={MATTERPORT} target="_blank" rel="noreferrer"
@@ -626,21 +626,21 @@ function PhilosophyBreath() {
       }}>
         <div style={{ width: '60px', height: 1, background: GOLD, opacity: 0.4 }} />
         <p style={{ fontFamily: 'sans-serif', fontSize: '9px', letterSpacing: '0.44em', textTransform: 'uppercase', color: GOLD, margin: 0 }}>
-          Flow Farm · Aberdeen, North Carolina
+          107 Linden Trail · The Land Speaks First
         </p>
         <h2 style={{
           fontFamily: 'Georgia, serif', fontWeight: 400, fontStyle: 'italic',
           fontSize: mob ? '1.8rem' : 'clamp(2.2rem, 3.5vw, 3.2rem)',
           color: CREAM, lineHeight: 1.45, margin: 0, letterSpacing: '-0.02em',
         }}>
-          A property where the land<br />is not scenery. It is the point.
+          A property where the land<br />was never an afterthought.
         </h2>
         <p style={{
           fontFamily: 'Georgia, serif',
           fontSize: mob ? '1rem' : '1.12rem',
           color: 'rgba(255,255,255,0.72)', lineHeight: 2, margin: 0, maxWidth: 600,
         }}>
-          Fifteen acres, three miles from Pinehurst. A home, a farm, a system — each one complete on its own. Together, they form something that does not exist on the open market. Built over fifteen years. Offered once.
+          Fifteen acres. Three miles from Pinehurst. A home, a farm, a system — each one complete on its own. Together, they form something that does not exist at this address. Built over fifteen years. Ready now.
         </p>
         <div style={{ width: '60px', height: 1, background: GOLD, opacity: 0.4 }} />
       </div>
@@ -1672,10 +1672,10 @@ function Mechanism() {
           <div style={{ textAlign: 'center', marginBottom: mob ? '5rem' : '8rem', padding: '0 6vw' }}>
             <Eyebrow center>The Mechanism</Eyebrow>
             <h2 style={{ color: CREAM, fontFamily: 'Georgia, serif', fontWeight: 400, fontSize: mob ? '1.7rem' : '3.2rem', lineHeight: 1.28, margin: '2rem 0 2.4rem', letterSpacing: '-0.018em' }}>
-              Engineered for the<br /><em>life it can hold.</em>
+              The estate runs<br /><em>whether you ask it to or not.</em>
             </h2>
             <p style={{ color: 'rgba(255,255,255,0.78)', fontFamily: 'Georgia, serif', fontSize: mob ? '1rem' : '1.12rem', lineHeight: 2.1, maxWidth: 560, margin: '0 auto' }}>
-              1,200 amps across three dedicated services. The main house alone runs on 600 -- the capacity of a small hotel. Control4 ties it all together. Solar, geothermal, and a 30kW generator hand off so cleanly you won't notice the transition.
+              1,200 amps across three dedicated services. The main house alone draws 600 — the capacity of a small hotel. Solar charges the battery. Geothermal heats and cools. The generator answers if either ever hesitates. Control4 orchestrates all of it. You won't find a seam.
             </p>
           </div>
         </Fade>
@@ -1715,14 +1715,14 @@ function Land() {
         <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '2.4rem', marginBottom: mob ? '6rem' : '10rem', padding: '0 6vw', textAlign: 'center' }}>
           <Eyebrow center>The Land</Eyebrow>
           <h2 style={{ color: CREAM, fontFamily: 'Georgia, serif', fontWeight: 400, fontSize: mob ? '1.7rem' : '3.2rem', lineHeight: 1.28, margin: '0 0 1.4rem', letterSpacing: '-0.018em' }}>
-          Where the Land Breathes.
+          Eight Acres Working.<br />Seven Acres Waiting.
           </h2>
           <p style={{ color: 'rgba(255,255,255,0.42)', fontFamily: 'Georgia, serif', fontStyle: 'italic', fontSize: mob ? '0.95rem' : '1.05rem', letterSpacing: '0.04em', margin: '0 0 0.8rem' }}>
             Operational by Design. Eight acres working. Seven acres waiting.
           </p>
           <GoldLine />
           <p style={{ color: 'rgba(255,255,255,0.78)', fontFamily: 'Georgia, serif', fontSize: mob ? '1rem' : '1.12rem', lineHeight: 2.1, maxWidth: 540, margin: 0 }}>
-            Three USDA-certified veganic acres already producing. Biochar. O2Compost. A 1,400-foot double deer fence. A walk-in cooler. A 96-by-36-foot geothermal greenhouse growing pineapples in North Carolina. The farm is not an amenity. It is an operating system. And seven buildable acres sit beside it — zoned, ready, yours.
+            The farm doesn't stop. Three certified veganic acres. A geothermal greenhouse at 96 by 36 feet. O2Compost. Biochar. A 1,400-foot double deer fence. And seven buildable acres beside it — zoned for agritourism, ready for whatever the next owner is brave enough to imagine.
           </p>
         </div>
       </Fade>
@@ -1845,12 +1845,12 @@ function Location() {
             Connected to Pinehurst.<br /><em>Yet entirely its own.</em>
           </h2>
           <p style={{ color: 'rgba(255,255,255,0.88)', fontFamily: 'Georgia, serif', fontSize: mob ? '0.95rem' : '1.05rem', lineHeight: 1.9, margin: '0 0 1.8rem', textShadow: '0 1px 12px rgba(0,0,0,0.7)' }}>
-            Just three miles from the heart of Pinehurst — widely recognized as the Golf Capital of America. Flow Farm occupies a rare position between privacy and proximity, with access to a global destination audience while preserving the sense of remove and tranquility that makes the property so singular.
+            Three miles from Pinehurst. Nine U.S. Opens. The most consequential golf address in the world. Flow Farm is close enough to matter. Far enough to be entirely its own.
           </p>
           <div style={{ borderTop: '1px solid rgba(201,169,110,0.18)', paddingTop: '1.6rem', marginBottom: '1.8rem' }}>
-            <p style={{ fontFamily: 'sans-serif', fontSize: '9px', letterSpacing: '0.36em', textTransform: 'uppercase', color: GOLD, margin: '0 0 0.8rem', textShadow: '0 1px 8px rgba(0,0,0,0.8)' }}>An Uncommon Privilege</p>
+            <p style={{ fontFamily: 'sans-serif', fontSize: '9px', letterSpacing: '0.36em', textTransform: 'uppercase', color: GOLD, margin: '0 0 0.8rem', textShadow: '0 1px 8px rgba(0,0,0,0.8)' }}>Golf Membership Included</p>
             <p style={{ color: 'rgba(255,255,255,0.78)', fontFamily: 'Georgia, serif', fontSize: mob ? '0.95rem' : '1.02rem', lineHeight: 1.85, margin: 0, textShadow: '0 1px 12px rgba(0,0,0,0.7)' }}>
-              Included with the offering is a transferable Pinehurst Country Club Signature Membership with access to Pinehurst No. 7 and No. 9 — an uncommon opportunity within one of the area's most tightly held membership offerings.
+              A transferable Pinehurst Country Club Signature Membership — Pinehurst No. 7 and No. 9 — transfers with the sale. It does not come available often.
             </p>
           </div>
           <div style={{ display: 'flex', flexDirection: 'column', gap: '0.8rem' }}>
@@ -1956,7 +1956,7 @@ function LegacyClose() {
           fontFamily: 'Georgia, serif', fontSize: mob ? '1rem' : '1.15rem',
           color: 'rgba(255,255,255,0.72)', lineHeight: 2, margin: 0, maxWidth: 600,
         }}>
-          Mark did not build this for the market. He built it for a life. Fifteen years of decisions — each one compounding the last — resulted in something that does not exist anywhere else at this address, at this price, in this condition. You are not buying a property. You are inheriting a system that someone else spent a decade and a half perfecting.
+          Mark built this for a life he intended to live here. Fifteen years of decisions — each one compounding the last. A farm that earned its own zoning. A house that earns independence every day. Infrastructure scaled for a small hotel. He called it a system. He was right. You are not buying property. You are inheriting fifteen years of someone else's conviction.
         </p>
         <p style={{
           fontFamily: 'Georgia, serif', fontStyle: 'italic',
