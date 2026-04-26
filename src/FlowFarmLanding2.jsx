@@ -676,19 +676,21 @@ function ForestIntro() {
       <div style={{ position: 'relative', overflow: 'hidden' }}>
         {/* Forest background -- shared across beats 1 + 2 */}
         <div style={{
-          position: 'absolute', inset: '-12% 0',
+          position: 'absolute', inset: 0,
           backgroundImage: 'url(' + FOREST_URL + ')',
           backgroundSize: 'cover',
           backgroundPosition: 'center ' + (50 + scrollY * 0.08) + '%',
           filter: 'saturate(1.2) brightness(1.05)',
           transition: 'background-position 0.1s linear',
         }} />
-        <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to bottom, rgba(0,0,0,0.35) 0%, rgba(0,0,0,0.55) 100%)' }} />
+        {/* Top bleed -- merges seamlessly with hero bottom */}
+        <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: '22%', background: 'linear-gradient(to bottom, #0a0a0a, transparent)', zIndex: 2, pointerEvents: 'none' }} />
+        <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to bottom, rgba(0,0,0,0.15) 0%, rgba(0,0,0,0.52) 100%)' }} />
 
         {/* Beat 1 -- A Living Place */}
         <div ref={b1Ref} style={{
           position: 'relative', zIndex: 2,
-          padding: mob ? '8rem 6vw 6rem' : '11rem 10vw 8rem',
+          padding: mob ? '6rem 6vw 6rem' : '8rem 10vw 8rem',
           opacity: beat1 ? 1 : 0,
           transform: beat1 ? 'none' : 'translateY(32px)',
           transition: 'opacity 1.6s ease, transform 1.6s ease',
@@ -739,7 +741,7 @@ function ForestIntro() {
       {/* ======= CHAPTER 2: PINE TRAIL -- The Land ======= */}
       <div style={{ position: 'relative', overflow: 'hidden', minHeight: mob ? '50vh' : '65vh' }}>
         <div style={{
-          position: 'absolute', inset: '-12% 0',
+          position: 'absolute', inset: 0,
           backgroundImage: 'url(' + TRAIL_URL + ')',
           backgroundSize: 'cover',
           backgroundPosition: 'center ' + (40 + scrollY * 0.06) + '%',
@@ -778,7 +780,7 @@ function ForestIntro() {
       {/* ======= CHAPTER 3: AERIAL -- Seventeen Years ======= */}
       <div style={{ position: 'relative', overflow: 'hidden', minHeight: mob ? '55vh' : '72vh' }}>
         <div style={{
-          position: 'absolute', inset: '-12% 0',
+          position: 'absolute', inset: 0,
           backgroundImage: 'url(' + AERIAL_URL + ')',
           backgroundSize: 'cover',
           backgroundPosition: 'center ' + (35 + scrollY * 0.06) + '%',
@@ -807,7 +809,7 @@ function ForestIntro() {
       {/* ======= CHAPTER 4: PINEAPPLE -- The High Tunnel ======= */}
       <div style={{ position: 'relative', overflow: 'hidden', minHeight: mob ? '55vh' : '72vh' }}>
         <div style={{
-          position: 'absolute', inset: '-12% 0',
+          position: 'absolute', inset: 0,
           backgroundImage: 'url(' + PINE_URL + ')',
           backgroundSize: 'cover',
           backgroundPosition: 'center ' + (40 + scrollY * 0.06) + '%',
