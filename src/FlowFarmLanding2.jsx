@@ -368,10 +368,10 @@ function Hero() {
 
       {!mob && (
         <nav style={{ position: 'absolute', top: '2.4rem', right: '3rem', zIndex: 10, display: 'flex', gap: '2.8rem', ...show(1) }}>
-          {['The Estate', 'The Land', 'Inquire'].map(n => (
-            <a key={n} href={'#' + n.toLowerCase().replace(' ', '-')}
+          {[['The Estate', 'the-estate'], ['The Land', 'the-land'], ['Inquire', 'inquire']].map(([label, id]) => (
+            <a key={label} href={'#' + id}
               style={{ color: 'rgba(255,255,255,0.45)', fontFamily: 'sans-serif', fontSize: '10px', letterSpacing: '0.24em', textTransform: 'uppercase', textDecoration: 'none' }}>
-              {n}
+              {label}
             </a>
           ))}
         </nav>
@@ -939,7 +939,7 @@ const MAP_PINS = [
     category: 'THE ESTATE',
     headline: '8,519 SF. Designed as a whole.',
     description: 'Six bedrooms, seven baths, grand piano conservatory, 17-foot great room. Heart pine floors throughout. Control4 automation. Sound, climate, security — one tap from anywhere on the property.',
-    systems: ['Control4 Smart Home', '143 Lighting Circuits', '5-Zone Geothermal', '1,200 Amp Total Service'],
+    systems: ['Control4 Smart Home', '143 Lighting Circuits', '7-Zone Geothermal', '1,200 Amp Total Service'],
     connects: ['guest', 'solar'],
     color: '#C9A96E',
   },
@@ -1485,7 +1485,8 @@ function StealTheShow() {
         <iframe
           src="https://iframe.cloudflarestream.com/de1885d159ae310508174f03f775c797?autoplay=true&loop=true&muted=true&controls=false&preload=auto"
           style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', border: 'none', pointerEvents: 'none', opacity: 0.90 }}
-          allow="autoplay; fullscreen"
+          allow="autoplay; fullscreen; picture-in-picture"
+          allowFullScreen
           title="Flow Farm fan background"
         />
       </div>
@@ -1659,7 +1660,7 @@ function Mechanism() {
   const tab = w < 1024;
   const cols = [
     { label: 'Energy',     items: ['14.3kW Solar -- 61 Samsung Panels', 'Sunny Island 10k Battery Backup', '30kW Kohler Generator', '2 x 1,000 Gal Propane', '1,200 Amp Total Power'] },
-    { label: 'Climate',    items: ['Geothermal -- 20 Wells x 300 Ft', '5-Zone Water Furnace', 'Energy Recovery Ventilator', 'Lennox Air Purification Per Zone', 'Zone-Independent Control'] },
+    { label: 'Climate',    items: ['Geothermal -- 20 Wells x 300 Ft', '7-Zone Water Furnace', 'Energy Recovery Ventilator', 'Lennox Air Purification Per Zone', 'Zone-Independent Control'] },
     { label: 'Water',      items: ['Private Well -- Up to 50 GPM', '2 x 1,500 Gal Private Septic', 'Whole-House Water Filtration', 'Whole-House Fire Sprinkler', 'Walk-In Cooler 12 x 8 Ft'] },
     { label: 'Smart Home', items: ['Control4 -- Every Light. Every Shade. Every Degree.', 'Pool, Spa, Security + Irrigation -- One Screen', 'Monitor Energy + Adjust Anything From Anywhere', 'Araknis Enterprise Network + Whole Campus Wi-Fi', '143 Individually Addressable Lighting Circuits'] },
   ];
@@ -1896,12 +1897,12 @@ function Inquire() {
           <div style={{ textAlign: 'center', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '1.6rem' }}>
             <Eyebrow center>Private Inquiry</Eyebrow>
             <h2 style={{ color: CREAM, fontFamily: 'Georgia, serif', fontWeight: 400, fontSize: mob ? '2rem' : '2.8rem', lineHeight: 1.2, margin: 0, letterSpacing: '-0.018em' }}>
-              Begin the Conversation.
+              Request a Private Showing.
             </h2>
             <GoldLine />
             <p style={{ color: 'rgba(255,255,255,0.65)', fontFamily: 'Georgia, serif', fontSize: '1rem', lineHeight: 2, margin: 0 }}>
-              This property is shown by private appointment only.
-              All inquiries are handled with full discretion.
+              Shown by private appointment only.
+              All inquiries held in strict confidence.
             </p>
           </div>
         </Fade>
@@ -1915,7 +1916,7 @@ function Inquire() {
               <input style={inp} placeholder="Phone Number" value={form.phone} onChange={e => setForm({...form, phone: e.target.value})} />
               <textarea style={{ ...inp, resize: 'none', height: 100 }} placeholder="Your message (optional)" value={form.message} onChange={e => setForm({...form, message: e.target.value})} />
               <button type="submit" style={{ background: 'transparent', border: `1px solid ${GOLD}`, color: GOLD, fontFamily: 'sans-serif', fontSize: '10px', letterSpacing: '0.32em', textTransform: 'uppercase', padding: '1.2rem 3rem', cursor: 'pointer', alignSelf: 'center', marginTop: '1rem' }}>
-                {saving ? 'Sending...' : 'Submit Inquiry'}
+                {saving ? 'Sending...' : 'Request Private Showing'}
               </button>
             </form>
           </Fade>
@@ -1962,7 +1963,7 @@ function LegacyClose() {
           fontSize: mob ? '1.1rem' : '1.4rem',
           color: 'rgba(201,169,110,0.75)', lineHeight: 1.5, margin: 0,
         }}>
-          Where luxury meets legacy, and the land continues to flow.
+          Flow Farm is offered once. The right person will know before they finish reading this.
         </p>
         <div style={{ width: '60px', height: 1, background: GOLD, opacity: 0.4 }} />
       </div>
@@ -1985,7 +1986,10 @@ function Footer() {
         </div>
         <div style={{ textAlign: mob ? 'left' : 'right' }}>
           <p style={{ color: 'rgba(255,255,255,0.08)', fontFamily: 'sans-serif', fontSize: '9px', letterSpacing: '0.18em', textTransform: 'uppercase', margin: '0 0 0.3rem' }}>Offered at $5,250,000</p>
-          <p style={{ color: 'rgba(255,255,255,0.06)', fontFamily: 'sans-serif', fontSize: '9px', letterSpacing: '0.12em', textTransform: 'uppercase', margin: 0 }}>Rachel Hernandez &mdash; rachelhernandezrealtor@gmail.com</p>
+          <p style={{ color: 'rgba(255,255,255,0.12)', fontFamily: 'sans-serif', fontSize: '9px', letterSpacing: '0.18em', textTransform: 'uppercase', margin: '0 0 0.3rem' }}>Offered Exclusively By</p>
+          <p style={{ color: 'rgba(255,255,255,0.28)', fontFamily: 'Georgia, serif', fontSize: '0.95rem', margin: '0 0 0.2rem', letterSpacing: '0.05em' }}>Rachel Hernandez</p>
+          <p style={{ color: GOLD, fontFamily: 'sans-serif', fontSize: '9px', letterSpacing: '0.18em', textTransform: 'uppercase', margin: '0 0 0.3rem', opacity: 0.7 }}>Sotheby's International Realty</p>
+          <p style={{ color: 'rgba(255,255,255,0.06)', fontFamily: 'sans-serif', fontSize: '9px', letterSpacing: '0.12em', margin: 0 }}>rachelhernandezrealtor@gmail.com</p>
         </div>
       </div>
     </footer>
@@ -2028,7 +2032,7 @@ function Opportunity() {
     {
       eyebrow: 'The Infrastructure',
       headline: 'Independent by Design.',
-      body: 'Two deep private wells. 14.3 kW solar with battery backup. Five geothermal zones from twenty wells at 300 feet. 30 kW standby generator. The estate operates entirely off municipal systems -- by intention, not circumstance.',
+      body: 'Two deep private wells. 14.3 kW solar with battery backup. Seven geothermal zones from twenty wells at 300 feet. 30 kW standby generator. The estate operates entirely off municipal systems -- by intention, not circumstance.',
     },
     {
       eyebrow: 'The Position',
