@@ -21,10 +21,8 @@ const MATTERPORT = 'https://my.matterport.com/show/?m=xZRfSiQPuQ8';
 
 const B = 'https://base44.app/api/apps/69e248a2469cc39540781cce/files/mp/public/69e248a2469cc39540781cce/'; // LAW: NEVER media.base44.com — always base44.app upload URL
 const CLOUD = 'dghn2xpif';
-const cdn = (url, w = 1400) => 'https://res.cloudinary.com/' + CLOUD + '/image/fetch/f_auto,q_auto,w_' + w + ',c_limit/' + encodeURIComponent(url);
-const cdnInt = (url) => 'https://res.cloudinary.com/' + CLOUD + '/image/fetch/e_improve:indoor:60,e_brightness:10,e_shadow:-30,e_sharpen:40,e_saturation:15,f_auto,q_auto,w_1600,c_limit/' + encodeURIComponent(url);
-const cdnExt = (url) => 'https://res.cloudinary.com/' + CLOUD + '/image/fetch/e_improve:outdoor:70,e_auto_brightness,e_sharpen:30,e_saturation:20,f_auto,q_auto,w_1600,c_limit/' + encodeURIComponent(url);
-const cdnSharp = (url) => 'https://res.cloudinary.com/' + CLOUD + '/image/fetch/e_sharpen:200,e_vibrance:30,e_brightness:8,e_saturation:20,f_auto,q_auto,w_2000,c_limit/' + encodeURIComponent(url);
+// IMAGE HOSTING LAW: image/fetch is BANNED. All images are image/upload direct.
+// cdn / cdnInt / cdnExt / cdnSharp helpers removed. Use IMG.{key} direct URLs only.
 
 const IMG = {
   // Interior shots -- direct Cloudinary upload, indoor enhancement pipeline
@@ -1666,7 +1664,7 @@ function Mechanism() {
   ];
   return (
     <section style={{ position: 'relative', background: DARK, padding: mob ? '6rem 0' : '10rem 0', overflow: 'hidden' }}>
-      <div style={{ position: 'absolute', inset: 0, backgroundImage: `url(${cdn(IMG.aerial)})`, backgroundSize: 'cover', backgroundPosition: 'center', opacity: 0.05, zIndex: 0 }} />
+      <div style={{ position: 'absolute', inset: 0, backgroundImage: `url(${IMG.aerial})`, backgroundSize: 'cover', backgroundPosition: 'center', opacity: 0.05, zIndex: 0 }} />
       <div style={{ position: 'relative', zIndex: 1 }}>
         <Fade>
           <div style={{ textAlign: 'center', marginBottom: mob ? '5rem' : '8rem', padding: '0 6vw' }}>
