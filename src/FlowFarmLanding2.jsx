@@ -1472,9 +1472,9 @@ function Numbers() {
   ];
   return (
     <section style={{ position: 'relative', overflow: 'hidden', padding: mob ? '7rem 0' : '11rem 0' }}>
-      {/* Photo bg — geothermal tunnel for the tech-estate vibe */}
+      {/* Photo bg — exterior Clark architecture: engineered estate reads immediately */}
       <div style={{ position: 'absolute', inset: 0, zIndex: 1 }}>
-        <img src={IMG.tunnel} alt="" style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center 40%', display: 'block', filter: 'saturate(1.2) brightness(0.75)' }} />
+        <img src={IMG.exterior} alt="" style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center 55%', display: 'block', filter: 'saturate(1.1) brightness(0.65)' }} />
       </div>
       {/* Dark meld top + bottom */}
       <div style={{ position: 'absolute', inset: 0, zIndex: 2, background: 'linear-gradient(to bottom, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.38) 30%, rgba(0,0,0,0.38) 70%, rgba(0,0,0,0.82) 100%)' }} />
