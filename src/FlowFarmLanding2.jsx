@@ -1682,7 +1682,7 @@ function ZoningOpportunity() {
   return (
     <section style={{ position: 'relative', overflow: 'hidden', minHeight: mob ? '85vh' : '100vh', display: 'flex', alignItems: 'center' }}>
       <div style={{ position: 'absolute', inset: 0, zIndex: 1 }}>
-        <img src={IMG.aerial} alt="" style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center 55%', display: 'block' }} />
+        <img src={IMG.forestcanopy} alt="" style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center 40%', display: 'block' }} />
       </div>
       <div style={{ position: 'absolute', inset: 0, zIndex: 2, background: 'rgba(0,0,0,0.22)' }} />
       {/* top+bottom meld */}
@@ -2190,10 +2190,10 @@ export default function FlowFarmLanding2() {
 
       {/* CHAPTER 3 — The Land */}
       <CinematicReveal
-        src={IMG.aerial}
+        src={IMG.pine}
         headline={"Autonomy at this scale is not inherited. It is engineered."}
         quote
-        position="center 60%"
+        position="center 50%"
       />
       <Land />
       <CinematicReveal
