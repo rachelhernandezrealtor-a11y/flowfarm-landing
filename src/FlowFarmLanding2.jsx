@@ -517,7 +517,7 @@ function Manifesto() {
           letterSpacing: '-0.018em',
           textShadow: '0 2px 24px rgba(0,0,0,0.5)',
         }}>
-          A living estate.<br /><em>Rooted in sustainability,<br />shaped by beauty.</em>
+          A living estate.<br /><em>Built with intention.<br />Ready for the next chapter.</em>
         </h2>
         <div style={{ width: 36, height: 1, background: GOLD, opacity: 0.5 }} />
         <p style={{
@@ -633,14 +633,14 @@ function PhilosophyBreath() {
           fontSize: mob ? '1.8rem' : 'clamp(2.2rem, 3.5vw, 3.2rem)',
           color: CREAM, lineHeight: 1.45, margin: 0, letterSpacing: '-0.02em',
         }}>
-          More than an estate,<br />and more than a farm.
+          A property where the land<br />is not scenery. It is the point.
         </h2>
         <p style={{
           fontFamily: 'Georgia, serif',
           fontSize: mob ? '1rem' : '1.12rem',
           color: 'rgba(255,255,255,0.72)', lineHeight: 2, margin: 0, maxWidth: 600,
         }}>
-          Flow Farm is a place where land, life, and vision move together — where luxury and stewardship exist in living balance. Every part of the property, from its architecture to its growing systems, has been shaped with intention. An experience that feels both grounded and expansive.
+          Fifteen acres, three miles from Pinehurst. A home, a farm, a system — each one complete on its own. Together, they form something that does not exist on the open market. Built over fifteen years. Offered once.
         </p>
         <div style={{ width: '60px', height: 1, background: GOLD, opacity: 0.4 }} />
       </div>
@@ -888,11 +888,11 @@ function ForestIntro() {
 
       {/* ======= KEY INTERSTITIAL -- The Farm is the Key ======= */}
       <div style={{ background: '#0a0a0a', padding: '10rem 10vw', textAlign: 'center' }}>
-        <div style={{ width: '40px', height: '1px', background: 'linear-gradient(to right, transparent, rgba(201,169,110,0.5), transparent)', margin: '0 auto 3.5rem' }} />
+        <div style={{ width: '60px', height: '1px', background: GOLD, opacity: 0.4, margin: '0 auto 3.5rem' }} />
         <p style={{ fontFamily: 'Georgia, serif', fontStyle: 'italic', fontSize: 'clamp(1.5rem, 3vw, 2.4rem)', color: '#F5F0E8', lineHeight: 1.55, maxWidth: 780, margin: '0 auto', letterSpacing: '-0.01em' }}>
           Three acres, active and certified.<br />That&rsquo;s all it took.<br /><span style={{ color: 'rgba(201,169,110,0.85)' }}>The rest of the fifteen are yours.</span>
         </p>
-        <div style={{ width: '40px', height: '1px', background: 'linear-gradient(to right, transparent, rgba(201,169,110,0.5), transparent)', margin: '3.5rem auto 0' }} />
+        <div style={{ width: '60px', height: '1px', background: GOLD, opacity: 0.4, margin: '3.5rem auto 0' }} />
       </div>
 
       {/* ======= CHAPTER 4: PINEAPPLE -- The High Tunnel ======= */}
@@ -1478,82 +1478,37 @@ function LightingCircuits() {
 function StealTheShow() {
   const w = useW();
   const mob = w < 768;
-  const [playing, setPlaying] = useState(false);
-
   return (
-    <section style={{ position: 'relative', minHeight: '100vh', overflow: 'hidden', display: 'flex', alignItems: 'center', justifyContent: 'center', background: '#000' }}>
-
-      {/* Poster thumbnail (shown until play is clicked) */}
-      {!playing && (
-        <img
-          src="https://customer-qqzxuq43g9w49ny2.cloudflarestream.com/de1885d159ae310508174f03f775c797/thumbnails/thumbnail.jpg?width=1920&time=3s"
-          alt="Flow Farm property video"
-          style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center', opacity: 0.85 }}
-        />
-      )}
-
-      {/* Iframe -- only rendered after user clicks play */}
-      {playing && (
+    <section style={{ position: 'relative', minHeight: '100vh', overflow: 'hidden', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+      {/* Fan video -- silent looping bg, always running */}
+      <div style={{ position: 'absolute', inset: 0, zIndex: 1, background: '#000' }}>
         <iframe
-          src="https://iframe.cloudflarestream.com/de1885d159ae310508174f03f775c797?autoplay=true&controls=true"
-          style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', border: 'none' }}
-          allow="autoplay; fullscreen; picture-in-picture"
-          title="Flow Farm property video"
+          src="https://iframe.cloudflarestream.com/de1885d159ae310508174f03f775c797?autoplay=true&loop=true&muted=true&controls=false&preload=auto"
+          style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', border: 'none', pointerEvents: 'none', opacity: 0.90 }}
+          allow="autoplay; fullscreen"
+          title="Flow Farm fan background"
         />
-      )}
-
-      {/* Dark overlay -- only when not playing */}
-      {!playing && (
-        <div style={{ position: 'absolute', inset: 0, zIndex: 2, background: 'linear-gradient(to bottom, rgba(0,0,0,0.30) 0%, rgba(0,0,0,0.18) 40%, rgba(0,0,0,0.58) 100%)' }} />
-      )}
-
-      {/* Content + play button -- hidden once video starts */}
-      {!playing && (
-        <div style={{ position: 'relative', zIndex: 3, textAlign: 'center', padding: mob ? '6rem 6vw' : '8rem 8vw', maxWidth: 1100, margin: '0 auto' }}>
-          <h2 style={{
-            fontFamily: 'Georgia, serif',
-            fontWeight: 400,
-            fontSize: mob ? 'clamp(2.4rem, 8vw, 3.4rem)' : 'clamp(3rem, 4.4vw, 4.8rem)',
-            color: '#fff',
-            lineHeight: 1.12,
-            letterSpacing: '-0.02em',
-            margin: '0 0 2.5rem 0',
-            textShadow: '0 2px 40px rgba(0,0,0,0.7)',
-          }}>
-            Impossible to Confuse<br />With Anything Else.
-          </h2>
-
-          {/* Play button */}
-          <button
-            onClick={() => setPlaying(true)}
-            aria-label="Play property video"
-            style={{
-              width: mob ? 64 : 80,
-              height: mob ? 64 : 80,
-              borderRadius: '50%',
-              border: '2px solid rgba(201,169,110,0.75)',
-              background: 'rgba(0,0,0,0.45)',
-              cursor: 'pointer',
-              display: 'inline-flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              marginBottom: '2.2rem',
-              transition: 'border-color 0.3s, background 0.3s',
-            }}
-            onMouseEnter={e => { e.currentTarget.style.borderColor = '#C9A96E'; e.currentTarget.style.background = 'rgba(0,0,0,0.70)'; }}
-            onMouseLeave={e => { e.currentTarget.style.borderColor = 'rgba(201,169,110,0.75)'; e.currentTarget.style.background = 'rgba(0,0,0,0.45)'; }}
-          >
-            {/* Triangle play icon */}
-            <svg width={mob ? 22 : 28} height={mob ? 22 : 28} viewBox="0 0 24 24" fill="none">
-              <polygon points="7,4 21,12 7,20" fill="#C9A96E" />
-            </svg>
-          </button>
-
-          <p style={{ fontFamily: 'Georgia, serif', fontStyle: 'italic', fontSize: mob ? '0.9rem' : '1.05rem', color: 'rgba(255,255,255,0.78)', lineHeight: 1.6, maxWidth: 960, margin: '0 auto', whiteSpace: mob ? 'normal' : 'nowrap' }}>
-            Robert Clark designed it. Fifteen years shaped it. It shows.
-          </p>
-        </div>
-      )}
+      </div>
+      {/* Dark overlay */}
+      <div style={{ position: 'absolute', inset: 0, zIndex: 2, background: 'linear-gradient(to bottom, rgba(0,0,0,0.32) 0%, rgba(0,0,0,0.20) 40%, rgba(0,0,0,0.60) 100%)' }} />
+      {/* Content floats over the video */}
+      <div style={{ position: 'relative', zIndex: 3, textAlign: 'center', padding: mob ? '6rem 6vw' : '8rem 8vw', maxWidth: 1100, margin: '0 auto' }}>
+        <h2 style={{
+          fontFamily: 'Georgia, serif',
+          fontWeight: 400,
+          fontSize: mob ? 'clamp(2.4rem, 8vw, 3.4rem)' : 'clamp(3rem, 4.4vw, 4.8rem)',
+          color: '#fff',
+          lineHeight: 1.12,
+          letterSpacing: '-0.02em',
+          margin: '0 0 2rem 0',
+          textShadow: '0 2px 40px rgba(0,0,0,0.7)',
+        }}>
+          Impossible to Confuse<br />With Anything Else.
+        </h2>
+        <p style={{ fontFamily: 'Georgia, serif', fontStyle: 'italic', fontSize: mob ? '0.9rem' : '1.05rem', color: 'rgba(255,255,255,0.82)', lineHeight: 1.6, maxWidth: 960, margin: '0 auto', whiteSpace: mob ? 'normal' : 'nowrap', textShadow: '0 1px 12px rgba(0,0,0,0.6)' }}>
+          Robert Clark designed it. Fifteen years shaped it. It shows.
+        </p>
+      </div>
     </section>
   );
 }
@@ -1993,14 +1948,14 @@ function LegacyClose() {
           fontSize: mob ? '2rem' : 'clamp(2.8rem, 4.5vw, 4.2rem)',
           color: CREAM, lineHeight: 1.2, margin: 0, letterSpacing: '-0.02em',
         }}>
-          Where Luxury<br />Meets Legacy.
+          This is what it looks like<br />when someone builds something<br /><em>they never intended to sell.</em>
         </h2>
         <div style={{ width: "60px", height: 1, background: GOLD, opacity: 0.4 }} />
         <p style={{
           fontFamily: 'Georgia, serif', fontSize: mob ? '1rem' : '1.15rem',
           color: 'rgba(255,255,255,0.72)', lineHeight: 2, margin: 0, maxWidth: 600,
         }}>
-          Flow Farm is a rare convergence of land, architecture, sustainability, infrastructure, and location — capable of holding a life, a purpose, a retreat, an enterprise, or a lasting legacy. It offers more than beauty, privacy, or utility. It offers a place ready for what comes next.
+          Mark did not build this for the market. He built it for a life. Fifteen years of decisions — each one compounding the last — resulted in something that does not exist anywhere else at this address, at this price, in this condition. You are not buying a property. You are inheriting a system that someone else spent a decade and a half perfecting.
         </p>
         <p style={{
           fontFamily: 'Georgia, serif', fontStyle: 'italic',
@@ -2246,7 +2201,7 @@ function SustainabilityThread() {
       opacity: fadeIn ? 1 : 0, transform: fadeIn ? 'none' : 'translateY(18px)',
       transition: 'opacity 1.6s ease, transform 1.6s ease',
     }}>
-      <div style={{ width: '40px', height: '1px', background: 'rgba(201,169,110,0.35)', margin: '0 auto 3rem' }} />
+      <div style={{ width: '60px', height: '1px', background: GOLD, opacity: 0.4, margin: '0 auto 3rem' }} />
       <p style={{ fontFamily: 'Georgia, serif', fontStyle: 'italic', fontSize: 'clamp(1.05rem, 2.2vw, 1.6rem)', color: 'rgba(255,255,255,0.75)', lineHeight: 1.9, maxWidth: 680, margin: '0 auto 2.5rem', letterSpacing: '0.01em' }}>
         The solar feeds the geothermal. The geothermal heats the tunnel.<br />
         The tunnel feeds the farm. The farm sustains the zoning.<br />
@@ -2255,7 +2210,7 @@ function SustainabilityThread() {
       <p style={{ fontFamily: 'sans-serif', fontSize: '8px', letterSpacing: '0.36em', textTransform: 'uppercase', color: 'rgba(201,169,110,0.45)', margin: '0 auto' }}>
         Nothing here is accidental.
       </p>
-      <div style={{ width: '40px', height: '1px', background: 'rgba(201,169,110,0.35)', margin: '3rem auto 0' }} />
+      <div style={{ width: '60px', height: '1px', background: GOLD, opacity: 0.4, margin: '3rem auto 0' }} />
     </div>
   );
 }
@@ -2395,11 +2350,11 @@ export default function FlowFarmLanding2() {
 
       {/* CHAPTER 6 — The Zoning Payoff */}
       <div style={{ background: '#0a0a0a', padding: '9rem 10vw', textAlign: 'center' }}>
-        <div style={{ width: '40px', height: '1px', background: 'linear-gradient(to right, transparent, rgba(201,169,110,0.5), transparent)', margin: '0 auto 3.5rem' }} />
+        <div style={{ width: '60px', height: '1px', background: GOLD, opacity: 0.4, margin: '0 auto 3.5rem' }} />
         <p style={{ fontFamily: 'Georgia, serif', fontStyle: 'italic', fontSize: 'clamp(1.5rem, 3vw, 2.4rem)', color: '#F5F0E8', lineHeight: 1.55, maxWidth: 780, margin: '0 auto', letterSpacing: '-0.01em' }}>
           Three acres certified and active.<br />That was enough for the USDA.<br /><span style={{ color: 'rgba(201,169,110,0.85)' }}>That was enough to unlock everything else.</span>
         </p>
-        <div style={{ width: '40px', height: '1px', background: 'linear-gradient(to right, transparent, rgba(201,169,110,0.5), transparent)', margin: '3.5rem auto 0' }} />
+        <div style={{ width: '60px', height: '1px', background: GOLD, opacity: 0.4, margin: '3.5rem auto 0' }} />
       </div>
       <ZoningOpportunity />
       <PropertyMap />
