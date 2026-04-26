@@ -444,12 +444,6 @@ function Manifesto() {
   const w = useW();
   const mob = w < 768;
   const [ref, visible] = useFade();
-  const [scrollY, setScrollY] = React.useState(0);
-  React.useEffect(() => {
-    const onScroll = () => setScrollY(window.scrollY);
-    window.addEventListener('scroll', onScroll, { passive: true });
-    return () => window.removeEventListener('scroll', onScroll);
-  }, []);
   const BG_URL = 'https://res.cloudinary.com/dghn2xpif/image/upload/f_auto,q_auto,w_2400,e_vibrance:40,e_saturation:20,e_brightness:15,e_sharpen:60/ff_forest_canopy.jpg';
   return (
     <section ref={ref} style={{
@@ -466,7 +460,7 @@ function Manifesto() {
         inset: '-10%',
         backgroundImage: 'url(' + BG_URL + ')',
         backgroundSize: 'cover',
-        backgroundPosition: 'center ' + (50 + scrollY * 0.15) + '%',
+        backgroundPosition: 'center 50%',
         transform: 'scale(1.08)',
         transition: 'background-position 0.1s linear',
         filter: 'saturate(1.2) brightness(0.72)',
@@ -758,7 +752,7 @@ function ForestIntro() {
           position: 'absolute', inset: 0,
           backgroundImage: 'url(' + FOREST_URL + ')',
           backgroundSize: 'cover',
-          backgroundPosition: 'center ' + (50 + scrollY * 0.08) + '%',
+          backgroundPosition: 'center 50%',
           filter: 'saturate(1.2) brightness(1.05)',
           transition: 'background-position 0.1s linear',
         }} />
@@ -824,7 +818,7 @@ function ForestIntro() {
           position: 'absolute', inset: 0,
           backgroundImage: 'url(' + TRAIL_URL + ')',
           backgroundSize: 'cover',
-          backgroundPosition: 'center ' + (40 + scrollY * 0.06) + '%',
+          backgroundPosition: 'center 40%',
           filter: 'saturate(1.1) brightness(1.05)',
           transition: 'background-position 0.1s linear',
         }} />
@@ -863,7 +857,7 @@ function ForestIntro() {
           position: 'absolute', inset: 0,
           backgroundImage: 'url(' + AERIAL_URL + ')',
           backgroundSize: 'cover',
-          backgroundPosition: 'center ' + (35 + scrollY * 0.06) + '%',
+          backgroundPosition: 'center 35%',
           transition: 'background-position 0.1s linear',
         }} />
         <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to bottom, rgba(0,0,0,0.15) 0%, rgba(0,0,0,0.65) 100%)' }} />
@@ -892,7 +886,7 @@ function ForestIntro() {
           position: 'absolute', inset: 0,
           backgroundImage: 'url(' + PINE_URL + ')',
           backgroundSize: 'cover',
-          backgroundPosition: 'center ' + (40 + scrollY * 0.06) + '%',
+          backgroundPosition: 'center 40%',
           filter: 'saturate(1.15) brightness(1.0)',
           transition: 'background-position 0.1s linear',
         }} />
