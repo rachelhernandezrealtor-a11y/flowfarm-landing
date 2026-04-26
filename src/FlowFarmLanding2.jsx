@@ -571,12 +571,12 @@ function Foundation() {
             <h2 style={{ color: CREAM, fontFamily: 'Georgia, serif', fontWeight: 400, fontSize: mob ? '2rem' : '3rem', lineHeight: 1.22, margin: 0, letterSpacing: '-0.018em' }}>
               A Foundation for<br />What Comes Next.
             </h2>
-            <p style={{ color: 'rgba(255,255,255,0.32)', fontFamily: 'Georgia, serif', fontSize: mob ? '1rem' : '1.06rem', lineHeight: 2.1, margin: 0 }}>
+            <p style={{ color: 'rgba(255,255,255,0.78)', fontFamily: 'Georgia, serif', fontSize: mob ? '1rem' : '1.06rem', lineHeight: 2.1, margin: 0 }}>
               A living estate rooted in sustainability, elevated by state-of-the-art
               infrastructure and refined luxury. Designed by Robert E. Clark AIA of Pinehurst
               -- one of his final and most personal works.
             </p>
-            <p style={{ color: 'rgba(255,255,255,0.45)', fontFamily: 'Georgia, serif', fontSize: mob ? '1rem' : '1.06rem', lineHeight: 2.1, margin: 0 }}>
+            <p style={{ color: 'rgba(255,255,255,0.62)', fontFamily: 'Georgia, serif', fontSize: mob ? '1rem' : '1.06rem', lineHeight: 2.1, margin: 0 }}>
               Reclaimed Civil War-era heart pine floors, custom-laid in artisan patterns
               throughout every bedroom, hallway, and closet. A glass conservatory with
               octagonal skylight dome. Six structures across fifteen curated acres.
@@ -596,11 +596,7 @@ function Foundation() {
         <Fade delay={0.2}>
           <div style={{ position: 'relative' }}>
             <img src={IMG.living} alt="Flow Farm Estate" style={{ width: '100%', height: mob ? 340 : 560, objectFit: 'cover', display: 'block' }} />
-            <Glass style={{ position: 'absolute', bottom: mob ? -20 : -28, left: mob ? -10 : -28, padding: '1.4rem 2rem' }}>
-              <p style={{ margin: '0 0 0.3rem', fontFamily: 'sans-serif', fontSize: '9px', letterSpacing: '0.22em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.3)' }}>Architect</p>
-              <p style={{ margin: 0, fontFamily: 'Georgia, serif', fontSize: '1rem', color: CREAM }}>Robert E. Clark AIA</p>
-              <p style={{ margin: '0.2rem 0 0', fontFamily: 'sans-serif', fontSize: '9px', color: 'rgba(255,255,255,0.25)', letterSpacing: '0.1em' }}>Pinehurst, NC</p>
-            </Glass>
+
           </div>
         </Fade>
       </div>
@@ -1085,18 +1081,19 @@ function PropertyMap() {
           rel="noreferrer"
           style={{
             display: 'inline-flex', alignItems: 'center', gap: '0.6rem',
-            background: GOLD,
-            color: DARK,
+            background: 'transparent',
+            color: GOLD,
             fontFamily: 'sans-serif', fontSize: '10px', letterSpacing: '0.32em', textTransform: 'uppercase',
-            fontWeight: 700,
+            fontWeight: 400,
             padding: '1.1rem 2.8rem',
-            borderRadius: '2rem',
+            border: '1px solid rgba(201,169,110,0.5)',
             textDecoration: 'none',
-            boxShadow: '0 4px 30px rgba(201,169,110,0.35)',
-            transition: 'opacity 0.2s ease',
+            transition: 'border-color 0.25s ease, color 0.25s ease',
           }}
+          onMouseEnter={e => e.currentTarget.style.borderColor = GOLD}
+          onMouseLeave={e => e.currentTarget.style.borderColor = 'rgba(201,169,110,0.5)'}
         >
-          &#127758; Walk the Land
+          Walk the Land
         </a>
         <p style={{ fontFamily: 'Georgia, serif', fontStyle: 'italic', fontSize: '0.85rem', color: 'rgba(255,255,255,0.45)', margin: '0.9rem 0 0' }}>
           Aerial 3D tour -- explore all 15 acres
@@ -1468,28 +1465,21 @@ function ZoningOpportunity() {
         }}>
           NC Qualifying Farmer Exemption is in place. Retreat centers, event venues, agritourism, commercial kitchens, equestrian operations -- all permitted. Most buyers spend years and real capital securing what this property already has.
         </p>
-        {/* Pinehurst callout */}
-        <div style={{
-          display: 'inline-block',
-          background: 'rgba(201,169,110,0.1)',
-          border: '1px solid rgba(201,169,110,0.35)',
-          borderRadius: '2px',
-          padding: mob ? '1.4rem 1.8rem' : '1.8rem 2.6rem',
-          maxWidth: 560,
-        }}>
-          <p style={{ fontFamily: 'sans-serif', fontSize: '9px', letterSpacing: '0.36em', textTransform: 'uppercase', color: GOLD, margin: '0 0 0.7rem' }}>Location</p>
+        {/* Pinehurst callout -- naked, no box */}
+        <div style={{ maxWidth: 560, borderTop: '1px solid rgba(201,169,110,0.22)', borderBottom: '1px solid rgba(201,169,110,0.22)', padding: mob ? '2rem 0' : '2.8rem 0', marginTop: '1rem' }}>
+          <p style={{ fontFamily: 'sans-serif', fontSize: '9px', letterSpacing: '0.36em', textTransform: 'uppercase', color: GOLD, margin: '0 0 1rem' }}>Location</p>
           <p style={{
             fontFamily: 'Georgia, serif', fontStyle: 'italic',
             fontSize: mob ? '1.1rem' : '1.35rem',
             color: '#fff', lineHeight: 1.5, margin: 0,
           }}>
-            Three miles from Pinehurst Resort -- one of the most visited golf destinations in the world.
+            Three miles from Pinehurst Resort.
           </p>
           <p style={{
-            fontFamily: 'Georgia, serif', fontSize: '0.9rem',
-            color: 'rgba(255,255,255,0.55)', lineHeight: 1.6, margin: '0.9rem 0 0',
+            fontFamily: 'Georgia, serif', fontSize: mob ? '0.95rem' : '1rem',
+            color: 'rgba(255,255,255,0.72)', lineHeight: 1.8, margin: '1rem 0 0',
           }}>
-            Resort economy. County taxation. No HOA. No city limits. The location is not incidental -- it is part of the thesis.
+            Resort economy. County taxation. No HOA. No city limits. The location is not incidental — it is part of the thesis.
           </p>
         </div>
       </div>
@@ -1513,14 +1503,14 @@ function Location() {
             <h2 style={{ color: CREAM, fontFamily: 'Georgia, serif', fontWeight: 400, fontSize: mob ? '1.9rem' : '2.6rem', lineHeight: 1.24, margin: 0, letterSpacing: '-0.015em' }}>
               Private by Nature.<br />Pinehurst by Proximity.
             </h2>
-            <p style={{ color: 'rgba(255,255,255,0.32)', fontFamily: 'Georgia, serif', fontSize: mob ? '1rem' : '1.06rem', lineHeight: 2, margin: 0 }}>
+            <p style={{ color: 'rgba(255,255,255,0.78)', fontFamily: 'Georgia, serif', fontSize: mob ? '1rem' : '1.06rem', lineHeight: 2, margin: 0 }}>
               Three miles from Pinehurst Resort. A transferable Pinehurst Country Club
               Signature Golf Membership -- unlimited access to Course No. 7 and No. 9 --
               is included with the sale.
             </p>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem', marginTop: '0.5rem' }}>
               {['Pinehurst Resort -- 3 Miles', 'Moore County Regional -- Private Aviation', 'Raleigh-Durham International -- 1 Hour', 'FirstHealth Moore Regional Hospital', 'Pinehurst CC Membership Included'].map(item => (
-                <p key={item} style={{ color: 'rgba(255,255,255,0.18)', fontFamily: 'sans-serif', fontSize: '10px', letterSpacing: '0.2em', textTransform: 'uppercase', margin: 0, display: 'flex', alignItems: 'center', gap: '1rem' }}>
+                <p key={item} style={{ color: 'rgba(255,255,255,0.55)', fontFamily: 'sans-serif', fontSize: '10px', letterSpacing: '0.2em', textTransform: 'uppercase', margin: 0, display: 'flex', alignItems: 'center', gap: '1rem' }}>
                   <span style={{ display: 'inline-block', width: 20, height: 1, background: GOLD, opacity: 0.4, flexShrink: 0 }} />
                   {item}
                 </p>
@@ -1569,7 +1559,7 @@ function Inquire() {
               Begin the Conversation.
             </h2>
             <GoldLine />
-            <p style={{ color: 'rgba(255,255,255,0.24)', fontFamily: 'Georgia, serif', fontSize: '1rem', lineHeight: 2, margin: 0 }}>
+            <p style={{ color: 'rgba(255,255,255,0.65)', fontFamily: 'Georgia, serif', fontSize: '1rem', lineHeight: 2, margin: 0 }}>
               This property is shown by private appointment only.
               All inquiries are handled with full discretion.
             </p>
