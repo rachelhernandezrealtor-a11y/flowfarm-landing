@@ -1267,14 +1267,14 @@ function CinematicReveal({ src, eyebrow, headline, body, align, quote, position 
               </p>
             </div>
           ) : (
-            <Glass style={{ padding: mob ? '2.5rem 2rem' : '3.5rem 4rem', maxWidth: mob ? '100%' : 520 }}>
+            <div style={{ padding: mob ? '2.5rem 2rem' : '3.5rem 4rem', maxWidth: mob ? '100%' : 520 }}>
               {eyebrow && <Eyebrow>{eyebrow}</Eyebrow>}
               {eyebrow && <div style={{ width: 28, height: 1, background: GOLD, opacity: 0.35, margin: '1.4rem 0' }} />}
-              <h2 style={{ color: CREAM, fontFamily: 'Georgia, serif', fontWeight: 400, fontSize: mob ? '1.7rem' : '2.5rem', lineHeight: 1.22, margin: '0 0 1.6rem', letterSpacing: '-0.015em', whiteSpace: 'pre-line' }}>
+              <h2 style={{ color: CREAM, fontFamily: 'Georgia, serif', fontWeight: 400, fontSize: mob ? '1.7rem' : '2.5rem', lineHeight: 1.22, margin: '0 0 1.6rem', letterSpacing: '-0.015em', whiteSpace: 'pre-line', textShadow: '0 2px 20px rgba(0,0,0,0.9)' }}>
                 {headline}
               </h2>
-              {body && <p style={{ color: 'rgba(255,255,255,0.44)', fontFamily: 'Georgia, serif', fontSize: mob ? '0.95rem' : '1rem', lineHeight: 2, margin: 0 }}>{body}</p>}
-            </Glass>
+              {body && <p style={{ color: 'rgba(255,255,255,0.82)', fontFamily: 'Georgia, serif', fontSize: mob ? '0.95rem' : '1rem', lineHeight: 2, margin: 0, textShadow: '0 1px 12px rgba(0,0,0,0.8)' }}>{body}</p>}
+            </div>
           )}
         </Fade>
       </div>
@@ -1359,14 +1359,14 @@ function Mechanism() {
         <div style={{ display: 'grid', gridTemplateColumns: mob ? '1fr' : tab ? 'repeat(2, 1fr)' : 'repeat(4, 1fr)', maxWidth: 1320, margin: '0 auto', padding: '0 5vw', gap: '2rem' }}>
           {cols.map((col, i) => (
             <Fade key={col.label} delay={i * 0.1}>
-              <Glass style={{ padding: mob ? '2.5rem 2rem' : '3rem 2.5rem' }}>
+              <div style={{ padding: mob ? '2.5rem 2rem' : '3rem 2.5rem', borderTop: '1px solid rgba(201,169,110,0.15)' }}>
                 <p style={{ color: GOLD, fontFamily: 'sans-serif', fontSize: '10px', letterSpacing: '0.3em', textTransform: 'uppercase', margin: '0 0 1.8rem', paddingBottom: '1.2rem', borderBottom: '1px solid rgba(255,255,255,0.07)' }}>
                   {col.label}
                 </p>
                 {col.items.map(item => (
-                  <p key={item} style={{ color: 'rgba(255,255,255,0.36)', fontFamily: 'Georgia, serif', fontSize: '0.94rem', lineHeight: 2, margin: '0 0 0.4rem' }}>{item}</p>
+                  <p key={item} style={{ color: 'rgba(255,255,255,0.72)', fontFamily: 'Georgia, serif', fontSize: '0.94rem', lineHeight: 2, margin: '0 0 0.4rem' }}>{item}</p>
                 ))}
-              </Glass>
+              </div>
             </Fade>
           ))}
         </div>
