@@ -1085,13 +1085,14 @@ function PropertyMap() {
             color: GOLD,
             fontFamily: 'sans-serif', fontSize: '10px', letterSpacing: '0.32em', textTransform: 'uppercase',
             fontWeight: 400,
-            padding: '1.1rem 2.8rem',
-            border: '1px solid rgba(201,169,110,0.5)',
+            padding: '0.2rem 0',
+            border: 'none',
+            borderBottom: '1px solid rgba(201,169,110,0.5)',
             textDecoration: 'none',
-            transition: 'border-color 0.25s ease, color 0.25s ease',
+            transition: 'border-color 0.25s ease',
           }}
-          onMouseEnter={e => e.currentTarget.style.borderColor = GOLD}
-          onMouseLeave={e => e.currentTarget.style.borderColor = 'rgba(201,169,110,0.5)'}
+          onMouseEnter={e => e.currentTarget.style.borderBottomColor = GOLD}
+          onMouseLeave={e => e.currentTarget.style.borderBottomColor = 'rgba(201,169,110,0.5)'}
         >
           Walk the Land
         </a>
