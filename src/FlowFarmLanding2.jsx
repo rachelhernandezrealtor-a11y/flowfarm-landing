@@ -19,7 +19,7 @@ const VIDEO_TOUR_ID = 'de1885d159ae310508174f03f775c797'; // property tour (Ente
 const CF_STREAM = 'https://customer-qqzxuq43g9w49ny2.cloudflarestream.com';
 const MATTERPORT = 'https://my.matterport.com/show/?m=xZRfSiQPuQ8';
 
-const B = 'https://media.base44.com/images/public/69e248a2469cc39540781cce/';
+const B = 'https://base44.app/api/apps/69e248a2469cc39540781cce/files/mp/public/69e248a2469cc39540781cce/'; // LAW: NEVER media.base44.com — always base44.app upload URL
 const CLOUD = 'dghn2xpif';
 const cdn = (url, w = 1400) => 'https://res.cloudinary.com/' + CLOUD + '/image/fetch/f_auto,q_auto,w_' + w + ',c_limit/' + encodeURIComponent(url);
 const cdnInt = (url) => 'https://res.cloudinary.com/' + CLOUD + '/image/fetch/e_improve:indoor:60,e_brightness:10,e_shadow:-30,e_sharpen:40,e_saturation:15,f_auto,q_auto,w_1600,c_limit/' + encodeURIComponent(url);
@@ -41,15 +41,15 @@ const IMG = {
   office:           cdnInt(B + '2b920c3b0_markofficemoneyshot.jpg'),
   hallway:          cdnInt(B + '8e3d794f9_secondfloorhallway.jpg'),
   // Exterior / aerial -- outdoor enhancement pipeline
-  aerial:           cdnExt('https://media.base44.com/images/public/69e248a2469cc39540781cce/2ca329bbf_flowfarmmasterphotoswebsite.jpg'),
+  aerial:           cdnExt('https://base44.app/api/apps/69e248a2469cc39540781cce/files/mp/public/69e248a2469cc39540781cce/7793a3d75_ff_aerial_master.jpg'),
   forestcanopy:     cdnExt('https://base44.app/api/apps/69e248a2469cc39540781cce/files/mp/public/69e248a2469cc39540781cce/c0fe395f0_ff_forest_canopy.png'),
-  grounds:          cdnExt('https://media.base44.com/images/public/69a8c6b6c09f3f53db8fa60a/da785e254_flowfarmmasterphotoswebsite3.jpg'),
-  exterior:         cdnExt('https://media.base44.com/images/public/69a8c6b6c09f3f53db8fa60a/595faa261_107LindenTrail-29.jpg'),
-  trail:            cdnExt('https://media.base44.com/images/public/69e248a2469cc39540781cce/41690f47b_107LindenTrail-822.jpg'),
+  grounds:          cdnExt('https://base44.app/api/apps/69e248a2469cc39540781cce/files/mp/public/69e248a2469cc39540781cce/d5ca2c38f_ff_grounds.jpg'),
+  exterior:         cdnExt('https://base44.app/api/apps/69e248a2469cc39540781cce/files/mp/public/69e248a2469cc39540781cce/eb327b9c5_ff_exterior.jpg'),
+  trail:            cdnExt('https://base44.app/api/apps/69e248a2469cc39540781cce/files/mp/public/69e248a2469cc39540781cce/d34135ac6_ff_trail.jpg'),
   // Structures -- outdoor enhancement
-  cabana:           cdnExt('https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/69a8c6b6c09f3f53db8fa60a/3af6924d6_CabanaHouseMain.jpg'),
-  tunnel:           cdnExt('https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/69a8c6b6c09f3f53db8fa60a/217fdb4a1_HighTunnel.jpg'),
-  workshop:         cdnExt('https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/69a8c6b6c09f3f53db8fa60a/136958608_FarmWorkshop.jpg'),
+  cabana:           cdnExt('https://base44.app/api/apps/69e248a2469cc39540781cce/files/mp/public/69e248a2469cc39540781cce/b7847c753_ff_cabana.jpg'),
+  tunnel:           cdnExt('https://base44.app/api/apps/69e248a2469cc39540781cce/files/mp/public/69e248a2469cc39540781cce/96c49db04_ff_tunnel.jpg'),
+  workshop:         cdnExt('https://base44.app/api/apps/69e248a2469cc39540781cce/files/mp/public/69e248a2469cc39540781cce/9324325a6_ff_workshop.jpg'),
 };
 
 function useW() {
@@ -654,9 +654,9 @@ function ForestIntro() {
   }, []);
 
   const FOREST_URL = 'https://res.cloudinary.com/dghn2xpif/image/fetch/f_auto,q_auto,w_2400,e_vibrance:80,e_saturation:50,e_brightness:18,e_sharpen:100,e_clarity:40/' + encodeURIComponent('https://base44.app/api/apps/69e248a2469cc39540781cce/files/mp/public/69e248a2469cc39540781cce/c0fe395f0_ff_forest_canopy.png');
-  const AERIAL_URL = 'https://res.cloudinary.com/dghn2xpif/image/fetch/f_auto,q_auto,w_2400,e_improve:outdoor:70,e_vibrance:40,e_saturation:20,e_sharpen:60/' + encodeURIComponent('https://media.base44.com/images/public/69e248a2469cc39540781cce/0686082ae_3AE3BB97-CE80-4B28-BBA2-62C77E5F0AA1_1_201_a.jpg');
-  const TRAIL_URL  = 'https://res.cloudinary.com/dghn2xpif/image/fetch/f_auto,q_auto,w_2400,e_improve:outdoor:60,e_vibrance:30,e_saturation:20,e_sharpen:50/' + encodeURIComponent('https://media.base44.com/images/public/69e248a2469cc39540781cce/41690f47b_107LindenTrail-822.jpg');
-  const PINE_URL   = 'https://res.cloudinary.com/dghn2xpif/image/fetch/f_auto,q_auto,w_2400,e_improve:outdoor:80,e_vibrance:50,e_saturation:30,e_sharpen:80,e_brightness:5/' + encodeURIComponent('https://media.base44.com/images/public/69e248a2469cc39540781cce/116a03ad1_IMG_3206.jpg');
+  const AERIAL_URL = 'https://res.cloudinary.com/dghn2xpif/image/fetch/f_auto,q_auto,w_2400,e_improve:outdoor:70,e_vibrance:40,e_saturation:20,e_sharpen:60/' + encodeURIComponent('https://base44.app/api/apps/69e248a2469cc39540781cce/files/mp/public/69e248a2469cc39540781cce/cab13f939_ff_aerial_map.jpg');
+  const TRAIL_URL  = 'https://res.cloudinary.com/dghn2xpif/image/fetch/f_auto,q_auto,w_2400,e_improve:outdoor:60,e_vibrance:30,e_saturation:20,e_sharpen:50/' + encodeURIComponent('https://base44.app/api/apps/69e248a2469cc39540781cce/files/mp/public/69e248a2469cc39540781cce/d34135ac6_ff_trail.jpg');
+  const PINE_URL   = 'https://res.cloudinary.com/dghn2xpif/image/fetch/f_auto,q_auto,w_2400,e_improve:outdoor:80,e_vibrance:50,e_saturation:30,e_sharpen:80,e_brightness:5/' + encodeURIComponent('https://base44.app/api/apps/69e248a2469cc39540781cce/files/mp/public/69e248a2469cc39540781cce/2dd4aaff9_ff_pine.jpg');
 
   const grid = [
     { label: '15 USDA ACRES',       body: 'Registered farmland. County-taxed. No HOA.' },
@@ -983,7 +983,7 @@ function PropertyMap() {
           {/* Aerial photo */}
           <img
             ref={mapImgRef}
-            src={"https://res.cloudinary.com/dghn2xpif/image/fetch/e_sharpen:150,e_vibrance:20,e_saturation:15,f_auto,q_auto,w_3200,c_limit/" + encodeURIComponent("https://media.base44.com/images/public/69e248a2469cc39540781cce/2ca329bbf_flowfarmmasterphotoswebsite.jpg")}
+            src={"https://res.cloudinary.com/dghn2xpif/image/fetch/e_sharpen:150,e_vibrance:20,e_saturation:15,f_auto,q_auto,w_3200,c_limit/" + encodeURIComponent("https://base44.app/api/apps/69e248a2469cc39540781cce/files/mp/public/69e248a2469cc39540781cce/7793a3d75_ff_aerial_master.jpg")}
             alt="Flow Farm aerial view"
             style={{
               position: 'absolute', inset: 0, width: '100%', height: '100%',
