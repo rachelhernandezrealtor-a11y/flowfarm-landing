@@ -835,19 +835,7 @@ function PropertyMap() {
   const [panelVisible, setPanelVisible] = useState(false);
   const [ref, fadeIn] = useFade();
   const mapImgRef = useRef(null);
-
-  useEffect(() => {
-    const el = mapImgRef.current;
-    if (!el) return;
-    const onScroll = () => {
-      const rect = el.closest('section').getBoundingClientRect();
-      const pct = (window.innerHeight - rect.top) / (window.innerHeight + rect.height);
-      const shift = (pct - 0.5) * 80;
-      el.style.transform = 'scale(1.06) translateY(' + (shift * 0.5) + 'px)';
-    };
-    window.addEventListener('scroll', onScroll, { passive: true });
-    return () => window.removeEventListener('scroll', onScroll);
-  }, []);
+  // parallax removed -- full aerial must always be fully visible
 
   const openPin = (pin) => {
     setActive(pin);
@@ -905,7 +893,7 @@ function PropertyMap() {
         opacity: fadeIn ? 1 : 0,
         transition: 'opacity 1.8s ease 0.3s',
       }}>
-        <div style={{ position: 'relative', width: '100%', paddingBottom: mob ? '120%' : '90%', overflow: 'hidden' }}>
+        <div style={{ position: 'relative', width: '100%', paddingBottom: mob ? '100%' : '62%', overflow: 'hidden' }}>
           {/* Aerial photo */}
           <img
             ref={mapImgRef}
@@ -913,11 +901,12 @@ function PropertyMap() {
             alt="Flow Farm aerial view"
             style={{
               position: 'absolute', inset: 0, width: '100%', height: '100%',
-              objectFit: 'cover', objectPosition: 'center 65%',
+              objectFit: 'contain', objectPosition: 'center center',
               display: 'block',
-              transform: 'scale(1.06) translateY(0px)',
-              transition: 'transform 0.05s linear',
-              willChange: 'transform',
+              background: '#0a0a0a',
+              transform: 'none',
+              transition: 'none',
+              willChange: 'auto',
             }}
           />
           {/* Dark vignette overlay */}
