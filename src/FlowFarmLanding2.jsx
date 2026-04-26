@@ -2161,7 +2161,7 @@ export default function FlowFarmLanding2() {
 
       {/* CHAPTER 3 — The Land */}
       <CinematicReveal
-        src={IMG.pine}
+        src={'https://res.cloudinary.com/dghn2xpif/image/upload/e_sharpen:100,e_vibrance:30,e_saturation:20,f_auto,q_auto,w_1920,c_limit/ff_pine.jpg'}
         headline={"Autonomy at this scale is not inherited. It is engineered."}
         quote
         position="center 50%"
