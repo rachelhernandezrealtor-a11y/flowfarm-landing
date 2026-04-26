@@ -517,7 +517,7 @@ function Manifesto() {
           letterSpacing: '-0.018em',
           textShadow: '0 2px 24px rgba(0,0,0,0.5)',
         }}>
-          Not a listing.<br />A transfer of something rare.
+          A living estate.<br /><em>Rooted in sustainability,<br />shaped by beauty.</em>
         </h2>
         <div style={{ width: 36, height: 1, background: GOLD, opacity: 0.5 }} />
         <p style={{
@@ -575,13 +575,13 @@ function Foundation() {
           <p style={{ fontFamily: 'sans-serif', fontSize: '9px', letterSpacing: '0.40em', textTransform: 'uppercase', color: GOLD, margin: '0 0 1rem', textShadow: '0 1px 8px rgba(0,0,0,0.8)' }}>The Estate</p>
           <div style={{ width: 24, height: 1, background: GOLD, opacity: 0.5, marginBottom: '1.4rem' }} />
           <h2 style={{ color: '#fff', fontFamily: 'Georgia, serif', fontWeight: 400, fontSize: mob ? '1.8rem' : 'clamp(2.2rem,3.2vw,3.2rem)', lineHeight: 1.2, margin: '0 0 1.4rem', letterSpacing: '-0.018em', textShadow: '0 2px 28px rgba(0,0,0,0.75)' }}>
-            Structure That<br />Holds Freedom.
+            A Place of Arrival.
           </h2>
           <p style={{ color: 'rgba(255,255,255,0.88)', fontFamily: 'Georgia, serif', fontSize: mob ? '0.95rem' : '1.05rem', lineHeight: 1.9, margin: '0 0 1rem', textShadow: '0 1px 12px rgba(0,0,0,0.7)' }}>
-            Robert E. Clark AIA designed this as one of his final private commissions. Structural integrity of a commercial build. Warmth of a home deeply lived in.
+            Robert E. Clark AIA designed this as one of his final private commissions — refined, substantial, and quietly distinctive. Structural integrity of a commercial build. Warmth of a home deeply lived in.
           </p>
           <p style={{ color: 'rgba(255,255,255,0.72)', fontFamily: 'Georgia, serif', fontSize: mob ? '0.95rem' : '1.05rem', lineHeight: 1.9, margin: '0 0 1.8rem', textShadow: '0 1px 12px rgba(0,0,0,0.7)' }}>
-            Civil War-era heart pine floors, custom-laid in artisan patterns. A glass conservatory with an octagonal dome. Six structures across fifteen acres.
+            Civil War-era heart pine floors, custom-laid in artisan patterns. A glass conservatory with an octagonal dome. An estate designed not only to impress, but to hold life beautifully.
           </p>
           <div style={{ display: 'flex', gap: '1.5rem' }}>
             <a href={MATTERPORT} target="_blank" rel="noreferrer"
@@ -606,6 +606,47 @@ function Foundation() {
 // ============================================================
 // FOREST INTRO -- unified chapter (A Living Place + Operational + Opportunity)
 // ============================================================
+
+// ============================================================
+// PHILOSOPHY BREATH — A Living Place, Rooted in Possibility
+// Framework §2 — soul of the property before structures
+// Feeling: depth, calm, identity
+// ============================================================
+function PhilosophyBreath() {
+  const mob = useW() < 768;
+  const [ref, visible] = useFade();
+  return (
+    <section ref={ref} style={{ background: DARK, padding: mob ? '10rem 8vw' : '14rem 10vw', textAlign: 'center' }}>
+      <div style={{
+        maxWidth: 780, margin: '0 auto',
+        opacity: visible ? 1 : 0,
+        transform: visible ? 'none' : 'translateY(24px)',
+        transition: 'opacity 2s cubic-bezier(.16,1,.3,1), transform 2s cubic-bezier(.16,1,.3,1)',
+        display: 'flex', flexDirection: 'column', alignItems: 'center', gap: mob ? '2.4rem' : '3rem',
+      }}>
+        <div style={{ width: 36, height: 1, background: 'linear-gradient(to right, transparent, rgba(201,169,110,0.6), transparent)', alignSelf: 'stretch' }} />
+        <p style={{ fontFamily: 'sans-serif', fontSize: '9px', letterSpacing: '0.44em', textTransform: 'uppercase', color: GOLD, margin: 0 }}>
+          Flow Farm · Aberdeen, North Carolina
+        </p>
+        <h2 style={{
+          fontFamily: 'Georgia, serif', fontWeight: 400, fontStyle: 'italic',
+          fontSize: mob ? '1.8rem' : 'clamp(2.2rem, 3.5vw, 3.2rem)',
+          color: CREAM, lineHeight: 1.45, margin: 0, letterSpacing: '-0.02em',
+        }}>
+          More than an estate, and more than a farm.
+        </h2>
+        <p style={{
+          fontFamily: 'Georgia, serif',
+          fontSize: mob ? '1rem' : '1.12rem',
+          color: 'rgba(255,255,255,0.72)', lineHeight: 2, margin: 0, maxWidth: 600,
+        }}>
+          Flow Farm is a place where land, life, and vision move together — where luxury and stewardship exist in living balance. Every part of the property, from its architecture to its growing systems, has been shaped with intention. Creating an experience that feels both grounded and expansive.
+        </p>
+        <div style={{ width: 36, height: 1, background: 'linear-gradient(to right, transparent, rgba(201,169,110,0.6), transparent)', alignSelf: 'stretch' }} />
+      </div>
+    </section>
+  );
+}
 
 // THE POSITION STATEMENT — why this exists nowhere else
 function PositionStatement() {
@@ -991,7 +1032,7 @@ function FarmSection() {
       }}>
         {/* Top: the thesis */}
         <div style={{ maxWidth: 680 }}>
-          <p style={{ fontFamily: 'sans-serif', fontSize: '9px', letterSpacing: '0.44em', textTransform: 'uppercase', color: GOLD, margin: '0 0 1.2rem', textShadow: ts }}>The Farm · 3 USDA Certified Acres</p>
+          <p style={{ fontFamily: 'sans-serif', fontSize: '9px', letterSpacing: '0.44em', textTransform: 'uppercase', color: GOLD, margin: '0 0 1.2rem', textShadow: ts }}>Where Nourishment Begins · 3 USDA Certified Acres</p>
           <h2 style={{ fontFamily: 'Georgia, serif', fontSize: mob ? 'clamp(2.2rem,7vw,3rem)' : 'clamp(3rem,4.2vw,4.2rem)', color: '#fff', margin: '0 0 1.2rem', lineHeight: 1.1, textShadow: ts }}>
             He started in 2009.<br /><em>Not because he had to.</em>
           </h2>
@@ -1630,7 +1671,7 @@ function Mechanism() {
           <div style={{ textAlign: 'center', marginBottom: mob ? '5rem' : '8rem', padding: '0 6vw' }}>
             <Eyebrow center>The Mechanism</Eyebrow>
             <h2 style={{ color: CREAM, fontFamily: 'Georgia, serif', fontWeight: 400, fontSize: mob ? '1.7rem' : '3.2rem', lineHeight: 1.28, margin: '2rem 0 2.4rem', letterSpacing: '-0.018em' }}>
-              Structure that holds<br /><em>freedom.</em>
+              Engineered for the<br /><em>life it can hold.</em>
             </h2>
             <p style={{ color: 'rgba(255,255,255,0.78)', fontFamily: 'Georgia, serif', fontSize: mob ? '1rem' : '1.12rem', lineHeight: 2.1, maxWidth: 560, margin: '0 auto' }}>
               1,200 amps across three dedicated services. The main house alone runs on 600 -- the capacity of a small hotel. Control4 ties it all together. Solar, geothermal, and a 30kW generator hand off so cleanly you won't notice the transition.
@@ -1672,9 +1713,12 @@ function Land() {
       <Fade up>
         <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '2.4rem', marginBottom: mob ? '6rem' : '10rem', padding: '0 6vw', textAlign: 'center' }}>
           <Eyebrow center>The Land</Eyebrow>
-          <h2 style={{ color: CREAM, fontFamily: 'Georgia, serif', fontWeight: 400, fontSize: mob ? '1.7rem' : '3.2rem', lineHeight: 1.28, margin: 0, letterSpacing: '-0.018em' }}>
-          Operational by Design.<br />Eight acres working. Seven acres waiting.
+          <h2 style={{ color: CREAM, fontFamily: 'Georgia, serif', fontWeight: 400, fontSize: mob ? '1.7rem' : '3.2rem', lineHeight: 1.28, margin: '0 0 1.4rem', letterSpacing: '-0.018em' }}>
+          Where the Land Breathes.
           </h2>
+          <p style={{ color: 'rgba(255,255,255,0.42)', fontFamily: 'Georgia, serif', fontStyle: 'italic', fontSize: mob ? '0.95rem' : '1.05rem', letterSpacing: '0.04em', margin: '0 0 0.8rem' }}>
+            Operational by Design. Eight acres working. Seven acres waiting.
+          </p>
           <GoldLine />
           <p style={{ color: 'rgba(255,255,255,0.78)', fontFamily: 'Georgia, serif', fontSize: mob ? '1rem' : '1.12rem', lineHeight: 2.1, maxWidth: 540, margin: 0 }}>
             Three USDA-certified veganic acres already producing. Biochar. O2Compost. A 1,400-foot double deer fence. A walk-in cooler. A 96-by-36-foot geothermal greenhouse growing pineapples in North Carolina. The farm is not an amenity. It is an operating system. And seven buildable acres sit beside it — zoned, ready, yours.
@@ -1741,7 +1785,7 @@ function ZoningOpportunity() {
           color: '#fff', lineHeight: 1.2, letterSpacing: '-0.02em',
           margin: '0 0 1.4rem', textShadow: '0 2px 28px rgba(0,0,0,0.75)',
         }}>
-          The Zoning Is Already Done.<br /><em>Fifteen years of work. Yours now.</em>
+          Ready for What<br />It Can Become.<br /><em style={{ fontSize: '0.72em', opacity: 0.8 }}>The zoning is already done. Fifteen years of work. Yours now.</em>
         </h2>
         <p style={{
           fontFamily: 'Georgia, serif', fontSize: mob ? '0.95rem' : '1.05rem',
@@ -1797,11 +1841,17 @@ function Location() {
           <p style={{ fontFamily: 'sans-serif', fontSize: '9px', letterSpacing: '0.40em', textTransform: 'uppercase', color: GOLD, margin: '0 0 1rem', textShadow: '0 1px 8px rgba(0,0,0,0.8)' }}>Location</p>
           <div style={{ width: 24, height: 1, background: GOLD, opacity: 0.5, marginBottom: '1.4rem' }} />
           <h2 style={{ color: '#fff', fontFamily: 'Georgia, serif', fontWeight: 400, fontSize: mob ? '1.8rem' : 'clamp(2.2rem,3.2vw,3.2rem)', lineHeight: 1.2, margin: '0 0 1.4rem', letterSpacing: '-0.015em', textShadow: '0 2px 28px rgba(0,0,0,0.75)' }}>
-            Private by Nature.<br />Pinehurst by Proximity.
+            Connected to Pinehurst.<br /><em>Yet entirely its own.</em>
           </h2>
-          <p style={{ color: 'rgba(255,255,255,0.88)', fontFamily: 'Georgia, serif', fontSize: mob ? '0.95rem' : '1.05rem', lineHeight: 1.9, margin: '0 0 1.6rem', textShadow: '0 1px 12px rgba(0,0,0,0.7)' }}>
-            Three miles from Pinehurst Resort. A transferable Pinehurst Country Club Signature Golf Membership — unlimited access to Course No. 7 and No. 9 — is included with the sale.
+          <p style={{ color: 'rgba(255,255,255,0.88)', fontFamily: 'Georgia, serif', fontSize: mob ? '0.95rem' : '1.05rem', lineHeight: 1.9, margin: '0 0 1.8rem', textShadow: '0 1px 12px rgba(0,0,0,0.7)' }}>
+            Just three miles from the heart of Pinehurst — widely recognized as the Golf Capital of America. Flow Farm occupies a rare position between privacy and proximity, with access to a global destination audience while preserving the sense of remove and tranquility that makes the property so singular.
           </p>
+          <div style={{ borderTop: '1px solid rgba(201,169,110,0.18)', paddingTop: '1.6rem', marginBottom: '1.8rem' }}>
+            <p style={{ fontFamily: 'sans-serif', fontSize: '9px', letterSpacing: '0.36em', textTransform: 'uppercase', color: GOLD, margin: '0 0 0.8rem', textShadow: '0 1px 8px rgba(0,0,0,0.8)' }}>An Uncommon Privilege</p>
+            <p style={{ color: 'rgba(255,255,255,0.78)', fontFamily: 'Georgia, serif', fontSize: mob ? '0.95rem' : '1.02rem', lineHeight: 1.85, margin: 0, textShadow: '0 1px 12px rgba(0,0,0,0.7)' }}>
+              Included with the offering is a transferable Pinehurst Country Club Signature Membership with access to Pinehurst No. 7 and No. 9 — an uncommon opportunity within one of the area's most tightly held membership offerings.
+            </p>
+          </div>
           <div style={{ display: 'flex', flexDirection: 'column', gap: '0.8rem' }}>
             {['Pinehurst Resort — 3 Miles', 'Moore County Regional — Private Aviation', 'Raleigh-Durham International — 1 Hour', 'FirstHealth Moore Regional Hospital', 'Pinehurst CC Membership Included'].map(item => (
               <p key={item} style={{ color: 'rgba(255,255,255,0.65)', fontFamily: 'sans-serif', fontSize: '9px', letterSpacing: '0.2em', textTransform: 'uppercase', margin: 0, display: 'flex', alignItems: 'center', gap: '0.8rem' }}>
@@ -1870,6 +1920,51 @@ function Inquire() {
             </form>
           </Fade>
         )}
+      </div>
+    </section>
+  );
+}
+
+// ============================================================
+// LEGACY CLOSE — Where Luxury Meets Legacy
+// Framework §13 — closing vision, depth, inevitability, legacy
+// ============================================================
+function LegacyClose() {
+  const mob = useW() < 768;
+  const [ref, visible] = useFade();
+  return (
+    <section ref={ref} style={{ background: '#050505', padding: mob ? '11rem 8vw' : '16rem 10vw', textAlign: 'center', position: 'relative' }}>
+      <div style={{ position: 'absolute', top: 0, left: '50%', transform: 'translateX(-50%)', width: '1px', height: mob ? '5rem' : '8rem', background: 'linear-gradient(to bottom, transparent, rgba(201,169,110,0.35))' }} />
+      <div style={{
+        maxWidth: 760, margin: '0 auto',
+        opacity: visible ? 1 : 0,
+        transform: visible ? 'none' : 'translateY(28px)',
+        transition: 'opacity 2.2s cubic-bezier(.16,1,.3,1), transform 2.2s cubic-bezier(.16,1,.3,1)',
+        display: 'flex', flexDirection: 'column', alignItems: 'center', gap: mob ? '2.8rem' : '3.5rem',
+      }}>
+        <p style={{ fontFamily: 'sans-serif', fontSize: '9px', letterSpacing: '0.44em', textTransform: 'uppercase', color: GOLD, margin: 0 }}>Flow Farm</p>
+        <h2 style={{
+          fontFamily: 'Georgia, serif', fontWeight: 400,
+          fontSize: mob ? '2rem' : 'clamp(2.8rem, 4.5vw, 4.2rem)',
+          color: CREAM, lineHeight: 1.2, margin: 0, letterSpacing: '-0.02em',
+        }}>
+          Where Luxury<br />Meets Legacy.
+        </h2>
+        <div style={{ width: 36, height: 1, background: 'linear-gradient(to right, transparent, rgba(201,169,110,0.6), transparent)', alignSelf: 'stretch' }} />
+        <p style={{
+          fontFamily: 'Georgia, serif', fontSize: mob ? '1rem' : '1.15rem',
+          color: 'rgba(255,255,255,0.72)', lineHeight: 2, margin: 0, maxWidth: 600,
+        }}>
+          Flow Farm is a rare convergence of land, architecture, sustainability, infrastructure, and location — capable of holding a life, a purpose, a retreat, an enterprise, or a lasting legacy. It offers more than beauty, privacy, or utility. It offers a place ready for what comes next.
+        </p>
+        <p style={{
+          fontFamily: 'Georgia, serif', fontStyle: 'italic',
+          fontSize: mob ? '1.1rem' : '1.4rem',
+          color: 'rgba(201,169,110,0.75)', lineHeight: 1.5, margin: 0,
+        }}>
+          Where luxury meets legacy, and the land continues to flow.
+        </p>
+        <div style={{ width: 36, height: 1, background: 'linear-gradient(to right, transparent, rgba(201,169,110,0.6), transparent)', alignSelf: 'stretch' }} />
       </div>
     </section>
   );
@@ -2193,6 +2288,9 @@ export default function FlowFarmLanding2() {
     <div style={{ background: DARK, margin: 0, padding: 0, overflowX: 'hidden' }}>
       <Hero />
 
+      {/* PHILOSOPHY BREATH — soul before strategy */}
+      <PhilosophyBreath />
+
       {/* CHAPTER 1 — The Thesis */}
       <PositionStatement />
 
@@ -2243,9 +2341,9 @@ export default function FlowFarmLanding2() {
       <FarmSection />
       <CinematicReveal
         src={IMG.pine}
-        eyebrow="The High Tunnel"
+        eyebrow="Cultivated Beyond the Seasons"
         headline={"Pineapples.\nIn North Carolina."}
-        body="The 96x36 high tunnel runs a geothermal climate battery beneath the soil. It creates its own growing zone. What thrives here has no business existing in North Carolina."
+        body="A 96 by 36-foot geothermal high tunnel runs a climate battery beneath the soil — its own growing zone, engineered where none should exist. Year-round production including pineapples, avocados, and citrus. One of the clearest expressions of what makes Flow Farm so distinctive: a property where the natural world is not only honored, but intelligently extended through design."
         position="center 40%"
         align="center"
       />
@@ -2286,6 +2384,7 @@ export default function FlowFarmLanding2() {
       {/* CHAPTER 6 — The Opportunity */}
       <CabanaHouse />
       <Location />
+      <LegacyClose />
       <Inquire />
       <Footer />
     </div>
