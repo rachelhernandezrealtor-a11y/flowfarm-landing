@@ -961,7 +961,7 @@ const MAP_PINS = [
 
 
 function FarmSection() {
-  const mob = useMobile();
+  const mob = useW() < 768;
   const ts = '0 2px 20px rgba(0,0,0,0.9)';
   const crops = [
     'Watermelon', 'Pineapple', 'Avocado', 'Citrus', 'Tomatoes',
