@@ -573,36 +573,34 @@ function Foundation() {
         <img src={IMG.exterior} alt="" style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center 40%', display: 'block' }} />
       </div>
       <div style={{ position: 'absolute', inset: 0, zIndex: 2, background: 'rgba(0,0,0,0.20)' }} />
-      <div style={{ position: 'relative', zIndex: 5, width: '100%', maxWidth: 1360, margin: '0 auto', padding: mob ? '6rem 5vw' : '10rem 6vw' }}>
+      {/* top+bottom meld */}
+      <div style={{ position: 'absolute', inset: 0, zIndex: 2, background: 'linear-gradient(to bottom, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.15) 35%, rgba(0,0,0,0.15) 65%, rgba(0,0,0,0.65) 100%)' }} />
+      <div style={{ position: 'absolute', inset: 0, zIndex: 3, background: 'linear-gradient(to right, rgba(0,0,0,0.55) 0%, transparent 60%)' }} />
+      <div style={{ position: 'relative', zIndex: 5, width: '100%', maxWidth: 1360, margin: '0 auto', padding: mob ? '8rem 6vw' : '12rem 8vw' }}>
         <div ref={ref} style={{
-          maxWidth: mob ? '100%' : 500,
-          background: 'rgba(8,8,8,0.52)',
-          backdropFilter: 'blur(18px)',
-          WebkitBackdropFilter: 'blur(18px)',
-          border: '1px solid rgba(201,169,110,0.18)',
-          padding: mob ? '2.2rem 1.8rem' : '3.2rem 3.6rem',
+          maxWidth: mob ? '100%' : 520,
           opacity: visible ? 1 : 0,
-          transform: visible ? 'none' : 'translateX(-40px)',
-          transition: 'opacity 1.6s cubic-bezier(.16,1,.3,1), transform 1.6s cubic-bezier(.16,1,.3,1)',
+          transform: visible ? 'none' : 'translateY(28px)',
+          transition: 'opacity 1.8s cubic-bezier(.16,1,.3,1), transform 1.8s cubic-bezier(.16,1,.3,1)',
         }}>
-          <p style={{ fontFamily: 'sans-serif', fontSize: '9px', letterSpacing: '0.38em', textTransform: 'uppercase', color: GOLD, margin: '0 0 1rem' }}>The Estate</p>
-          <div style={{ width: 24, height: 1, background: GOLD, opacity: 0.4, marginBottom: '1.4rem' }} />
-          <h2 style={{ color: CREAM, fontFamily: 'Georgia, serif', fontWeight: 400, fontSize: mob ? '1.7rem' : '2.4rem', lineHeight: 1.22, margin: '0 0 1.4rem', letterSpacing: '-0.018em' }}>
+          <p style={{ fontFamily: 'sans-serif', fontSize: '9px', letterSpacing: '0.40em', textTransform: 'uppercase', color: GOLD, margin: '0 0 1rem', textShadow: '0 1px 8px rgba(0,0,0,0.8)' }}>The Estate</p>
+          <div style={{ width: 24, height: 1, background: GOLD, opacity: 0.5, marginBottom: '1.4rem' }} />
+          <h2 style={{ color: '#fff', fontFamily: 'Georgia, serif', fontWeight: 400, fontSize: mob ? '1.8rem' : 'clamp(2.2rem,3.2vw,3.2rem)', lineHeight: 1.2, margin: '0 0 1.4rem', letterSpacing: '-0.018em', textShadow: '0 2px 28px rgba(0,0,0,0.75)' }}>
             Structure That<br />Holds Freedom.
           </h2>
-          <p style={{ color: 'rgba(255,255,255,0.80)', fontFamily: 'Georgia, serif', fontSize: mob ? '0.92rem' : '0.97rem', lineHeight: 1.95, margin: '0 0 1rem' }}>
-            Robert E. Clark AIA designed this as one of his final private commissions. Structural integrity of a commercial build. Warmth of a home deeply lived in. Every system specified to last.
+          <p style={{ color: 'rgba(255,255,255,0.88)', fontFamily: 'Georgia, serif', fontSize: mob ? '0.95rem' : '1.05rem', lineHeight: 1.9, margin: '0 0 1rem', textShadow: '0 1px 12px rgba(0,0,0,0.7)' }}>
+            Robert E. Clark AIA designed this as one of his final private commissions. Structural integrity of a commercial build. Warmth of a home deeply lived in.
           </p>
-          <p style={{ color: 'rgba(255,255,255,0.65)', fontFamily: 'Georgia, serif', fontSize: mob ? '0.92rem' : '0.97rem', lineHeight: 1.95, margin: '0 0 1.8rem' }}>
+          <p style={{ color: 'rgba(255,255,255,0.72)', fontFamily: 'Georgia, serif', fontSize: mob ? '0.95rem' : '1.05rem', lineHeight: 1.9, margin: '0 0 1.8rem', textShadow: '0 1px 12px rgba(0,0,0,0.7)' }}>
             Civil War-era heart pine floors, custom-laid in artisan patterns. A glass conservatory with an octagonal dome. Six structures across fifteen acres.
           </p>
           <div style={{ display: 'flex', gap: '1.5rem' }}>
             <a href={MATTERPORT} target="_blank" rel="noreferrer"
-              style={{ color: GOLD, fontFamily: 'sans-serif', fontSize: '9px', letterSpacing: '0.28em', textTransform: 'uppercase', textDecoration: 'none', borderBottom: '1px solid rgba(201,169,110,0.28)', paddingBottom: '0.3rem' }}>
+              style={{ color: GOLD, fontFamily: 'sans-serif', fontSize: '9px', letterSpacing: '0.28em', textTransform: 'uppercase', textDecoration: 'none', borderBottom: '1px solid rgba(201,169,110,0.4)', paddingBottom: '0.3rem', textShadow: '0 1px 8px rgba(0,0,0,0.8)' }}>
               Virtual Tour
             </a>
             <a href="#inquire"
-              style={{ color: 'rgba(255,255,255,0.45)', fontFamily: 'sans-serif', fontSize: '9px', letterSpacing: '0.28em', textTransform: 'uppercase', textDecoration: 'none', borderBottom: '1px solid rgba(255,255,255,0.12)', paddingBottom: '0.3rem' }}>
+              style={{ color: 'rgba(255,255,255,0.55)', fontFamily: 'sans-serif', fontSize: '9px', letterSpacing: '0.28em', textTransform: 'uppercase', textDecoration: 'none', borderBottom: '1px solid rgba(255,255,255,0.15)', paddingBottom: '0.3rem' }}>
               Private Inquiry
             </a>
           </div>
@@ -765,7 +763,7 @@ function ForestIntro() {
         }} />
         {/* Top bleed -- merges seamlessly with hero bottom */}
         <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: '22%', background: 'linear-gradient(to bottom, #0a0a0a, transparent)', zIndex: 2, pointerEvents: 'none' }} />
-        <div style={{ position: 'absolute', inset: 0, background: 'rgba(0,0,0,0.22)' }} />
+        <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to bottom, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.15) 40%, rgba(0,0,0,0.15) 60%, rgba(0,0,0,0.65) 100%)' }} />
 
         {/* Beat 1 -- A Living Place */}
         <div ref={b1Ref} style={{
@@ -775,20 +773,13 @@ function ForestIntro() {
           transform: beat1 ? 'none' : 'translateY(32px)',
           transition: 'opacity 1.6s ease, transform 1.6s ease',
         }}>
-          <div style={{
-            maxWidth: mob ? '100%' : 480,
-            background: 'rgba(8,8,8,0.50)',
-            backdropFilter: 'blur(18px)',
-            WebkitBackdropFilter: 'blur(18px)',
-            border: '1px solid rgba(201,169,110,0.18)',
-            padding: mob ? '2rem 1.6rem' : '3rem 3.4rem',
-          }}>
-            <p style={{ fontFamily: 'sans-serif', fontSize: '9px', letterSpacing: '0.40em', textTransform: 'uppercase', color: GOLD, margin: '0 0 1rem' }}>Flow Farm</p>
-            <div style={{ width: 24, height: 1, background: GOLD, opacity: 0.4, marginBottom: '1.4rem' }} />
-            <h2 style={{ fontFamily: 'Georgia, serif', fontSize: mob ? '1.7rem' : '2.4rem', color: '#fff', margin: '0 0 1.4rem', lineHeight: 1.2 }}>
+          <div style={{ maxWidth: mob ? '100%' : 520 }}>
+            <p style={{ fontFamily: 'sans-serif', fontSize: '9px', letterSpacing: '0.40em', textTransform: 'uppercase', color: GOLD, margin: '0 0 1rem', textShadow: '0 1px 8px rgba(0,0,0,0.8)' }}>Flow Farm</p>
+            <div style={{ width: 24, height: 1, background: GOLD, opacity: 0.5, marginBottom: '1.4rem' }} />
+            <h2 style={{ fontFamily: 'Georgia, serif', fontSize: mob ? '1.8rem' : 'clamp(2.2rem,3.2vw,3.2rem)', color: '#fff', margin: '0 0 1.4rem', lineHeight: 1.2, textShadow: '0 2px 28px rgba(0,0,0,0.75)' }}>
               A Living Place,<br /><em>Rooted in Possibility.</em>
             </h2>
-            <p style={{ fontFamily: 'Georgia, serif', fontSize: mob ? '0.92rem' : '0.97rem', color: 'rgba(255,255,255,0.80)', lineHeight: 1.95, margin: 0 }}>
+            <p style={{ fontFamily: 'Georgia, serif', fontSize: mob ? '0.95rem' : '1.05rem', color: 'rgba(255,255,255,0.88)', lineHeight: 1.9, margin: 0, textShadow: '0 1px 12px rgba(0,0,0,0.7)' }}>
               Seventeen years of intention. The soil is built. The farm is running. Now it belongs to whoever is meant to take it from here.
             </p>
           </div>
@@ -1645,31 +1636,30 @@ function ZoningOpportunity() {
         <img src={IMG.aerial} alt="" style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center 55%', display: 'block' }} />
       </div>
       <div style={{ position: 'absolute', inset: 0, zIndex: 2, background: 'rgba(0,0,0,0.22)' }} />
-      <div style={{ position: 'relative', zIndex: 5, width: '100%', maxWidth: 1360, margin: '0 auto', padding: mob ? '6rem 5vw' : '10rem 6vw', display: 'flex', justifyContent: 'flex-end' }}>
+      {/* top+bottom meld */}
+      <div style={{ position: 'absolute', inset: 0, zIndex: 2, background: 'linear-gradient(to bottom, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.15) 35%, rgba(0,0,0,0.15) 65%, rgba(0,0,0,0.65) 100%)' }} />
+      <div style={{ position: 'absolute', inset: 0, zIndex: 3, background: 'linear-gradient(to left, rgba(0,0,0,0.55) 0%, transparent 60%)' }} />
+      <div style={{ position: 'relative', zIndex: 5, width: '100%', maxWidth: 1360, margin: '0 auto', padding: mob ? '8rem 6vw' : '12rem 8vw', display: 'flex', justifyContent: 'flex-end' }}>
       <div ref={ref} style={{
-        maxWidth: mob ? '100%' : 540,
-        background: 'rgba(8,8,8,0.54)',
-        backdropFilter: 'blur(18px)',
-        WebkitBackdropFilter: 'blur(18px)',
-        border: '1px solid rgba(201,169,110,0.18)',
-        padding: mob ? '2.2rem 1.8rem' : '3.2rem 3.6rem',
+        maxWidth: mob ? '100%' : 520,
         opacity: visible ? 1 : 0,
-        transform: visible ? 'none' : 'translateX(40px)',
-        transition: 'opacity 1.6s cubic-bezier(.16,1,.3,1), transform 1.6s cubic-bezier(.16,1,.3,1)',
+        transform: visible ? 'none' : 'translateY(28px)',
+        transition: 'opacity 1.8s cubic-bezier(.16,1,.3,1), transform 1.8s cubic-bezier(.16,1,.3,1)',
       }}>
-        <p style={{ fontFamily: 'sans-serif', fontSize: '9px', letterSpacing: '0.4em', textTransform: 'uppercase', color: GOLD, margin: '0 0 1rem' }}>The Opportunity · Already Unlocked</p>
-        <div style={{ width: 24, height: 1, background: GOLD, opacity: 0.4, marginBottom: '1.4rem' }} />
+        <p style={{ fontFamily: 'sans-serif', fontSize: '9px', letterSpacing: '0.4em', textTransform: 'uppercase', color: GOLD, margin: '0 0 1rem', textShadow: '0 1px 8px rgba(0,0,0,0.8)' }}>The Opportunity · Already Unlocked</p>
+        <div style={{ width: 24, height: 1, background: GOLD, opacity: 0.5, marginBottom: '1.4rem' }} />
         <h2 style={{
           fontFamily: 'Georgia, serif', fontWeight: 400,
-          fontSize: mob ? '1.7rem' : '2.2rem',
+          fontSize: mob ? '1.8rem' : 'clamp(2.2rem,3.2vw,3.2rem)',
           color: '#fff', lineHeight: 1.2, letterSpacing: '-0.02em',
-          margin: '0 0 1.4rem',
+          margin: '0 0 1.4rem', textShadow: '0 2px 28px rgba(0,0,0,0.75)',
         }}>
           The Zoning Is Already Done.<br /><em>Fifteen years of work. Yours now.</em>
         </h2>
         <p style={{
-          fontFamily: 'Georgia, serif', fontSize: mob ? '0.92rem' : '0.97rem',
-          color: 'rgba(255,255,255,0.80)', lineHeight: 1.95, margin: '0 0 1.8rem',
+          fontFamily: 'Georgia, serif', fontSize: mob ? '0.95rem' : '1.05rem',
+          color: 'rgba(255,255,255,0.88)', lineHeight: 1.9, margin: '0 0 1.8rem',
+          textShadow: '0 1px 12px rgba(0,0,0,0.7)',
         }}>
           NC Qualifying Farmer Exemption. Agritourism zoning. Retreat centers, event venues, commercial kitchens, equestrian — all permitted. The certification exists. The zoning exists. The infrastructure exists. The next owner steps into something already running.
         </p>
@@ -1708,31 +1698,27 @@ function Location() {
       <div style={{ position: 'absolute', inset: 0, zIndex: 1 }}>
         <img src={IMG.grounds} alt="" style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center 40%', display: 'block' }} />
       </div>
-      <div style={{ position: 'absolute', inset: 0, zIndex: 2, background: 'rgba(0,0,0,0.18)' }} />
-      <div style={{ position: 'relative', zIndex: 5, width: '100%', maxWidth: 1360, margin: '0 auto', padding: mob ? '6rem 5vw' : '10rem 6vw' }}>
+      <div style={{ position: 'absolute', inset: 0, zIndex: 2, background: 'linear-gradient(to bottom, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.15) 35%, rgba(0,0,0,0.15) 65%, rgba(0,0,0,0.65) 100%)' }} />
+      <div style={{ position: 'absolute', inset: 0, zIndex: 3, background: 'linear-gradient(to right, rgba(0,0,0,0.50) 0%, transparent 60%)' }} />
+      <div style={{ position: 'relative', zIndex: 5, width: '100%', maxWidth: 1360, margin: '0 auto', padding: mob ? '8rem 6vw' : '12rem 8vw' }}>
         <div ref={ref} style={{
-          maxWidth: mob ? '100%' : 480,
-          background: 'rgba(8,8,8,0.52)',
-          backdropFilter: 'blur(18px)',
-          WebkitBackdropFilter: 'blur(18px)',
-          border: '1px solid rgba(201,169,110,0.18)',
-          padding: mob ? '2.2rem 1.8rem' : '3.2rem 3.6rem',
+          maxWidth: mob ? '100%' : 520,
           opacity: visible ? 1 : 0,
-          transform: visible ? 'none' : 'translateX(-40px)',
-          transition: 'opacity 1.6s cubic-bezier(.16,1,.3,1), transform 1.6s cubic-bezier(.16,1,.3,1)',
+          transform: visible ? 'none' : 'translateY(28px)',
+          transition: 'opacity 1.8s cubic-bezier(.16,1,.3,1), transform 1.8s cubic-bezier(.16,1,.3,1)',
         }}>
-          <p style={{ fontFamily: 'sans-serif', fontSize: '9px', letterSpacing: '0.38em', textTransform: 'uppercase', color: GOLD, margin: '0 0 1rem' }}>Location</p>
-          <div style={{ width: 24, height: 1, background: GOLD, opacity: 0.4, marginBottom: '1.4rem' }} />
-          <h2 style={{ color: CREAM, fontFamily: 'Georgia, serif', fontWeight: 400, fontSize: mob ? '1.7rem' : '2.2rem', lineHeight: 1.24, margin: '0 0 1.2rem', letterSpacing: '-0.015em' }}>
+          <p style={{ fontFamily: 'sans-serif', fontSize: '9px', letterSpacing: '0.40em', textTransform: 'uppercase', color: GOLD, margin: '0 0 1rem', textShadow: '0 1px 8px rgba(0,0,0,0.8)' }}>Location</p>
+          <div style={{ width: 24, height: 1, background: GOLD, opacity: 0.5, marginBottom: '1.4rem' }} />
+          <h2 style={{ color: '#fff', fontFamily: 'Georgia, serif', fontWeight: 400, fontSize: mob ? '1.8rem' : 'clamp(2.2rem,3.2vw,3.2rem)', lineHeight: 1.2, margin: '0 0 1.4rem', letterSpacing: '-0.015em', textShadow: '0 2px 28px rgba(0,0,0,0.75)' }}>
             Private by Nature.<br />Pinehurst by Proximity.
           </h2>
-          <p style={{ color: 'rgba(255,255,255,0.80)', fontFamily: 'Georgia, serif', fontSize: mob ? '0.92rem' : '0.97rem', lineHeight: 1.95, margin: '0 0 1.6rem' }}>
+          <p style={{ color: 'rgba(255,255,255,0.88)', fontFamily: 'Georgia, serif', fontSize: mob ? '0.95rem' : '1.05rem', lineHeight: 1.9, margin: '0 0 1.6rem', textShadow: '0 1px 12px rgba(0,0,0,0.7)' }}>
             Three miles from Pinehurst Resort. A transferable Pinehurst Country Club Signature Golf Membership — unlimited access to Course No. 7 and No. 9 — is included with the sale.
           </p>
           <div style={{ display: 'flex', flexDirection: 'column', gap: '0.8rem' }}>
             {['Pinehurst Resort — 3 Miles', 'Moore County Regional — Private Aviation', 'Raleigh-Durham International — 1 Hour', 'FirstHealth Moore Regional Hospital', 'Pinehurst CC Membership Included'].map(item => (
-              <p key={item} style={{ color: 'rgba(255,255,255,0.55)', fontFamily: 'sans-serif', fontSize: '9px', letterSpacing: '0.2em', textTransform: 'uppercase', margin: 0, display: 'flex', alignItems: 'center', gap: '0.8rem' }}>
-                <span style={{ display: 'inline-block', width: 16, height: 1, background: GOLD, opacity: 0.4, flexShrink: 0 }} />
+              <p key={item} style={{ color: 'rgba(255,255,255,0.65)', fontFamily: 'sans-serif', fontSize: '9px', letterSpacing: '0.2em', textTransform: 'uppercase', margin: 0, display: 'flex', alignItems: 'center', gap: '0.8rem' }}>
+                <span style={{ display: 'inline-block', width: 16, height: 1, background: GOLD, opacity: 0.5, flexShrink: 0 }} />
                 {item}
               </p>
             ))}
