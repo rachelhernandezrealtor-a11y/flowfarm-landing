@@ -624,6 +624,89 @@ function Foundation() {
 // ============================================================
 // FOREST INTRO -- unified chapter (A Living Place + Operational + Opportunity)
 // ============================================================
+
+// THE POSITION STATEMENT — why this exists nowhere else
+function PositionStatement() {
+  const mob = useW() < 768;
+  const [visible, setVisible] = React.useState(false);
+  const ref = React.useRef(null);
+  React.useEffect(() => {
+    const obs = new IntersectionObserver(([e]) => { if (e.isIntersecting) setVisible(true); }, { threshold: 0.1 });
+    if (ref.current) obs.observe(ref.current);
+    return () => obs.disconnect();
+  }, []);
+
+  const fade = (delay) => ({
+    opacity: visible ? 1 : 0,
+    transform: visible ? 'translateY(0)' : 'translateY(18px)',
+    transition: `opacity 1.8s cubic-bezier(.16,1,.3,1) ${delay}s, transform 1.8s cubic-bezier(.16,1,.3,1) ${delay}s`,
+  });
+
+  return (
+    <section ref={ref} style={{ background: DARK, padding: mob ? '7rem 6vw' : '10rem 10vw', borderBottom: '1px solid rgba(201,169,110,0.15)' }}>
+
+      {/* Top gold rule */}
+      <div style={{ ...fade(0), width: '3rem', height: '1px', background: GOLD, marginBottom: '3.5rem' }} />
+
+      {/* Eyebrow */}
+      <p style={{ ...fade(0.1), fontFamily: 'var(--sans)', letterSpacing: '0.28em', fontSize: '0.68rem', color: GOLD, textTransform: 'uppercase', marginBottom: '2rem', opacity: visible ? 0.9 : 0 }}>
+        Pinehurst, NC · Golf Capital of America · 3 Miles
+      </p>
+
+      {/* Headline — the big swing */}
+      <h2 style={{ ...fade(0.2), fontFamily: 'var(--serif)', fontWeight: 300, fontSize: mob ? 'clamp(2.2rem,9vw,3.5rem)' : 'clamp(3rem,5vw,5.5rem)', color: CREAM, lineHeight: 1.08, marginBottom: '3rem', maxWidth: '20ch' }}>
+        This is not a mansion.<br />This is a system.
+      </h2>
+
+      {/* Body — the three threads */}
+      <div style={{ display: 'grid', gridTemplateColumns: mob ? '1fr' : '1fr 1fr', gap: mob ? '2.5rem' : '4rem 8rem', maxWidth: '90rem', marginBottom: '5rem' }}>
+        <div style={fade(0.3)}>
+          <p style={{ fontFamily: 'var(--sans)', fontSize: '1.05rem', color: CREAM, opacity: 0.75, lineHeight: 1.9 }}>
+            Fifteen years in the making. Three acres certified veganic. USDA registered. A 30kW generator, 61 solar panels, 20 geothermal wells, and a well that produces 50 gallons per minute. The farm does not depend on the grid. The house does not depend on the farm. Both run on their own.
+          </p>
+        </div>
+        <div style={fade(0.4)}>
+          <p style={{ fontFamily: 'var(--sans)', fontSize: '1.05rem', color: CREAM, opacity: 0.75, lineHeight: 1.9 }}>
+            Seven acres are buildable. That certification — earned, not bought — unlocked agritourism zoning that does not exist on the open market. A resort. A retreat. A private compound. You are not starting from scratch. You are inheriting fifteen years of groundwork, three miles from the most storied golf address in the world.
+          </p>
+        </div>
+      </div>
+
+      {/* Three pillars */}
+      <div style={{ display: 'grid', gridTemplateColumns: mob ? '1fr' : 'repeat(3, 1fr)', gap: mob ? '2.5rem' : '3rem 5rem', borderTop: '1px solid rgba(201,169,110,0.2)', paddingTop: '3.5rem' }}>
+        {[
+          {
+            num: '01',
+            label: 'Engineered Autonomy',
+            body: 'Solar. Geothermal. Generator. Private well. The estate runs independently of every utility it could need.',
+          },
+          {
+            num: '02',
+            label: '7 Buildable Acres',
+            body: 'Agritourism zoning already in place. The land is yours to develop — resort, retreat, events, or legacy compound.',
+          },
+          {
+            num: '03',
+            label: 'Pinehurst Address',
+            body: 'Three miles from Pinehurst No. 2. Home of nine US Opens. The most consequential golf address in America. Irreplaceable.',
+          },
+        ].map((p, i) => (
+          <div key={i} style={fade(0.3 + i * 0.12)}>
+            <p style={{ fontFamily: 'var(--sans)', fontSize: '0.65rem', letterSpacing: '0.3em', color: GOLD, opacity: 0.6, marginBottom: '1rem', textTransform: 'uppercase' }}>{p.num}</p>
+            <div style={{ width: '1.5rem', height: '1px', background: GOLD, marginBottom: '1.2rem' }} />
+            <p style={{ fontFamily: 'var(--sans)', fontSize: '0.75rem', letterSpacing: '0.18em', textTransform: 'uppercase', color: CREAM, marginBottom: '0.75rem' }}>{p.label}</p>
+            <p style={{ fontFamily: 'var(--sans)', fontSize: '0.85rem', color: CREAM, opacity: 0.55, lineHeight: 1.8 }}>{p.body}</p>
+          </div>
+        ))}
+      </div>
+
+      {/* Bottom gold rule */}
+      <div style={{ ...fade(0.6), width: '3rem', height: '1px', background: GOLD, marginTop: '4rem' }} />
+
+    </section>
+  );
+}
+
 function ForestIntro() {
   const w = useW();
   const mob = w < 768;
@@ -2016,6 +2099,7 @@ export default function FlowFarmLanding2() {
   return (
     <div style={{ background: DARK, margin: 0, padding: 0, overflowX: 'hidden' }}>
       <Hero />
+      <PositionStatement />
       <ForestIntro />
       <PropertyMap />
 
