@@ -534,7 +534,7 @@ function Manifesto() {
           letterSpacing: '-0.018em',
           textShadow: '0 2px 24px rgba(0,0,0,0.5)',
         }}>
-          Not just a home.<br />A living system built for those<br />who intend to leave something behind.
+          Not a listing.<br />A transfer of something rare.
         </h2>
         <div style={{ width: 36, height: 1, background: GOLD, opacity: 0.5 }} />
         <p style={{
@@ -546,9 +546,7 @@ function Manifesto() {
           maxWidth: 560,
           textShadow: '0 1px 12px rgba(0,0,0,0.5)',
         }}>
-          Fifteen acres of forest and working farmland three miles from Pinehurst Resort.
-          Designed by Robert E. Clark AIA as one of his final private commissions.
-          Built to operate indefinitely, independently, and beautifully.
+          Fifteen acres. Three miles from Pinehurst. Designed by Robert E. Clark AIA as one of his final private commissions. Operational by design. Independent by engineering. Ready now.
         </p>
         <a href={MATTERPORT} target="_blank" rel="noreferrer" style={{
           color: GOLD,
@@ -582,17 +580,13 @@ function Foundation() {
             <Eyebrow>The Estate</Eyebrow>
             <GoldLine />
             <h2 style={{ color: CREAM, fontFamily: 'Georgia, serif', fontWeight: 400, fontSize: mob ? '2rem' : '3rem', lineHeight: 1.22, margin: 0, letterSpacing: '-0.018em' }}>
-              A Foundation for<br />What Comes Next.
+              Structure That<br />Holds Freedom.
             </h2>
             <p style={{ color: 'rgba(255,255,255,0.78)', fontFamily: 'Georgia, serif', fontSize: mob ? '1rem' : '1.06rem', lineHeight: 2.1, margin: 0 }}>
-              A living estate rooted in sustainability, elevated by state-of-the-art
-              infrastructure and refined luxury. Designed by Robert E. Clark AIA of Pinehurst
-              -- one of his final and most personal works.
+              Robert E. Clark AIA designed this as one of his final private commissions. The result is an estate with the structural integrity of a commercial build and the warmth of a home that has been deeply lived in. Every system was specified to last. Every room was designed to be felt.
             </p>
             <p style={{ color: 'rgba(255,255,255,0.62)', fontFamily: 'Georgia, serif', fontSize: mob ? '1rem' : '1.06rem', lineHeight: 2.1, margin: 0 }}>
-              Reclaimed Civil War-era heart pine floors, custom-laid in artisan patterns
-              throughout every bedroom, hallway, and closet. A glass conservatory with
-              octagonal skylight dome. Six structures across fifteen curated acres.
+              Civil War-era heart pine floors, reclaimed and custom-laid in artisan patterns. A glass conservatory with an octagonal dome. Six structures across fifteen acres — each one purposeful, each one built to Clark's standard.
             </p>
             <div style={{ display: 'flex', gap: '1.5rem', marginTop: '0.5rem' }}>
               <a href={MATTERPORT} target="_blank" rel="noreferrer"
@@ -1381,7 +1375,7 @@ function LightingCircuits() {
           textTransform: 'uppercase',
           color: GOLD,
           margin: '0 0 2.5rem',
-        }}>Control4 -- 143 Individually Addressable Circuits</p>
+        }}>143 Lighting Circuits. Whole Campus. One Tap.</p>
         <p style={{
           fontFamily: "'Cormorant Garamond', Georgia, serif",
           fontStyle: 'italic',
@@ -1433,10 +1427,10 @@ function StealTheShow() {
           letterSpacing: '-0.02em',
           margin: '0 0 2rem 0',
         }}>
-          The House That Quietly Steals<br />the Whole Show.
+          Impossible to Confuse<br />With Anything Else.
         </h2>
         <p style={{ fontFamily: 'Georgia, serif', fontStyle: 'italic', fontSize: mob ? '0.9rem' : '1.05rem', color: 'rgba(255,255,255,0.82)', lineHeight: 1.6, maxWidth: 960, margin: '0 auto', whiteSpace: mob ? 'normal' : 'nowrap' }}>
-          Architect-designed, materially rich, and impossible to confuse with ordinary luxury.
+          Robert Clark designed it. Fifteen years shaped it. It shows.
         </p>
       </div>
     </section>
@@ -1589,13 +1583,11 @@ function Land() {
         <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '2.4rem', marginBottom: mob ? '6rem' : '10rem', padding: '0 6vw', textAlign: 'center' }}>
           <Eyebrow center>The Land</Eyebrow>
           <h2 style={{ color: CREAM, fontFamily: 'Georgia, serif', fontWeight: 400, fontSize: mob ? '1.7rem' : '3.2rem', lineHeight: 1.28, margin: 0, letterSpacing: '-0.018em' }}>
-            Three acres producing.<br />Seven acres waiting.
+          Operational by Design.<br />Eight acres working. Seven acres waiting.
           </h2>
           <GoldLine />
           <p style={{ color: 'rgba(255,255,255,0.78)', fontFamily: 'Georgia, serif', fontSize: mob ? '1rem' : '1.12rem', lineHeight: 2.1, maxWidth: 540, margin: 0 }}>
-            USDA-certified veganic. O2Compost regenerative systems.
-            Biochar production. 1,400-ft double deer fence.
-            A farm already running -- and seven raw acres ready for whatever comes next.
+            Three USDA-certified veganic acres already producing. Biochar. O2Compost. A 1,400-foot double deer fence. A walk-in cooler. A 96-by-36-foot geothermal greenhouse growing pineapples in North Carolina. The farm is not an amenity. It is an operating system. And seven buildable acres sit beside it — zoned, ready, yours.
           </p>
         </div>
       </Fade>
@@ -1651,7 +1643,7 @@ function ZoningOpportunity() {
           color: '#fff', lineHeight: 1.12, letterSpacing: '-0.02em',
           margin: '0 0 2rem',
         }}>
-          Whoever takes this next<br /><em>inherits all of it.</em>
+          The Zoning Is Already Done.<br /><em>Fifteen years of work. Yours now.</em>
         </h2>
         <div style={{
           width: '40px', height: '1px', background: GOLD, margin: '0 0 2.4rem', opacity: 0.6,
@@ -1660,7 +1652,7 @@ function ZoningOpportunity() {
           fontFamily: 'Georgia, serif', fontSize: mob ? '1.05rem' : '1.2rem',
           color: CREAM, lineHeight: 1.8, maxWidth: 680, margin: '0 0 3rem',
         }}>
-          NC Qualifying Farmer Exemption is in place. Retreat centers, event venues, agritourism, commercial kitchens, equestrian operations -- all permitted. Fifteen years of work handed to whoever is meant to carry it forward.
+          NC Qualifying Farmer Exemption. Agritourism zoning. Retreat centers, event venues, commercial kitchens, equestrian operations — all permitted. This is not theoretical. The certification exists. The zoning exists. The infrastructure exists. The next owner steps into something already running, not something they have to build.
         </p>
         {/* Pinehurst callout -- naked, no box */}
         <div style={{ maxWidth: 560, borderTop: '1px solid rgba(201,169,110,0.22)', borderBottom: '1px solid rgba(201,169,110,0.22)', padding: mob ? '2rem 0' : '2.8rem 0', marginTop: '1rem' }}>
