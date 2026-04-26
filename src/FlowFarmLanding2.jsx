@@ -830,12 +830,72 @@ function ForestIntro() {
 
 
 const MAP_PINS = [
-  { id: 'main', x: 48, y: 42, label: 'Main Residence', sub: '8,519 SF -- 6 bed / 7 bath', icon: '[H]' },
-  { id: 'farm', x: 28, y: 62, label: 'Veganic Farm', sub: '3-acre certified veganic operation', icon: '[F]' },
-  { id: 'tunnel', x: 22, y: 55, label: 'High Tunnel', sub: '96x36 ft climate-controlled growing', icon: '[T]' },
-  { id: 'workshop', x: 35, y: 70, label: 'Farm Workshop', sub: '30x40 ft with full equipment storage', icon: '[W]' },
-  { id: 'guest', x: 58, y: 55, label: 'Guest Suite', sub: 'Private entrance -- 200 amp service', icon: '[G]' },
-  { id: 'solar', x: 65, y: 38, label: 'Solar Array', sub: '14.3kW -- 61 Samsung panels', icon: '[S]' },
+  {
+    id: 'main',
+    x: 48, y: 42,
+    label: 'Main Residence',
+    category: 'THE ESTATE',
+    headline: '8,519 SF. Designed as a whole.',
+    description: 'Six bedrooms, seven baths, grand piano conservatory, 17-foot great room. Heart pine floors throughout. Control4 automation. Sound, climate, security — one tap from anywhere on the property.',
+    systems: ['Control4 Smart Home', '143 Lighting Circuits', '5-Zone Geothermal', '1,200 Amp Total Service'],
+    connects: ['guest', 'solar'],
+    color: '#C9A96E',
+  },
+  {
+    id: 'farm',
+    x: 28, y: 62,
+    label: 'Veganic Farm',
+    category: 'THE ENGINE',
+    headline: '3 certified acres. The legal foundation.',
+    description: 'USDA-registered since 2009. Veganic certification. CSA members. Biochar kiln. This is not a garden — it is the agricultural standing that unlocks the NC Qualifying Farmer Exemption, resort use, and event permitting.',
+    systems: ['USDA Registered', 'NC Qualifying Farmer Exempt', 'CSA Active', 'Biochar Kiln'],
+    connects: ['tunnel', 'workshop'],
+    color: '#8BAF72',
+  },
+  {
+    id: 'tunnel',
+    x: 22, y: 55,
+    label: 'High Tunnel',
+    category: 'THE GROWING ZONE',
+    headline: '96×36 ft. Its own climate.',
+    description: 'A geothermal climate battery runs beneath the soil. What grows here has no business existing in North Carolina. Pineapples, tropical varieties, year-round production — fully off-grid, fully independent.',
+    systems: ['Geothermal Soil Battery', 'Year-Round Production', 'Off-Grid Climate Control', '3,456 SF Growing Floor'],
+    connects: ['farm', 'solar'],
+    color: '#7AA88A',
+  },
+  {
+    id: 'workshop',
+    x: 35, y: 70,
+    label: 'Farm Workshop',
+    category: 'THE INFRASTRUCTURE',
+    headline: '30×40 ft. Built for serious work.',
+    description: 'Full equipment storage, workspace, and farm operations hub. Separate electrical service. Houses the systems that keep the property running without a single call to a utility company.',
+    systems: ['Full Equipment Storage', 'Separate Electrical Service', '30kW Kohler Generator', 'Independent Operations'],
+    connects: ['farm', 'solar'],
+    color: '#A89060',
+  },
+  {
+    id: 'guest',
+    x: 58, y: 55,
+    label: 'Guest Suite',
+    category: 'THE WING',
+    headline: 'Private. Fully serviced.',
+    description: 'Separate entrance. 200 amp dedicated service. Designed by Robert E. Clark AIA as part of the compound vision — not an afterthought, but a deliberate counterpoint to the main house.',
+    systems: ['Private Entrance', '200 Amp Dedicated', 'Clark AIA Design', 'Independent HVAC'],
+    connects: ['main'],
+    color: '#C9A96E',
+  },
+  {
+    id: 'solar',
+    x: 65, y: 38,
+    label: 'Solar Array',
+    category: 'THE POWER',
+    headline: '14.3kW. Zero grid dependency.',
+    description: '61 Samsung panels. Battery backup. Paired with 20 geothermal wells at 300 feet and a 30kW Kohler standby generator. The estate has never needed the municipal grid — and is built so it never will.',
+    systems: ['61 Samsung Panels', 'Battery Backup', '20 Geothermal Wells × 300ft', '30kW Kohler Standby'],
+    connects: ['main', 'tunnel', 'workshop'],
+    color: '#D4B87A',
+  },
 ];
 
 function PropertyMap() {
@@ -867,7 +927,10 @@ function PropertyMap() {
         transform: fadeIn ? 'none' : 'translateY(24px)',
         transition: 'opacity 1.4s ease, transform 1.4s ease',
       }}>
-        <Eyebrow center>The Estate at a Glance</Eyebrow>
+        <Eyebrow center>Six Structures. One System.</Eyebrow>
+        <p style={{ fontFamily: 'Georgia, serif', fontStyle: 'italic', fontSize: mob ? '1rem' : '1.1rem', color: 'rgba(255,255,255,0.38)', margin: '1rem 0 0', textAlign: 'center' }}>
+          Everything here is connected. Tap any structure.
+        </p>
         <div style={{ width: 36, height: 1, background: GOLD, opacity: 0.35, margin: '1.2rem auto' }} />
         <h2 style={{
           color: CREAM,
@@ -952,18 +1015,21 @@ function PropertyMap() {
                 <div style={{
                   position: 'absolute', inset: 0,
                   borderRadius: '50%',
-                  border: '1.5px solid ' + GOLD,
-                  opacity: active && active.id === pin.id ? 0 : 0.5,
+                  border: '1.5px solid ' + (pin.color || GOLD),
+                  opacity: active && active.id === pin.id ? 0 : (active && active.connects && active.connects.includes(pin.id) ? 1 : 0.45),
                   animation: 'pinPulse 2.4s ease-in-out infinite',
-                  transform: 'scale(1.7)',
+                  animationDelay: pin.id === 'farm' ? '0.4s' : pin.id === 'tunnel' ? '0.8s' : pin.id === 'solar' ? '1.2s' : '0s',
+                  transform: active && active.connects && active.connects.includes(pin.id) ? 'scale(2.2)' : 'scale(1.7)',
+                  transition: 'opacity 0.4s ease, transform 0.4s ease',
                 }} />
                 <div style={{
                   width: '100%', height: '100%',
                   borderRadius: '50%',
-                  background: active && active.id === pin.id ? GOLD : 'rgba(201,169,110,0.85)',
-                  border: '1.5px solid ' + GOLD,
-                  boxShadow: '0 0 12px rgba(201,169,110,0.6)',
-                  transition: 'background 0.3s ease',
+                  background: active && active.id === pin.id ? (pin.color || GOLD) : 'rgba(201,169,110,0.75)',
+                  border: '1.5px solid ' + (pin.color || GOLD),
+                  boxShadow: '0 0 14px ' + (pin.color || GOLD) + '99',
+                  transition: 'background 0.3s ease, transform 0.3s ease',
+                  transform: active && active.id === pin.id ? 'scale(1.25)' : 'scale(1)',
                 }} />
               </div>
               {/* Label */}
@@ -1004,48 +1070,76 @@ function PropertyMap() {
               transition: 'opacity 0.38s ease, transform 0.38s ease',
             }}>
               <div style={{
-                background: 'rgba(8,8,8,0.88)',
-                backdropFilter: 'blur(24px)',
-                WebkitBackdropFilter: 'blur(24px)',
-                border: '1px solid rgba(201,169,110,0.18)',
+                background: 'rgba(6,6,6,0.94)',
+                backdropFilter: 'blur(28px)',
+                WebkitBackdropFilter: 'blur(28px)',
+                border: '1px solid rgba(201,169,110,0.22)',
                 padding: mob ? '1.6rem 1.4rem' : '2.4rem 2.2rem',
                 position: 'relative',
               }}>
+                {/* Color accent bar */}
+                <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: '2px', background: active.color || GOLD, opacity: 0.7 }} />
+
                 {/* Close */}
                 <button onClick={closePanel} style={{
                   position: 'absolute', top: '1rem', right: '1rem',
                   background: 'none', border: 'none', cursor: 'pointer',
-                  color: 'rgba(255,255,255,0.3)', fontSize: '1.1rem', lineHeight: 1, padding: '4px 8px',
-                }}>x</button>
+                  color: 'rgba(255,255,255,0.25)', fontSize: '1rem', lineHeight: 1, padding: '4px 8px',
+                }}>✕</button>
 
-                <p style={{ margin: '0 0 0.6rem', fontFamily: 'sans-serif', fontSize: '9px', letterSpacing: '0.3em', textTransform: 'uppercase', color: GOLD }}>{active.category}</p>
-                <h3 style={{ margin: '0 0 0.5rem', fontFamily: 'Georgia, serif', fontWeight: 400, fontSize: mob ? '1.3rem' : '1.5rem', color: '#fff', lineHeight: 1.2 }}>{active.label}</h3>
-                <p style={{ margin: '0 0 0.4rem', fontFamily: 'Georgia, serif', fontStyle: 'italic', fontSize: mob ? '0.82rem' : '0.9rem', color: GOLD }}>{active.headline}</p>
-                <p style={{ margin: '0 0 1.4rem', fontFamily: 'Georgia, serif', fontSize: mob ? '0.82rem' : '0.88rem', color: 'rgba(255,255,255,0.62)', lineHeight: 1.75 }}>{active.description}</p>
+                {/* Category */}
+                <p style={{ margin: '0 0 0.8rem', fontFamily: 'sans-serif', fontSize: '8px', letterSpacing: '0.36em', textTransform: 'uppercase', color: active.color || GOLD }}>{active.category}</p>
+
+                {/* Title */}
+                <h3 style={{ margin: '0 0 0.3rem', fontFamily: 'Georgia, serif', fontWeight: 400, fontSize: mob ? '1.25rem' : '1.45rem', color: '#fff', lineHeight: 1.2 }}>{active.label}</h3>
+
+                {/* Headline */}
+                <p style={{ margin: '0 0 1rem', fontFamily: 'Georgia, serif', fontStyle: 'italic', fontSize: mob ? '0.82rem' : '0.88rem', color: 'rgba(201,169,110,0.85)' }}>{active.headline}</p>
+
+                {/* Gold rule */}
+                <div style={{ width: '32px', height: '1px', background: 'rgba(201,169,110,0.35)', marginBottom: '1rem' }} />
+
+                {/* Description */}
+                <p style={{ margin: '0 0 1.4rem', fontFamily: 'Georgia, serif', fontSize: mob ? '0.8rem' : '0.85rem', color: 'rgba(255,255,255,0.68)', lineHeight: 1.8 }}>{active.description}</p>
 
                 {/* Systems tags */}
-                <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem', marginBottom: active.cta ? '1.4rem' : 0 }}>
+                <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.4rem', marginBottom: '1.4rem' }}>
                   {active.systems.map((s, i) => (
                     <span key={i} style={{
-                      fontFamily: 'sans-serif', fontSize: mob ? '7px' : '7.5px', letterSpacing: '0.18em',
-                      textTransform: 'uppercase', color: 'rgba(255,255,255,0.45)',
-                      border: '1px solid rgba(255,255,255,0.12)', padding: '4px 8px',
+                      fontFamily: 'sans-serif', fontSize: mob ? '6.5px' : '7px', letterSpacing: '0.16em',
+                      textTransform: 'uppercase', color: 'rgba(255,255,255,0.5)',
+                      border: '1px solid rgba(255,255,255,0.1)', padding: '3px 8px',
+                      background: 'rgba(255,255,255,0.03)',
                     }}>{s}</span>
                   ))}
                 </div>
 
-                {/* CTA */}
-                {active.cta && (
-                  <a href={active.cta.url} target="_blank" rel="noreferrer" style={{
-                    display: 'inline-block', marginTop: '0.2rem',
-                    fontFamily: 'sans-serif', fontSize: '9px', letterSpacing: '0.26em',
-                    textTransform: 'uppercase', color: GOLD,
-                    border: '1px solid rgba(201,169,110,0.4)',
-                    padding: '0.7rem 1.4rem', textDecoration: 'none',
-                    transition: 'background 0.25s ease',
-                  }}>
-                    {active.cta.label} ->
-                  </a>
+                {/* Connected to */}
+                {active.connects && active.connects.length > 0 && (
+                  <div style={{ borderTop: '1px solid rgba(201,169,110,0.1)', paddingTop: '1rem' }}>
+                    <p style={{ margin: '0 0 0.5rem', fontFamily: 'sans-serif', fontSize: '7px', letterSpacing: '0.28em', textTransform: 'uppercase', color: 'rgba(201,169,110,0.45)' }}>Connected to</p>
+                    <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.4rem' }}>
+                      {active.connects.map((cid) => {
+                        const cp = MAP_PINS.find(p => p.id === cid);
+                        return cp ? (
+                          <button key={cid} onClick={() => openPin(cp)} style={{
+                            background: 'none', border: '1px solid rgba(201,169,110,0.25)',
+                            color: GOLD, fontFamily: 'sans-serif', fontSize: '7px',
+                            letterSpacing: '0.18em', textTransform: 'uppercase',
+                            padding: '4px 10px', cursor: 'pointer',
+                            display: 'flex', alignItems: 'center', gap: '5px',
+                            transition: 'border-color 0.2s ease',
+                          }}
+                          onMouseEnter={e => e.currentTarget.style.borderColor = GOLD}
+                          onMouseLeave={e => e.currentTarget.style.borderColor = 'rgba(201,169,110,0.25)'}
+                          >
+                            <span style={{ width: 5, height: 5, borderRadius: '50%', background: cp.color || GOLD, display: 'inline-block', flexShrink: 0 }} />
+                            {cp.label}
+                          </button>
+                        ) : null;
+                      })}
+                    </div>
+                  </div>
                 )}
               </div>
             </div>
@@ -1058,7 +1152,7 @@ function PropertyMap() {
             <button key={pin.id} onClick={() => openPin(pin)} style={{
               width: active && active.id === pin.id ? 20 : 6,
               height: 6, borderRadius: 3,
-              background: active && active.id === pin.id ? GOLD : 'rgba(255,255,255,0.18)',
+              background: active && active.id === pin.id ? (pin.color || GOLD) : (active && active.connects && active.connects.includes(pin.id) ? 'rgba(201,169,110,0.35)' : 'rgba(255,255,255,0.18)'),
               border: 'none', cursor: 'pointer', padding: 0,
               transition: 'width 0.35s ease, background 0.35s ease',
             }} />
@@ -1085,14 +1179,13 @@ function PropertyMap() {
             color: GOLD,
             fontFamily: 'sans-serif', fontSize: '10px', letterSpacing: '0.32em', textTransform: 'uppercase',
             fontWeight: 400,
-            padding: '0.2rem 0',
-            border: 'none',
-            borderBottom: '1px solid rgba(201,169,110,0.5)',
+            padding: '1.1rem 2.8rem',
+            border: '1px solid rgba(201,169,110,0.5)',
             textDecoration: 'none',
-            transition: 'border-color 0.25s ease',
+            transition: 'border-color 0.25s ease, color 0.25s ease',
           }}
-          onMouseEnter={e => e.currentTarget.style.borderBottomColor = GOLD}
-          onMouseLeave={e => e.currentTarget.style.borderBottomColor = 'rgba(201,169,110,0.5)'}
+          onMouseEnter={e => e.currentTarget.style.borderColor = GOLD}
+          onMouseLeave={e => e.currentTarget.style.borderColor = 'rgba(201,169,110,0.5)'}
         >
           Walk the Land
         </a>
