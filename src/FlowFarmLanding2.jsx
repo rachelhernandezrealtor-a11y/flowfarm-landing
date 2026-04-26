@@ -27,29 +27,29 @@ const cdnExt = (url) => 'https://res.cloudinary.com/' + CLOUD + '/image/fetch/e_
 const cdnSharp = (url) => 'https://res.cloudinary.com/' + CLOUD + '/image/fetch/e_sharpen:200,e_vibrance:30,e_brightness:8,e_saturation:20,f_auto,q_auto,w_2000,c_limit/' + encodeURIComponent(url);
 
 const IMG = {
-  // Hero shots -- real professional photos
-  living:        B + 'f4af32cdd_260115107LindenTrailF-9619.jpg',
-  conservatory:  B + '8cb2578a0_MONEYSHOT.jpg',
-  conservatoryDome: B + '1fd157275_260115107LindenTrailF-9565.jpg',
-  kitchen:       B + '1c4b8a04f_SOGOODKITCHEN.jpg',
-  dining:        B + 'db01725cb_sogoodtolivingroom.jpg',
-  spabath:       B + '08da5b97d_spaprimarybath.jpg',
-  foyer:         B + '9b1d02a04_260115107LindenTrailF-9727.jpg',
-  powderroom:    B + '4e58028ab_260115107LindenTrailF-9769-2.jpg',
-  wolf:          B + 'ef4b4a364_WOLFDOUBLEGASRANGE.jpg',
-  kitchen2:      B + '1c4b8a04f_SOGOODKITCHEN.jpg',
-  office:        B + '2b920c3b0_markofficemoneyshot.jpg',
-  hallway:       B + '8e3d794f9_secondfloorhallway.jpg',
-  // Grounds / aerial
-  aerial:        cdn('https://media.base44.com/images/public/69e248a2469cc39540781cce/2ca329bbf_flowfarmmasterphotoswebsite.jpg', 2400),
-  forestcanopy:  cdn('https://media.base44.com/images/public/69e248a2469cc39540781cce/fbfaf627b_generated_image.png', 2400),
-  grounds:       cdn('https://media.base44.com/images/public/69a8c6b6c09f3f53db8fa60a/da785e254_flowfarmmasterphotoswebsite3.jpg', 2400),
-  exterior:      cdn('https://media.base44.com/images/public/69a8c6b6c09f3f53db8fa60a/595faa261_107LindenTrail-29.jpg', 2400),
-  trail:         cdn('https://media.base44.com/images/public/69e248a2469cc39540781cce/41690f47b_107LindenTrail-822.jpg', 2400),
-  // Structures
-  cabana:        cdn('https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/69a8c6b6c09f3f53db8fa60a/3af6924d6_CabanaHouseMain.jpg', 1600),
-  tunnel:        cdn('https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/69a8c6b6c09f3f53db8fa60a/217fdb4a1_HighTunnel.jpg', 1600),
-  workshop:      cdn('https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/69a8c6b6c09f3f53db8fa60a/136958608_FarmWorkshop.jpg', 1600),
+  // Interior shots -- full indoor enhancement pipeline
+  living:           cdnInt(B + 'f4af32cdd_260115107LindenTrailF-9619.jpg'),
+  conservatory:     cdnInt(B + '8cb2578a0_MONEYSHOT.jpg'),
+  conservatoryDome: cdnInt(B + '1fd157275_260115107LindenTrailF-9565.jpg'),
+  kitchen:          cdnInt(B + '1c4b8a04f_SOGOODKITCHEN.jpg'),
+  dining:           cdnInt(B + 'db01725cb_sogoodtolivingroom.jpg'),
+  spabath:          cdnInt(B + '08da5b97d_spaprimarybath.jpg'),
+  foyer:            cdnInt(B + '9b1d02a04_260115107LindenTrailF-9727.jpg'),
+  powderroom:       cdnInt(B + '4e58028ab_260115107LindenTrailF-9769-2.jpg'),
+  wolf:             cdnInt(B + 'ef4b4a364_WOLFDOUBLEGASRANGE.jpg'),
+  kitchen2:         cdnInt(B + '1c4b8a04f_SOGOODKITCHEN.jpg'),
+  office:           cdnInt(B + '2b920c3b0_markofficemoneyshot.jpg'),
+  hallway:          cdnInt(B + '8e3d794f9_secondfloorhallway.jpg'),
+  // Exterior / aerial -- outdoor enhancement pipeline
+  aerial:           cdnExt('https://media.base44.com/images/public/69e248a2469cc39540781cce/2ca329bbf_flowfarmmasterphotoswebsite.jpg'),
+  forestcanopy:     cdnExt('https://media.base44.com/images/public/69e248a2469cc39540781cce/fbfaf627b_generated_image.png'),
+  grounds:          cdnExt('https://media.base44.com/images/public/69a8c6b6c09f3f53db8fa60a/da785e254_flowfarmmasterphotoswebsite3.jpg'),
+  exterior:         cdnExt('https://media.base44.com/images/public/69a8c6b6c09f3f53db8fa60a/595faa261_107LindenTrail-29.jpg'),
+  trail:            cdnExt('https://media.base44.com/images/public/69e248a2469cc39540781cce/41690f47b_107LindenTrail-822.jpg'),
+  // Structures -- outdoor enhancement
+  cabana:           cdnExt('https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/69a8c6b6c09f3f53db8fa60a/3af6924d6_CabanaHouseMain.jpg'),
+  tunnel:           cdnExt('https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/69a8c6b6c09f3f53db8fa60a/217fdb4a1_HighTunnel.jpg'),
+  workshop:         cdnExt('https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/69a8c6b6c09f3f53db8fa60a/136958608_FarmWorkshop.jpg'),
 };
 
 function useW() {
@@ -77,21 +77,19 @@ function useFade() {
 
 function useCounter(target, duration, delay, decimals) {
   const [count, setCount] = React.useState(0);
-  const started = React.useRef(false);
   const timers = React.useRef([]);
 
   React.useEffect(() => {
-    // Only ever run once per mount -- memo keeps this stable
-    if (started.current) return;
-    started.current = true;
-
     const _target = target;
     const _duration = duration || 1600;
-    const _delay = delay != null ? delay : 800;
+    const _delay = delay != null ? delay : 200;
     const _decimals = decimals || 0;
     const steps = 60;
     const stepTime = _duration / steps;
     let current = 0;
+
+    timers.current.forEach(clearTimeout);
+    timers.current = [];
 
     const tick = () => {
       current++;
@@ -108,7 +106,7 @@ function useCounter(target, duration, delay, decimals) {
     timers.current.push(t0);
 
     return () => { timers.current.forEach(clearTimeout); };
-  }, []);
+  }, [target, duration, delay]);
 
   return [count];
 }
@@ -166,7 +164,7 @@ const HeroStat = React.memo(function HeroStat({ value, prefix, suffix, decimals,
   return (
     <div style={{ textAlign: 'left' }}>
       <div style={{
-        color: '#fff',
+        color: '#F5F0E8',
         fontFamily: "'Cormorant Garamond', Georgia, serif",
         fontSize: mob ? '1.7rem' : '3.2rem',
         fontWeight: 300,
@@ -190,10 +188,10 @@ const HeroStat = React.memo(function HeroStat({ value, prefix, suffix, decimals,
 
 const HeroStats = React.memo(function HeroStats({ mob }) {
   const stats = [
-    { value: 15, prefix: '', suffix: '', decimals: 0, label1: 'USDA', label2: 'ACRES', duration: 2000, delay: 400 },
-    { value: 7, prefix: '', suffix: '', decimals: 0, label1: 'BUILDABLE', label2: 'ACRES', duration: 2000, delay: 550 },
-    { value: 3, prefix: '', suffix: '', decimals: 0, label1: 'ACRE VEGANIC', label2: 'FARM', duration: 2000, delay: 700 },
-    { value: 5.25, prefix: '$', suffix: 'M', decimals: 2, label1: 'LIST', label2: 'PRICE', duration: 2000, delay: 850 },
+    { value: 15, prefix: '', suffix: '', decimals: 0, label1: 'USDA', label2: 'ACRES', duration: 900, delay: 200 },
+    { value: 7, prefix: '', suffix: '', decimals: 0, label1: 'BUILDABLE', label2: 'ACRES · ZONING', duration: 900, delay: 300 },
+    { value: 3, prefix: '', suffix: '', decimals: 0, label1: 'ACRE VEGANIC', label2: 'FARM', duration: 900, delay: 400 },
+    { value: 5.25, prefix: '$', suffix: 'M', decimals: 2, label1: 'LIST', label2: 'PRICE', duration: 900, delay: 500 },
   ];
   return (
     <div style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'center', margin: mob ? '0 0 0.8rem' : '0 0 2.6rem', gap: 0 }}>
@@ -381,7 +379,7 @@ function Hero() {
         <nav style={{ position: 'absolute', top: '2.4rem', right: '3rem', zIndex: 10, display: 'flex', gap: '2.8rem', ...show(1) }}>
           {['The Estate', 'The Land', 'Inquire'].map(n => (
             <a key={n} href={'#' + n.toLowerCase().replace(' ', '-')}
-              style={{ color: 'rgba(255,255,255,0.22)', fontFamily: 'sans-serif', fontSize: '10px', letterSpacing: '0.24em', textTransform: 'uppercase', textDecoration: 'none' }}>
+              style={{ color: 'rgba(255,255,255,0.45)', fontFamily: 'sans-serif', fontSize: '10px', letterSpacing: '0.24em', textTransform: 'uppercase', textDecoration: 'none' }}>
               {n}
             </a>
           ))}
@@ -399,26 +397,31 @@ function Hero() {
         <div style={{ ...show(2), width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
           <h1 style={{
             color: '#fff', fontFamily: 'Georgia, serif', fontWeight: 400,
-            fontSize: mob ? '2.3rem' : w < 1024 ? '4.2rem' : 'clamp(4rem, 5.5vw, 5.6rem)',
-            lineHeight: 1.06, margin: 0, letterSpacing: '-0.02em',
+            fontSize: mob ? '2rem' : w < 1024 ? '3.6rem' : 'clamp(3.2rem, 4.8vw, 5rem)',
+            lineHeight: 1.12, margin: 0, letterSpacing: '-0.02em',
             textShadow: '0 4px 80px rgba(0,0,0,0.6)',
+            display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '0.1em',
           }}>
-            Agritourism <em>Established.</em><br />Legacy Ready.
+            <span style={{ color: 'rgba(201,169,110,0.65)', fontSize: '0.62em', letterSpacing: '0.22em', fontFamily: 'sans-serif', fontStyle: 'normal', fontWeight: 300, textTransform: 'uppercase' }}>Agritourism</span>
+            <div style={{ width: '40px', height: '1px', background: 'linear-gradient(to right, transparent, rgba(201,169,110,0.5), transparent)', margin: '0.15em 0' }} />
+            <em style={{ fontStyle: 'italic', color: '#F5F0E8', lineHeight: 1, textShadow: '0 0 60px rgba(201,169,110,0.25)' }}>Established.</em>
+            <span style={{ fontSize: '0.52em', letterSpacing: '0.22em', color: 'rgba(255,255,255,0.55)', fontStyle: 'normal', fontWeight: 300, textTransform: 'uppercase' }}>Legacy Ready.</span>
           </h1>
         </div>
         <div style={{ ...show(3), marginTop: mob ? '1rem' : '1.4rem', width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
           {/* !! LOCKED SUBHEAD -- DO NOT CHANGE WITHOUT RACHEL APPROVAL !! */}
           <p style={{
-            color: '#F5F0E8', fontFamily: 'Georgia, serif', fontStyle: 'italic',
-            fontSize: mob ? '0.82rem' : '1.1rem', margin: mob ? '0 0 1.2rem' : '0 0 1.2rem',
+            color: 'rgba(245,240,232,0.62)', fontFamily: 'Georgia, serif', fontStyle: 'italic',
+            fontSize: mob ? '0.82rem' : '1.05rem', margin: mob ? '0 0 1.2rem' : '0 0 1.2rem',
             letterSpacing: '0.01em', lineHeight: 1.7,
             textShadow: '0 2px 20px rgba(0,0,0,0.5)',
           }}>
             The farm unlocks everything. Three miles from Pinehurst.
           </p>
+          <div style={{ width: mob ? '60px' : '80px', height: '1px', background: 'linear-gradient(to right, transparent, rgba(201,169,110,0.7), transparent)', margin: mob ? '0 auto 1.2rem' : '0 auto 1.8rem' }} />
           <HeroStats mob={mob} />
           <div style={{ display: 'flex', flexWrap: 'wrap', gap: mob ? '0.75rem' : '1rem', justifyContent: 'center', alignItems: 'center', marginTop: mob ? '1rem' : '0' }}>
-            <button onClick={() => setVideoOpen(true)} style={{ display: 'inline-block', background: 'rgba(255,255,255,0.14)', border: '1px solid rgba(255,255,255,0.55)', color: '#fff', fontFamily: 'sans-serif', fontSize: mob ? '9px' : '10px', letterSpacing: '0.32em', textTransform: 'uppercase', padding: mob ? '0.85rem 2rem' : '1rem 2.8rem', borderRadius: '2rem', textDecoration: 'none', fontWeight: 500, cursor: 'pointer', transition: 'background 0.3s ease', boxShadow: 'inset 0 1px 0 rgba(255,255,255,0.25), 0 4px 24px rgba(0,0,0,0.3)', backdropFilter: 'blur(12px)', WebkitBackdropFilter: 'blur(12px)' }}>
+            <button onClick={() => setVideoOpen(true)} style={{ display: 'inline-block', background: 'none', border: 'none', borderBottom: '1px solid rgba(201,169,110,0.5)', color: GOLD, fontFamily: 'sans-serif', fontSize: mob ? '9px' : '10px', letterSpacing: '0.38em', textTransform: 'uppercase', padding: '0 0 0.3rem 0', textDecoration: 'none', fontWeight: 400, cursor: 'pointer', transition: 'opacity 0.3s ease', opacity: 0.85 }}>
               Enter Flow Farm
             </button>
             {videoOpen && <VideoLightbox onClose={() => setVideoOpen(false)} />}
@@ -559,8 +562,8 @@ function Foundation() {
   const w = useW();
   const mob = w < 768;
   return (
-    <section id="the-estate" style={{ background: '#0c0c0c', padding: mob ? '7rem 0' : '10rem 0' }}>
-      <div style={{ display: 'grid', gridTemplateColumns: mob ? '1fr' : '1fr 1fr', maxWidth: 1320, margin: '0 auto', padding: '0 6vw', gap: mob ? '5rem' : '8rem', alignItems: 'center' }}>
+    <section id="the-estate" style={{ background: '#0c0c0c', padding: mob ? '9rem 0' : '13rem 0' }}>
+      <div style={{ display: 'grid', gridTemplateColumns: mob ? '1fr' : '1fr 1fr', maxWidth: 1320, margin: '0 auto', padding: '0 6vw', gap: mob ? '6rem' : '10rem', alignItems: 'center' }}>
         <Fade delay={0.05}>
           <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
             <Eyebrow>The Estate</Eyebrow>
@@ -573,7 +576,7 @@ function Foundation() {
               infrastructure and refined luxury. Designed by Robert E. Clark AIA of Pinehurst
               -- one of his final and most personal works.
             </p>
-            <p style={{ color: 'rgba(255,255,255,0.22)', fontFamily: 'Georgia, serif', fontSize: mob ? '1rem' : '1.06rem', lineHeight: 2.1, margin: 0 }}>
+            <p style={{ color: 'rgba(255,255,255,0.45)', fontFamily: 'Georgia, serif', fontSize: mob ? '1rem' : '1.06rem', lineHeight: 2.1, margin: 0 }}>
               Reclaimed Civil War-era heart pine floors, custom-laid in artisan patterns
               throughout every bedroom, hallway, and closet. A glass conservatory with
               octagonal skylight dome. Six structures across fifteen curated acres.
@@ -584,7 +587,7 @@ function Foundation() {
                 Virtual Tour
               </a>
               <a href="#inquire"
-                style={{ color: 'rgba(255,255,255,0.22)', fontFamily: 'sans-serif', fontSize: '10px', letterSpacing: '0.28em', textTransform: 'uppercase', textDecoration: 'none', borderBottom: '1px solid rgba(255,255,255,0.08)', paddingBottom: '0.3rem' }}>
+                style={{ color: 'rgba(255,255,255,0.45)', fontFamily: 'sans-serif', fontSize: '10px', letterSpacing: '0.28em', textTransform: 'uppercase', textDecoration: 'none', borderBottom: '1px solid rgba(255,255,255,0.08)', paddingBottom: '0.3rem' }}>
                 Private Inquiry
               </a>
             </div>
@@ -592,7 +595,7 @@ function Foundation() {
         </Fade>
         <Fade delay={0.2}>
           <div style={{ position: 'relative' }}>
-            <img src={cdnInt(IMG.living)} alt="Flow Farm Estate" style={{ width: '100%', height: mob ? 340 : 560, objectFit: 'cover', display: 'block' }} />
+            <img src={IMG.living} alt="Flow Farm Estate" style={{ width: '100%', height: mob ? 340 : 560, objectFit: 'cover', display: 'block' }} />
             <Glass style={{ position: 'absolute', bottom: mob ? -20 : -28, left: mob ? -10 : -28, padding: '1.4rem 2rem' }}>
               <p style={{ margin: '0 0 0.3rem', fontFamily: 'sans-serif', fontSize: '9px', letterSpacing: '0.22em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.3)' }}>Architect</p>
               <p style={{ margin: 0, fontFamily: 'Georgia, serif', fontSize: '1rem', color: CREAM }}>Robert E. Clark AIA</p>
@@ -623,6 +626,12 @@ function ForestIntro() {
   const b2Ref = useRef(null);
   const b3Ref = useRef(null);
   const b4Ref = useRef(null);
+  const [scrollY, setScrollY] = React.useState(0);
+  React.useEffect(() => {
+    const onScroll = () => setScrollY(window.scrollY);
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
 
   useEffect(() => {
     const obs = new IntersectionObserver((entries) => {
@@ -647,7 +656,7 @@ function ForestIntro() {
     { label: '3-ACRE VEGANIC FARM', body: 'In active production since 2009. Certified regenerative.' },
     { label: '8,519 SF RESIDENCE',  body: 'Architect-designed. Built for independence.' },
     { label: 'OFF-GRID CAPABLE',    body: 'Solar. Geothermal. Generator. Well. The grid is optional.' },
-    { label: '7 BUILDABLE ACRES',   body: 'The vision is yours to finish.' },
+    { label: '7 BUILDABLE ACRES',   body: 'Agritourism zoning unlocked by the farm. The vision is yours.' },
   ];
 
   /* shared text-shadow for legibility on any bg */
@@ -660,17 +669,19 @@ function ForestIntro() {
       <div style={{ position: 'relative', overflow: 'hidden' }}>
         {/* Forest background -- shared across beats 1 + 2 */}
         <div style={{
-          position: 'absolute', inset: '-8% 0',
+          position: 'absolute', inset: '-12% 0',
           backgroundImage: 'url(' + FOREST_URL + ')',
-          backgroundSize: 'cover', backgroundPosition: 'center',
+          backgroundSize: 'cover',
+          backgroundPosition: 'center ' + (50 + scrollY * 0.08) + '%',
           filter: 'saturate(1.2) brightness(1.05)',
+          transition: 'background-position 0.1s linear',
         }} />
         <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to bottom, rgba(0,0,0,0.35) 0%, rgba(0,0,0,0.55) 100%)' }} />
 
         {/* Beat 1 -- A Living Place */}
         <div ref={b1Ref} style={{
           position: 'relative', zIndex: 2,
-          padding: mob ? '6rem 6vw 4rem' : '8rem 10vw 5rem',
+          padding: mob ? '8rem 6vw 6rem' : '11rem 10vw 8rem',
           opacity: beat1 ? 1 : 0,
           transform: beat1 ? 'none' : 'translateY(32px)',
           transition: 'opacity 1.6s ease, transform 1.6s ease',
@@ -687,7 +698,7 @@ function ForestIntro() {
         {/* Beat 2 -- Operational by Design */}
         <div ref={b2Ref} style={{
           position: 'relative', zIndex: 2,
-          padding: mob ? '3rem 6vw 6rem' : '4rem 10vw 8rem',
+          padding: mob ? '6rem 6vw 8rem' : '7rem 10vw 11rem',
           opacity: beat2 ? 1 : 0,
           transform: beat2 ? 'none' : 'translateY(32px)',
           transition: 'opacity 1.6s ease 0.2s, transform 1.6s ease 0.2s',
@@ -707,14 +718,11 @@ function ForestIntro() {
           }}>
             {grid.map((item, i) => (
               <div key={i} style={{
-                background: 'rgba(255,255,255,0.1)',
-                border: '1px solid rgba(255,255,255,0.2)',
-                backdropFilter: 'blur(10px)',
-                borderRadius: '4px',
-                padding: mob ? '1.1rem' : '1.4rem 1.2rem',
+                padding: mob ? '0.8rem 0' : '1rem 0',
+                borderTop: '1px solid rgba(201,169,110,0.15)',
               }}>
-                <p style={{ fontFamily: 'sans-serif', fontSize: '9px', letterSpacing: '0.30em', textTransform: 'uppercase', color: GOLD, margin: '0 0 0.6rem', fontWeight: 600 }}>{item.label}</p>
-                <p style={{ fontFamily: 'Georgia, serif', fontSize: '0.85rem', color: 'rgba(255,255,255,0.85)', lineHeight: 1.6, margin: 0 }}>{item.body}</p>
+                <p style={{ fontFamily: 'sans-serif', fontSize: '9px', letterSpacing: '0.30em', textTransform: 'uppercase', color: GOLD, margin: '0 0 0.5rem', fontWeight: 400 }}>{item.label}</p>
+                <p style={{ fontFamily: 'Georgia, serif', fontSize: '0.88rem', color: 'rgba(255,255,255,0.72)', lineHeight: 1.6, margin: 0 }}>{item.body}</p>
               </div>
             ))}
           </div>
@@ -724,17 +732,19 @@ function ForestIntro() {
       {/* ======= CHAPTER 2: PINE TRAIL -- The Land ======= */}
       <div style={{ position: 'relative', overflow: 'hidden', minHeight: mob ? '50vh' : '65vh' }}>
         <div style={{
-          position: 'absolute', inset: '-8% 0',
+          position: 'absolute', inset: '-12% 0',
           backgroundImage: 'url(' + TRAIL_URL + ')',
-          backgroundSize: 'cover', backgroundPosition: 'center 40%',
+          backgroundSize: 'cover',
+          backgroundPosition: 'center ' + (40 + scrollY * 0.06) + '%',
           filter: 'saturate(1.1) brightness(1.05)',
+          transition: 'background-position 0.1s linear',
         }} />
         <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to bottom, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.6) 100%)' }} />
         <div ref={b3Ref} style={{
           position: 'relative', zIndex: 2,
           display: 'flex', alignItems: 'flex-end', justifyContent: 'center',
           minHeight: mob ? '50vh' : '65vh',
-          padding: mob ? '3rem 6vw 4rem' : '4rem 10vw 5rem',
+          padding: mob ? '6rem 6vw 6rem' : '8rem 10vw 8rem',
           textAlign: 'center',
           opacity: beat3 ? 1 : 0,
           transform: beat3 ? 'none' : 'translateY(28px)',
@@ -749,19 +759,30 @@ function ForestIntro() {
         </div>
       </div>
 
+      {/* ======= KEY INTERSTITIAL -- The Farm is the Key ======= */}
+      <div style={{ background: '#0a0a0a', padding: '10rem 10vw', textAlign: 'center' }}>
+        <div style={{ width: '40px', height: '1px', background: 'linear-gradient(to right, transparent, rgba(201,169,110,0.5), transparent)', margin: '0 auto 3.5rem' }} />
+        <p style={{ fontFamily: 'Georgia, serif', fontStyle: 'italic', fontSize: 'clamp(1.5rem, 3vw, 2.4rem)', color: '#F5F0E8', lineHeight: 1.55, maxWidth: 780, margin: '0 auto', letterSpacing: '-0.01em' }}>
+          Three acres, active and certified.<br />That&rsquo;s all it took.<br /><span style={{ color: 'rgba(201,169,110,0.85)' }}>The rest of the fifteen are yours.</span>
+        </p>
+        <div style={{ width: '40px', height: '1px', background: 'linear-gradient(to right, transparent, rgba(201,169,110,0.5), transparent)', margin: '3.5rem auto 0' }} />
+      </div>
+
       {/* ======= CHAPTER 3: AERIAL -- Seventeen Years ======= */}
       <div style={{ position: 'relative', overflow: 'hidden', minHeight: mob ? '55vh' : '72vh' }}>
         <div style={{
-          position: 'absolute', inset: '-8% 0',
+          position: 'absolute', inset: '-12% 0',
           backgroundImage: 'url(' + AERIAL_URL + ')',
-          backgroundSize: 'cover', backgroundPosition: 'center 35%',
+          backgroundSize: 'cover',
+          backgroundPosition: 'center ' + (35 + scrollY * 0.06) + '%',
+          transition: 'background-position 0.1s linear',
         }} />
         <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to bottom, rgba(0,0,0,0.15) 0%, rgba(0,0,0,0.65) 100%)' }} />
         <div ref={b4Ref} style={{
           position: 'relative', zIndex: 2,
           display: 'flex', alignItems: 'flex-end', justifyContent: 'center',
           minHeight: mob ? '55vh' : '72vh',
-          padding: mob ? '3rem 6vw 4rem' : '4rem 10vw 5rem',
+          padding: mob ? '6rem 6vw 6rem' : '8rem 10vw 8rem',
           textAlign: 'center',
           opacity: beat4 ? 1 : 0,
           transform: beat4 ? 'none' : 'translateY(28px)',
@@ -779,17 +800,19 @@ function ForestIntro() {
       {/* ======= CHAPTER 4: PINEAPPLE -- The High Tunnel ======= */}
       <div style={{ position: 'relative', overflow: 'hidden', minHeight: mob ? '55vh' : '72vh' }}>
         <div style={{
-          position: 'absolute', inset: '-8% 0',
+          position: 'absolute', inset: '-12% 0',
           backgroundImage: 'url(' + PINE_URL + ')',
-          backgroundSize: 'cover', backgroundPosition: 'center 40%',
+          backgroundSize: 'cover',
+          backgroundPosition: 'center ' + (40 + scrollY * 0.06) + '%',
           filter: 'saturate(1.15) brightness(1.0)',
+          transition: 'background-position 0.1s linear',
         }} />
         <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to bottom, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.72) 100%)' }} />
         <div style={{
           position: 'relative', zIndex: 2,
           display: 'flex', alignItems: 'center', justifyContent: 'center',
           minHeight: mob ? '55vh' : '72vh',
-          padding: mob ? '4rem 6vw' : '5rem 10vw',
+          padding: mob ? '7rem 6vw' : '9rem 10vw',
           textAlign: 'center',
         }}>
           <div>
@@ -826,19 +849,7 @@ function PropertyMap() {
   const [panelVisible, setPanelVisible] = useState(false);
   const [ref, fadeIn] = useFade();
   const mapImgRef = useRef(null);
-
-  useEffect(() => {
-    const el = mapImgRef.current;
-    if (!el) return;
-    const onScroll = () => {
-      const rect = el.closest('section').getBoundingClientRect();
-      const pct = (window.innerHeight - rect.top) / (window.innerHeight + rect.height);
-      const shift = (pct - 0.5) * 80;
-      el.style.transform = 'scale(1.06) translateY(' + (shift * 0.5) + 'px)';
-    };
-    window.addEventListener('scroll', onScroll, { passive: true });
-    return () => window.removeEventListener('scroll', onScroll);
-  }, []);
+  // parallax removed -- full aerial must always be fully visible
 
   const openPin = (pin) => {
     setActive(pin);
@@ -851,11 +862,11 @@ function PropertyMap() {
   };
 
   return (
-    <section ref={ref} style={{ background: DARK, padding: mob ? '5rem 0 5rem' : '8rem 0 6rem' }}>
+    <section ref={ref} style={{ background: DARK, padding: mob ? '7rem 0 7rem' : '11rem 0 10rem' }}>
       {/* Section header */}
       <div style={{
         textAlign: 'center',
-        padding: mob ? '0 6vw 3rem' : '0 6vw 4rem',
+        padding: mob ? '0 6vw 4rem' : '0 6vw 6rem',
         opacity: fadeIn ? 1 : 0,
         transform: fadeIn ? 'none' : 'translateY(24px)',
         transition: 'opacity 1.4s ease, transform 1.4s ease',
@@ -896,7 +907,7 @@ function PropertyMap() {
         opacity: fadeIn ? 1 : 0,
         transition: 'opacity 1.8s ease 0.3s',
       }}>
-        <div style={{ position: 'relative', width: '100%', paddingBottom: mob ? '120%' : '90%', overflow: 'hidden' }}>
+        <div style={{ position: 'relative', width: '100%', paddingBottom: mob ? '100%' : '62%', overflow: 'hidden' }}>
           {/* Aerial photo */}
           <img
             ref={mapImgRef}
@@ -904,11 +915,12 @@ function PropertyMap() {
             alt="Flow Farm aerial view"
             style={{
               position: 'absolute', inset: 0, width: '100%', height: '100%',
-              objectFit: 'cover', objectPosition: 'center 65%',
+              objectFit: 'contain', objectPosition: 'center center',
               display: 'block',
-              transform: 'scale(1.06) translateY(0px)',
-              transition: 'transform 0.05s linear',
-              willChange: 'transform',
+              background: '#0a0a0a',
+              transform: 'none',
+              transition: 'none',
+              willChange: 'auto',
             }}
           />
           {/* Dark vignette overlay */}
@@ -1492,8 +1504,8 @@ function Location() {
   const w = useW();
   const mob = w < 768;
   return (
-    <section style={{ background: DARK, padding: mob ? '7rem 0' : '10rem 0' }}>
-      <div style={{ display: 'grid', gridTemplateColumns: mob ? '1fr' : '1fr 1fr', maxWidth: 1320, margin: '0 auto', padding: '0 5vw', gap: mob ? '5rem' : '8rem', alignItems: 'center' }}>
+    <section style={{ background: DARK, padding: mob ? '9rem 0' : '13rem 0' }}>
+      <div style={{ display: 'grid', gridTemplateColumns: mob ? '1fr' : '1fr 1fr', maxWidth: 1320, margin: '0 auto', padding: '0 5vw', gap: mob ? '6rem' : '10rem', alignItems: 'center' }}>
         <Fade delay={0.05}>
           <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
             <Eyebrow>Location</Eyebrow>
@@ -1517,7 +1529,7 @@ function Location() {
           </div>
         </Fade>
         <Fade delay={0.2}>
-          <img src={cdnExt(IMG.exterior)} alt="Flow Farm Estate" style={{ width: '100%', height: mob ? 320 : 560, objectFit: 'cover', display: 'block' }} />
+          <img src={IMG.exterior} alt="Flow Farm Estate" style={{ width: '100%', height: mob ? 320 : 560, objectFit: 'cover', display: 'block' }} />
         </Fade>
       </div>
     </section>
@@ -1548,7 +1560,7 @@ function Inquire() {
   };
   const inp = { background: 'transparent', border: 'none', borderBottom: '1px solid rgba(255,255,255,0.12)', color: CREAM, fontFamily: 'Georgia, serif', fontSize: '1rem', padding: '1rem 0', width: '100%', outline: 'none' };
   return (
-    <section id="inquire" style={{ background: '#0c0c0c', padding: mob ? '7rem 0' : '10rem 0' }}>
+    <section id="inquire" style={{ background: '#0c0c0c', padding: mob ? '9rem 0' : '13rem 0' }}>
       <div style={{ maxWidth: 640, margin: '0 auto', padding: '0 6vw', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '3rem' }}>
         <Fade up>
           <div style={{ textAlign: 'center', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '1.6rem' }}>
@@ -1823,7 +1835,7 @@ export default function FlowFarmLanding2() {
       <Foundation />
       <StealTheShow />
       <CinematicReveal
-        src={cdnInt(IMG.living)}
+        src={IMG.living}
         eyebrow="The Residence"
         headline={"A grand living room.\n27 feet wide. 17 feet tall."}
         body="Exposed king post trusses. Grand piano. Heart pine floors. French doors to the covered porch. And beyond -- the conservatory, the kitchen, the farm. All of it visible from where you stand. Sound fills seventeen feet without effort. You won't find the speakers."
@@ -1831,7 +1843,7 @@ export default function FlowFarmLanding2() {
       />
       <Numbers />
       <CinematicReveal
-        src={cdnSharp(IMG.conservatoryDome)}
+        src={IMG.conservatoryDome}
         eyebrow="The Conservatory"
         headline={"The room that stops\nevery conversation."}
         body="19.5 by 17.7 feet, entirely glass-wrapped. An octagonal dome overhead tracks the sky from morning to dusk. Views of the farm, the cabana, the pines. The room that reminds you why you came here."
@@ -1839,23 +1851,23 @@ export default function FlowFarmLanding2() {
         position="center center"
       />
       <CinematicReveal
-        src={cdnExt(IMG.aerial)}
+        src={IMG.aerial}
         headline={"Autonomy at this scale is not inherited. It is engineered."}
         quote
         position="center 60%"
       />
       <CinematicReveal
-        src={cdnInt(IMG.wolf)}
+        src={IMG.wolf}
         eyebrow="The Kitchen"
         headline={"Sub-Zero. Wolf 60\".\nBuilt for the serious cook."}
-        body="A 60-inch dual fuel Wolf range with red knobs, six burners, griddle, grill, and warming drawer. Two KitchenAid dishwashers. Butcher block island. Scullery with full Sub-Zero and wine fridge. The water from every tap is filtered. Drink it straight. Music plays from somewhere you can't locate. That's the point."
+        body="A 60-inch dual fuel Wolf range with red knobs, six burners, griddle, grill, and warming drawer. Two KitchenAid dishwashers. Butcher block island. Farmhouse apron sink. Soapstone counters. Scullery with full Sub-Zero and wine fridge. The water from every tap is filtered. Drink it straight. Music plays from somewhere you can't locate. That's the point. The pantry door swings open. Then the other one does. Floor to ceiling, every inch -- two full-height swing-out towers, shelves on every face, built for someone who actually cooks. The pagoda toile goes up every wall. Around the corner. Up the back stair. The Roman shades are cut from the same bolt. When they're down, the wall continues -- uninterrupted, corner to corner. The hallway is black and white. The powder room is not."
         position="center 40%"
       />
       <Land />
       <ZoningOpportunity />
       <Mechanism />
       <CinematicReveal
-        src={cdnInt(IMG.spabath)}
+        src={IMG.spabath}
         eyebrow="The Primary Suite"
         headline={"A spa.\nA sanctuary.\nA reason to stay."}
         body="Dual vanities. Freestanding soaking tub beneath a window to the forest. Body-jet shower. Mosaic tile floors. A room that earns the word primary. The lights are already at ten percent when you walk in. Control4 knows."
@@ -1863,7 +1875,7 @@ export default function FlowFarmLanding2() {
         position="center 30%"
       />
       <CinematicReveal
-        src={cdnInt(IMG.foyer)}
+        src={IMG.foyer}
         eyebrow="The Welcome"
         headline={"Every arrival\nshould feel like this."}
         body="Herringbone heart pine floors laid on the diagonal. A reclaimed wood door with transom light overhead. A star lantern casting warm light across the entry. The first impression that sets the tone for everything that follows. One tap. The whole house shifts."
