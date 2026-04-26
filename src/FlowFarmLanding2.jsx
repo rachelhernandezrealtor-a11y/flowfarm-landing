@@ -853,35 +853,6 @@ function ForestIntro() {
         <div style={{ width: '40px', height: '1px', background: 'linear-gradient(to right, transparent, rgba(201,169,110,0.5), transparent)', margin: '3.5rem auto 0' }} />
       </div>
 
-      {/* ======= CHAPTER 3: AERIAL -- Seventeen Years ======= */}
-      <div style={{ position: 'relative', overflow: 'hidden', minHeight: mob ? '55vh' : '72vh' }}>
-        <div style={{
-          position: 'absolute', inset: 0,
-          backgroundImage: 'url(' + AERIAL_URL + ')',
-          backgroundSize: 'cover',
-          backgroundPosition: 'center 35%',
-          transition: 'background-position 0.1s linear',
-        }} />
-        <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to bottom, rgba(0,0,0,0.15) 0%, rgba(0,0,0,0.65) 100%)' }} />
-        <div ref={b4Ref} style={{
-          position: 'relative', zIndex: 2,
-          display: 'flex', alignItems: 'flex-end', justifyContent: 'center',
-          minHeight: mob ? '55vh' : '72vh',
-          padding: mob ? '6rem 6vw 6rem' : '8rem 10vw 8rem',
-          textAlign: 'center',
-          opacity: beat4 ? 1 : 0,
-          transform: beat4 ? 'none' : 'translateY(28px)',
-          transition: 'opacity 1.6s ease, transform 1.6s ease',
-        }}>
-          <div>
-            <p style={{ fontFamily: 'sans-serif', fontSize: '10px', letterSpacing: '0.40em', textTransform: 'uppercase', color: GOLD, margin: '0 0 1rem', textShadow: ts }}>The Farm</p>
-            <p style={{ fontFamily: 'Georgia, serif', fontStyle: 'italic', fontSize: mob ? 'clamp(1.4rem,5vw,2rem)' : 'clamp(1.8rem,3vw,2.6rem)', color: '#fff', lineHeight: 1.45, maxWidth: 660, margin: '0 auto', textShadow: ts }}>
-              This is what seventeen years looks like from above.
-            </p>
-          </div>
-        </div>
-      </div>
-
       {/* ======= CHAPTER 4: PINEAPPLE -- The High Tunnel ======= */}
       <div style={{ position: 'relative', overflow: 'hidden', minHeight: mob ? '55vh' : '72vh' }}>
         <div style={{
