@@ -649,7 +649,7 @@ function PositionStatement() {
 
       {/* Headline — the big swing */}
       <h2 style={{ ...fade(0.2), fontFamily: 'var(--serif)', fontWeight: 300, fontSize: mob ? 'clamp(2.2rem,9vw,3.5rem)' : 'clamp(3rem,5vw,5.5rem)', color: CREAM, lineHeight: 1.08, marginBottom: '3rem', maxWidth: '20ch' }}>
-        This is not a mansion.<br />This is a system.
+        An engineered estate.<br />A once-in-a-generation address.
       </h2>
 
       {/* Body — the three threads */}
