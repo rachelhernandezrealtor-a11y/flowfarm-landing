@@ -42,7 +42,7 @@ const IMG = {
   hallway:          cdnInt(B + '8e3d794f9_secondfloorhallway.jpg'),
   // Exterior / aerial -- outdoor enhancement pipeline
   aerial:           cdnExt('https://media.base44.com/images/public/69e248a2469cc39540781cce/2ca329bbf_flowfarmmasterphotoswebsite.jpg'),
-  forestcanopy:     cdnExt('https://media.base44.com/images/public/69e248a2469cc39540781cce/fbfaf627b_generated_image.png'),
+  forestcanopy:     cdnExt('https://base44.app/api/apps/69e248a2469cc39540781cce/files/mp/public/69e248a2469cc39540781cce/c0fe395f0_ff_forest_canopy.png'),
   grounds:          cdnExt('https://media.base44.com/images/public/69a8c6b6c09f3f53db8fa60a/da785e254_flowfarmmasterphotoswebsite3.jpg'),
   exterior:         cdnExt('https://media.base44.com/images/public/69a8c6b6c09f3f53db8fa60a/595faa261_107LindenTrail-29.jpg'),
   trail:            cdnExt('https://media.base44.com/images/public/69e248a2469cc39540781cce/41690f47b_107LindenTrail-822.jpg'),
@@ -448,7 +448,7 @@ function Manifesto() {
     window.addEventListener('scroll', onScroll, { passive: true });
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
-  const BG_URL = 'https://res.cloudinary.com/dghn2xpif/image/fetch/f_auto,q_auto,w_2400,e_vibrance:40,e_saturation:20,e_brightness:15,e_sharpen:60/' + encodeURIComponent('https://media.base44.com/images/public/69e248a2469cc39540781cce/fbfaf627b_generated_image.png');
+  const BG_URL = 'https://res.cloudinary.com/dghn2xpif/image/fetch/f_auto,q_auto,w_2400,e_vibrance:40,e_saturation:20,e_brightness:15,e_sharpen:60/' + encodeURIComponent('https://base44.app/api/apps/69e248a2469cc39540781cce/files/mp/public/69e248a2469cc39540781cce/c0fe395f0_ff_forest_canopy.png');
   return (
     <section ref={ref} style={{
       position: 'relative',
@@ -653,7 +653,7 @@ function ForestIntro() {
     return () => obs.disconnect();
   }, []);
 
-  const FOREST_URL = 'https://res.cloudinary.com/dghn2xpif/image/fetch/f_auto,q_auto,w_2400,e_vibrance:80,e_saturation:50,e_brightness:18,e_sharpen:100,e_clarity:40/' + encodeURIComponent('https://media.base44.com/images/public/69e248a2469cc39540781cce/fbfaf627b_generated_image.png');
+  const FOREST_URL = 'https://res.cloudinary.com/dghn2xpif/image/fetch/f_auto,q_auto,w_2400,e_vibrance:80,e_saturation:50,e_brightness:18,e_sharpen:100,e_clarity:40/' + encodeURIComponent('https://base44.app/api/apps/69e248a2469cc39540781cce/files/mp/public/69e248a2469cc39540781cce/c0fe395f0_ff_forest_canopy.png');
   const AERIAL_URL = 'https://res.cloudinary.com/dghn2xpif/image/fetch/f_auto,q_auto,w_2400,e_improve:outdoor:70,e_vibrance:40,e_saturation:20,e_sharpen:60/' + encodeURIComponent('https://media.base44.com/images/public/69e248a2469cc39540781cce/0686082ae_3AE3BB97-CE80-4B28-BBA2-62C77E5F0AA1_1_201_a.jpg');
   const TRAIL_URL  = 'https://res.cloudinary.com/dghn2xpif/image/fetch/f_auto,q_auto,w_2400,e_improve:outdoor:60,e_vibrance:30,e_saturation:20,e_sharpen:50/' + encodeURIComponent('https://media.base44.com/images/public/69e248a2469cc39540781cce/41690f47b_107LindenTrail-822.jpg');
   const PINE_URL   = 'https://res.cloudinary.com/dghn2xpif/image/fetch/f_auto,q_auto,w_2400,e_improve:outdoor:80,e_vibrance:50,e_saturation:30,e_sharpen:80,e_brightness:5/' + encodeURIComponent('https://media.base44.com/images/public/69e248a2469cc39540781cce/116a03ad1_IMG_3206.jpg');
