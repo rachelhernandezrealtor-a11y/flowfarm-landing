@@ -2092,15 +2092,14 @@ export default function FlowFarmLanding2() {
   return (
     <div style={{ background: DARK, margin: 0, padding: 0, overflowX: 'hidden' }}>
       <Hero />
+
+      {/* CHAPTER 1 — The Thesis */}
       <PositionStatement />
+
+      {/* BREATH — forest photo + farm intro */}
       <ForestIntro />
-      <PropertyMap />
 
-      {/* ======= SUSTAINABILITY INTERSTITIAL ======= */}
-      <SustainabilityThread />
-
-      <Manifesto />
-      <Foundation />
+      {/* CHAPTER 2 — The Residence */}
       <StealTheShow />
       <CinematicReveal
         src={IMG.living}
@@ -2109,7 +2108,7 @@ export default function FlowFarmLanding2() {
         body="Exposed king post trusses. Grand piano. Heart pine floors. French doors to the covered porch. And beyond -- the conservatory, the kitchen, the farm. All of it visible from where you stand. Sound fills seventeen feet without effort. You won't find the speakers."
         position="center 35%"
       />
-      <Numbers />
+      <Foundation />
       <CinematicReveal
         src={IMG.conservatoryDome}
         eyebrow="The Conservatory"
@@ -2119,21 +2118,38 @@ export default function FlowFarmLanding2() {
         position="center center"
       />
       <CinematicReveal
+        src={IMG.wolf}
+        eyebrow="The Kitchen"
+        headline={"Sub-Zero. Wolf 60\".\nBuilt for the serious cook."}
+        body="A 60-inch dual fuel Wolf range with red knobs, six burners, griddle, grill, and warming drawer. Two KitchenAid dishwashers. Butcher block island. Farmhouse apron sink. Soapstone counters. Scullery with full Sub-Zero and wine fridge. The water from every tap is filtered. Drink it straight. Music plays from somewhere you can't locate. That's the point. The pantry door swings open. Then the other one does. Floor to ceiling, every inch -- two full-height swing-out towers, shelves on every face, built for someone who actually cooks."
+        position="center 40%"
+      />
+      <Numbers />
+
+      {/* CHAPTER 3 — The Land */}
+      <CinematicReveal
         src={IMG.aerial}
         headline={"Autonomy at this scale is not inherited. It is engineered."}
         quote
         position="center 60%"
       />
-      <CinematicReveal
-        src={IMG.wolf}
-        eyebrow="The Kitchen"
-        headline={"Sub-Zero. Wolf 60\".\nBuilt for the serious cook."}
-        body="A 60-inch dual fuel Wolf range with red knobs, six burners, griddle, grill, and warming drawer. Two KitchenAid dishwashers. Butcher block island. Farmhouse apron sink. Soapstone counters. Scullery with full Sub-Zero and wine fridge. The water from every tap is filtered. Drink it straight. Music plays from somewhere you can't locate. That's the point. The pantry door swings open. Then the other one does. Floor to ceiling, every inch -- two full-height swing-out towers, shelves on every face, built for someone who actually cooks. The pagoda toile goes up every wall. Around the corner. Up the back stair. Corner to corner, uninterrupted. The hallway is black and white. The powder room is not."
-        position="center 40%"
-      />
       <Land />
+      <CinematicReveal
+        src={IMG.foyer}
+        eyebrow="The Welcome"
+        headline={"Every arrival\nshould feel like this."}
+        body="Herringbone heart pine floors laid on the diagonal. A reclaimed wood door with transom light overhead. A star lantern casting warm light across the entry. The first impression that sets the tone for everything that follows. One tap. The whole house shifts."
+        position="center top"
+      />
       <ZoningOpportunity />
+
+      {/* CHAPTER 4 — The Systems */}
+      <Manifesto />
       <Mechanism />
+      <PropertyMap />
+      <SustainabilityThread />
+
+      {/* CHAPTER 5 — The Experience */}
       <CinematicReveal
         src={IMG.spabath}
         eyebrow="The Primary Suite"
@@ -2142,17 +2158,12 @@ export default function FlowFarmLanding2() {
         align="right"
         position="center 30%"
       />
-      <CinematicReveal
-        src={IMG.foyer}
-        eyebrow="The Welcome"
-        headline={"Every arrival\nshould feel like this."}
-        body="Herringbone heart pine floors laid on the diagonal. A reclaimed wood door with transom light overhead. A star lantern casting warm light across the entry. The first impression that sets the tone for everything that follows. One tap. The whole house shifts."
-        position="center top"
-      />
       <SpaBathPullQuote />
       <LightingCircuits />
-      <Location />
+
+      {/* CHAPTER 6 — The Opportunity */}
       <CabanaHouse />
+      <Location />
       <Inquire />
       <Footer />
     </div>
