@@ -1117,8 +1117,8 @@ function SpaBathPullQuote() {
       }} />
       <div style={{
         opacity: visible ? 1 : 0,
-        transform: visible ? 'none' : 'translateY(14px)',
-        transition: 'opacity 1.8s cubic-bezier(.16,1,.3,1), transform 1.8s cubic-bezier(.16,1,.3,1)',
+        transform: visible ? 'none' : 'translateY(30px)',
+        transition: 'opacity 1.6s ease, transform 1.6s ease',
         maxWidth: 900,
         margin: '0 auto',
       }}>
@@ -1386,7 +1386,7 @@ function Land() {
             Three acres producing.<br />Seven acres waiting.
           </h2>
           <GoldLine />
-          <p style={{ color: 'rgba(255,255,255,0.75)', fontFamily: 'Georgia, serif', fontSize: mob ? '1rem' : '1.12rem', lineHeight: 2.1, maxWidth: 540, margin: 0 }}>
+          <p style={{ color: 'rgba(255,255,255,0.26)', fontFamily: 'Georgia, serif', fontSize: mob ? '1rem' : '1.12rem', lineHeight: 2.1, maxWidth: 540, margin: 0 }}>
             USDA-certified veganic. O2Compost regenerative systems.
             Biochar production. 1,400-ft double deer fence.
             A farm already running -- and seven raw acres ready for whatever comes next.
@@ -1405,7 +1405,7 @@ function Land() {
                   <p style={{ color: GOLD, fontFamily: 'sans-serif', fontSize: '9px', letterSpacing: '0.2em', textTransform: 'uppercase', margin: 0 }}>{s.detail}</p>
                 </div>
               </div>
-              <p style={{ color: 'rgba(255,255,255,0.72)', fontFamily: 'Georgia, serif', fontSize: '0.98rem', lineHeight: 2, margin: '1.8rem 0 0' }}>{s.body}</p>
+              <p style={{ color: 'rgba(255,255,255,0.28)', fontFamily: 'Georgia, serif', fontSize: '0.98rem', lineHeight: 2, margin: '1.8rem 0 0' }}>{s.body}</p>
             </div>
           </Fade>
         ))}
@@ -1434,8 +1434,8 @@ function ZoningOpportunity() {
       background: DARK,
       padding: mob ? '6rem 6vw' : '8rem 10vw',
       opacity: visible ? 1 : 0,
-      transform: visible ? 'none' : 'translateY(14px)',
-      transition: 'opacity 1.8s cubic-bezier(.16,1,.3,1), transform 1.8s cubic-bezier(.16,1,.3,1)',
+      transform: visible ? 'none' : 'translateY(32px)',
+      transition: 'opacity 1.6s ease, transform 1.6s ease',
     }}>
       <div style={{ maxWidth: 900, margin: '0 auto' }}>
         <p style={{ fontFamily: 'sans-serif', fontSize: '10px', letterSpacing: '0.4em', textTransform: 'uppercase', color: GOLD, margin: '0 0 1.6rem' }}>The Opportunity</p>
@@ -1456,13 +1456,28 @@ function ZoningOpportunity() {
         }}>
           NC Qualifying Farmer Exemption is in place. Retreat centers, event venues, agritourism, commercial kitchens, equestrian operations -- all permitted. Most buyers spend years and real capital securing what this property already has.
         </p>
-        <div style={{ marginTop: '1rem' }}>
-          <div style={{ width: 40, height: 1, background: 'rgba(201,169,110,0.5)', margin: '0 0 2rem' }} />
-          <p style={{ fontFamily: 'Georgia, serif', fontStyle: 'italic', fontSize: mob ? '1.1rem' : '1.35rem', color: '#fff', lineHeight: 1.6, margin: '0 0 1.2rem', maxWidth: 560 }}>
-            Three miles from Pinehurst Resort. Resort economy. County taxation. No city limits.
+        {/* Pinehurst callout */}
+        <div style={{
+          display: 'inline-block',
+          background: 'rgba(201,169,110,0.1)',
+          border: '1px solid rgba(201,169,110,0.35)',
+          borderRadius: '2px',
+          padding: mob ? '1.4rem 1.8rem' : '1.8rem 2.6rem',
+          maxWidth: 560,
+        }}>
+          <p style={{ fontFamily: 'sans-serif', fontSize: '9px', letterSpacing: '0.36em', textTransform: 'uppercase', color: GOLD, margin: '0 0 0.7rem' }}>Location</p>
+          <p style={{
+            fontFamily: 'Georgia, serif', fontStyle: 'italic',
+            fontSize: mob ? '1.1rem' : '1.35rem',
+            color: '#fff', lineHeight: 1.5, margin: 0,
+          }}>
+            Three miles from Pinehurst Resort -- one of the most visited golf destinations in the world.
           </p>
-          <p style={{ fontFamily: 'Georgia, serif', fontSize: '0.95rem', color: 'rgba(255,255,255,0.65)', lineHeight: 1.8, margin: 0, maxWidth: 520 }}>
-            The location is not incidental. It is part of the thesis.
+          <p style={{
+            fontFamily: 'Georgia, serif', fontSize: '0.9rem',
+            color: 'rgba(255,255,255,0.55)', lineHeight: 1.6, margin: '0.9rem 0 0',
+          }}>
+            Resort economy. County taxation. No HOA. No city limits. The location is not incidental -- it is part of the thesis.
           </p>
         </div>
       </div>
@@ -1486,14 +1501,14 @@ function Location() {
             <h2 style={{ color: CREAM, fontFamily: 'Georgia, serif', fontWeight: 400, fontSize: mob ? '1.9rem' : '2.6rem', lineHeight: 1.24, margin: 0, letterSpacing: '-0.015em' }}>
               Private by Nature.<br />Pinehurst by Proximity.
             </h2>
-            <p style={{ color: 'rgba(255,255,255,0.78)', fontFamily: 'Georgia, serif', fontSize: mob ? '1rem' : '1.06rem', lineHeight: 2, margin: 0 }}>
+            <p style={{ color: 'rgba(255,255,255,0.32)', fontFamily: 'Georgia, serif', fontSize: mob ? '1rem' : '1.06rem', lineHeight: 2, margin: 0 }}>
               Three miles from Pinehurst Resort. A transferable Pinehurst Country Club
               Signature Golf Membership -- unlimited access to Course No. 7 and No. 9 --
               is included with the sale.
             </p>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem', marginTop: '0.5rem' }}>
               {['Pinehurst Resort -- 3 Miles', 'Moore County Regional -- Private Aviation', 'Raleigh-Durham International -- 1 Hour', 'FirstHealth Moore Regional Hospital', 'Pinehurst CC Membership Included'].map(item => (
-                <p key={item} style={{ color: 'rgba(255,255,255,0.55)', fontFamily: 'sans-serif', fontSize: '10px', letterSpacing: '0.2em', textTransform: 'uppercase', margin: 0, display: 'flex', alignItems: 'center', gap: '1rem' }}>
+                <p key={item} style={{ color: 'rgba(255,255,255,0.18)', fontFamily: 'sans-serif', fontSize: '10px', letterSpacing: '0.2em', textTransform: 'uppercase', margin: 0, display: 'flex', alignItems: 'center', gap: '1rem' }}>
                   <span style={{ display: 'inline-block', width: 20, height: 1, background: GOLD, opacity: 0.4, flexShrink: 0 }} />
                   {item}
                 </p>
@@ -1575,17 +1590,16 @@ function Footer() {
   const w = useW();
   const mob = w < 768;
   return (
-    <footer style={{ background: '#080808', borderTop: '1px solid rgba(201,169,110,0.1)', padding: mob ? '6rem 6vw' : '8rem 8vw' }}>
-      <div style={{ maxWidth: 860, margin: '0 auto', textAlign: 'center' }}>
-        <div style={{ width: 40, height: 1, background: 'rgba(201,169,110,0.4)', margin: '0 auto 2.5rem' }} />
-        <p style={{ fontFamily: 'sans-serif', fontSize: '7px', letterSpacing: '0.38em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.2)', marginBottom: '1rem' }}>Offered Exclusively By</p>
-        <p style={{ fontFamily: 'Georgia, serif', fontWeight: 400, fontSize: mob ? '1.2rem' : '1.6rem', color: '#fff', margin: '0 0 0.3rem', letterSpacing: '0.02em' }}>Rachel Hernandez</p>
-        <p style={{ fontFamily: 'sans-serif', fontSize: '7.5px', letterSpacing: '0.32em', textTransform: 'uppercase', color: GOLD, opacity: 0.8, margin: '0 0 0.5rem' }}>Sotheby's International Realty</p>
-        <p style={{ fontFamily: 'Georgia, serif', fontStyle: 'italic', fontWeight: 300, fontSize: '0.88rem', color: '#F5F0E8', opacity: 0.35, margin: '0 0 3rem' }}>Pinehurst &nbsp;&bull;&nbsp; Southern Pines &nbsp;&bull;&nbsp; Moore County</p>
-        <div style={{ width: 40, height: 1, background: 'rgba(201,169,110,0.2)', margin: '0 auto 2rem' }} />
-        <p style={{ fontFamily: 'sans-serif', fontSize: '6.5px', letterSpacing: '0.28em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.12)', margin: 0 }}>
-          &copy; 2026 Sotheby's International Realty &nbsp;&bull;&nbsp; All inquiries held in strict confidence
-        </p>
+    <footer style={{ background: DARK, borderTop: '1px solid rgba(255,255,255,0.05)', padding: mob ? '4rem 6vw' : '5rem 6vw' }}>
+      <div style={{ maxWidth: 1320, margin: '0 auto', display: 'flex', flexDirection: mob ? 'column' : 'row', justifyContent: 'space-between', alignItems: mob ? 'flex-start' : 'center', gap: '2rem' }}>
+        <div>
+          <p style={{ color: 'rgba(255,255,255,0.12)', fontFamily: 'Georgia, serif', fontSize: '0.85rem', margin: '0 0 0.4rem', letterSpacing: '0.12em' }}>Flow Farm</p>
+          <p style={{ color: 'rgba(255,255,255,0.08)', fontFamily: 'sans-serif', fontSize: '9px', letterSpacing: '0.18em', textTransform: 'uppercase', margin: 0 }}>107 Linden Trail, Aberdeen, NC</p>
+        </div>
+        <div style={{ textAlign: mob ? 'left' : 'right' }}>
+          <p style={{ color: 'rgba(255,255,255,0.08)', fontFamily: 'sans-serif', fontSize: '9px', letterSpacing: '0.18em', textTransform: 'uppercase', margin: '0 0 0.3rem' }}>Offered at $5,250,000</p>
+          <p style={{ color: 'rgba(255,255,255,0.06)', fontFamily: 'sans-serif', fontSize: '9px', letterSpacing: '0.12em', textTransform: 'uppercase', margin: 0 }}>Rachel Hernandez &mdash; rachelhernandezrealtor@gmail.com</p>
+        </div>
       </div>
     </footer>
   );
@@ -1820,7 +1834,7 @@ export default function FlowFarmLanding2() {
         src={cdnSharp(IMG.conservatoryDome)}
         eyebrow="The Conservatory"
         headline={"The room that stops\nevery conversation."}
-        body="19.5 by 17.7 feet, entirely glass. An octagonal dome overhead. Morning light from one direction. Late afternoon from another. You will not be able to leave this room quickly."
+        body="19.5 by 17.7 feet, entirely glass-wrapped. An octagonal dome overhead tracks the sky from morning to dusk. Views of the farm, the cabana, the pines. The room that reminds you why you came here."
         align="right"
         position="center center"
       />
@@ -1834,7 +1848,7 @@ export default function FlowFarmLanding2() {
         src={cdnInt(IMG.wolf)}
         eyebrow="The Kitchen"
         headline={"Sub-Zero. Wolf 60\".\nBuilt for the serious cook."}
-        body="A 60-inch Wolf dual fuel range. Two dishwashers. Soapstone counters. A scullery behind it with a full Sub-Zero and wine fridge. The water from every tap is filtered -- drink it straight. Music plays from somewhere you cannot locate. The pagoda toile runs up every wall, around the corner, up the back stair. The same cloth. The same commitment."
+        body="A 60-inch dual fuel Wolf range with red knobs, six burners, griddle, grill, and warming drawer. Two KitchenAid dishwashers. Butcher block island. Farmhouse apron sink. Soapstone counters. Scullery with full Sub-Zero and wine fridge. The water from every tap is filtered. Drink it straight. Music plays from somewhere you can't locate. That's the point. The pantry door swings open. Then the other one does. Floor to ceiling, every inch -- two full-height swing-out towers, shelves on every face, built for someone who actually cooks. The pagoda toile goes up every wall. Around the corner. Up the back stair. The Roman shades are cut from the same bolt. When they're down, the wall continues -- uninterrupted, corner to corner. The hallway is black and white. The powder room is not."
         position="center 40%"
       />
       <Land />
@@ -1844,7 +1858,7 @@ export default function FlowFarmLanding2() {
         src={cdnInt(IMG.spabath)}
         eyebrow="The Primary Suite"
         headline={"A spa.\nA sanctuary.\nA reason to stay."}
-        body="Freestanding soaking tub beneath a window to the forest. Body-jet shower. Mosaic tile floors. The lights are already at ten percent when you walk in. You did not touch anything. Control4 knew."
+        body="Dual vanities. Freestanding soaking tub beneath a window to the forest. Body-jet shower. Mosaic tile floors. A room that earns the word primary. The lights are already at ten percent when you walk in. Control4 knows."
         align="right"
         position="center 30%"
       />
@@ -1852,7 +1866,7 @@ export default function FlowFarmLanding2() {
         src={cdnInt(IMG.foyer)}
         eyebrow="The Welcome"
         headline={"Every arrival\nshould feel like this."}
-        body="Herringbone heart pine on the diagonal. Reclaimed wood door. A star lantern overhead. You are inside before you have processed what you walked into. One tap. The whole house shifts."
+        body="Herringbone heart pine floors laid on the diagonal. A reclaimed wood door with transom light overhead. A star lantern casting warm light across the entry. The first impression that sets the tone for everything that follows. One tap. The whole house shifts."
         position="center top"
       />
       <SpaBathPullQuote />
