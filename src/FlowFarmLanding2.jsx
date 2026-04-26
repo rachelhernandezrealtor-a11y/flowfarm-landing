@@ -1979,7 +1979,7 @@ export default function FlowFarmLanding2() {
         src={IMG.wolf}
         eyebrow="The Kitchen"
         headline={"Sub-Zero. Wolf 60\".\nBuilt for the serious cook."}
-        body="A 60-inch dual fuel Wolf range with red knobs, six burners, griddle, grill, and warming drawer. Two KitchenAid dishwashers. Butcher block island. Farmhouse apron sink. Soapstone counters. Scullery with full Sub-Zero and wine fridge. The water from every tap is filtered. Drink it straight. Music plays from somewhere you can't locate. That's the point. The pantry door swings open. Then the other one does. Floor to ceiling, every inch -- two full-height swing-out towers, shelves on every face, built for someone who actually cooks. The pagoda toile goes up every wall. Around the corner. Up the back stair. The Roman shades are cut from the same bolt. When they're down, the wall continues -- uninterrupted, corner to corner. The hallway is black and white. The powder room is not."
+        body="A 60-inch dual fuel Wolf range with red knobs, six burners, griddle, grill, and warming drawer. Two KitchenAid dishwashers. Butcher block island. Farmhouse apron sink. Soapstone counters. Scullery with full Sub-Zero and wine fridge. The water from every tap is filtered. Drink it straight. Music plays from somewhere you can't locate. That's the point. The pantry door swings open. Then the other one does. Floor to ceiling, every inch -- two full-height swing-out towers, shelves on every face, built for someone who actually cooks. The pagoda toile goes up every wall. Around the corner. Up the back stair. Corner to corner, uninterrupted. The hallway is black and white. The powder room is not."
         position="center 40%"
       />
       <Land />
