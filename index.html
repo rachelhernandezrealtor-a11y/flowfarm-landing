@@ -189,7 +189,7 @@ const HeroStat = React.memo(function HeroStat({ value, prefix, suffix, decimals,
 const HeroStats = React.memo(function HeroStats({ mob }) {
   const stats = [
     { value: 15, prefix: '', suffix: '', decimals: 0, label1: 'USDA', label2: 'ACRES', duration: 900, delay: 200 },
-    { value: 7, prefix: '', suffix: '', decimals: 0, label1: 'BUILDABLE', label2: 'ACRES', duration: 900, delay: 300 },
+    { value: 7, prefix: '', suffix: '', decimals: 0, label1: 'BUILDABLE', label2: 'ACRES · ZONING', duration: 900, delay: 300 },
     { value: 3, prefix: '', suffix: '', decimals: 0, label1: 'ACRE VEGANIC', label2: 'FARM', duration: 900, delay: 400 },
     { value: 5.25, prefix: '$', suffix: 'M', decimals: 2, label1: 'LIST', label2: 'PRICE', duration: 900, delay: 500 },
   ];
@@ -650,7 +650,7 @@ function ForestIntro() {
     { label: '3-ACRE VEGANIC FARM', body: 'In active production since 2009. Certified regenerative.' },
     { label: '8,519 SF RESIDENCE',  body: 'Architect-designed. Built for independence.' },
     { label: 'OFF-GRID CAPABLE',    body: 'Solar. Geothermal. Generator. Well. The grid is optional.' },
-    { label: '7 BUILDABLE ACRES',   body: 'The vision is yours to finish.' },
+    { label: '7 BUILDABLE ACRES',   body: 'Agritourism zoning unlocked by the farm. The vision is yours.' },
   ];
 
   /* shared text-shadow for legibility on any bg */
@@ -710,14 +710,11 @@ function ForestIntro() {
           }}>
             {grid.map((item, i) => (
               <div key={i} style={{
-                background: 'rgba(255,255,255,0.1)',
-                border: '1px solid rgba(255,255,255,0.2)',
-                backdropFilter: 'blur(10px)',
-                borderRadius: '4px',
-                padding: mob ? '1.1rem' : '1.4rem 1.2rem',
+                padding: mob ? '0.8rem 0' : '1rem 0',
+                borderTop: '1px solid rgba(201,169,110,0.15)',
               }}>
-                <p style={{ fontFamily: 'sans-serif', fontSize: '9px', letterSpacing: '0.30em', textTransform: 'uppercase', color: GOLD, margin: '0 0 0.6rem', fontWeight: 600 }}>{item.label}</p>
-                <p style={{ fontFamily: 'Georgia, serif', fontSize: '0.85rem', color: 'rgba(255,255,255,0.85)', lineHeight: 1.6, margin: 0 }}>{item.body}</p>
+                <p style={{ fontFamily: 'sans-serif', fontSize: '9px', letterSpacing: '0.30em', textTransform: 'uppercase', color: GOLD, margin: '0 0 0.5rem', fontWeight: 400 }}>{item.label}</p>
+                <p style={{ fontFamily: 'Georgia, serif', fontSize: '0.88rem', color: 'rgba(255,255,255,0.72)', lineHeight: 1.6, margin: 0 }}>{item.body}</p>
               </div>
             ))}
           </div>
@@ -750,6 +747,15 @@ function ForestIntro() {
             </p>
           </div>
         </div>
+      </div>
+
+      {/* ======= KEY INTERSTITIAL -- The Farm is the Key ======= */}
+      <div style={{ background: '#0a0a0a', padding: '7rem 10vw', textAlign: 'center' }}>
+        <div style={{ width: '40px', height: '1px', background: 'linear-gradient(to right, transparent, rgba(201,169,110,0.5), transparent)', margin: '0 auto 3.5rem' }} />
+        <p style={{ fontFamily: 'Georgia, serif', fontStyle: 'italic', fontSize: 'clamp(1.5rem, 3vw, 2.4rem)', color: '#F5F0E8', lineHeight: 1.55, maxWidth: 780, margin: '0 auto', letterSpacing: '-0.01em' }}>
+          Three acres, active and certified.<br />That&rsquo;s all it took.<br /><span style={{ color: 'rgba(201,169,110,0.85)' }}>The rest of the fifteen are yours.</span>
+        </p>
+        <div style={{ width: '40px', height: '1px', background: 'linear-gradient(to right, transparent, rgba(201,169,110,0.5), transparent)', margin: '3.5rem auto 0' }} />
       </div>
 
       {/* ======= CHAPTER 3: AERIAL -- Seventeen Years ======= */}
