@@ -2227,19 +2227,19 @@ function CabanaHouse() {
       {/* Interstitial breath — Clark attribution */}
       <div style={{ padding: mob ? '6rem 6vw' : '8rem 10vw', borderTop: '1px solid rgba(201,169,110,0.25)', borderBottom: '1px solid rgba(201,169,110,0.25)' }}>
         <div style={{ width: '3rem', height: '1px', background: GOLD, marginBottom: '3rem' }} />
-        <p style={{ fontFamily: 'var(--sans)', letterSpacing: '0.25em', fontSize: '0.7rem', color: GOLD, textTransform: 'uppercase', marginBottom: '1.5rem', opacity: 0.9 }}>
+        <p style={{ fontFamily: "'Helvetica Neue', Helvetica, Arial, sans-serif", letterSpacing: '0.25em', fontSize: '0.7rem', color: GOLD, textTransform: 'uppercase', marginBottom: '1.5rem', opacity: 0.9 }}>
           Robert E. Clark, AIA · The Second Residence
         </p>
-        <h2 style={{ fontFamily: 'var(--serif)', fontWeight: 300, fontSize: mob ? 'clamp(2rem,8vw,3.2rem)' : 'clamp(2.5rem,4vw,4.5rem)', color: CREAM, lineHeight: 1.12, marginBottom: '2.5rem', maxWidth: '22ch' }}>
+        <h2 style={{ fontFamily: 'Georgia, serif', fontWeight: 300, fontSize: mob ? 'clamp(2rem,8vw,3.2rem)' : 'clamp(2.5rem,4vw,4.5rem)', color: CREAM, lineHeight: 1.12, marginBottom: '2.5rem', maxWidth: '22ch' }}>
           He designed it twice.
         </h2>
-        <p style={{ fontFamily: 'var(--sans)', fontSize: '1.05rem', color: CREAM, opacity: 0.75, lineHeight: 1.9, maxWidth: '54ch', marginBottom: '1.25rem' }}>
+        <p style={{ fontFamily: 'Georgia, serif', fontSize: '1.05rem', color: CREAM, opacity: 0.78, lineHeight: 1.9, maxWidth: '54ch', marginBottom: '1.25rem' }}>
           The same architect who drew the main house drew this one. Same commercial-grade construction standard. Same intention. The cabana structure — drawn and signed by Robert E. Clark AIA — is a complete second residence on the same land: guest bedroom, bunk room, dining suite, full bath, loft, and a 60-foot indoor racquetball court.
         </p>
-        <p style={{ fontFamily: 'var(--sans)', fontSize: '1.05rem', color: CREAM, opacity: 0.75, lineHeight: 1.9, maxWidth: '54ch', marginBottom: '1.25rem' }}>
+        <p style={{ fontFamily: 'Georgia, serif', fontSize: '1.05rem', color: CREAM, opacity: 0.78, lineHeight: 1.9, maxWidth: '54ch', marginBottom: '1.25rem' }}>
           A 12-by-8 walk-in cooler connects it to the farm. The structure is built to hold a commercial operation — or a private one. It is partially finished. The bones are Clark's. The ending is yours.
         </p>
-        <p style={{ fontFamily: 'var(--serif)', fontStyle: 'italic', fontSize: mob ? '1.2rem' : '1.5rem', color: GOLD, opacity: 0.85, lineHeight: 1.6, maxWidth: '40ch', marginTop: '2.5rem' }}>
+        <p style={{ fontFamily: 'Georgia, serif', fontStyle: 'italic', fontSize: mob ? '1.2rem' : '1.5rem', color: GOLD, opacity: 0.85, lineHeight: 1.6, maxWidth: '40ch', marginTop: '2.5rem' }}>
           "One of his last works. It shows."
         </p>
         <div style={{ width: '3rem', height: '1px', background: GOLD, marginTop: '3rem' }} />
@@ -2256,7 +2256,7 @@ function CabanaHouse() {
 
       {/* What's inside — plan-referenced */}
       <div style={{ padding: mob ? '5rem 6vw' : '7rem 10vw' }}>
-        <p style={{ fontFamily: 'var(--sans)', letterSpacing: '0.25em', fontSize: '0.7rem', color: GOLD, textTransform: 'uppercase', marginBottom: '3rem', opacity: 0.9 }}>
+        <p style={{ fontFamily: "'Helvetica Neue', Helvetica, Arial, sans-serif", letterSpacing: '0.25em', fontSize: '0.7rem', color: GOLD, textTransform: 'uppercase', marginBottom: '3rem', opacity: 0.9 }}>
           As drawn · Clark plans on file
         </p>
         <div style={{ display: 'grid', gridTemplateColumns: mob ? '1fr 1fr' : 'repeat(4, 1fr)', gap: mob ? '2.5rem 2rem' : '3rem 4rem' }}>
@@ -2272,8 +2272,8 @@ function CabanaHouse() {
           ].map((room, i) => (
             <div key={i}>
               <div style={{ width: '1.5rem', height: '1px', background: GOLD, marginBottom: '1rem' }} />
-              <p style={{ fontFamily: 'var(--sans)', fontSize: '0.72rem', letterSpacing: '0.18em', textTransform: 'uppercase', color: CREAM, marginBottom: '0.5rem' }}>{room.label}</p>
-              <p style={{ fontFamily: 'var(--sans)', fontSize: '0.8rem', color: CREAM, opacity: 0.5, lineHeight: 1.75 }}>{room.detail}</p>
+              <p style={{ fontFamily: "'Helvetica Neue', Helvetica, Arial, sans-serif", fontSize: '0.72rem', letterSpacing: '0.18em', textTransform: 'uppercase', color: CREAM, marginBottom: '0.5rem' }}>{room.label}</p>
+              <p style={{ fontFamily: "'Helvetica Neue', Helvetica, Arial, sans-serif", fontSize: '0.8rem', color: CREAM, opacity: 0.5, lineHeight: 1.75 }}>{room.detail}</p>
             </div>
           ))}
         </div>
