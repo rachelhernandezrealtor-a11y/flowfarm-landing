@@ -1946,6 +1946,67 @@ function SustainabilityThread() {
 
 // ============================================================
 // v2
+
+// CABANA SECTION
+function CabanaHouse() {
+  const mob = useW() < 768;
+  const GOLD = '#C9A96E';
+  const DARK = '#0a0a0a';
+  const CREAM = '#F5F0E8';
+  return (
+    <section style={{ background: DARK, padding: mob ? '6rem 6vw' : '9rem 10vw' }}>
+      {/* Gold rule top */}
+      <div style={{ width: '3rem', height: '1px', background: GOLD, marginBottom: '3rem' }} />
+
+      {/* Eyebrow */}
+      <p style={{ fontFamily: 'var(--sans)', letterSpacing: '0.25em', fontSize: '0.7rem', color: GOLD, textTransform: 'uppercase', marginBottom: '1.5rem', opacity: 0.9 }}>
+        The Second House
+      </p>
+
+      {/* Headline */}
+      <h2 style={{ fontFamily: 'var(--serif)', fontWeight: 300, fontSize: mob ? 'clamp(2rem,8vw,3rem)' : 'clamp(2.5rem,4vw,4rem)', color: CREAM, lineHeight: 1.15, marginBottom: '2rem', maxWidth: '18ch' }}>
+        A complete residence.<br />On the same land.
+      </h2>
+
+      {/* Body */}
+      <p style={{ fontFamily: 'var(--sans)', fontSize: '1rem', color: CREAM, opacity: 0.72, lineHeight: 1.85, maxWidth: '52ch', marginBottom: '1rem' }}>
+        The cabana structure is not a pool house. It is not a studio. It is a second home — guest bedroom, bunk room, dining suite, full bath, and a 60-foot indoor racquetball court with a loft above. A 12-by-8 walk-in cooler connects it directly to the farm operation.
+      </p>
+      <p style={{ fontFamily: 'var(--sans)', fontSize: '1rem', color: CREAM, opacity: 0.72, lineHeight: 1.85, maxWidth: '52ch', marginBottom: '3.5rem' }}>
+        Partially finished. Entirely extraordinary. The new owner brings their vision to a structure that already has the bones.
+      </p>
+
+      {/* Image */}
+      <div style={{ width: '100%', aspectRatio: mob ? '4/3' : '16/7', borderRadius: '2px', overflow: 'hidden', marginBottom: '3.5rem' }}>
+        <img
+          src={IMG.cabana}
+          alt="The Cabana House"
+          style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center' }}
+        />
+      </div>
+
+      {/* Room grid */}
+      <div style={{ display: 'grid', gridTemplateColumns: mob ? '1fr' : 'repeat(4, 1fr)', gap: '2.5rem 3rem' }}>
+        {[
+          { label: 'Guest Bedroom', detail: 'Ensuite bath · Natural light · Quiet retreat' },
+          { label: 'Bunk Room', detail: "18' × 18' · Flexible sleeping · Guest-ready" },
+          { label: 'Dining Suite', detail: "18' × 23' · Staff quarters · Entertaining flex" },
+          { label: 'Racquetball Court', detail: "60'+ indoor court · Loft above · Walk-in cooler" },
+        ].map((room, i) => (
+          <div key={i}>
+            <div style={{ width: '1.5rem', height: '1px', background: GOLD, marginBottom: '1rem' }} />
+            <p style={{ fontFamily: 'var(--sans)', fontSize: '0.75rem', letterSpacing: '0.18em', textTransform: 'uppercase', color: CREAM, marginBottom: '0.5rem' }}>{room.label}</p>
+            <p style={{ fontFamily: 'var(--sans)', fontSize: '0.8rem', color: CREAM, opacity: 0.55, lineHeight: 1.7 }}>{room.detail}</p>
+          </div>
+        ))}
+      </div>
+
+      {/* Gold rule bottom */}
+      <div style={{ width: '3rem', height: '1px', background: GOLD, marginTop: '4rem' }} />
+    </section>
+  );
+}
+
 export default function FlowFarmLanding2() {
   return (
     <div style={{ background: DARK, margin: 0, padding: 0, overflowX: 'hidden' }}>
@@ -2009,6 +2070,7 @@ export default function FlowFarmLanding2() {
       <SpaBathPullQuote />
       <LightingCircuits />
       <Location />
+      <CabanaHouse />
       <Inquire />
       <Footer />
     </div>
