@@ -129,19 +129,7 @@ function Fade({ children, delay, up, style }) {
   );
 }
 
-function Glass({ children, style }) {
-  return (
-    <div style={{
-      background: 'rgba(8,8,8,0.62)',
-      backdropFilter: 'blur(20px)',
-      WebkitBackdropFilter: 'blur(20px)',
-      border: '1px solid rgba(255,255,255,0.07)',
-      ...style,
-    }}>
-      {children}
-    </div>
-  );
-}
+// Glass component removed — words on photo only
 
 function Eyebrow({ children, center }) {
   return (
