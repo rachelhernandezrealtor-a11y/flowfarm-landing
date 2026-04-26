@@ -624,7 +624,7 @@ function PhilosophyBreath() {
         transition: 'opacity 2s cubic-bezier(.16,1,.3,1), transform 2s cubic-bezier(.16,1,.3,1)',
         display: 'flex', flexDirection: 'column', alignItems: 'center', gap: mob ? '2.4rem' : '3rem',
       }}>
-        <div style={{ width: 36, height: 1, background: 'linear-gradient(to right, transparent, rgba(201,169,110,0.6), transparent)', alignSelf: 'stretch' }} />
+        <div style={{ width: '60px', height: 1, background: GOLD, opacity: 0.4 }} />
         <p style={{ fontFamily: 'sans-serif', fontSize: '9px', letterSpacing: '0.44em', textTransform: 'uppercase', color: GOLD, margin: 0 }}>
           Flow Farm · Aberdeen, North Carolina
         </p>
@@ -633,16 +633,16 @@ function PhilosophyBreath() {
           fontSize: mob ? '1.8rem' : 'clamp(2.2rem, 3.5vw, 3.2rem)',
           color: CREAM, lineHeight: 1.45, margin: 0, letterSpacing: '-0.02em',
         }}>
-          More than an estate, and more than a farm.
+          More than an estate,<br />and more than a farm.
         </h2>
         <p style={{
           fontFamily: 'Georgia, serif',
           fontSize: mob ? '1rem' : '1.12rem',
           color: 'rgba(255,255,255,0.72)', lineHeight: 2, margin: 0, maxWidth: 600,
         }}>
-          Flow Farm is a place where land, life, and vision move together — where luxury and stewardship exist in living balance. Every part of the property, from its architecture to its growing systems, has been shaped with intention. Creating an experience that feels both grounded and expansive.
+          Flow Farm is a place where land, life, and vision move together — where luxury and stewardship exist in living balance. Every part of the property, from its architecture to its growing systems, has been shaped with intention. An experience that feels both grounded and expansive.
         </p>
-        <div style={{ width: 36, height: 1, background: 'linear-gradient(to right, transparent, rgba(201,169,110,0.6), transparent)', alignSelf: 'stretch' }} />
+        <div style={{ width: '60px', height: 1, background: GOLD, opacity: 0.4 }} />
       </div>
     </section>
   );
@@ -813,10 +813,10 @@ function ForestIntro() {
             <p style={{ fontFamily: 'sans-serif', fontSize: '9px', letterSpacing: '0.40em', textTransform: 'uppercase', color: GOLD, margin: '0 0 1rem', textShadow: '0 1px 8px rgba(0,0,0,0.8)' }}>Flow Farm</p>
             <div style={{ width: 24, height: 1, background: GOLD, opacity: 0.5, marginBottom: '1.4rem' }} />
             <h2 style={{ fontFamily: 'Georgia, serif', fontSize: mob ? '1.8rem' : 'clamp(2.2rem,3.2vw,3.2rem)', color: '#fff', margin: '0 0 1.4rem', lineHeight: 1.2, textShadow: '0 2px 28px rgba(0,0,0,0.75)' }}>
-              A Living Place,<br /><em>Rooted in Possibility.</em>
+              Fifteen years of intention.<br /><em>Still alive when you arrive.</em>
             </h2>
             <p style={{ fontFamily: 'Georgia, serif', fontSize: mob ? '0.95rem' : '1.05rem', color: 'rgba(255,255,255,0.88)', lineHeight: 1.9, margin: 0, textShadow: '0 1px 12px rgba(0,0,0,0.7)' }}>
-              Seventeen years of intention. The soil is built. The farm is running. Now it belongs to whoever is meant to take it from here.
+              The soil took this long to build. The farm earned its own zoning. The infrastructure runs without asking for help. You inherit all of it on day one.
             </p>
           </div>
         </div>
@@ -1950,7 +1950,7 @@ function LegacyClose() {
         }}>
           Where Luxury<br />Meets Legacy.
         </h2>
-        <div style={{ width: 36, height: 1, background: 'linear-gradient(to right, transparent, rgba(201,169,110,0.6), transparent)', alignSelf: 'stretch' }} />
+        <div style={{ width: "60px", height: 1, background: GOLD, opacity: 0.4 }} />
         <p style={{
           fontFamily: 'Georgia, serif', fontSize: mob ? '1rem' : '1.15rem',
           color: 'rgba(255,255,255,0.72)', lineHeight: 2, margin: 0, maxWidth: 600,
@@ -1964,7 +1964,7 @@ function LegacyClose() {
         }}>
           Where luxury meets legacy, and the land continues to flow.
         </p>
-        <div style={{ width: 36, height: 1, background: 'linear-gradient(to right, transparent, rgba(201,169,110,0.6), transparent)', alignSelf: 'stretch' }} />
+        <div style={{ width: '60px', height: 1, background: GOLD, opacity: 0.4 }} />
       </div>
     </section>
   );
@@ -2298,6 +2298,7 @@ export default function FlowFarmLanding2() {
       <ForestIntro />
 
       {/* CHAPTER 2 — The Residence */}
+      <Foundation />
       <StealTheShow />
       <CinematicReveal
         src={IMG.living}
@@ -2306,7 +2307,6 @@ export default function FlowFarmLanding2() {
         body="Exposed king post trusses. Grand piano. Heart pine floors. French doors to the covered porch. And beyond -- the conservatory, the kitchen, the farm. All of it visible from where you stand. Sound fills seventeen feet without effort. You won't find the speakers."
         position="center 35%"
       />
-      <Foundation />
       <CinematicReveal
         src={IMG.conservatoryDome}
         eyebrow="The Conservatory"
