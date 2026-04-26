@@ -1579,7 +1579,7 @@ function Land() {
   const w = useW();
   const mob = w < 768;
   const structures = [
-    { src: IMG.cabana,   label: 'The Cabana House',           detail: 'Robert E. Clark AIA · Commercial Grade · Partially Finished', body: 'A second residence — not a guest suite. Racquetball court, bunk room, dining suite, guest bedroom, loft, full bath. Built to commercial standard by the same architect who drew the main house. The ending is yours to write.' },
+    { src: IMG.cabana,   label: 'The Cabana House',           detail: 'Robert E. Clark AIA · Commercial Grade · Partially Finished', body: 'A second residence — not a guest suite. Racquetball court, bunk room, dining suite, guest bedroom, loft, full bath. Built to commercial standard by the same architect who drew the main house. Partially finished. Entirely extraordinary.' },
     { src: IMG.tunnel,   label: 'High Tunnel Greenhouse', detail: '96 x 36 Ft | Geothermal Climate Control',          body: 'Year-round production at commercial scale. Pineapples, avocados, citrus. Climate-controlled by the same geothermal system that heats and cools the main residence.' },
     { src: IMG.workshop, label: 'Farm Workshop',          detail: '30 x 40 Ft | Plumbing | Electrical | Walk-In Cooler', body: 'Built to run a real operation. Plumbing, electrical, and a 12 by 8 foot walk-in cooler. This is the infrastructure behind the idea.' },
   ];
