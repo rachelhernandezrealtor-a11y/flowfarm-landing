@@ -77,21 +77,19 @@ function useFade() {
 
 function useCounter(target, duration, delay, decimals) {
   const [count, setCount] = React.useState(0);
-  const started = React.useRef(false);
   const timers = React.useRef([]);
 
   React.useEffect(() => {
-    // Only ever run once per mount -- memo keeps this stable
-    if (started.current) return;
-    started.current = true;
-
     const _target = target;
     const _duration = duration || 1600;
-    const _delay = delay != null ? delay : 800;
+    const _delay = delay != null ? delay : 200;
     const _decimals = decimals || 0;
     const steps = 60;
     const stepTime = _duration / steps;
     let current = 0;
+
+    timers.current.forEach(clearTimeout);
+    timers.current = [];
 
     const tick = () => {
       current++;
@@ -108,7 +106,7 @@ function useCounter(target, duration, delay, decimals) {
     timers.current.push(t0);
 
     return () => { timers.current.forEach(clearTimeout); };
-  }, []);
+  }, [target, duration, delay]);
 
   return [count];
 }
