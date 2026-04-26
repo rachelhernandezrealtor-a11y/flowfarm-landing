@@ -371,7 +371,7 @@ function Hero() {
         />
       </div>
       <div style={{ position: 'absolute', inset: 0, zIndex: 2, background: 'radial-gradient(ellipse at center, transparent 25%, rgba(0,0,0,0.5) 100%)' }} />
-      <div style={{ position: 'absolute', inset: 0, zIndex: 2, background: 'linear-gradient(to bottom, rgba(0,0,0,0.22) 0%, transparent 30%, transparent 50%, rgba(0,0,0,0.94) 100%)' }} />
+      <div style={{ position: 'absolute', inset: 0, zIndex: 2, background: 'linear-gradient(to bottom, rgba(0,0,0,0.22) 0%, transparent 28%, transparent 42%, rgba(0,0,0,0.85) 78%, rgba(0,0,0,1) 100%)' }} />
 
 
 
@@ -469,12 +469,22 @@ function Manifesto() {
         transition: 'background-position 0.1s linear',
         filter: 'saturate(1.2) brightness(0.72)',
       }} />
+      {/* Top fade from black -- bleeds in from hero */}
+      <div style={{
+        position: 'absolute',
+        top: 0, left: 0, right: 0,
+        height: '28%',
+        background: 'linear-gradient(to bottom, ' + DARK + ', transparent)',
+        pointerEvents: 'none',
+        zIndex: 3,
+      }} />
       {/* Dark gradient vignette -- edges only, center stays clear */}
       <div style={{
         position: 'absolute',
         inset: 0,
         background: 'radial-gradient(ellipse at center, transparent 30%, rgba(0,0,0,0.55) 100%)',
         pointerEvents: 'none',
+        zIndex: 2,
       }} />
       {/* Bottom fade into dark */}
       <div style={{
@@ -485,11 +495,12 @@ function Manifesto() {
         height: '35%',
         background: 'linear-gradient(to bottom, transparent, ' + DARK + ')',
         pointerEvents: 'none',
+        zIndex: 3,
       }} />
       {/* Text -- floating directly on image, no card */}
       <div style={{
         position: 'relative',
-        zIndex: 2,
+        zIndex: 4,
         textAlign: 'center',
         maxWidth: 820,
         padding: mob ? '0 7vw' : '0 6vw',
