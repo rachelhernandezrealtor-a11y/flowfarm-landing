@@ -166,7 +166,7 @@ const HeroStat = React.memo(function HeroStat({ value, prefix, suffix, decimals,
   return (
     <div style={{ textAlign: 'left' }}>
       <div style={{
-        color: '#fff',
+        color: '#F5F0E8',
         fontFamily: "'Cormorant Garamond', Georgia, serif",
         fontSize: mob ? '1.7rem' : '3.2rem',
         fontWeight: 300,
@@ -381,7 +381,7 @@ function Hero() {
         <nav style={{ position: 'absolute', top: '2.4rem', right: '3rem', zIndex: 10, display: 'flex', gap: '2.8rem', ...show(1) }}>
           {['The Estate', 'The Land', 'Inquire'].map(n => (
             <a key={n} href={'#' + n.toLowerCase().replace(' ', '-')}
-              style={{ color: 'rgba(255,255,255,0.22)', fontFamily: 'sans-serif', fontSize: '10px', letterSpacing: '0.24em', textTransform: 'uppercase', textDecoration: 'none' }}>
+              style={{ color: 'rgba(255,255,255,0.45)', fontFamily: 'sans-serif', fontSize: '10px', letterSpacing: '0.24em', textTransform: 'uppercase', textDecoration: 'none' }}>
               {n}
             </a>
           ))}
@@ -416,9 +416,10 @@ function Hero() {
           }}>
             The farm unlocks everything. Three miles from Pinehurst.
           </p>
+          <div style={{ width: mob ? '60px' : '80px', height: '1px', background: 'linear-gradient(to right, transparent, rgba(201,169,110,0.7), transparent)', margin: mob ? '0 auto 1.2rem' : '0 auto 1.8rem' }} />
           <HeroStats mob={mob} />
           <div style={{ display: 'flex', flexWrap: 'wrap', gap: mob ? '0.75rem' : '1rem', justifyContent: 'center', alignItems: 'center', marginTop: mob ? '1rem' : '0' }}>
-            <button onClick={() => setVideoOpen(true)} style={{ display: 'inline-block', background: 'rgba(255,255,255,0.14)', border: '1px solid rgba(255,255,255,0.55)', color: '#fff', fontFamily: 'sans-serif', fontSize: mob ? '9px' : '10px', letterSpacing: '0.32em', textTransform: 'uppercase', padding: mob ? '0.85rem 2rem' : '1rem 2.8rem', borderRadius: '2rem', textDecoration: 'none', fontWeight: 500, cursor: 'pointer', transition: 'background 0.3s ease', boxShadow: 'inset 0 1px 0 rgba(255,255,255,0.25), 0 4px 24px rgba(0,0,0,0.3)', backdropFilter: 'blur(12px)', WebkitBackdropFilter: 'blur(12px)' }}>
+            <button onClick={() => setVideoOpen(true)} style={{ display: 'inline-block', background: 'none', border: 'none', color: GOLD, fontFamily: 'sans-serif', fontSize: mob ? '9px' : '10px', letterSpacing: '0.32em', textTransform: 'uppercase', padding: '0', textDecoration: 'none', fontWeight: 400, cursor: 'pointer', borderBottom: '1px solid rgba(201,169,110,0.4)', paddingBottom: '0.25rem' }}>
               Enter Flow Farm
             </button>
             {videoOpen && <VideoLightbox onClose={() => setVideoOpen(false)} />}
@@ -573,7 +574,7 @@ function Foundation() {
               infrastructure and refined luxury. Designed by Robert E. Clark AIA of Pinehurst
               -- one of his final and most personal works.
             </p>
-            <p style={{ color: 'rgba(255,255,255,0.22)', fontFamily: 'Georgia, serif', fontSize: mob ? '1rem' : '1.06rem', lineHeight: 2.1, margin: 0 }}>
+            <p style={{ color: 'rgba(255,255,255,0.45)', fontFamily: 'Georgia, serif', fontSize: mob ? '1rem' : '1.06rem', lineHeight: 2.1, margin: 0 }}>
               Reclaimed Civil War-era heart pine floors, custom-laid in artisan patterns
               throughout every bedroom, hallway, and closet. A glass conservatory with
               octagonal skylight dome. Six structures across fifteen curated acres.
@@ -584,7 +585,7 @@ function Foundation() {
                 Virtual Tour
               </a>
               <a href="#inquire"
-                style={{ color: 'rgba(255,255,255,0.22)', fontFamily: 'sans-serif', fontSize: '10px', letterSpacing: '0.28em', textTransform: 'uppercase', textDecoration: 'none', borderBottom: '1px solid rgba(255,255,255,0.08)', paddingBottom: '0.3rem' }}>
+                style={{ color: 'rgba(255,255,255,0.45)', fontFamily: 'sans-serif', fontSize: '10px', letterSpacing: '0.28em', textTransform: 'uppercase', textDecoration: 'none', borderBottom: '1px solid rgba(255,255,255,0.08)', paddingBottom: '0.3rem' }}>
                 Private Inquiry
               </a>
             </div>
