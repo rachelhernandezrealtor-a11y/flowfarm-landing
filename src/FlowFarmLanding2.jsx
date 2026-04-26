@@ -725,8 +725,8 @@ function ForestIntro() {
     return () => obs.disconnect();
   }, []);
 
-  const FOREST_URL = 'https://res.cloudinary.com/dghn2xpif/image/upload/f_auto,q_auto,w_2400,e_vibrance:80,e_saturation:50,e_brightness:18,e_sharpen:100/ff_forest_canopy.jpg';
-  const AERIAL_URL = 'https://res.cloudinary.com/dghn2xpif/image/upload/f_auto,q_auto,w_2400,e_improve:outdoor:70,e_vibrance:40,e_saturation:20,e_sharpen:60/ff_aerial_map.jpg';
+  const FOREST_URL = 'https://res.cloudinary.com/dghn2xpif/image/upload/f_auto,q_auto,w_2400,e_improve:outdoor:60,e_vibrance:40,e_saturation:25,e_sharpen:60,e_brightness:8/ff_trail.jpg';
+  // AERIAL_URL removed — ff_aerial_map reserved for interactive map section only
   const TRAIL_URL  = 'https://res.cloudinary.com/dghn2xpif/image/upload/f_auto,q_auto,w_2400,e_improve:outdoor:60,e_vibrance:30,e_saturation:20,e_sharpen:50/ff_trail.jpg';
   const PINE_URL   = 'https://res.cloudinary.com/dghn2xpif/image/upload/f_auto,q_auto,w_2400,e_improve:outdoor:80,e_vibrance:50,e_saturation:30,e_sharpen:80,e_brightness:5/ff_pine.jpg';
 
