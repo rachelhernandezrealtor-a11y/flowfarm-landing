@@ -1915,6 +1915,19 @@ export default function FlowFarmLanding2() {
       <Hero />
       <ForestIntro />
       <PropertyMap />
+
+      {/* ======= SUSTAINABILITY INTERSTITIAL ======= */}
+      <div style={{ background: DARK, padding: '6rem 6vw', textAlign: 'center', position: 'relative' }}>
+        <div style={{ width: '40px', height: '1px', background: 'rgba(201,169,110,0.4)', margin: '0 auto 3rem' }} />
+        <p style={{ fontFamily: 'Georgia, serif', fontStyle: 'italic', fontSize: 'clamp(1.1rem, 2.4vw, 1.7rem)', color: 'rgba(255,255,255,0.78)', lineHeight: 1.75, maxWidth: 700, margin: '0 auto 3rem', letterSpacing: '0.01em' }}>
+          The solar feeds the geothermal. The geothermal heats the tunnel. The tunnel feeds the farm. The farm sustains the zoning. The zoning unlocks the land.
+        </p>
+        <p style={{ fontFamily: 'sans-serif', fontSize: '9px', letterSpacing: '0.32em', textTransform: 'uppercase', color: 'rgba(201,169,110,0.5)', margin: '0 auto' }}>
+          Nothing here is accidental.
+        </p>
+        <div style={{ width: '40px', height: '1px', background: 'rgba(201,169,110,0.4)', margin: '3rem auto 0' }} />
+      </div>
+
       <Manifesto />
       <Foundation />
       <StealTheShow />
