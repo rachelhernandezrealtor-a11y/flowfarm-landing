@@ -27,29 +27,29 @@ const cdnExt = (url) => 'https://res.cloudinary.com/' + CLOUD + '/image/fetch/e_
 const cdnSharp = (url) => 'https://res.cloudinary.com/' + CLOUD + '/image/fetch/e_sharpen:200,e_vibrance:30,e_brightness:8,e_saturation:20,f_auto,q_auto,w_2000,c_limit/' + encodeURIComponent(url);
 
 const IMG = {
-  // Hero shots -- real professional photos
-  living:        B + 'f4af32cdd_260115107LindenTrailF-9619.jpg',
-  conservatory:  B + '8cb2578a0_MONEYSHOT.jpg',
-  conservatoryDome: B + '1fd157275_260115107LindenTrailF-9565.jpg',
-  kitchen:       B + '1c4b8a04f_SOGOODKITCHEN.jpg',
-  dining:        B + 'db01725cb_sogoodtolivingroom.jpg',
-  spabath:       B + '08da5b97d_spaprimarybath.jpg',
-  foyer:         B + '9b1d02a04_260115107LindenTrailF-9727.jpg',
-  powderroom:    B + '4e58028ab_260115107LindenTrailF-9769-2.jpg',
-  wolf:          B + 'ef4b4a364_WOLFDOUBLEGASRANGE.jpg',
-  kitchen2:      B + '1c4b8a04f_SOGOODKITCHEN.jpg',
-  office:        B + '2b920c3b0_markofficemoneyshot.jpg',
-  hallway:       B + '8e3d794f9_secondfloorhallway.jpg',
-  // Grounds / aerial
-  aerial:        cdn('https://media.base44.com/images/public/69e248a2469cc39540781cce/2ca329bbf_flowfarmmasterphotoswebsite.jpg', 2400),
-  forestcanopy:  cdn('https://media.base44.com/images/public/69e248a2469cc39540781cce/fbfaf627b_generated_image.png', 2400),
-  grounds:       cdn('https://media.base44.com/images/public/69a8c6b6c09f3f53db8fa60a/da785e254_flowfarmmasterphotoswebsite3.jpg', 2400),
-  exterior:      cdn('https://media.base44.com/images/public/69a8c6b6c09f3f53db8fa60a/595faa261_107LindenTrail-29.jpg', 2400),
-  trail:         cdn('https://media.base44.com/images/public/69e248a2469cc39540781cce/41690f47b_107LindenTrail-822.jpg', 2400),
-  // Structures
-  cabana:        cdn('https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/69a8c6b6c09f3f53db8fa60a/3af6924d6_CabanaHouseMain.jpg', 1600),
-  tunnel:        cdn('https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/69a8c6b6c09f3f53db8fa60a/217fdb4a1_HighTunnel.jpg', 1600),
-  workshop:      cdn('https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/69a8c6b6c09f3f53db8fa60a/136958608_FarmWorkshop.jpg', 1600),
+  // Interior shots -- full indoor enhancement pipeline
+  living:           cdnInt(B + 'f4af32cdd_260115107LindenTrailF-9619.jpg'),
+  conservatory:     cdnInt(B + '8cb2578a0_MONEYSHOT.jpg'),
+  conservatoryDome: cdnInt(B + '1fd157275_260115107LindenTrailF-9565.jpg'),
+  kitchen:          cdnInt(B + '1c4b8a04f_SOGOODKITCHEN.jpg'),
+  dining:           cdnInt(B + 'db01725cb_sogoodtolivingroom.jpg'),
+  spabath:          cdnInt(B + '08da5b97d_spaprimarybath.jpg'),
+  foyer:            cdnInt(B + '9b1d02a04_260115107LindenTrailF-9727.jpg'),
+  powderroom:       cdnInt(B + '4e58028ab_260115107LindenTrailF-9769-2.jpg'),
+  wolf:             cdnInt(B + 'ef4b4a364_WOLFDOUBLEGASRANGE.jpg'),
+  kitchen2:         cdnInt(B + '1c4b8a04f_SOGOODKITCHEN.jpg'),
+  office:           cdnInt(B + '2b920c3b0_markofficemoneyshot.jpg'),
+  hallway:          cdnInt(B + '8e3d794f9_secondfloorhallway.jpg'),
+  // Exterior / aerial -- outdoor enhancement pipeline
+  aerial:           cdnExt('https://media.base44.com/images/public/69e248a2469cc39540781cce/2ca329bbf_flowfarmmasterphotoswebsite.jpg'),
+  forestcanopy:     cdnExt('https://media.base44.com/images/public/69e248a2469cc39540781cce/fbfaf627b_generated_image.png'),
+  grounds:          cdnExt('https://media.base44.com/images/public/69a8c6b6c09f3f53db8fa60a/da785e254_flowfarmmasterphotoswebsite3.jpg'),
+  exterior:         cdnExt('https://media.base44.com/images/public/69a8c6b6c09f3f53db8fa60a/595faa261_107LindenTrail-29.jpg'),
+  trail:            cdnExt('https://media.base44.com/images/public/69e248a2469cc39540781cce/41690f47b_107LindenTrail-822.jpg'),
+  // Structures -- outdoor enhancement
+  cabana:           cdnExt('https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/69a8c6b6c09f3f53db8fa60a/3af6924d6_CabanaHouseMain.jpg'),
+  tunnel:           cdnExt('https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/69a8c6b6c09f3f53db8fa60a/217fdb4a1_HighTunnel.jpg'),
+  workshop:         cdnExt('https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/69a8c6b6c09f3f53db8fa60a/136958608_FarmWorkshop.jpg'),
 };
 
 function useW() {
@@ -595,7 +595,7 @@ function Foundation() {
         </Fade>
         <Fade delay={0.2}>
           <div style={{ position: 'relative' }}>
-            <img src={cdnInt(IMG.living)} alt="Flow Farm Estate" style={{ width: '100%', height: mob ? 340 : 560, objectFit: 'cover', display: 'block' }} />
+            <img src={IMG.living} alt="Flow Farm Estate" style={{ width: '100%', height: mob ? 340 : 560, objectFit: 'cover', display: 'block' }} />
             <Glass style={{ position: 'absolute', bottom: mob ? -20 : -28, left: mob ? -10 : -28, padding: '1.4rem 2rem' }}>
               <p style={{ margin: '0 0 0.3rem', fontFamily: 'sans-serif', fontSize: '9px', letterSpacing: '0.22em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.3)' }}>Architect</p>
               <p style={{ margin: 0, fontFamily: 'Georgia, serif', fontSize: '1rem', color: CREAM }}>Robert E. Clark AIA</p>
@@ -1515,7 +1515,7 @@ function Location() {
           </div>
         </Fade>
         <Fade delay={0.2}>
-          <img src={cdnExt(IMG.exterior)} alt="Flow Farm Estate" style={{ width: '100%', height: mob ? 320 : 560, objectFit: 'cover', display: 'block' }} />
+          <img src={IMG.exterior} alt="Flow Farm Estate" style={{ width: '100%', height: mob ? 320 : 560, objectFit: 'cover', display: 'block' }} />
         </Fade>
       </div>
     </section>
@@ -1821,7 +1821,7 @@ export default function FlowFarmLanding2() {
       <Foundation />
       <StealTheShow />
       <CinematicReveal
-        src={cdnInt(IMG.living)}
+        src={IMG.living}
         eyebrow="The Residence"
         headline={"A grand living room.\n27 feet wide. 17 feet tall."}
         body="Exposed king post trusses. Grand piano. Heart pine floors. French doors to the covered porch. And beyond -- the conservatory, the kitchen, the farm. All of it visible from where you stand. Sound fills seventeen feet without effort. You won't find the speakers."
@@ -1829,7 +1829,7 @@ export default function FlowFarmLanding2() {
       />
       <Numbers />
       <CinematicReveal
-        src={cdnSharp(IMG.conservatoryDome)}
+        src={IMG.conservatoryDome}
         eyebrow="The Conservatory"
         headline={"The room that stops\nevery conversation."}
         body="19.5 by 17.7 feet, entirely glass-wrapped. An octagonal dome overhead tracks the sky from morning to dusk. Views of the farm, the cabana, the pines. The room that reminds you why you came here."
@@ -1837,13 +1837,13 @@ export default function FlowFarmLanding2() {
         position="center center"
       />
       <CinematicReveal
-        src={cdnExt(IMG.aerial)}
+        src={IMG.aerial}
         headline={"Autonomy at this scale is not inherited. It is engineered."}
         quote
         position="center 60%"
       />
       <CinematicReveal
-        src={cdnInt(IMG.wolf)}
+        src={IMG.wolf}
         eyebrow="The Kitchen"
         headline={"Sub-Zero. Wolf 60\".\nBuilt for the serious cook."}
         body="A 60-inch dual fuel Wolf range with red knobs, six burners, griddle, grill, and warming drawer. Two KitchenAid dishwashers. Butcher block island. Farmhouse apron sink. Soapstone counters. Scullery with full Sub-Zero and wine fridge. The water from every tap is filtered. Drink it straight. Music plays from somewhere you can't locate. That's the point. The pantry door swings open. Then the other one does. Floor to ceiling, every inch -- two full-height swing-out towers, shelves on every face, built for someone who actually cooks. The pagoda toile goes up every wall. Around the corner. Up the back stair. The Roman shades are cut from the same bolt. When they're down, the wall continues -- uninterrupted, corner to corner. The hallway is black and white. The powder room is not."
@@ -1853,7 +1853,7 @@ export default function FlowFarmLanding2() {
       <ZoningOpportunity />
       <Mechanism />
       <CinematicReveal
-        src={cdnInt(IMG.spabath)}
+        src={IMG.spabath}
         eyebrow="The Primary Suite"
         headline={"A spa.\nA sanctuary.\nA reason to stay."}
         body="Dual vanities. Freestanding soaking tub beneath a window to the forest. Body-jet shower. Mosaic tile floors. A room that earns the word primary. The lights are already at ten percent when you walk in. Control4 knows."
@@ -1861,7 +1861,7 @@ export default function FlowFarmLanding2() {
         position="center 30%"
       />
       <CinematicReveal
-        src={cdnInt(IMG.foyer)}
+        src={IMG.foyer}
         eyebrow="The Welcome"
         headline={"Every arrival\nshould feel like this."}
         body="Herringbone heart pine floors laid on the diagonal. A reclaimed wood door with transom light overhead. A star lantern casting warm light across the entry. The first impression that sets the tone for everything that follows. One tap. The whole house shifts."
