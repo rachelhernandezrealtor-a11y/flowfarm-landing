@@ -1579,7 +1579,7 @@ function Land() {
   const w = useW();
   const mob = w < 768;
   const structures = [
-    { src: IMG.cabana,   label: 'Cabana House',           detail: '1 Bed | 1 Bath | Full Kitchen | Private Entrance', body: 'A private guest retreat with the feel of a boutique inn. Direct access to the grounds, full kitchen, and a private entrance that keeps guests comfortable and independent.' },
+    { src: IMG.cabana,   label: 'The Cabana House',           detail: 'Robert E. Clark AIA · Commercial Grade · Partially Finished', body: 'A second residence — not a guest suite. Racquetball court, bunk room, dining suite, guest bedroom, loft, full bath. Built to commercial standard by the same architect who drew the main house. The ending is yours to write.' },
     { src: IMG.tunnel,   label: 'High Tunnel Greenhouse', detail: '96 x 36 Ft | Geothermal Climate Control',          body: 'Year-round production at commercial scale. Pineapples, avocados, citrus. Climate-controlled by the same geothermal system that heats and cools the main residence.' },
     { src: IMG.workshop, label: 'Farm Workshop',          detail: '30 x 40 Ft | Plumbing | Electrical | Walk-In Cooler', body: 'Built to run a real operation. Plumbing, electrical, and a 12 by 8 foot walk-in cooler. This is the infrastructure behind the idea.' },
   ];
@@ -1644,7 +1644,7 @@ function ZoningOpportunity() {
       transition: 'opacity 1.6s ease, transform 1.6s ease',
     }}>
       <div style={{ maxWidth: 900, margin: '0 auto' }}>
-        <p style={{ fontFamily: 'sans-serif', fontSize: '10px', letterSpacing: '0.4em', textTransform: 'uppercase', color: GOLD, margin: '0 0 1.6rem' }}>What Comes With It</p>
+        <p style={{ fontFamily: 'sans-serif', fontSize: '10px', letterSpacing: '0.4em', textTransform: 'uppercase', color: GOLD, margin: '0 0 1.6rem' }}>The Opportunity · Already Unlocked</p>
         <h2 style={{
           fontFamily: 'Georgia, serif', fontWeight: 400,
           fontSize: mob ? 'clamp(2rem, 7vw, 2.8rem)' : 'clamp(2.6rem, 3.8vw, 4rem)',
@@ -1664,19 +1664,19 @@ function ZoningOpportunity() {
         </p>
         {/* Pinehurst callout -- naked, no box */}
         <div style={{ maxWidth: 560, borderTop: '1px solid rgba(201,169,110,0.22)', borderBottom: '1px solid rgba(201,169,110,0.22)', padding: mob ? '2rem 0' : '2.8rem 0', marginTop: '1rem' }}>
-          <p style={{ fontFamily: 'sans-serif', fontSize: '9px', letterSpacing: '0.36em', textTransform: 'uppercase', color: GOLD, margin: '0 0 1rem' }}>Location</p>
+          <p style={{ fontFamily: 'sans-serif', fontSize: '9px', letterSpacing: '0.36em', textTransform: 'uppercase', color: GOLD, margin: '0 0 1rem' }}>Golf Capital of America · 3 Miles</p>
           <p style={{
             fontFamily: 'Georgia, serif', fontStyle: 'italic',
             fontSize: mob ? '1.1rem' : '1.35rem',
             color: '#fff', lineHeight: 1.5, margin: 0,
           }}>
-            Three miles from Pinehurst Resort.
+            Three miles from Pinehurst No. 2.
           </p>
           <p style={{
             fontFamily: 'Georgia, serif', fontSize: mob ? '0.95rem' : '1rem',
             color: 'rgba(255,255,255,0.72)', lineHeight: 1.8, margin: '1rem 0 0',
           }}>
-            Resort economy. County taxation. No HOA. No city limits. The location is not incidental — it is part of the thesis.
+            Home of nine US Opens. The most consequential golf address in America. Resort economy. County taxation. No HOA. No city limits. You cannot manufacture this address. It either exists or it does not. It does.
           </p>
         </div>
       </div>
