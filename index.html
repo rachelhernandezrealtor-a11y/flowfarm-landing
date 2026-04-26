@@ -397,11 +397,14 @@ function Hero() {
         <div style={{ ...show(2), width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
           <h1 style={{
             color: '#fff', fontFamily: 'Georgia, serif', fontWeight: 400,
-            fontSize: mob ? '2.3rem' : w < 1024 ? '4.2rem' : 'clamp(4rem, 5.5vw, 5.6rem)',
-            lineHeight: 1.06, margin: 0, letterSpacing: '-0.02em',
+            fontSize: mob ? '2rem' : w < 1024 ? '3.6rem' : 'clamp(3.2rem, 4.8vw, 5rem)',
+            lineHeight: 1.12, margin: 0, letterSpacing: '-0.02em',
             textShadow: '0 4px 80px rgba(0,0,0,0.6)',
+            display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '0.1em',
           }}>
-            Agritourism <em>Established.</em><br />Legacy Ready.
+            <span style={{ color: 'rgba(255,255,255,0.72)', fontSize: '0.62em', letterSpacing: '0.18em', fontFamily: 'sans-serif', fontStyle: 'normal', fontWeight: 300, textTransform: 'uppercase' }}>Agritourism</span>
+            <em style={{ fontStyle: 'italic', color: '#F5F0E8', lineHeight: 1 }}>Established.</em>
+            <span style={{ fontSize: '0.58em', letterSpacing: '0.08em', color: 'rgba(255,255,255,0.65)', fontStyle: 'normal', fontWeight: 300 }}>Legacy Ready.</span>
           </h1>
         </div>
         <div style={{ ...show(3), marginTop: mob ? '1rem' : '1.4rem', width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
