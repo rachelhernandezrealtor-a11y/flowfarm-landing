@@ -27,29 +27,31 @@ const cdnExt = (url) => 'https://res.cloudinary.com/' + CLOUD + '/image/fetch/e_
 const cdnSharp = (url) => 'https://res.cloudinary.com/' + CLOUD + '/image/fetch/e_sharpen:200,e_vibrance:30,e_brightness:8,e_saturation:20,f_auto,q_auto,w_2000,c_limit/' + encodeURIComponent(url);
 
 const IMG = {
-  // Interior shots -- full indoor enhancement pipeline
-  living:           cdnInt(B + 'f4af32cdd_260115107LindenTrailF-9619.jpg'),
-  conservatory:     cdnInt(B + '8cb2578a0_MONEYSHOT.jpg'),
-  conservatoryDome: cdnInt(B + '1fd157275_260115107LindenTrailF-9565.jpg'),
-  kitchen:          cdnInt(B + '1c4b8a04f_SOGOODKITCHEN.jpg'),
-  dining:           cdnInt(B + 'db01725cb_sogoodtolivingroom.jpg'),
-  spabath:          cdnInt(B + '08da5b97d_spaprimarybath.jpg'),
-  foyer:            cdnInt(B + '9b1d02a04_260115107LindenTrailF-9727.jpg'),
-  powderroom:       cdnInt(B + '4e58028ab_260115107LindenTrailF-9769-2.jpg'),
-  wolf:             cdnInt(B + 'ef4b4a364_WOLFDOUBLEGASRANGE.jpg'),
-  kitchen2:         cdnInt(B + '1c4b8a04f_SOGOODKITCHEN.jpg'),
-  office:           cdnInt(B + '2b920c3b0_markofficemoneyshot.jpg'),
-  hallway:          cdnInt(B + '8e3d794f9_secondfloorhallway.jpg'),
-  // Exterior / aerial -- outdoor enhancement pipeline
-  aerial:           cdnExt('https://base44.app/api/apps/69e248a2469cc39540781cce/files/mp/public/69e248a2469cc39540781cce/7793a3d75_ff_aerial_master.jpg'),
-  forestcanopy:     cdnExt('https://base44.app/api/apps/69e248a2469cc39540781cce/files/mp/public/69e248a2469cc39540781cce/c0fe395f0_ff_forest_canopy.png'),
-  grounds:          cdnExt('https://base44.app/api/apps/69e248a2469cc39540781cce/files/mp/public/69e248a2469cc39540781cce/d5ca2c38f_ff_grounds.jpg'),
-  exterior:         cdnExt('https://base44.app/api/apps/69e248a2469cc39540781cce/files/mp/public/69e248a2469cc39540781cce/eb327b9c5_ff_exterior.jpg'),
-  trail:            cdnExt('https://base44.app/api/apps/69e248a2469cc39540781cce/files/mp/public/69e248a2469cc39540781cce/d34135ac6_ff_trail.jpg'),
+  // Interior shots -- direct Cloudinary upload, indoor enhancement pipeline
+  living:           'https://res.cloudinary.com/dghn2xpif/image/upload/e_improve:indoor:60,e_brightness:10,e_shadow:-30,e_sharpen:40,e_saturation:15,f_auto,q_auto,w_1600,c_limit/ff_living.jpg',
+  conservatory:     'https://res.cloudinary.com/dghn2xpif/image/upload/e_improve:indoor:60,e_brightness:10,e_shadow:-30,e_sharpen:40,e_saturation:15,f_auto,q_auto,w_1600,c_limit/ff_conservatory.jpg',
+  conservatoryDome: 'https://res.cloudinary.com/dghn2xpif/image/upload/e_improve:indoor:60,e_brightness:10,e_shadow:-30,e_sharpen:40,e_saturation:15,f_auto,q_auto,w_1600,c_limit/ff_conservatory_dome.jpg',
+  kitchen:          'https://res.cloudinary.com/dghn2xpif/image/upload/e_improve:indoor:60,e_brightness:10,e_shadow:-30,e_sharpen:40,e_saturation:15,f_auto,q_auto,w_1600,c_limit/ff_kitchen.jpg',
+  dining:           'https://res.cloudinary.com/dghn2xpif/image/upload/e_improve:indoor:60,e_brightness:10,e_shadow:-30,e_sharpen:40,e_saturation:15,f_auto,q_auto,w_1600,c_limit/ff_dining.jpg',
+  spabath:          'https://res.cloudinary.com/dghn2xpif/image/upload/e_improve:indoor:60,e_brightness:10,e_shadow:-30,e_sharpen:40,e_saturation:15,f_auto,q_auto,w_1600,c_limit/ff_spabath.jpg',
+  foyer:            'https://res.cloudinary.com/dghn2xpif/image/upload/e_improve:indoor:60,e_brightness:10,e_shadow:-30,e_sharpen:40,e_saturation:15,f_auto,q_auto,w_1600,c_limit/ff_foyer.jpg',
+  powderroom:       'https://res.cloudinary.com/dghn2xpif/image/upload/e_improve:indoor:60,e_brightness:10,e_shadow:-30,e_sharpen:40,e_saturation:15,f_auto,q_auto,w_1600,c_limit/ff_powderroom.jpg',
+  wolf:             'https://res.cloudinary.com/dghn2xpif/image/upload/e_improve:indoor:60,e_brightness:10,e_shadow:-30,e_sharpen:40,e_saturation:15,f_auto,q_auto,w_1600,c_limit/ff_wolf.jpg',
+  kitchen2:         'https://res.cloudinary.com/dghn2xpif/image/upload/e_improve:indoor:60,e_brightness:10,e_shadow:-30,e_sharpen:40,e_saturation:15,f_auto,q_auto,w_1600,c_limit/ff_kitchen.jpg',
+  office:           'https://res.cloudinary.com/dghn2xpif/image/upload/e_improve:indoor:60,e_brightness:10,e_shadow:-30,e_sharpen:40,e_saturation:15,f_auto,q_auto,w_1600,c_limit/ff_office.jpg',
+  hallway:          'https://res.cloudinary.com/dghn2xpif/image/upload/e_improve:indoor:60,e_brightness:10,e_shadow:-30,e_sharpen:40,e_saturation:15,f_auto,q_auto,w_1600,c_limit/ff_hallway.jpg',
+  // Exterior / aerial -- direct Cloudinary upload, outdoor enhancement pipeline
+  aerial:           'https://res.cloudinary.com/dghn2xpif/image/upload/e_improve:outdoor:70,e_auto_brightness,e_sharpen:30,e_saturation:20,f_auto,q_auto,w_1920,c_limit/ff_aerial_master.jpg',
+  forestcanopy:     'https://res.cloudinary.com/dghn2xpif/image/upload/e_improve:outdoor:70,e_auto_brightness,e_sharpen:30,e_saturation:20,f_auto,q_auto,w_1920,c_limit/ff_forest_canopy.jpg',
+  grounds:          'https://res.cloudinary.com/dghn2xpif/image/upload/e_improve:outdoor:70,e_auto_brightness,e_sharpen:30,e_saturation:20,f_auto,q_auto,w_1920,c_limit/ff_grounds.jpg',
+  exterior:         'https://res.cloudinary.com/dghn2xpif/image/upload/e_improve:outdoor:70,e_auto_brightness,e_sharpen:30,e_saturation:20,f_auto,q_auto,w_1920,c_limit/ff_exterior.jpg',
+  trail:            'https://res.cloudinary.com/dghn2xpif/image/upload/e_improve:outdoor:70,e_auto_brightness,e_sharpen:30,e_saturation:20,f_auto,q_auto,w_1920,c_limit/ff_trail.jpg',
   // Structures -- outdoor enhancement
-  cabana:           cdnExt('https://base44.app/api/apps/69e248a2469cc39540781cce/files/mp/public/69e248a2469cc39540781cce/b7847c753_ff_cabana.jpg'),
-  tunnel:           cdnExt('https://base44.app/api/apps/69e248a2469cc39540781cce/files/mp/public/69e248a2469cc39540781cce/96c49db04_ff_tunnel.jpg'),
-  workshop:         cdnExt('https://base44.app/api/apps/69e248a2469cc39540781cce/files/mp/public/69e248a2469cc39540781cce/9324325a6_ff_workshop.jpg'),
+  cabana:           'https://res.cloudinary.com/dghn2xpif/image/upload/e_improve:outdoor:70,e_auto_brightness,e_sharpen:30,e_saturation:20,f_auto,q_auto,w_1920,c_limit/ff_cabana.jpg',
+  tunnel:           'https://res.cloudinary.com/dghn2xpif/image/upload/e_improve:outdoor:70,e_auto_brightness,e_sharpen:30,e_saturation:20,f_auto,q_auto,w_1920,c_limit/ff_tunnel.jpg',
+  workshop:         'https://res.cloudinary.com/dghn2xpif/image/upload/e_improve:outdoor:70,e_auto_brightness,e_sharpen:30,e_saturation:20,f_auto,q_auto,w_1920,c_limit/ff_workshop.jpg',
+  pine:             'https://res.cloudinary.com/dghn2xpif/image/upload/e_improve:outdoor:70,e_auto_brightness,e_sharpen:30,e_saturation:20,f_auto,q_auto,w_1920,c_limit/ff_pine.jpg',
+  aerialmap:        'https://res.cloudinary.com/dghn2xpif/image/upload/e_improve:outdoor:70,e_auto_brightness,e_sharpen:30,e_saturation:20,f_auto,q_auto,w_1920,c_limit/ff_aerial_map.jpg',
 };
 
 function useW() {
@@ -448,7 +450,7 @@ function Manifesto() {
     window.addEventListener('scroll', onScroll, { passive: true });
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
-  const BG_URL = 'https://res.cloudinary.com/dghn2xpif/image/fetch/f_auto,q_auto,w_2400,e_vibrance:40,e_saturation:20,e_brightness:15,e_sharpen:60/' + encodeURIComponent('https://base44.app/api/apps/69e248a2469cc39540781cce/files/mp/public/69e248a2469cc39540781cce/c0fe395f0_ff_forest_canopy.png');
+  const BG_URL = 'https://res.cloudinary.com/dghn2xpif/image/upload/f_auto,q_auto,w_2400,e_vibrance:40,e_saturation:20,e_brightness:15,e_sharpen:60/' + encodeURIComponent('https:/ff_forest_canopy.jpg');
   return (
     <section ref={ref} style={{
       position: 'relative',
@@ -653,10 +655,10 @@ function ForestIntro() {
     return () => obs.disconnect();
   }, []);
 
-  const FOREST_URL = 'https://res.cloudinary.com/dghn2xpif/image/fetch/f_auto,q_auto,w_2400,e_vibrance:80,e_saturation:50,e_brightness:18,e_sharpen:100,e_clarity:40/' + encodeURIComponent('https://base44.app/api/apps/69e248a2469cc39540781cce/files/mp/public/69e248a2469cc39540781cce/c0fe395f0_ff_forest_canopy.png');
-  const AERIAL_URL = 'https://res.cloudinary.com/dghn2xpif/image/fetch/f_auto,q_auto,w_2400,e_improve:outdoor:70,e_vibrance:40,e_saturation:20,e_sharpen:60/' + encodeURIComponent('https://base44.app/api/apps/69e248a2469cc39540781cce/files/mp/public/69e248a2469cc39540781cce/cab13f939_ff_aerial_map.jpg');
-  const TRAIL_URL  = 'https://res.cloudinary.com/dghn2xpif/image/fetch/f_auto,q_auto,w_2400,e_improve:outdoor:60,e_vibrance:30,e_saturation:20,e_sharpen:50/' + encodeURIComponent('https://base44.app/api/apps/69e248a2469cc39540781cce/files/mp/public/69e248a2469cc39540781cce/d34135ac6_ff_trail.jpg');
-  const PINE_URL   = 'https://res.cloudinary.com/dghn2xpif/image/fetch/f_auto,q_auto,w_2400,e_improve:outdoor:80,e_vibrance:50,e_saturation:30,e_sharpen:80,e_brightness:5/' + encodeURIComponent('https://base44.app/api/apps/69e248a2469cc39540781cce/files/mp/public/69e248a2469cc39540781cce/2dd4aaff9_ff_pine.jpg');
+  const FOREST_URL = 'https://res.cloudinary.com/dghn2xpif/image/upload/f_auto,q_auto,w_2400,e_vibrance:80,e_saturation:50,e_brightness:18,e_sharpen:100,e_clarity:40/' + encodeURIComponent('https:/ff_forest_canopy.jpg');
+  const AERIAL_URL = 'https://res.cloudinary.com/dghn2xpif/image/upload/f_auto,q_auto,w_2400,e_improve:outdoor:70,e_vibrance:40,e_saturation:20,e_sharpen:60/' + encodeURIComponent('https:/ff_aerial_map.jpg');
+  const TRAIL_URL  = 'https://res.cloudinary.com/dghn2xpif/image/upload/f_auto,q_auto,w_2400,e_improve:outdoor:60,e_vibrance:30,e_saturation:20,e_sharpen:50/' + encodeURIComponent('https:/ff_trail.jpg');
+  const PINE_URL   = 'https://res.cloudinary.com/dghn2xpif/image/upload/f_auto,q_auto,w_2400,e_improve:outdoor:80,e_vibrance:50,e_saturation:30,e_sharpen:80,e_brightness:5/' + encodeURIComponent('https:/ff_pine.jpg');
 
   const grid = [
     { label: '15 USDA ACRES',       body: 'Registered farmland. County-taxed. No HOA.' },
@@ -983,7 +985,7 @@ function PropertyMap() {
           {/* Aerial photo */}
           <img
             ref={mapImgRef}
-            src={"https://res.cloudinary.com/dghn2xpif/image/fetch/e_sharpen:150,e_vibrance:20,e_saturation:15,f_auto,q_auto,w_3200,c_limit/" + encodeURIComponent("https://base44.app/api/apps/69e248a2469cc39540781cce/files/mp/public/69e248a2469cc39540781cce/7793a3d75_ff_aerial_master.jpg")}
+            src={"https://res.cloudinary.com/dghn2xpif/image/upload/e_sharpen:150,e_vibrance:20,e_saturation:15,f_auto,q_auto,w_3200,c_limit/" + encodeURIComponent("https:/ff_aerial_master.jpg")}
             alt="Flow Farm aerial view"
             style={{
               position: 'absolute', inset: 0, width: '100%', height: '100%',
