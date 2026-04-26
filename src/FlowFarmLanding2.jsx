@@ -783,37 +783,38 @@ function ForestIntro() {
           </p>
         </div>
 
-        {/* Beat 2 -- Operational by Design */}
-        <div ref={b2Ref} style={{
-          position: 'relative', zIndex: 2,
-          padding: mob ? '6rem 6vw 8rem' : '7rem 10vw 11rem',
-          opacity: beat2 ? 1 : 0,
-          transform: beat2 ? 'none' : 'translateY(32px)',
-          transition: 'opacity 1.6s ease 0.2s, transform 1.6s ease 0.2s',
+      </div>
+
+      {/* ======= OPERATIONAL BY DESIGN -- dark section, full breath ======= */}
+      <div ref={b2Ref} style={{
+        background: '#0a0a0a',
+        padding: mob ? '7rem 6vw 8rem' : '10rem 10vw 12rem',
+        opacity: beat2 ? 1 : 0,
+        transform: beat2 ? 'none' : 'translateY(32px)',
+        transition: 'opacity 1.6s ease 0.2s, transform 1.6s ease 0.2s',
+      }}>
+        <p style={{ fontFamily: 'sans-serif', fontSize: '10px', letterSpacing: '0.40em', textTransform: 'uppercase', color: GOLD, margin: '0 0 1.2rem' }}>The Estate</p>
+        <h2 style={{ fontFamily: 'Georgia, serif', fontSize: mob ? 'clamp(2rem,7vw,2.8rem)' : 'clamp(2.6rem,4vw,4rem)', color: '#fff', margin: '0 0 0.7rem', lineHeight: 1.15, letterSpacing: '-0.02em' }}>
+          Operational by Design.
+        </h2>
+        <p style={{ fontFamily: 'Georgia, serif', fontStyle: 'italic', fontSize: mob ? '1.05rem' : '1.2rem', color: GOLD, margin: '0 0 4rem', opacity: 0.9 }}>
+          Eight acres working. Seven acres waiting.
+        </p>
+        <div style={{
+          display: 'grid',
+          gridTemplateColumns: mob ? '1fr 1fr' : 'repeat(5, 1fr)',
+          gap: mob ? '2rem 1.2rem' : '0 2rem',
+          maxWidth: 1100,
         }}>
-          <p style={{ fontFamily: 'sans-serif', fontSize: '10px', letterSpacing: '0.40em', textTransform: 'uppercase', color: GOLD, margin: '0 0 1rem', textShadow: ts }}>The Estate</p>
-          <h2 style={{ fontFamily: 'Georgia, serif', fontSize: mob ? 'clamp(1.8rem,6vw,2.4rem)' : 'clamp(2.2rem,3.5vw,3.2rem)', color: '#fff', margin: '0 0 0.6rem', lineHeight: 1.2, textShadow: ts }}>
-            Operational by Design.
-          </h2>
-          <p style={{ fontFamily: 'Georgia, serif', fontStyle: 'italic', fontSize: mob ? '1rem' : '1.1rem', color: GOLD, margin: '0 0 2rem', textShadow: ts }}>
-            Eight acres working. Seven acres waiting.
-          </p>
-          <div style={{
-            display: 'grid',
-            gridTemplateColumns: mob ? '1fr 1fr' : 'repeat(5, 1fr)',
-            gap: mob ? '0.8rem' : '1rem',
-            maxWidth: 1000,
-          }}>
-            {grid.map((item, i) => (
-              <div key={i} style={{
-                padding: mob ? '0.8rem 0' : '1rem 0',
-                borderTop: '1px solid rgba(201,169,110,0.15)',
-              }}>
-                <p style={{ fontFamily: 'sans-serif', fontSize: '9px', letterSpacing: '0.30em', textTransform: 'uppercase', color: GOLD, margin: '0 0 0.5rem', fontWeight: 400 }}>{item.label}</p>
-                <p style={{ fontFamily: 'Georgia, serif', fontSize: '0.88rem', color: 'rgba(255,255,255,0.72)', lineHeight: 1.6, margin: 0 }}>{item.body}</p>
-              </div>
-            ))}
-          </div>
+          {grid.map((item, i) => (
+            <div key={i} style={{
+              padding: mob ? '1.2rem 0' : '1.8rem 0',
+              borderTop: '1px solid rgba(201,169,110,0.22)',
+            }}>
+              <p style={{ fontFamily: 'sans-serif', fontSize: '9px', letterSpacing: '0.30em', textTransform: 'uppercase', color: GOLD, margin: '0 0 0.7rem', fontWeight: 400 }}>{item.label}</p>
+              <p style={{ fontFamily: 'Georgia, serif', fontSize: '0.92rem', color: 'rgba(255,255,255,0.75)', lineHeight: 1.7, margin: 0 }}>{item.body}</p>
+            </div>
+          ))}
         </div>
       </div>
 
