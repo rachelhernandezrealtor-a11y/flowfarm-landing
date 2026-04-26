@@ -566,40 +566,47 @@ function Manifesto() {
 function Foundation() {
   const w = useW();
   const mob = w < 768;
+  const [ref, visible] = useFade();
   return (
-    <section id="the-estate" style={{ background: '#0c0c0c', padding: mob ? '9rem 0' : '13rem 0' }}>
-      <div style={{ display: 'grid', gridTemplateColumns: mob ? '1fr' : '1fr 1fr', maxWidth: 1320, margin: '0 auto', padding: '0 6vw', gap: mob ? '6rem' : '10rem', alignItems: 'center' }}>
-        <Fade delay={0.05}>
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
-            <Eyebrow>The Estate</Eyebrow>
-            <GoldLine />
-            <h2 style={{ color: CREAM, fontFamily: 'Georgia, serif', fontWeight: 400, fontSize: mob ? '2rem' : '3rem', lineHeight: 1.22, margin: 0, letterSpacing: '-0.018em' }}>
-              Structure That<br />Holds Freedom.
-            </h2>
-            <p style={{ color: 'rgba(255,255,255,0.78)', fontFamily: 'Georgia, serif', fontSize: mob ? '1rem' : '1.06rem', lineHeight: 2.1, margin: 0 }}>
-              Robert E. Clark AIA designed this as one of his final private commissions. The result is an estate with the structural integrity of a commercial build and the warmth of a home that has been deeply lived in. Every system was specified to last. Every room was designed to be felt.
-            </p>
-            <p style={{ color: 'rgba(255,255,255,0.62)', fontFamily: 'Georgia, serif', fontSize: mob ? '1rem' : '1.06rem', lineHeight: 2.1, margin: 0 }}>
-              Civil War-era heart pine floors, reclaimed and custom-laid in artisan patterns. A glass conservatory with an octagonal dome. Six structures across fifteen acres — each one purposeful, each one built to Clark's standard.
-            </p>
-            <div style={{ display: 'flex', gap: '1.5rem', marginTop: '0.5rem' }}>
-              <a href={MATTERPORT} target="_blank" rel="noreferrer"
-                style={{ color: GOLD, fontFamily: 'sans-serif', fontSize: '10px', letterSpacing: '0.28em', textTransform: 'uppercase', textDecoration: 'none', borderBottom: '1px solid rgba(201,169,110,0.28)', paddingBottom: '0.3rem' }}>
-                Virtual Tour
-              </a>
-              <a href="#inquire"
-                style={{ color: 'rgba(255,255,255,0.45)', fontFamily: 'sans-serif', fontSize: '10px', letterSpacing: '0.28em', textTransform: 'uppercase', textDecoration: 'none', borderBottom: '1px solid rgba(255,255,255,0.08)', paddingBottom: '0.3rem' }}>
-                Private Inquiry
-              </a>
-            </div>
+    <section id="the-estate" style={{ position: 'relative', minHeight: mob ? '85vh' : '100vh', overflow: 'hidden', display: 'flex', alignItems: 'center' }}>
+      <div style={{ position: 'absolute', inset: 0, zIndex: 1 }}>
+        <img src={IMG.exterior} alt="" style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center 40%', display: 'block' }} />
+      </div>
+      <div style={{ position: 'absolute', inset: 0, zIndex: 2, background: 'rgba(0,0,0,0.20)' }} />
+      <div style={{ position: 'relative', zIndex: 5, width: '100%', maxWidth: 1360, margin: '0 auto', padding: mob ? '6rem 5vw' : '10rem 6vw' }}>
+        <div ref={ref} style={{
+          maxWidth: mob ? '100%' : 500,
+          background: 'rgba(8,8,8,0.52)',
+          backdropFilter: 'blur(18px)',
+          WebkitBackdropFilter: 'blur(18px)',
+          border: '1px solid rgba(201,169,110,0.18)',
+          padding: mob ? '2.2rem 1.8rem' : '3.2rem 3.6rem',
+          opacity: visible ? 1 : 0,
+          transform: visible ? 'none' : 'translateX(-40px)',
+          transition: 'opacity 1.6s cubic-bezier(.16,1,.3,1), transform 1.6s cubic-bezier(.16,1,.3,1)',
+        }}>
+          <p style={{ fontFamily: 'sans-serif', fontSize: '9px', letterSpacing: '0.38em', textTransform: 'uppercase', color: GOLD, margin: '0 0 1rem' }}>The Estate</p>
+          <div style={{ width: 24, height: 1, background: GOLD, opacity: 0.4, marginBottom: '1.4rem' }} />
+          <h2 style={{ color: CREAM, fontFamily: 'Georgia, serif', fontWeight: 400, fontSize: mob ? '1.7rem' : '2.4rem', lineHeight: 1.22, margin: '0 0 1.4rem', letterSpacing: '-0.018em' }}>
+            Structure That<br />Holds Freedom.
+          </h2>
+          <p style={{ color: 'rgba(255,255,255,0.80)', fontFamily: 'Georgia, serif', fontSize: mob ? '0.92rem' : '0.97rem', lineHeight: 1.95, margin: '0 0 1rem' }}>
+            Robert E. Clark AIA designed this as one of his final private commissions. Structural integrity of a commercial build. Warmth of a home deeply lived in. Every system specified to last.
+          </p>
+          <p style={{ color: 'rgba(255,255,255,0.65)', fontFamily: 'Georgia, serif', fontSize: mob ? '0.92rem' : '0.97rem', lineHeight: 1.95, margin: '0 0 1.8rem' }}>
+            Civil War-era heart pine floors, custom-laid in artisan patterns. A glass conservatory with an octagonal dome. Six structures across fifteen acres.
+          </p>
+          <div style={{ display: 'flex', gap: '1.5rem' }}>
+            <a href={MATTERPORT} target="_blank" rel="noreferrer"
+              style={{ color: GOLD, fontFamily: 'sans-serif', fontSize: '9px', letterSpacing: '0.28em', textTransform: 'uppercase', textDecoration: 'none', borderBottom: '1px solid rgba(201,169,110,0.28)', paddingBottom: '0.3rem' }}>
+              Virtual Tour
+            </a>
+            <a href="#inquire"
+              style={{ color: 'rgba(255,255,255,0.45)', fontFamily: 'sans-serif', fontSize: '9px', letterSpacing: '0.28em', textTransform: 'uppercase', textDecoration: 'none', borderBottom: '1px solid rgba(255,255,255,0.12)', paddingBottom: '0.3rem' }}>
+              Private Inquiry
+            </a>
           </div>
-        </Fade>
-        <Fade delay={0.2}>
-          <div style={{ position: 'relative' }}>
-            <img src={IMG.living} alt="Flow Farm Estate" style={{ width: '100%', height: mob ? 340 : 560, objectFit: 'cover', display: 'block' }} />
-
-          </div>
-        </Fade>
+        </div>
       </div>
     </section>
   );
@@ -758,7 +765,7 @@ function ForestIntro() {
         }} />
         {/* Top bleed -- merges seamlessly with hero bottom */}
         <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: '22%', background: 'linear-gradient(to bottom, #0a0a0a, transparent)', zIndex: 2, pointerEvents: 'none' }} />
-        <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to bottom, rgba(0,0,0,0.15) 0%, rgba(0,0,0,0.52) 100%)' }} />
+        <div style={{ position: 'absolute', inset: 0, background: 'rgba(0,0,0,0.22)' }} />
 
         {/* Beat 1 -- A Living Place */}
         <div ref={b1Ref} style={{
@@ -768,13 +775,23 @@ function ForestIntro() {
           transform: beat1 ? 'none' : 'translateY(32px)',
           transition: 'opacity 1.6s ease, transform 1.6s ease',
         }}>
-          <p style={{ fontFamily: 'sans-serif', fontSize: '10px', letterSpacing: '0.40em', textTransform: 'uppercase', color: GOLD, margin: '0 0 1.2rem', textShadow: ts }}>Flow Farm</p>
-          <h2 style={{ fontFamily: 'Georgia, serif', fontSize: mob ? 'clamp(2rem,7vw,2.8rem)' : 'clamp(2.6rem,4vw,3.8rem)', color: '#fff', margin: '0 0 1.6rem', lineHeight: 1.2, maxWidth: 700, textShadow: ts }}>
-            A Living Place,<br /><em>Rooted in Possibility.</em>
-          </h2>
-          <p style={{ fontFamily: 'Georgia, serif', fontSize: mob ? '1rem' : '1.1rem', color: 'rgba(255,255,255,0.85)', lineHeight: 1.75, maxWidth: 560, margin: 0, textShadow: ts }}>
-            Seventeen years of intention. The soil is built. The farm is running. Now it belongs to whoever is meant to take it from here.
-          </p>
+          <div style={{
+            maxWidth: mob ? '100%' : 480,
+            background: 'rgba(8,8,8,0.50)',
+            backdropFilter: 'blur(18px)',
+            WebkitBackdropFilter: 'blur(18px)',
+            border: '1px solid rgba(201,169,110,0.18)',
+            padding: mob ? '2rem 1.6rem' : '3rem 3.4rem',
+          }}>
+            <p style={{ fontFamily: 'sans-serif', fontSize: '9px', letterSpacing: '0.40em', textTransform: 'uppercase', color: GOLD, margin: '0 0 1rem' }}>Flow Farm</p>
+            <div style={{ width: 24, height: 1, background: GOLD, opacity: 0.4, marginBottom: '1.4rem' }} />
+            <h2 style={{ fontFamily: 'Georgia, serif', fontSize: mob ? '1.7rem' : '2.4rem', color: '#fff', margin: '0 0 1.4rem', lineHeight: 1.2 }}>
+              A Living Place,<br /><em>Rooted in Possibility.</em>
+            </h2>
+            <p style={{ fontFamily: 'Georgia, serif', fontSize: mob ? '0.92rem' : '0.97rem', color: 'rgba(255,255,255,0.80)', lineHeight: 1.95, margin: 0 }}>
+              Seventeen years of intention. The soil is built. The farm is running. Now it belongs to whoever is meant to take it from here.
+            </p>
+          </div>
         </div>
 
       </div>
@@ -1573,7 +1590,7 @@ function Land() {
     { src: IMG.workshop, label: 'Farm Workshop',          detail: '30 x 40 Ft | Plumbing | Electrical | Walk-In Cooler', body: 'Built to run a real operation. Plumbing, electrical, and a 12 by 8 foot walk-in cooler. This is the infrastructure behind the idea.' },
   ];
   return (
-    <section id="the-land" style={{ background: '#0c0c0c', padding: mob ? '6rem 0' : '10rem 0' }}>
+    <section id="the-land" style={{ background: '#0a0a0a', padding: mob ? '6rem 0' : '10rem 0' }}>
       <Fade up>
         <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '2.4rem', marginBottom: mob ? '6rem' : '10rem', padding: '0 6vw', textAlign: 'center' }}>
           <Eyebrow center>The Land</Eyebrow>
@@ -1623,31 +1640,38 @@ function ZoningOpportunity() {
   }, []);
 
   return (
-    <div ref={ref} style={{
-      background: DARK,
-      padding: mob ? '6rem 6vw' : '8rem 10vw',
-      opacity: visible ? 1 : 0,
-      transform: visible ? 'none' : 'translateY(32px)',
-      transition: 'opacity 1.6s ease, transform 1.6s ease',
-    }}>
-      <div style={{ maxWidth: 900, margin: '0 auto' }}>
-        <p style={{ fontFamily: 'sans-serif', fontSize: '10px', letterSpacing: '0.4em', textTransform: 'uppercase', color: GOLD, margin: '0 0 1.6rem' }}>The Opportunity · Already Unlocked</p>
+    <section style={{ position: 'relative', overflow: 'hidden', minHeight: mob ? '85vh' : '100vh', display: 'flex', alignItems: 'center' }}>
+      <div style={{ position: 'absolute', inset: 0, zIndex: 1 }}>
+        <img src={IMG.aerial} alt="" style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center 55%', display: 'block' }} />
+      </div>
+      <div style={{ position: 'absolute', inset: 0, zIndex: 2, background: 'rgba(0,0,0,0.22)' }} />
+      <div style={{ position: 'relative', zIndex: 5, width: '100%', maxWidth: 1360, margin: '0 auto', padding: mob ? '6rem 5vw' : '10rem 6vw', display: 'flex', justifyContent: 'flex-end' }}>
+      <div ref={ref} style={{
+        maxWidth: mob ? '100%' : 540,
+        background: 'rgba(8,8,8,0.54)',
+        backdropFilter: 'blur(18px)',
+        WebkitBackdropFilter: 'blur(18px)',
+        border: '1px solid rgba(201,169,110,0.18)',
+        padding: mob ? '2.2rem 1.8rem' : '3.2rem 3.6rem',
+        opacity: visible ? 1 : 0,
+        transform: visible ? 'none' : 'translateX(40px)',
+        transition: 'opacity 1.6s cubic-bezier(.16,1,.3,1), transform 1.6s cubic-bezier(.16,1,.3,1)',
+      }}>
+        <p style={{ fontFamily: 'sans-serif', fontSize: '9px', letterSpacing: '0.4em', textTransform: 'uppercase', color: GOLD, margin: '0 0 1rem' }}>The Opportunity · Already Unlocked</p>
+        <div style={{ width: 24, height: 1, background: GOLD, opacity: 0.4, marginBottom: '1.4rem' }} />
         <h2 style={{
           fontFamily: 'Georgia, serif', fontWeight: 400,
-          fontSize: mob ? 'clamp(2rem, 7vw, 2.8rem)' : 'clamp(2.6rem, 3.8vw, 4rem)',
-          color: '#fff', lineHeight: 1.12, letterSpacing: '-0.02em',
-          margin: '0 0 2rem',
+          fontSize: mob ? '1.7rem' : '2.2rem',
+          color: '#fff', lineHeight: 1.2, letterSpacing: '-0.02em',
+          margin: '0 0 1.4rem',
         }}>
           The Zoning Is Already Done.<br /><em>Fifteen years of work. Yours now.</em>
         </h2>
-        <div style={{
-          width: '40px', height: '1px', background: GOLD, margin: '0 0 2.4rem', opacity: 0.6,
-        }} />
         <p style={{
-          fontFamily: 'Georgia, serif', fontSize: mob ? '1.05rem' : '1.2rem',
-          color: CREAM, lineHeight: 1.8, maxWidth: 680, margin: '0 0 3rem',
+          fontFamily: 'Georgia, serif', fontSize: mob ? '0.92rem' : '0.97rem',
+          color: 'rgba(255,255,255,0.80)', lineHeight: 1.95, margin: '0 0 1.8rem',
         }}>
-          NC Qualifying Farmer Exemption. Agritourism zoning. Retreat centers, event venues, commercial kitchens, equestrian operations — all permitted. This is not theoretical. The certification exists. The zoning exists. The infrastructure exists. The next owner steps into something already running, not something they have to build.
+          NC Qualifying Farmer Exemption. Agritourism zoning. Retreat centers, event venues, commercial kitchens, equestrian — all permitted. The certification exists. The zoning exists. The infrastructure exists. The next owner steps into something already running.
         </p>
         {/* Pinehurst callout -- naked, no box */}
         <div style={{ maxWidth: 560, borderTop: '1px solid rgba(201,169,110,0.22)', borderBottom: '1px solid rgba(201,169,110,0.22)', padding: mob ? '2rem 0' : '2.8rem 0', marginTop: '1rem' }}>
@@ -1667,7 +1691,8 @@ function ZoningOpportunity() {
           </p>
         </div>
       </div>
-    </div>
+      </div>
+    </section>
   );
 }
 
@@ -1677,34 +1702,42 @@ function ZoningOpportunity() {
 function Location() {
   const w = useW();
   const mob = w < 768;
+  const [ref, visible] = useFade();
   return (
-    <section style={{ background: DARK, padding: mob ? '9rem 0' : '13rem 0' }}>
-      <div style={{ display: 'grid', gridTemplateColumns: mob ? '1fr' : '1fr 1fr', maxWidth: 1320, margin: '0 auto', padding: '0 5vw', gap: mob ? '6rem' : '10rem', alignItems: 'center' }}>
-        <Fade delay={0.05}>
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
-            <Eyebrow>Location</Eyebrow>
-            <GoldLine />
-            <h2 style={{ color: CREAM, fontFamily: 'Georgia, serif', fontWeight: 400, fontSize: mob ? '1.9rem' : '2.6rem', lineHeight: 1.24, margin: 0, letterSpacing: '-0.015em' }}>
-              Private by Nature.<br />Pinehurst by Proximity.
-            </h2>
-            <p style={{ color: 'rgba(255,255,255,0.78)', fontFamily: 'Georgia, serif', fontSize: mob ? '1rem' : '1.06rem', lineHeight: 2, margin: 0 }}>
-              Three miles from Pinehurst Resort. A transferable Pinehurst Country Club
-              Signature Golf Membership -- unlimited access to Course No. 7 and No. 9 --
-              is included with the sale.
-            </p>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem', marginTop: '0.5rem' }}>
-              {['Pinehurst Resort -- 3 Miles', 'Moore County Regional -- Private Aviation', 'Raleigh-Durham International -- 1 Hour', 'FirstHealth Moore Regional Hospital', 'Pinehurst CC Membership Included'].map(item => (
-                <p key={item} style={{ color: 'rgba(255,255,255,0.55)', fontFamily: 'sans-serif', fontSize: '10px', letterSpacing: '0.2em', textTransform: 'uppercase', margin: 0, display: 'flex', alignItems: 'center', gap: '1rem' }}>
-                  <span style={{ display: 'inline-block', width: 20, height: 1, background: GOLD, opacity: 0.4, flexShrink: 0 }} />
-                  {item}
-                </p>
-              ))}
-            </div>
+    <section style={{ position: 'relative', minHeight: mob ? '85vh' : '100vh', overflow: 'hidden', display: 'flex', alignItems: 'center' }}>
+      <div style={{ position: 'absolute', inset: 0, zIndex: 1 }}>
+        <img src={IMG.grounds} alt="" style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center 40%', display: 'block' }} />
+      </div>
+      <div style={{ position: 'absolute', inset: 0, zIndex: 2, background: 'rgba(0,0,0,0.18)' }} />
+      <div style={{ position: 'relative', zIndex: 5, width: '100%', maxWidth: 1360, margin: '0 auto', padding: mob ? '6rem 5vw' : '10rem 6vw' }}>
+        <div ref={ref} style={{
+          maxWidth: mob ? '100%' : 480,
+          background: 'rgba(8,8,8,0.52)',
+          backdropFilter: 'blur(18px)',
+          WebkitBackdropFilter: 'blur(18px)',
+          border: '1px solid rgba(201,169,110,0.18)',
+          padding: mob ? '2.2rem 1.8rem' : '3.2rem 3.6rem',
+          opacity: visible ? 1 : 0,
+          transform: visible ? 'none' : 'translateX(-40px)',
+          transition: 'opacity 1.6s cubic-bezier(.16,1,.3,1), transform 1.6s cubic-bezier(.16,1,.3,1)',
+        }}>
+          <p style={{ fontFamily: 'sans-serif', fontSize: '9px', letterSpacing: '0.38em', textTransform: 'uppercase', color: GOLD, margin: '0 0 1rem' }}>Location</p>
+          <div style={{ width: 24, height: 1, background: GOLD, opacity: 0.4, marginBottom: '1.4rem' }} />
+          <h2 style={{ color: CREAM, fontFamily: 'Georgia, serif', fontWeight: 400, fontSize: mob ? '1.7rem' : '2.2rem', lineHeight: 1.24, margin: '0 0 1.2rem', letterSpacing: '-0.015em' }}>
+            Private by Nature.<br />Pinehurst by Proximity.
+          </h2>
+          <p style={{ color: 'rgba(255,255,255,0.80)', fontFamily: 'Georgia, serif', fontSize: mob ? '0.92rem' : '0.97rem', lineHeight: 1.95, margin: '0 0 1.6rem' }}>
+            Three miles from Pinehurst Resort. A transferable Pinehurst Country Club Signature Golf Membership — unlimited access to Course No. 7 and No. 9 — is included with the sale.
+          </p>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '0.8rem' }}>
+            {['Pinehurst Resort — 3 Miles', 'Moore County Regional — Private Aviation', 'Raleigh-Durham International — 1 Hour', 'FirstHealth Moore Regional Hospital', 'Pinehurst CC Membership Included'].map(item => (
+              <p key={item} style={{ color: 'rgba(255,255,255,0.55)', fontFamily: 'sans-serif', fontSize: '9px', letterSpacing: '0.2em', textTransform: 'uppercase', margin: 0, display: 'flex', alignItems: 'center', gap: '0.8rem' }}>
+                <span style={{ display: 'inline-block', width: 16, height: 1, background: GOLD, opacity: 0.4, flexShrink: 0 }} />
+                {item}
+              </p>
+            ))}
           </div>
-        </Fade>
-        <Fade delay={0.2}>
-          <img src={IMG.exterior} alt="Flow Farm Estate" style={{ width: '100%', height: mob ? 320 : 560, objectFit: 'cover', display: 'block' }} />
-        </Fade>
+        </div>
       </div>
     </section>
   );
