@@ -1950,59 +1950,64 @@ function SustainabilityThread() {
 // CABANA SECTION
 function CabanaHouse() {
   const mob = useW() < 768;
-  const GOLD = '#C9A96E';
-  const DARK = '#0a0a0a';
-  const CREAM = '#F5F0E8';
   return (
-    <section style={{ background: DARK, padding: mob ? '6rem 6vw' : '9rem 10vw' }}>
-      {/* Gold rule top */}
-      <div style={{ width: '3rem', height: '1px', background: GOLD, marginBottom: '3rem' }} />
+    <section style={{ background: DARK }}>
 
-      {/* Eyebrow */}
-      <p style={{ fontFamily: 'var(--sans)', letterSpacing: '0.25em', fontSize: '0.7rem', color: GOLD, textTransform: 'uppercase', marginBottom: '1.5rem', opacity: 0.9 }}>
-        The Second House
-      </p>
+      {/* Interstitial breath — Clark attribution */}
+      <div style={{ padding: mob ? '6rem 6vw' : '8rem 10vw', borderTop: '1px solid rgba(201,169,110,0.25)', borderBottom: '1px solid rgba(201,169,110,0.25)' }}>
+        <div style={{ width: '3rem', height: '1px', background: GOLD, marginBottom: '3rem' }} />
+        <p style={{ fontFamily: 'var(--sans)', letterSpacing: '0.25em', fontSize: '0.7rem', color: GOLD, textTransform: 'uppercase', marginBottom: '1.5rem', opacity: 0.9 }}>
+          Robert E. Clark, AIA · The Second Residence
+        </p>
+        <h2 style={{ fontFamily: 'var(--serif)', fontWeight: 300, fontSize: mob ? 'clamp(2rem,8vw,3.2rem)' : 'clamp(2.5rem,4vw,4.5rem)', color: CREAM, lineHeight: 1.12, marginBottom: '2.5rem', maxWidth: '22ch' }}>
+          He designed it twice.
+        </h2>
+        <p style={{ fontFamily: 'var(--sans)', fontSize: '1.05rem', color: CREAM, opacity: 0.75, lineHeight: 1.9, maxWidth: '54ch', marginBottom: '1.25rem' }}>
+          The same architect who drew the main house drew this one. Same commercial-grade construction standard. Same intention. The cabana structure — drawn and signed by Robert E. Clark AIA — is a complete second residence on the same land: guest bedroom, bunk room, dining suite, full bath, loft, and a 60-foot indoor racquetball court.
+        </p>
+        <p style={{ fontFamily: 'var(--sans)', fontSize: '1.05rem', color: CREAM, opacity: 0.75, lineHeight: 1.9, maxWidth: '54ch', marginBottom: '1.25rem' }}>
+          A 12-by-8 walk-in cooler connects it to the farm. The structure is built to hold a commercial operation — or a private one. It is partially finished. The bones are Clark's. The ending is yours.
+        </p>
+        <p style={{ fontFamily: 'var(--serif)', fontStyle: 'italic', fontSize: mob ? '1.2rem' : '1.5rem', color: GOLD, opacity: 0.85, lineHeight: 1.6, maxWidth: '40ch', marginTop: '2.5rem' }}>
+          "One of his last works. It shows."
+        </p>
+        <div style={{ width: '3rem', height: '1px', background: GOLD, marginTop: '3rem' }} />
+      </div>
 
-      {/* Headline */}
-      <h2 style={{ fontFamily: 'var(--serif)', fontWeight: 300, fontSize: mob ? 'clamp(2rem,8vw,3rem)' : 'clamp(2.5rem,4vw,4rem)', color: CREAM, lineHeight: 1.15, marginBottom: '2rem', maxWidth: '18ch' }}>
-        A complete residence.<br />On the same land.
-      </h2>
-
-      {/* Body */}
-      <p style={{ fontFamily: 'var(--sans)', fontSize: '1rem', color: CREAM, opacity: 0.72, lineHeight: 1.85, maxWidth: '52ch', marginBottom: '1rem' }}>
-        The cabana structure is not a pool house. It is not a studio. It is a second home — guest bedroom, bunk room, dining suite, full bath, and a 60-foot indoor racquetball court with a loft above. A 12-by-8 walk-in cooler connects it directly to the farm operation.
-      </p>
-      <p style={{ fontFamily: 'var(--sans)', fontSize: '1rem', color: CREAM, opacity: 0.72, lineHeight: 1.85, maxWidth: '52ch', marginBottom: '3.5rem' }}>
-        Partially finished. Entirely extraordinary. The new owner brings their vision to a structure that already has the bones.
-      </p>
-
-      {/* Image */}
-      <div style={{ width: '100%', aspectRatio: mob ? '4/3' : '16/7', borderRadius: '2px', overflow: 'hidden', marginBottom: '3.5rem' }}>
+      {/* Full-bleed cabana image */}
+      <div style={{ width: '100%', aspectRatio: mob ? '4/3' : '21/9', overflow: 'hidden' }}>
         <img
           src={IMG.cabana}
-          alt="The Cabana House"
-          style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center' }}
+          alt="The Cabana House — Robert E. Clark AIA"
+          style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center 60%' }}
         />
       </div>
 
-      {/* Room grid */}
-      <div style={{ display: 'grid', gridTemplateColumns: mob ? '1fr' : 'repeat(4, 1fr)', gap: '2.5rem 3rem' }}>
-        {[
-          { label: 'Guest Bedroom', detail: 'Ensuite bath · Natural light · Quiet retreat' },
-          { label: 'Bunk Room', detail: "18' × 18' · Flexible sleeping · Guest-ready" },
-          { label: 'Dining Suite', detail: "18' × 23' · Staff quarters · Entertaining flex" },
-          { label: 'Racquetball Court', detail: "60'+ indoor court · Loft above · Walk-in cooler" },
-        ].map((room, i) => (
-          <div key={i}>
-            <div style={{ width: '1.5rem', height: '1px', background: GOLD, marginBottom: '1rem' }} />
-            <p style={{ fontFamily: 'var(--sans)', fontSize: '0.75rem', letterSpacing: '0.18em', textTransform: 'uppercase', color: CREAM, marginBottom: '0.5rem' }}>{room.label}</p>
-            <p style={{ fontFamily: 'var(--sans)', fontSize: '0.8rem', color: CREAM, opacity: 0.55, lineHeight: 1.7 }}>{room.detail}</p>
-          </div>
-        ))}
+      {/* What's inside — plan-referenced */}
+      <div style={{ padding: mob ? '5rem 6vw' : '7rem 10vw' }}>
+        <p style={{ fontFamily: 'var(--sans)', letterSpacing: '0.25em', fontSize: '0.7rem', color: GOLD, textTransform: 'uppercase', marginBottom: '3rem', opacity: 0.9 }}>
+          As drawn · Clark plans on file
+        </p>
+        <div style={{ display: 'grid', gridTemplateColumns: mob ? '1fr 1fr' : 'repeat(4, 1fr)', gap: mob ? '2.5rem 2rem' : '3rem 4rem' }}>
+          {[
+            { label: 'Racquetball Court', detail: "60'+ indoor · Commercial grade · Loft above" },
+            { label: 'Guest Bedroom', detail: 'Ensuite bath · Private retreat · Natural light' },
+            { label: 'Dining Suite', detail: "18' × 23' · Staff or family · Entertaining flex" },
+            { label: 'Bunk Room', detail: "18' × 18' · Flexible sleeping · Guest-ready" },
+            { label: 'Walk-In Cooler', detail: "12' × 8' · Farm-connected · Operational" },
+            { label: 'Loft', detail: 'Above the court · Open plan · Buyer finishes' },
+            { label: 'Full Bath', detail: 'Plumbed · Ready for finish · Plans available' },
+            { label: 'Private Entrance', detail: 'Independent access · Separate from main house' },
+          ].map((room, i) => (
+            <div key={i}>
+              <div style={{ width: '1.5rem', height: '1px', background: GOLD, marginBottom: '1rem' }} />
+              <p style={{ fontFamily: 'var(--sans)', fontSize: '0.72rem', letterSpacing: '0.18em', textTransform: 'uppercase', color: CREAM, marginBottom: '0.5rem' }}>{room.label}</p>
+              <p style={{ fontFamily: 'var(--sans)', fontSize: '0.8rem', color: CREAM, opacity: 0.5, lineHeight: 1.75 }}>{room.detail}</p>
+            </div>
+          ))}
+        </div>
       </div>
 
-      {/* Gold rule bottom */}
-      <div style={{ width: '3rem', height: '1px', background: GOLD, marginTop: '4rem' }} />
     </section>
   );
 }
