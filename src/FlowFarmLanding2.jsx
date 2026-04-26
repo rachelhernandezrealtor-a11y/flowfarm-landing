@@ -1907,6 +1907,27 @@ function Opportunity() {
 
 // ============================================================
 // PAGE
+function SustainabilityThread() {
+  const [ref, fadeIn] = useFade();
+  return (
+    <div ref={ref} style={{ background: DARK, padding: '6rem 6vw', textAlign: 'center', position: 'relative',
+      opacity: fadeIn ? 1 : 0, transform: fadeIn ? 'none' : 'translateY(18px)',
+      transition: 'opacity 1.6s ease, transform 1.6s ease',
+    }}>
+      <div style={{ width: '40px', height: '1px', background: 'rgba(201,169,110,0.35)', margin: '0 auto 3rem' }} />
+      <p style={{ fontFamily: 'Georgia, serif', fontStyle: 'italic', fontSize: 'clamp(1.05rem, 2.2vw, 1.6rem)', color: 'rgba(255,255,255,0.75)', lineHeight: 1.9, maxWidth: 680, margin: '0 auto 2.5rem', letterSpacing: '0.01em' }}>
+        The solar feeds the geothermal. The geothermal heats the tunnel.<br />
+        The tunnel feeds the farm. The farm sustains the zoning.<br />
+        The zoning unlocks the land.
+      </p>
+      <p style={{ fontFamily: 'sans-serif', fontSize: '8px', letterSpacing: '0.36em', textTransform: 'uppercase', color: 'rgba(201,169,110,0.45)', margin: '0 auto' }}>
+        Nothing here is accidental.
+      </p>
+      <div style={{ width: '40px', height: '1px', background: 'rgba(201,169,110,0.35)', margin: '3rem auto 0' }} />
+    </div>
+  );
+}
+
 // ============================================================
 // v2
 export default function FlowFarmLanding2() {
@@ -1917,16 +1938,7 @@ export default function FlowFarmLanding2() {
       <PropertyMap />
 
       {/* ======= SUSTAINABILITY INTERSTITIAL ======= */}
-      <div style={{ background: DARK, padding: '6rem 6vw', textAlign: 'center', position: 'relative' }}>
-        <div style={{ width: '40px', height: '1px', background: 'rgba(201,169,110,0.4)', margin: '0 auto 3rem' }} />
-        <p style={{ fontFamily: 'Georgia, serif', fontStyle: 'italic', fontSize: 'clamp(1.1rem, 2.4vw, 1.7rem)', color: 'rgba(255,255,255,0.78)', lineHeight: 1.75, maxWidth: 700, margin: '0 auto 3rem', letterSpacing: '0.01em' }}>
-          The solar feeds the geothermal. The geothermal heats the tunnel. The tunnel feeds the farm. The farm sustains the zoning. The zoning unlocks the land.
-        </p>
-        <p style={{ fontFamily: 'sans-serif', fontSize: '9px', letterSpacing: '0.32em', textTransform: 'uppercase', color: 'rgba(201,169,110,0.5)', margin: '0 auto' }}>
-          Nothing here is accidental.
-        </p>
-        <div style={{ width: '40px', height: '1px', background: 'rgba(201,169,110,0.4)', margin: '3rem auto 0' }} />
-      </div>
+      <SustainabilityThread />
 
       <Manifesto />
       <Foundation />
