@@ -19,7 +19,6 @@ const VIDEO_TOUR_ID = 'de1885d159ae310508174f03f775c797'; // property tour (Ente
 const CF_STREAM = 'https://customer-qqzxuq43g9w49ny2.cloudflarestream.com';
 const MATTERPORT = 'https://my.matterport.com/show/?m=xZRfSiQPuQ8';
 
-const B = 'https://base44.app/api/apps/69e248a2469cc39540781cce/files/mp/public/69e248a2469cc39540781cce/'; // LAW: NEVER media.base44.com — always base44.app upload URL
 const CLOUD = 'dghn2xpif';
 // IMAGE HOSTING LAW: image/fetch is BANNED. All images are image/upload direct.
 // cdn / cdnInt / cdnExt / cdnSharp helpers removed. Use IMG.{key} direct URLs only.
