@@ -364,7 +364,9 @@ function Hero() {
 
 
       {!mob && (
-        <nav style={{ position: 'absolute', top: '2.4rem', right: '3rem', zIndex: 10, display: 'flex', gap: '2.8rem', ...show(1) }}>
+        
+
+<nav style={{ position: 'absolute', top: '2.4rem', right: '3rem', zIndex: 10, display: 'flex', gap: '2.8rem', ...show(1) }}>
           {[['The Estate', 'the-estate'], ['The Land', 'the-land'], ['Inquire', 'inquire']].map(([label, id]) => (
             <a key={label} href={'#' + id}
               style={{ color: 'rgba(255,255,255,0.45)', fontFamily: 'sans-serif', fontSize: '10px', letterSpacing: '0.24em', textTransform: 'uppercase', textDecoration: 'none' }}>
@@ -2284,9 +2286,106 @@ function CabanaHouse() {
   );
 }
 
+
+// ============================================================
+// FLOW FARM PASSWORD GATE — REACT COMPONENT
+// ============================================================
+function PasswordGate({ onUnlock }) {
+  const [val, setVal] = React.useState('');
+  const [error, setError] = React.useState(false);
+  const [unlocked, setUnlocked] = React.useState(false);
+
+  React.useEffect(() => {
+    if (sessionStorage.getItem('ff_access') === 'granted') {
+      setUnlocked(true);
+      onUnlock();
+    }
+  }, []);
+
+  function handleKey(e) {
+    if (e.key === 'Enter') {
+      if (val === 'Rokymyheart') {
+        sessionStorage.setItem('ff_access', 'granted');
+        setUnlocked(true);
+        onUnlock();
+      } else {
+        setError(true);
+        setVal('');
+      }
+    }
+  }
+
+  if (unlocked) return null;
+
+  return (
+    <div style={{
+      position: 'fixed', inset: 0, zIndex: 99999,
+      background: '#0a0a0a',
+      display: 'flex', alignItems: 'center', justifyContent: 'center',
+      flexDirection: 'column', gap: '28px'
+    }}>
+      {/* Flow Farm monogram — FF in Cormorant */}
+      <div style={{
+        fontFamily: "'Cormorant Garamond', serif",
+        fontWeight: 300,
+        fontSize: '52px',
+        color: '#C9A96E',
+        letterSpacing: '0.15em',
+        lineHeight: 1,
+        opacity: 0.85,
+        borderBottom: '1px solid rgba(201,169,110,0.3)',
+        paddingBottom: '16px',
+        width: '80px',
+        textAlign: 'center'
+      }}>FF</div>
+      <div style={{
+        fontFamily: "'Cormorant Garamond', serif",
+        fontSize: '11px',
+        letterSpacing: '0.3em',
+        color: 'rgba(201,169,110,0.6)',
+        textTransform: 'uppercase'
+      }}>Private Preview</div>
+      <input
+        type="password"
+        value={val}
+        onChange={e => { setVal(e.target.value); setError(false); }}
+        onKeyDown={handleKey}
+        placeholder="ENTER PASSWORD"
+        autoComplete="off"
+        style={{
+          background: 'transparent',
+          border: 'none',
+          borderBottom: '1px solid rgba(201,169,110,0.5)',
+          color: '#F5F0E8',
+          fontFamily: "'Cormorant Garamond', serif",
+          fontSize: '18px',
+          letterSpacing: '0.2em',
+          textAlign: 'center',
+          padding: '12px 24px',
+          outline: 'none',
+          width: '260px'
+        }}
+      />
+      {error && (
+        <div style={{
+          fontFamily: "'Cormorant Garamond', serif",
+          fontSize: '12px',
+          letterSpacing: '0.2em',
+          color: 'rgba(201,169,110,0.5)'
+        }}>Not quite.</div>
+      )}
+    </div>
+  );
+}
+
 export default function FlowFarmLanding2() {
+  const [gateOpen, setGateOpen] = React.useState(
+    typeof sessionStorage !== 'undefined' && sessionStorage.getItem('ff_access') === 'granted'
+  );
   return (
     <div style={{ background: DARK, margin: 0, padding: 0, overflowX: 'hidden' }}>
+      {!gateOpen && <PasswordGate onUnlock={() => setGateOpen(true)} />}
+      <div style={{ visibility: gateOpen ? 'visible' : 'hidden' }}>
       <Hero />
 
       {/* PHILOSOPHY BREATH — soul before strategy */}
@@ -2388,6 +2487,7 @@ export default function FlowFarmLanding2() {
       <LegacyClose />
       <Inquire />
       <Footer />
+      </div>
     </div>
   );
 }
